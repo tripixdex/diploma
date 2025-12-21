@@ -1,0 +1,557 @@
+PON  : REM Turn prompt on
+
+CON  : REM Change to configuration
+NEW  : REM Clear out previous conf
+RELEASE  : REM Clear all user variables
+
+LOAD 2
+AUTO : REM AutoRun the program
+|    : REM Send a CTRL-Z blank line (to quit edit mode)
+
+PROG : REM Change to program
+NEW  : REM Clear out previous prog
+RELEASE : REM Clear all user variables
+REM EDIT : REM Enter edit mode
+
+REM ~~~~~~~~ Main Program Body Starts Here ~~~~~~~~~~
+
+LOAD 1
+COMMSON : REM (NovaMill) Initiate the comms array
+MINT328 = 1 : REM Initiate MINT/3.28
+comms(1) = 0 : REM Use as Command register
+comms(3) = 100 : REM Default Feedrate
+comms(4) = 500 : REM default spindle speed
+comms(5) = 100 : REM Default % feed override
+comms(6) = 100 : REM default % Spindle overide
+comms(14) = 1000 : REM default max feed
+comms(15) = 2500 : REM default max speed
+comms(31)= 214 : REM Mint file Major Version (2.14)
+comms(32)= 3 : REM Mint file Machine ID
+comms(33) = 0 : REM Machine problems ?
+comms(34) = 0 : REM CIM Mode on (1) off (0)
+
+MaxPockets = 6 : REM Maximum Number of ATC Pockets
+OldA1 = -1
+OldA2 = -1
+feedOverride = 100
+speedOverride = 100
+OldSpeed = 100
+FeedLast = 0
+SpeedLast = 0
+FOverLast = 0
+SOverLast = 0
+M62Mode = 0
+M64Mode = 0
+M63Mode = 0
+M65Mode = 0
+ZSRavail = 0
+JustPoweredOn = 1
+Paused = 0
+POKE 3, 50
+POKE 3, 116
+POKE 3, 176
+POKE 0, 0
+POKE 0, 32
+POKE 1, 0
+POKE 1, 255
+POKE 0, 1
+POKE 0, 0
+
+SafetyFeed = 150 * 200 / 60 : REM convert 150mm/min into steps/second
+
+CONFIG = 2, 2, 2
+DISLIMIT
+SCALE = 1, 1, 1
+RAMP = 1, 1, 1
+ACCEL = 10000, 10000, 10000
+
+EV=1 : REM Enable Events
+
+COMMS(19) = 0 : REM safety bit
+X2.0 =1  : REM Initialise door outputs
+X3.0 =1
+PRINT "Novamill Mint (c) Denford Ltd"
+LOOP
+   if comms(3) <> FeedLast THEN GOSUB NewFeed 
+   if comms(4) <> SpeedLast THEN GOSUB NewSpindle 
+   if comms(5) <> FOverLast THEN GOSUB NewFeedOverride
+   if comms(6) <> SOverLast THEN GOSUB NewSpinOverride
+ command = comms(1)
+   IF command = 7  DO
+     GOSUB toolChange
+     comms(1) = 0
+   ENDIF
+ command = comms(1)
+   IF command = 17 THEN GOSUB Poker
+ command = comms(1)
+   IF command = 18 THEN GOSUB mcode
+ command = comms(1)
+   IF Command = 20 THEN GOSUB NewBufferSize
+   GOSUB SafetyCheck
+   GOSUB CheckPot
+   IF !comms(34)=0 DO      :REM If in CIM mode
+	GOSUB CIMMcodeCheck
+	GOSUB ViceCheck
+   ENDIF
+ENDL
+
+REM This SubRoutine is defined but never called !
+#Non_Volatile
+  Pocket = 1 : REM Define Pocket non-volatile variable
+RETURN
+
+
+#NewFeed
+  IF comms(3) * feedOverride / 100 < comms(14) DO
+    SPEED = comms(3) * feedOverride / 100;
+  ELSE
+    SPEED = comms(14);
+  ENDIF
+  FeedLast = comms(3)
+RETURN
+
+#NewSpindle
+  IF comms(4) * speedOverride / 100 < comms(15) DO
+    spindle = comms(4) * speedOverride / 100
+  ELSE
+    spindle = comms(15)
+  ENDIF
+  spinValue = 222 * (spindle / comms(15))
+  POKE 0,1
+  POKE 0, int (spinValue)
+  SpeedLast = comms(4)
+RETURN
+
+#NewFeedOverride
+  IF comms(8) = 0 THEN feedOverride = comms(5)
+  IF !Paused THEN SPEED = comms(3) * feedOverride / 100;
+  IF comms(5) <> feedOverride DO
+    comms(5) = feedOverride
+    comms(99) = 5
+  ENDIF
+  FOverLast = comms(5)
+RETURN
+
+#NewSpinOverride
+  IF comms(9) = 0 THEN speedOverride = comms(6)
+  GOSUB NewSpindle
+  IF comms (6) <> speedOverride DO
+    comms(6) = speedOverride
+    comms(99) = 6
+  ENDIF
+  SoverLast = comms(6)
+RETURN
+
+REM ~~~~~~~~~~~~~~~ Tool Changer Routines ~~~~~~~~~~~~~~
+
+#ArmIn
+  GOSUB SpindleStop
+  IF !comms(10) THEN RETURN : REM ignore it if we're none ATC
+  IF !(OUT & 1) DO : REM Check spindle is stopped
+    OUT2 = 0 : REM Switch the 2 solenoids
+    OUT3 = 1  
+  REPEAT : REM Wait for the IN switch (inverse logic)
+  UNTIL !IN0 OR STOPSW
+  WAIT = 500
+  ENDIF
+RETURN
+
+#ArmOut
+  IF !comms(10) THEN RETURN : REM ignore it if we're none ATC
+  OUT2 = 1 : REM Switch the 2 solenoids
+  OUT3 = 0
+  REPEAT : REM Wait for the OUT switch (inverse logic)
+  UNTIL !IN1 OR STOPSW
+  WAIT = 500
+RETURN
+
+#DrawbarUnClamp
+  IF !comms(10) THEN RETURN : REM ignore it if we're none ATC
+  IF !(OUT & 1) DO : REM Check spindle is stopped
+    OUT5 = 1
+  ENDIF
+  WAIT = 500
+RETURN
+
+#DrawbarClamp
+  IF !comms(10) THEN RETURN : REM ignore it if we're none ATC
+  OUT5 = 0
+  WAIT = 500
+RETURN
+
+#CarouselCW
+  IF !comms(10) THEN RETURN : REM ignore it if we're none ATC
+  OUT7 = 1 : REM Set Direction Output
+  OUT6 = 1 : REM Set the Power output
+  WAIT = 50
+  REPEAT
+  UNTIL IN4 OR STOPSW
+  REPEAT
+  UNTIL !IN4 OR STOPSW
+  REPEAT
+  UNTIL IN4 OR STOPSW
+  REPEAT
+  UNTIL !IN4 OR STOPSW
+  WAIT = 100
+  OUT6 = 0
+  Pocket = Pocket + 1 : REM Inc the Pocket Counter
+  IF Pocket > MaxPockets THEN Pocket = 1
+RETURN
+
+#CarouselHalf
+  IF !comms(10) THEN RETURN : REM ignore it if we're none ATC
+  OUT7 = 1 : REM Set Direction Output
+  OUT6 = 1 : REM Set the Power output
+  WAIT = 50
+  REPEAT
+  UNTIL IN4 OR STOPSW
+  REPEAT
+  UNTIL !IN4 OR STOPSW
+  WAIT = 100
+  OUT6 = 0
+RETURN
+
+#CarouselCCW
+  IF !comms(10) THEN RETURN : REM ignore it if we're none ATC
+  OUT7 = 0 : REM Set Direction Output
+  OUT6 = 1 : REM Set the Power output
+  WAIT = 50
+  REPEAT
+  UNTIL IN4 OR STOPSW
+  REPEAT
+  UNTIL !IN4 OR STOPSW
+  REPEAT
+  UNTIL IN4 OR STOPSW
+  REPEAT
+  UNTIL !IN4 OR STOPSW
+  WAIT = 100
+  OUT6 = 0
+  Pocket = Pocket - 1 : REM Dec the Pocket Counter
+  IF Pocket < 1 THEN Pocket =  MaxPockets
+RETURN
+
+#HeadDown
+  OldSpeed = SPEED[2]
+  SPEED[2] = 400 * 200 / 60 : REM 400mm/min
+  MA[2] = -71.5 * 200 : GO : REM move Z -71.5mm
+  REPEAT
+    IF STOPSW THEN STOP;
+  UNTIL IDLE [2]
+  SPEED[2] = OldSpeed
+RETURN
+
+#HeadUp
+  OldSpeed = SPEED[2]
+  SPEED[2] = 400 * 200 / 60 : REM 400mm/min
+  MA [2] = 0: GO
+  REPEAT
+    IF STOPSW THEN STOP;
+  UNTIL IDLE[2]
+  SPEED[2] = OldSpeed
+RETURN
+
+#toolChange
+  GOSUB SpindleStop
+  REM comms(10) = 1 if an ATC is fitted...
+  IF !comms(10) THEN Pocket=comms(7) : REM if not ATC - store non vol pocket anyway
+  IF (comms(7) = Pocket) THEN RETURN : REM ignore it if we're already there or its none ATC
+  IF STOPSW THEN RETURN
+  GOSUB ArmIn
+  IF STOPSW THEN RETURN
+  GOSUB HeadDown
+  IF STOPSW THEN RETURN
+  GOSUB DrawbarUnclamp
+  IF STOPSW THEN RETURN
+  GOSUB HeadUp
+
+  REM Calculate the shortest path...
+  steps = (comms(7) - Pocket + MaxPockets) MOD MaxPockets
+  IF steps > (MaxPockets / 2) DO
+    WHILE Pocket <> comms(7)
+      GOSUB CarouselCCW
+    ENDW
+  ELSE
+    WHILE Pocket <> comms(7)
+      GOSUB CarouselCW
+    ENDW
+  ENDIF
+
+  GOSUB HeadDown
+  IF STOPSW THEN RETURN
+  GOSUB DrawbarClamp
+  IF STOPSW THEN RETURN
+  GOSUB HeadUp
+  IF STOPSW THEN RETURN
+  GOSUB ArmOut
+RETURN
+
+REM ~~~~~~~~~ End of Tool Changer Routines ~~~~~~~
+
+#Poker
+  POKE comms(17), comms(16)
+  comms(1)=0
+RETURN
+
+#mcode
+  IF comms(18)=3  THEN GOSUB SpindleStart
+  IF comms(18)=5  THEN GOSUB SpindleStop
+  IF comms(18)=8  THEN GOSUB CoolantOn
+  IF comms(18)=9  THEN GOSUB CoolantOff
+    IF comms(18)=13 DO
+      GOSUB CoolantOn
+      GOSUB SpindleStart
+    ENDIF
+  IF comms(18)=30  THEN GOSUB SpindleStop
+  IF comms(18)=0  THEN GOSUB SpindleStop
+  IF comms(18)=20 THEN GOSUB ArmIn
+  IF comms(18)=21 THEN GOSUB ArmOut
+  IF comms(18)=24 THEN GOSUB DrawbarUnClamp
+  IF comms(18)=25 THEN GOSUB DrawbarClamp
+  IF comms(18)=27 THEN Pocket = 1
+  IF comms(18)=32 THEN GOSUB CarouselCW
+  IF comms(18)=33 THEN GOSUB CarouselCCW
+  IF comms(18)=34 THEN GOSUB CarouselHalf
+  IF comms(18)=38 THEN GOSUB DoorOpen
+  IF comms(18)=39 THEN GOSUB DoorClose
+  IF comms(18)=10 THEN GOSUB ViceOpen
+  IF comms(18)=11 THEN GOSUB ViceClose
+  if comms(18)=62 AND comms(34)=0 then GOSUB Mcode62   :REM outputs on/off only if not in CIM mode
+  if comms(18)=64 AND comms(34)=0 then GOSUB Mcode64
+  if comms(18)=63 AND comms(34)=0 then GOSUB Mcode63
+  if comms(18)=65 AND comms(34)=0 then GOSUB Mcode65
+  if comms(18)=62 AND !comms(34)=0 do
+	M62MODE = 1  :REM outputs on/off if IN CIM mode
+	comms(62)=1  :REM for debugging
+  endif
+  if comms(18)=64 AND !comms(34)=0 do
+	M64MODE = 1
+	comms(64)=1  :REM for debugging
+  endif
+  if comms(18)=63 AND !comms(34)=0 do
+	M63MODE = 1
+	comms(63)=1  :REM for debugging
+  endif
+  if comms(18)=65 AND !comms(34)=0 do 
+	M65MODE = 1
+	comms(65)=1  :REM for debugging
+  endif
+  WAIT = 250
+  if comms(18)=66 then GOSUB Mcode66   :REM wait inputs
+  if comms(18)=76 then GOSUB Mcode76
+  if comms(18)=67 then GOSUB Mcode67
+  if comms(18)=77 then GOSUB Mcode77
+  comms(1) = 0 
+RETURN
+
+#SafetyCheck
+  IF JustPoweredOn DO
+     JustPoweredOn = 0
+     comms(7) = Pocket : REM read comms 7 1st to remember last tool on machine
+  ENDIF
+  IF STOPSW THEN GOSUB SpindleStop : REM Stop the Spindle
+  IF IN6 DO : REM If the door is open...
+    IF (OUT & 1 = 1) THEN GOSUB SpindleStop : REM Stop the Spindle
+    IF (comms(2) = 2) AND !IDLE DO : REM If in Auto mode...
+      REM : STOP[0,1,2] : REM stop the Axes
+      Paused = 1
+      OldSpeed = SPEED : REM rememeber the original feedrate
+      SPEED = 0; : REM Set the Feedrate to 0
+    ENDIF
+    IF (comms(2) < 2) AND (SPEED > SafetyFeed) DO : REM If not in Auto then
+      comms(3) = SafetyFeed : REM limit the feed to a safe feedrate
+      GOSUB NewFeed
+      REM SPEED = SafetyFeed; **** Removed to stop juddery jogging *******
+    ENDIF
+  ENDIF
+  IF !IN6 and Paused DO
+    SPEED = OldSpeed;
+    Paused = 0
+  ENDIF
+  
+  IF Comms(34)=0 DO     :REM if NOT in CIM MODE then
+    IF comms(19) <> !IN6 DO
+      comms(99) = 19 : REM Tell host the door has just moved
+      STOP[0,1,2]
+    ENDIF
+    Comms(19) = !IN6   : REM If not CIM mode set it to Door input
+  ENDIF
+
+  IF !Comms(34)=0 DO     :REM if in CIM MODE then
+    IF comms(19) <> 1 DO
+      comms(99) = 19 : REM Tell host the door has just moved	
+      STOP[0,1,2]
+    ENDIF
+    Comms(19) = 1   : REM If CIM mode set it to Door OK all the time
+  ENDIF
+
+RETURN
+
+#SpindleStart
+  IF !(OUT & 40) AND !IN6  DO : REM Only if ATC safe
+    GOSUB SafetyCheck
+    OUT0 = 1 : REM Spindle output on
+  ENDIF
+RETURN
+
+#SpindleStop
+   ZSRAvail=0
+  IF (OUT & 1) AND (Spindle > 500) DO     :REM if spindle running > 500RPM
+   IF !IN7 THEN ZSRAvail=1              :REM if so is ZSR input working ?
+   OUT0 = 0
+   IF ZSRAvail=1 DO 
+     REPEAT                         : REM if zsr available then wait for that
+     UNTIL IN7
+   ENDIF
+   IF ZSRAvail=0 DO
+    Wait=Spindle                  :REM otherwise just wait a time
+   ENDIF
+  ENDIF
+   OUT0 = 0                 :REM stop spindle now
+RETURN
+
+#CoolantOn
+  OUT2 = 1
+RETURN
+
+#CoolantOff
+  OUT2 = 0
+RETURN
+: REM **************** START OF CIM Type subroutines ****************
+
+#DoorOpen
+  X2.0 =0
+  X3.0 =1
+  REPEAT
+  UNTIL X1.0 OR STOPSW
+  X2.0 =1
+  X3.0 =1
+RETURN
+
+#DoorClose
+  X2.0 = 1
+  X3.0 = 0
+  REPEAT
+  UNTIL !IN6 OR STOPSW
+  X2.0 =1
+  X3.0 =1
+RETURN
+
+#ViceOpen
+  X0.0 =0
+  IF !comms(34)=0 THEN X5.0 =1   :REM vice status output
+RETURN
+
+#ViceClose
+  X0.0 =1
+  IF !comms(34)=0 THEN X5.0 =0   :REM vice status output
+RETURN
+
+#Mcode62
+REM: Turn auxiliary output 12 on
+   X4.0=1
+RETURN
+
+#Mcode64
+REM: Turn auxiliary output 12 off
+   X4.0=0
+RETURN
+
+#Mcode63
+REM: Turn auxiliary output 13 on
+   X5.0=1
+RETURN
+
+#Mcode65
+REM: Turn auxiliary output 13 off
+   X5.0=0
+RETURN
+
+#Mcode66
+REM: Wait for input 10
+  REPEAT
+   GOSUB SafetyCheck
+  UNTIL X2.0 OR STOPSW
+RETURN
+
+#Mcode76
+REM: Wait for NOT input 10
+  REPEAT
+   GOSUB SafetyCheck
+  UNTIL !X2.0 OR STOPSW
+RETURN
+
+#Mcode67
+REM: Wait for input 11
+  REPEAT
+   GOSUB SafetyCheck
+  UNTIL X3.0 OR STOPSW
+RETURN
+
+#Mcode77
+REM: Wait for NOT input 11
+  REPEAT
+   GOSUB SafetyCheck
+  UNTIL !X3.0 OR STOPSW
+RETURN
+
+#ViceCheck
+:REM Checks for vice commands from CIM Device Driver
+  IF X3.0 THEN GOSUB ViceOpen
+  IF !X3.0 THEN GOSUB ViceClose
+RETURN
+
+#CIMMcodeCheck
+:REM If in CIM mode, checks for M62 M64 and allows them if door is OK
+  IF M62Mode AND !IN6 DO
+   X4.0=1    :REM Turn auxiliary output 12 on if door closed
+   M62Mode=0
+   comms(62)=0
+  ENDIF
+
+  IF M64Mode AND X1.0 DO
+   X4.0=0    :REM Turn auxiliary output 12 off if door open
+   M64Mode=0
+   comms(64)=0
+  ENDIF
+
+  IF M63Mode AND !IN6 DO
+   X5.0=1    :REM Turn auxiliary output 13 on if door closed
+   M63Mode=0
+   comms(63)=0
+  ENDIF
+
+  IF M65Mode AND X1.0 DO
+   X5.0=0    :REM Turn auxiliary output 13 off if door open
+   M65Mode=0
+   comms(65)=0
+  ENDIF
+RETURN
+
+: REM **************** END OF CIM Type subroutines ****************
+
+#CheckPot
+  newA2 = int (((A2 / 1024) * 155) / 5) * 5
+  IF newA2 > 150 DO
+	newA2 = 150
+  ENDIF
+  IF newA2 <>  OldA2 DO
+    feedOverride = newA2
+    GOSUB NewFeedOverride
+  ENDIF
+  newA1 = int (((A1 / 1024) * 75) / 5) * 5 + 50 : REM gives 50% to 120%
+  IF newA1 > 120 DO
+	newA1 = 120
+  ENDIF
+  IF newA1 <>  OldA1 DO
+    speedOverride = newA1
+    GOSUB NewSpinOverride
+  ENDIF
+RETURN
+
+#NewBufferSize
+  MBFULL = comms(20)
+  MBHALF = int (comms(20) / 2 + 0.5)
+  comms(1)=0
+RETURN
+
+| : REM Send a blank line to quit EDIT mode

@@ -1,0 +1,691 @@
+'**********************************  
+'**      NovaMill NS Mint      ****
+'**                            ****
+'**********************************
+'
+'
+
+'**********************************  
+'**   Start of main Config bit   **                                    
+'**********************************
+Startup 
+  
+  Define ALLAXES = 0,1,2
+  Axes[ALLAXES]
+  ABORT:Wait=10
+  SCALE=1,1,1;
+  LIMITMODE[ALLAXES] =  0, 0, 0
+  STOPINPUTMODE[ALLAXES] =  0, 0, 0
+  SOFTLIMITMODE[ALLAXES] =  0, 0, 0
+                     '7654321076543210
+  INPUTMODE        = 00000100001000000    ' inputs 11 is edge triggered
+  INPUTPOSTRIGGER  = 00000100001000000    ' inputs 11 is edge triggered
+  INPUTNEGTRIGGER  = 00000100001000000    ' inputs 11 is edge triggered
+  INPUTACTIVELEVEL = 00000111111111111    ' Home inputs are inverted
+
+  HOMEINPUT[ALLAXES] =  12,13,14
+  STOPINPUT[ALLAXES] =  11,11,11
+
+  ACCEL[ALLAXES] =  150000.0000, 150000.0000, 150000.0000
+  DECEL[ALLAXES] =  150000.0000, 150000.0000, 150000.0000
+'  ACCEL[ALLAXES] =  40000.0000, 40000.0000, 40000.0000
+'  DECEL[ALLAXES] =  40000.0000, 40000.0000, 40000.0000
+  SPEED[ALLAXES] =  40000.0000, 40000.0000, 40000.0000
+'  SRAMP[ALLAXES] =  0.0000, 0.0000, 0.0000
+  HOMEBACKOFF[ALLAXES] =  10.0000, 10.0000, 10.0000
+  HOMESPEED[ALLAXES] =  16660.0000, 16660.0000, 6660.0000
+  
+  MOVEBUFFERSIZE[ALLAXES] =  200, 200, 200
+  RESETALL 
+  DRIVEENABLE=0
+  RELAY.0=1
+  CONTOURANGLE[ALLAXES]=35;             ' This will be overwriten by VR Milling
+  CONTOURMODE[ALLAXES]=3;
+  TRIGGERMODE[0,1,2]=0;
+  INPUTDEBOUNCE.0=2
+  STOPINPUTMODE[ALLAXES]=3;
+  IDLEPOS[ALLAXES]=20,20,20;  
+
+'  CONTOURPARAMETER._ctpSLEW_ANGLE = 25
+'  CONTOURPARAMETER._ctpSTOP_ANGLE = 80
+'  CONTOURMODE = _ctmCONTOUR_ON + _ctmVECTOR_ANGLE_ON + _ctmDUAL_VECTOR_ANGLE_ON  
+
+End Startup
+  
+
+
+'***********************************  
+'** Start of main Mint program    **                                    
+'***********************************
+' Variables :-
+Dim ModeLast=0 
+Dim SpeedLast=0 
+Dim SpindleRunning=0
+Dim MachineSafe=0
+Dim SafetyFeed=150 * 200 / 60 'Feed when door open =150mm/min into steps/second
+Dim OldSpeed=100
+Dim SpindleOverride=100
+Dim SpindleOverrideLast=0
+Dim Spindle=500
+Dim SpindleDAC=50   'this is 50% spindle output ie, 5 Volts DC
+Dim doorstate=0
+Dim DisplayCount=0
+Dim LedCount=0
+Dim Steps=0
+Dim ResetCount=0
+Dim CycleReset=0
+Dim Out12Flag=0
+Dim ViceFlag As Integer=0
+
+
+'Constants:-
+Const STOPSW = 11    ' Define the Stop switch input
+Const DOORSW = 6     ' Define the Door switch input !! remember to change Event IN6 name
+Const DOOROPENSW = 17  ' Define door open on xtra IO bank (was X1.0)
+Const MAXPOCKETS = 6 ' Maximum Number of ATC Pockets
+Const POCKET = 1     ' Location 1 in non volatile memory
+Const ARMINSW = 0
+Const ARMOUTSW = 1
+Const CARSW = 4      ' Carousel cam switch
+
+' Constants For MINT COMMS array (for reference)
+'  COMMS_Task            = 1; PC <-> Task Notification
+'  COMMS_Mode            = 2;    // PC  -> Mode (HOME, JOG, Auto)
+'  COMMS_Feed            = 3;    // PC  -> Feed Change Request
+'  COMMS_Speed           = 4;    // PC  -> SPEED Change Request
+'  COMMS_FeedOverRide    = 5;    // PC <-> % feed  override value
+'  COMMS_SpeedOverRide   = 6;    // PC <-> % SPEED override value
+'  COMMS_Tool            = 7;    // PC  -> Tool Number Request
+'  COMMS_FeedPot         = 8;    // PC  -> 0 = Pot Not Fitted   1  = Pot Fitted
+'  COMMS_SpeedPot        = 9;    // PC  -> 0 = Pot Not Fitted   1  = Pot Fitted
+'  COMMS_ATC             = 10;   // PC  -> 0 = ATC Not Fitted   1  = ATC Fitted
+'  COMMS_XHomed          = 11;   // PC <-  0 = Axis Not yet Homed  1 = Axis Homed
+'  COMMS_YHomed          = 12;   // PC <-  0 = Axis Not yet Homed  1 = Axis Homed
+'  COMMS_ZHomed          = 13;   // PC <-  0 = Axis Not yet Homed  1 = Axis Homed
+'  COMMS_MaxFeed         = 14;   // PC  -> Maximum FEEDRATE
+'  COMMS_MaxSpeed        = 15;   // PC  -> Maximum Spindle SPEED
+'  COMMS_PokeValue       = 16;   // PC  -> Poke Value
+'  COMMS_PokeAddress     = 17;   // PC  -> Poke Address
+'  COMMS_MCode           = 18;   // PC  -> M Code Change Request
+'  COMMS_Safe            = 19;   // PC <-  0 = machine IN an UNSafe contition  1 = Safe
+'  COMMS_BufferSize      = 20;   // PC  -> Size fo the MINT move buffer (2..64)
+'// 21 To 30 RESERVED For Turning Mint features
+'  COMMS_MintVerMajor    = 31;   // PC  <- Mint: The Mint program major version number
+'  COMMS_MintVerMinor    = 32;   // PC  <- Mint: The Mint program minor version number
+'  COMMS_MachProblem     = 33;   // PC  <- Mint: Machine Not safe problem identifier
+'  COMMS_RemoteControl   = 34;   // PC  -> Mint: Machine functions To be controlled by CIM Not mcodes
+'                                // *at this IS now RemoteControl because CIM mint stuff IS broken up into 3 parts
+'                               // RemoteControl IS cycle start/status output To CIM controller stuff
+'  COMMS_MinSpeed        = 35;   // PC  -> Mint: Minimum Spindle SPEED
+'  COMMS_DriveEnable     = 36;   // PC  -> Mint: Enable the drives (And take off brakes etc)
+'  COMMS_EstopState      = 37;   // Mint -> PC:  Read the estop state
+'  COMMS_RemoteVice      = 38;   // This one determines If M10/M11 does vice Or CIM IN/OUT 2 controls it
+
+'//****** RESERVED For threading stuff here 50 To 59 (ie Lathe only)
+'  COMMS_Reset           = 98;   // PC -> Mint: RESET any loops going on
+'  COMMS_Event           = 99;   // PC <-> Event Notification
+
+
+FEEDRATEMODE.0=3 'feedrate mode enabled and override enable and analogue override
+Run modify_speed ' Start this task to override Feed from pots 
+Run SafetyCheck  ' another task   
+Run CheckRemoteStuff ' CIM type checking
+OUT.0=0          ' Clear all outputs
+OUT.1=0
+? "NovaMill NS MintV5 (c)Denford Ltd"
+SortOutDoorSwitch
+Wait=200
+COMMS(7) = NVLONG.POCKET    ' read last tool used
+
+If COMMS(7) > MAXPOCKETS Or COMMS(7) < 0 Then COMMS(7)=0   ' check for garbage value
+
+Loop                              
+   If COMMS(2) <> ModeLast Then NewMode
+   If COMMS(4) <> SpeedLast Then NewSpindle 
+End Loop  
+  
+Sub NewMode( )
+  ModeLast = COMMS(2)
+End Sub
+
+Sub NewSpindle( )
+  If COMMS(4) * SpindleOverride / 100 < COMMS(15) Then
+    spindle = COMMS(4) * SpindleOverride / 100
+  Else
+    spindle = COMMS(15)
+  EndIf
+  ' COMMS(35) is Min spindle speed
+  If spindle < COMMS(35) Then Spindle=COMMS(35)
+  If SpindleDAC < 0 Then SpindleDAC = 0
+  If COMMS(15)=0 Then COMMS(15)=1
+  SpindleDAC = 100 * (spindle / (COMMS(15)*1.1))
+  If SpindleDAC > 100 Then SpindleDAC = 100
+  If SpindleDAC < 0 Then SpindleDAC=0
+  AUXDAC.0 = SpindleDAC
+  SpeedLast = COMMS(4)  
+  DPREVENT=6                       ' tell PC to look at comms(6)
+  SpindleOverrideLast = SpindleOverride
+End Sub
+
+Rem ~~~~~~~~~~~~~~~ Tool Changer Routines ~~~~~~~~~~~~~~
+
+' Perform a toolchange to this tool
+Sub ToolChange (Tool As Float)
+  SpindleStop
+  Rem comms(10) = 1 if an ATC is fitted...
+  If !COMMS(10) Then NVLONG.POCKET=Tool : Rem if not ATC - store non vol pocket anyway
+  If (Tool = NVLONG.Pocket) Then Exit Sub : Rem ignore it if we're already there or its none ATC
+  If !INSTATEX.STOPSW Or CycleReset Then Exit Sub
+  ArmIn
+  If !INSTATEX.STOPSW Or CycleReset Then Exit Sub
+  HeadDown
+  If !INSTATEX.STOPSW Or CycleReset Then Exit Sub
+  DrawbarUnclamp
+  Wait=300
+  If !INSTATEX.STOPSW Or CycleReset Then Exit Sub
+  HeadUp
+  Rem Calculate the shortest path...
+  steps = (Tool - NVLONG.Pocket + MAXPOCKETS) Mod MAXPOCKETS
+  If steps > (MAXPOCKETS / 2) Then
+    While NVLONG.Pocket <> Tool
+      CarouselCCW
+    Endw
+  Else
+    While NVLONG.Pocket <> Tool
+      CarouselCW
+    Endw
+  EndIf
+  HeadDown
+  If !INSTATEX.STOPSW Or CycleReset Then Exit Sub
+  DrawbarClamp
+  Wait=300
+  If !INSTATEX.STOPSW Or CycleReset Then Exit Sub
+  HeadUp
+  If !INSTATEX.STOPSW Or CycleReset Then Exit Sub
+  ArmOut
+End Sub
+
+Sub ArmIn( )
+  SpindleStop
+  If !COMMS(10) Then Exit Sub : Rem ignore it if we're none ATC
+  If !(OUT & 1) Then : Rem Check spindle is stopped
+    OUT2 = 0 : Rem Switch the 2 solenoids
+    OUT3 = 1  
+  Repeat : Rem Wait for the IN switch (inverse logic)
+  Until INSTATEX.ARMINSW Or !INSTATEX.STOPSW Or CycleReset
+  Wait = 500
+  EndIf
+End Sub
+
+Sub ArmOut( )
+  If !COMMS(10) Then Exit Sub : Rem ignore it if we're none ATC
+  OUT2 = 1 : Rem Switch the 2 solenoids
+  OUT3 = 0
+  Repeat : Rem Wait for the OUT switch (inverse logic)
+  Until INSTATEX.ARMOUTSW Or !INSTATEX.STOPSW Or CycleReset
+  Wait = 500
+End Sub
+
+Sub DrawbarUnClamp( )
+  If !COMMS(10) Then Exit Sub : Rem ignore it if we're none ATC
+  If !(OUT & 1) Then : Rem Check spindle is stopped
+    OUT5 = 1
+  EndIf
+  Wait = 500
+End Sub
+
+Sub DrawbarClamp( )
+  If !COMMS(10) Then Exit Sub : Rem ignore it if we're none ATC
+  OUT5 = 0
+  Wait = 500
+End Sub
+
+Sub CarouselCW( )
+  If !COMMS(10) Then Exit Sub: Rem ignore it if we're none ATC
+  OUT7 = 1 : Rem Set Direction Output
+  OUT6 = 1 : Rem Set the Power output
+  Wait = 50
+  Repeat
+  Until !INSTATEX.CARSW Or !INSTATEX.STOPSW Or CycleReset
+  Repeat
+  Until INSTATEX.CARSW Or !INSTATEX.STOPSW Or CycleReset 
+  Repeat
+  Until !INSTATEX.CARSW Or !INSTATEX.STOPSW Or CycleReset
+  Repeat
+  Until INSTATEX.CARSW Or !INSTATEX.STOPSW Or CycleReset
+  Wait = 100
+  OUT6 = 0
+  NVLONG.Pocket = NVLONG.Pocket + 1 : Rem Inc the Pocket Counter
+  If NVLONG.Pocket > MAXPOCKETS Then NVLONG.Pocket = 1
+End Sub
+
+Sub CarouselHalf( )
+  If !COMMS(10) Then Exit Sub : Rem ignore it if we're none ATC
+  OUT7 = 1 : Rem Set Direction Output
+  OUT6 = 1 : Rem Set the Power output
+  Wait = 50
+  Repeat
+  Until !INSTATEX.CARSW Or !INSTATEX.STOPSW Or CycleReset
+  Repeat
+  Until INSTATEX.CARSW Or !INSTATEX.STOPSW Or CycleReset 
+  Wait = 100
+  OUT6 = 0
+End Sub
+
+Sub CarouselCCW( )
+  If !COMMS(10) Then Exit Sub: Rem ignore it if we're none ATC
+  OUT7 = 0 : Rem Set Direction Output
+  OUT6 = 1 : Rem Set the Power output
+  Wait = 50
+  Repeat
+  Until !INSTATEX.CARSW Or !INSTATEX.STOPSW Or CycleReset
+  Repeat
+  Until INSTATEX.CARSW Or !INSTATEX.STOPSW Or CycleReset
+  Repeat
+  Until !INSTATEX.CARSW Or !INSTATEX.STOPSW Or CycleReset
+  Repeat
+  Until INSTATEX.CARSW Or !INSTATEX.STOPSW Or CycleReset 
+  Wait = 100
+  OUT6 = 0
+  NVLONG.Pocket = NVLONG.Pocket - 1 : Rem Dec the Pocket Counter
+  If NVLONG.Pocket < 1 Then NVLONG.Pocket =  MAXPOCKETS
+End Sub
+
+Sub HeadDown( )
+  OldSpeed = SPEED[2]
+  SPEED.2 = 400 * 200 / 60 : Rem 400mm/min
+  MA[2] = -71.5 * 200 : GO : Rem move Z -71.5mm
+  Wait=200 
+  Repeat
+    If !INSTATEX.STOPSW Or CycleReset Then STOP
+  Until IDLE.2
+  SPEED.2 = OldSpeed
+End Sub
+
+Sub HeadUp( )
+  OldSpeed = SPEED[2]
+  SPEED.2 = 400 * 200 / 60 : Rem 400mm/min
+  MA [2] = 0: GO
+  Wait=200 
+  Repeat
+    If !INSTATEX.STOPSW Or CycleReset  Then STOP
+  Until IDLE.2
+  SPEED.2 = OldSpeed
+End Sub
+
+Rem ~~~~~~~~~ End of Tool Changer Routines ~~~~~~~
+    
+
+' Stop the spindle
+Sub SpindleStop( )
+Dim ZSRAvail=0  
+  If OUT0 And (Spindle > 500) Then     :Rem if spindle running > 500RPM
+    If INSTATEX.7 Then ZSRAvail=1              :Rem if so is ZSR input working ?
+    OUT0 = 0
+    If ZSRAvail Then 
+      Repeat                         : Rem if zsr available then wait for that
+      Until !INSTATEX.7 Or !INSTATEX.STOPSW
+    EndIf
+    If !ZSRAvail Then
+      Wait=Spindle                  :Rem otherwise just wait a time
+    EndIf
+  EndIf
+  OUT0 = 0                 :Rem stop spindle now
+  Wait=200
+  SpindleRunning=0
+End Sub   
+
+' Spindle clockwise
+Sub SpindleCW( )
+  If SpindleRunning Then
+     SpindleStop
+     Wait=1500
+   EndIf 
+  If MachineSafe Then      'Only if safe
+     OUT0 = 0       :Rem spindle run
+     OUT1 = 0       :Rem direction
+     OUT0 = 1
+     SpindleRunning=1
+   EndIf
+End Sub
+
+' Spindle Counter Clockwise
+Sub SpindleCCW( )                             
+  If SpindleRunning Then
+     SpindleStop
+     Wait=1500
+   EndIf 
+  If MachineSafe Then      'Only if safe
+     OUT0 = 0
+     OUT1 = 1
+     OUT0 = 1
+     SpindleRunning=1
+   EndIf
+End Sub
+
+Sub CoolantOn( )
+  OUT2 = 1
+End Sub
+
+Sub CoolantOff( )
+  OUT2 = 0
+End Sub
+
+
+
+Sub Mcode (M As Float)
+ ' ? "Do Mcode M",M
+  Select Case M
+    Case 0:     SpindleStop
+    Case 3:     SpindleCW 
+    Case 4:     SpindleCCW 
+    Case 5:     SpindleStop 
+    Case 8:     CoolantOn
+    Case 9:     CoolantOff  
+    Case 10:    SetVice 1 
+    Case 11:    SetVice 0
+    Case 13:    SpindleCW
+                CoolantOn
+    Case 14:    SpindleCCW
+                CoolantOff
+    Case 20:    ArmIn
+    Case 21:    ArmOut
+    Case 24:    DrawbarUnClamp
+    Case 25:    DrawbarClamp
+    Case 27:    NVLONG.Pocket = 1
+    Case 30:    SpindleStop  
+                CoolantOff
+    Case 32:    CarouselCW
+    Case 33:    CarouselCCW
+    Case 34:    CarouselHalf
+    Case 38:    DoorOpen
+    Case 39:    DoorClose
+    Case 62:    Mcode62
+    Case 63:    Mcode63
+    Case 64:    Mcode64
+    Case 65:    Mcode65
+    Case 66:    Mcode66
+    Case 67:    Mcode67
+    Case 76:    Mcode76
+    Case 77:    Mcode77
+  End Select
+End Sub
+
+'Set the Z axis brake output  0=locked, 1=released
+Sub SetBrake (state As Integer)
+  If state Then Wait (2000)  
+'NO BRAKE ON NOVAMILL  OUTX.15 = state And INSTATEX.STOPSW
+'  ?"Brake is ", state
+  End Sub
+  
+Sub SortOutEstop( )
+Dim StateStop As Integer = 0
+  StateStop=INSTATEX.STOPSW
+  If !INSTATEX.STOPSW Then
+      ABORT
+      SpindleStop
+      Wait=200
+  EndIf
+  SetBrake StateStop
+  COMMS(37)=INSTATEX.STOPSW
+  DPREVENT=37
+  If !INSTATEX.STOPSW Then
+    RESETALL
+  EndIf
+End Sub
+
+Sub SortOutDoorSwitch ( )   
+  doorstate = INSTATEX.DOORSW
+  Select Case doorstate
+    Case 0                        ' door open
+       CANCELALL
+       If SpindleRunning Then SpindleStop
+       COMMS(19)=0
+       If !COMMS(34) Then   ' dont notify if in remote control mode
+         DPREVENT = 19
+       EndIf
+  '     ?"Door just opened event"
+       MachineSafe=0
+    Case 1
+       COMMS(19)=1
+       DPREVENT = 19
+  '     ?"Door just closed event"
+       MachineSafe=1
+  End Select
+End Sub
+
+'****************************************
+'*    Cim type routines
+'****************************************
+Sub DoorOpen( )
+  If SpindleRunning Then SpindleStop
+  OUT10=1      'X2.0 =0
+  OUT11=0      'X3.0 =1
+  Repeat
+  Until INSTATEX.DOOROPENSW Or !INSTATEX.STOPSW Or CycleReset
+  OUT10=0      'X2.0 =1
+End Sub
+
+Sub DoorClose( )
+  OUT10=0      'X2.0 =1
+  OUT11=1      'X3.0 =0
+  Repeat
+  Until INSTATEX.DOORSW Or !INSTATEX.STOPSW Or CycleReset
+  OUT10=0      'X2.0 =1
+  OUT11=0      'X3.0 =1
+End Sub
+
+Sub SetVice(ViceOn As Integer)
+  If SpindleRunning Then SpindleStop
+  OUT8=ViceOn
+End Sub
+  
+Sub Mcode62( )
+Rem: Turn auxiliary output 12 on
+  If !COMMS(34) Then
+   OUT12=1
+  Else
+    Out12Flag=1
+  EndIf
+End Sub
+
+Sub Mcode64( )
+Rem: Turn auxiliary output 12 off
+  If !COMMS(34) Then
+   OUT12=0
+  Else
+    Out12Flag=0
+  EndIf
+End Sub
+
+Sub Mcode63( )
+Rem: Turn auxiliary output 13 on
+  If !COMMS(38) Then        'if not in remote Vice mode
+   OUT13=1
+  EndIf
+End Sub
+
+Sub Mcode65( )
+Rem: Turn auxiliary output 13 off
+  If !COMMS(38) Then       'only if not in remote Vice mode
+   OUT13=0
+  EndIf
+End Sub
+
+Sub Mcode66( )
+Rem: Wait for input 18
+  Repeat
+  Until INSTATEX.18 Or !INSTATEX.STOPSW Or CycleReset
+End Sub
+
+Sub Mcode76( )
+Rem: Wait for NOT input 18
+  Repeat
+  Until !INSTATEX.18 Or !INSTATEX.STOPSW Or CycleReset
+End Sub
+
+Sub Mcode67( )
+Rem: Wait for input 19
+  Repeat
+  Until INSTATEX.19 Or !INSTATEX.STOPSW Or CycleReset
+End Sub
+
+Sub Mcode77( )
+Rem: Wait for NOT input 19
+  Repeat
+  Until !INSTATEX.19 Or !INSTATEX.STOPSW Or CycleReset
+End Sub
+
+'**************************************
+'** Start of events and threads code **
+'**************************************
+'
+' This event is called every time COMMS(1) is changed
+Event COMMS1    
+ Dim Command = 0
+ Dim ToolNum As Float = 0
+ Dim MCodeNum As Float = 0 
+  Command = COMMS(1)   
+' ?"comms1 changed",command
+  ToolNum=COMMS(7)
+  MCodeNum=COMMS(18)  
+  If Command=7 Then ToolChange ToolNum
+  If Command=18 Then MCode MCodeNum
+  If command=36 Then 
+     SortOutDoorSwitch
+'     Wait=100
+     SortOutEStop
+  EndIf
+  Wait = 100
+  COMMS(1) = 0        ' Signifies Task has completed
+ End Event 
+
+'STOP switch event handkes the brake
+Event STOP
+  SortOutEstop
+End Event
+
+Event IN6
+  SortOutDoorSwitch
+End Event
+
+Event onerror
+  If Err=37 Then        ' if non volotile is corrupt-rewrite to it
+    NVLONG.POCKET=0
+    ?"Non Volotile data corrupted", POCKET      
+    Run Startup
+    Run
+  Else
+'    ?"Error event"
+  EndIf
+End Event
+
+' update speed and feed overrides
+Task modify_speed 
+
+Dim ReadOverride=0
+Dim PotCheckCounter=0
+Dim FPotCheckCounter=0
+Dim PotCheckTotal=0
+Dim FPotCheckTotal=0
+Dim LastSpindleOv=0
+Dim LastFeedOv=0
+  Loop                        
+    '****** Feed POT:-
+    If COMMS(8) Then                'If Feed POT fitted
+      ReadOverride=(ADC.1*3) - 2
+      ' Feed pot hysterisis :-
+      FPotCheckTotal=FPotCheckTotal+Abs(ReadOverride-LastFeedOv)
+      FPotCheckCounter=FPotCheckCounter+1
+      If FPotCheckCounter>150 Then
+        If Abs(FPotCheckTotal/FPotCheckCounter) > 4 Then
+          ReadOverride=Round(ReadOverride/5)*5   'make increments of 5
+          If ReadOverride<5 Then ReadOverride=0   
+          If ReadOverride>150 Then ReadOverride=150  
+          FEEDRATEOVERRIDE=ReadOverride;    'Override value from POT
+          COMMS(5) = ReadOverride           ' Update the PC
+          LastFeedOv=ReadOverride
+        EndIf
+        FPotCheckCounter=0
+        FPotCheckTotal=0
+      EndIf
+    Else  
+      FEEDRATEOVERRIDE=COMMS(5);        'Override value from PC comms
+    EndIf 
+    
+    '****** Spindle POT:-
+    If COMMS(9) Then                'if spindle pot fitted
+      SpindleOverride=(ADC.0*(70/50)) +50      'Spindle override from POT
+    Else
+      SpindleOverride=COMMS(6)      'Spindle override from PC comms
+    EndIf
+    ' Spindle pot hysterisis :-
+    PotCheckTotal=PotCheckTotal+Abs(SpindleOverride-LastSpindleOv)
+    PotCheckCounter=PotCheckCounter+1
+    If PotCheckCounter>200 Then
+      If Abs(PotCheckTotal/PotCheckCounter) > 4 Then
+        COMMS(6)=Round(SpindleOverride/5)*5
+        LastSpindleOv=SpindleOverride
+        NewSpindle
+      EndIf
+      PotCheckCounter=0
+      PotCheckTotal=0
+    EndIf
+  End Loop  
+End Task  
+
+Task SafetyCheck 
+  Define ALLAXES = 0,1,2    
+  COMMS(19)=0            'Initially say machine not safe
+  Loop
+    CycleReset = COMMS(98)
+    If CycleReset Then ResetCount=ResetCount+1
+    If ResetCount > 500 Then 
+      COMMS(98)=0
+      ResetCount=0
+    EndIf
+    
+    DRIVEENABLE[ALLAXES]=COMMS(36) And INSTATEX.STOPSW;
+    If !MachineSafe Then 
+       SPEED[0] = SafetyFeed;      'limit the feed to a safe feedrate
+       SPEED[1] = SafetyFeed;       
+       SPEED[2] = SafetyFeed;
+    EndIf
+      ' Display EStopped message  :
+    If !INSTATEX.STOPSW Then
+      LED=-2
+      DisplayCount=DisplayCount+1
+      If DisplayCount > 350 Then 
+        DisplayCount=0
+        LedCount=LedCount+1
+        If LedCount > 4 Then LedCount=0
+      EndIf
+      Select Case LedCount
+        Case 0: LEDDISPLAY=0x79     'E
+        Case 1: LEDDISPLAY=0x6d     'S
+        Case 2: LEDDISPLAY=0x78     't
+        Case 3: LEDDISPLAY=0x5C     'o
+        Case 4: LEDDISPLAY=0x73     'P 
+      End Select
+    Else
+      LED=0                 ' else display axis 0 status
+    EndIf 
+  End Loop  
+End Task  
+
+Task CheckRemoteStuff
+  Loop
+    If COMMS(38) Then 'Rem Checks for vice commands from CIM Device Driver
+      ViceFlag=INSTATEX.19
+      SetVice ViceFlag 
+      OUT13=!ViceFlag   'Rem vice status output
+    EndIf
+    Rem - Out12flag on means machine busy, off means idle
+    If COMMS(34) Then 
+      'Turn auxiliary output 1 on if door closed:-
+      If Out12Flag Then OUT12=1
+      'Only turn off when door is open  
+      If !Out12Flag And INSTATEX.DOOROPENSW Then OUT12=0
+    EndIf
+  End Loop
+End Task 

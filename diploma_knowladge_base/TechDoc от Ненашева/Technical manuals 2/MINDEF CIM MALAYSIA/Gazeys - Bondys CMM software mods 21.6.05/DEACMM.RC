@@ -1,0 +1,96 @@
+#include <windows.h>
+#include "ids.h"
+#include "\devel\help\cellhelp.h"
+
+
+ID_DIALOG DIALOG 38, 35, 170, 91
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_MINIMIZEBOX
+CLASS "DeaCMM"
+CAPTION "CMM Read/Write"
+MENU ID_MENU
+FONT 8, "MS Sans Serif"
+{
+ PUSHBUTTON "&Activate", ID_ACTIVATE, 127, 68, 36, 16, WS_GROUP | WS_TABSTOP
+ LTEXT "", ID_STATUS_TEXT, 57, 42, 108, 8
+ LTEXT "Open Manual/Automatic", ID_CONTROL_TEXT, 84, 12, 80, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+ CONTROL "", MACHINE_BMP_CTR, "BmpControl", 0 | WS_CHILD | WS_VISIBLE, 4, 5, 46, 49
+ GROUPBOX "Command Selection", 120, 4, 60, 163, 28, BS_GROUPBOX | WS_CHILD | WS_VISIBLE
+ CONTROL "", -1, "static", SS_BLACKRECT | WS_CHILD | WS_VISIBLE, 55, 39, 112, 13
+ GROUPBOX "Control Mode", 121, 53, 3, 114, 21, BS_GROUPBOX | WS_CHILD | WS_VISIBLE
+ COMBOBOX IDC_COMBOBOX, 8, 71, 115, 49, CBS_DROPDOWNLIST | WS_TABSTOP
+ LTEXT "Activity:", -1, 56, 28, 60, 8
+}
+
+ID_ICON ICON "../../machbmps/cmm1.ico"
+
+// CHUCK_OPEN_BMP BITMAP   "d:\roger\work\devel\devdriv\newlathe.dd\chuckop2.bmp"
+
+// CHUCK_CLOSED_BMP  BITMAP "d:\roger\work\devel\devdriv\newlathe.dd\chuckcl2.bmp"
+
+MACHINE_BMP BITMAP "../../machbmps/cmm1.bmp"
+
+ID_MENU MENU
+BEGIN
+  POPUP "&File"
+  BEGIN
+	 MENUITEM "E&xit...Alt+F4", CM_EXIT
+  END
+
+  POPUP "&Service"
+  BEGIN
+    MENUITEM "&Reset",     CM_RESET
+    MENUITEM "&Disconect", CM_DISCONNECT
+  END
+  POPUP "&Help", HELP
+  BEGIN
+    MENUITEM "&Contents",     CM_CONTENTS_HLP
+    MENUITEM "&Architecture", CM_ARCHITECTURE_HLP
+    MENUITEM "&Device Drivers", CM_CONTROLS_HLP
+  END
+END
+
+// Version info.
+//
+1 VERSIONINFO 
+FILEVERSION 1, 7, 0, 0
+PRODUCTVERSION 1, 7, 0, 0
+FILEFLAGSMASK 0
+FILEFLAGS VS_FFI_FILEFLAGSMASK
+FILEOS VOS__WINDOWS16
+FILETYPE VFT_APP
+{
+ BLOCK "StringFileInfo"
+ {
+  BLOCK "040904E4"
+  {
+   VALUE "CompanyName", "Denford Ltd\000"
+   VALUE "FileDescription", "CMM Device Driver, Windows 3.1 executable\000"
+   VALUE "FileVersion", "1.8\000"
+   VALUE "InternalName", "DEACMM\000"
+   VALUE "LegalCopyright", "Copyright © 1993. All Rights Reserved.\000"
+   VALUE "LegalTrademarks", "\000"
+   VALUE "OriginalFilename", "DEACMM.EXE\000"
+   VALUE "ProductName", "DEACMM\000"
+   VALUE "ProductVersion", "1.8\000"
+   VALUE "Comments", "Product of the United Kingdom\000"
+  }
+
+ }
+
+ BLOCK "VarFileInfo"
+ {
+  VALUE "Translation", 0x04e4, 0x0409
+ }
+
+}
+
+DIALOG_2 DIALOG 39, 33, 163, 41
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "CMM Parameter"
+FONT 8, "MS Sans Serif"
+{
+ EDITTEXT IDC_MESSAGE, 86, 5, 63, 13
+ DEFPUSHBUTTON "OK", IDOK, 26, 24, 50, 14
+ PUSHBUTTON "Cancel", IDCANCEL, 86, 24, 50, 14
+ LTEXT "Measure Component...", -1, 6, 8, 76, 8
+}

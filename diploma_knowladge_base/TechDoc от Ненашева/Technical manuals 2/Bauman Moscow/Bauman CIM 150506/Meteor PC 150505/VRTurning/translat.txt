@@ -1,0 +1,2805 @@
+ A current valid tool is not specified, please select the current tool from the availible tools below :-	TNoCurrentTool	RequestLabel	 A current valid tool is not specified, please select the current tool from the availible tools below :-				Prave platny nastroj neni urcen, prosim zvolte aktualni nastroj z dale uvenych nastroju, ktere jsou k dispozici :-	
+ ACW			 ACW		anti-horaire		ACW	
+ already exists.  Overwrite the current data with the imported data?			 already exists.  Overwrite the current data with the imported data?					
+ Author:	TGetProjInfo	Label1	 Author:				Autor	
+ Baud rate 	TRs232_form	BaudRateRG	 Baud rate 		Vitesse de bauds		Rychlost prenosu	
+- Build Number							-Cislo stavby	
+ COM Port 	TRs232_form	ComPortRG	 COM Port 		Port COM		Port COM	
+ Comment:	TGetProjInfo	Label2	 Comment:				Komentar	
+ Const 							Konst	
+ Custom							Zakazkovy	
+ CW			 CW		horaire		CW	
+ Data bits 	TRs232_form	DataBitsRG	 Data bits 		bits données		Datove bity	
+ Dither 							Kolisat	
+ for Tool number 			 for Tool number 				pro cislo Nastroje	
+ Frame 							Ramec	
+ Handshaking 	TRs232_form	HandshakingRG	 Handshaking 		Handshaking 		Komunikace	
+ Image 							Obraz	
+ No map							Bez mapy	
+ Not Supported			 Not Supported				Nepodporovano	
+ Orientation 							Orientace	
+ Parity 	TRs232_form	ParityRG	 Parity 		Parité		Parita	
+ Project:	TGetProjInfo	ProjName	 Project:				Projekt:	
+ Standard							Standard	
+ Style 							Styl	
+- Version							- Verze	
+- X							- X	
+ X:	TForm2D	Label1	 X:		 X:	 X:	X:	
+ X:	TForm3D	Label1	 X:		 X:	 X:	X:	
+- Y							- Y	
+- Z							- Z	
+ Z:	TForm2D	Label2	 Z:		 Z:	 Z:	Z:	
+ Z:	TForm3D	Label2	 Z:		 Z:	 Z:	Z:	
+" already exists			" already exists					
+"%s" is not a valid distance!							"%s" neni platnou vzdalenosti!	
+% invalidity							%neplatnost	
+%;Alt							%;Alt	
+'%0:s' is not a valid %1:s value.							'%0:s' neni platna hodnota %1:s	
+%s does not exists!							%s neexistuje!	
+'%s' is not a valid time							'%s' neni platnym casem	
+%s value is invalid							%s hodnota neni platna	
+&& or ^							&&nebo ^	
+&3DButtons							&3DTlacitka	
+&About							&Priblizne	
+&About...	TMainForm	About1	&About...	&About US	&Au sujet de...	&Sobre...	&Priblizne...	&Informazioni su...
+&ActiveColor:							&AktivniBarva	
+&Add	TCaracelAndOffsets	OffsetAdd	&Add		&Ajouter	&Adicionar	&Pridat	&Somma
+&Add	TToolLib	ListAdd	&Add		&Ajouter	&Adicionar	&Pridat	&Somma
+&Add Items from BML...							&Pridat Polozky z BML	
+&Add items from IML...							&Pridat Polozky z IML	
+&Add new components							&Pridat nove díly	
+&Add to Custom Colors			&Add to Custom Colors		&Ajouter aux couleurs personnalisées		&Pridat k Zakazn Barvam	
+&Add...	TForm1	AddBut	&Add...		&Ajouter...	&Adicionar...	&Pridat...	&Somma...
+&Add...	TMenuConfigTools	AddBut	&Add...		&Ajouter...	&Adicionar...	&Pridat...	&Somma...
+&Address *:							&Adresa* :	
+&Aligned							&Vyrovnan	
+&All			&All		&Tout	&Todos	&Vse	&Tutti
+&Animate							&Animovat	
+&Apply			&Apply		&Appliquer	&Aplicar	&Aplikovt	&Applica
+&Apply	TFlashGenForm	ApplyButton	&Apply		&Appliquer	&Aplicar		&Applica
+&Arrange Icons							&Usporadat Ikony	
+&Attack:							&Utok	
+&b							&b	
+&Background							&Pozadi	
+&Basic colors:			&Basic colors:		&Couleurs de base :		&Zakladni Barvy:	
+&Boolean							&Boolovsky	
+&BottomLeft							&SpodniLevy	
+&Browse	TFlashGenForm	BrowseButton	&Browse		&Parcourir	&B"	&Hledat	&Sfoglia
+&Browse...							&Hledat...	
+&Build							&Postavit	
+&Calculate							&Pocitat	
+&Cancel	TFlashGenForm	CancelButton	&Cancel		&Annuler	&Cancelar		&Annulla
+&Cancel	TGlobal_changer	Cancel	&Cancel		&Annuler	&Cancelar	&Zrusit	&Annulla
+&Cancel	TRs232_form	Button1	&Cancel		&Annuler	&Cancelar		&Annulla
+&Cancel	TToolPropForm	CancelBut	&Cancel		&Annuler	&Cancelar	&Zrusit	&Annulla
+&Cancel	TWizard_Header	CancelButton	&Cancel		&Annuler	&Cancelar	&Zrusit	&Annulla
+&Caption >>							&Legenda >>	
+&Caption:							&Legenda:	
+&Cascade							&Kaskada	
+&Center							&Stred	
+&Change							&Zmena	
+&Char							&Znak	
+&Character							&Znak	
+&Check Syntax	TEditorForm	CheckSyntax1	&Check Syntax		&Vérifier la syntaxe		&Kontrolovt Syntax	
+&Class Name:							&Nazev Tridy:	
+&Clear							&Vymaz	
+&Clear All							&Vymaz Vse	
+&Clear Display							&Vymazat Display	
+&Close	TForm1	Button1	&Close		&Fermer	&Fechar	&Zavrit	&Chiudi
+&Close	TMenuConfigTools	CloseBut	&Close		&Fermer	&Fechar	&Zavrit	&Chiudi
+&Color...							&Barva...	
+&Color:			&Color:		&Couleur :	&Cor:	&Barva:	&Colore:
+&ColorCount:							&CitaniBarev:	
+&Column							&Sloupec	
+&Company:							&Spolecnost:	
+&Compress							&Stlacit	
+&Connect							&Spojit	
+&Connect...	TDenNetForm	FileConnectItem	&Connect...		&Connexion...	&Ligar...	&Spojit...	&Connetti...
+&Constant:							&Konstanta:	
+&Contents	TMainForm	Contents1	&Contents		&Sommaire	&K"	&Obsah	&Contenuto
+&Convert color							&Prevadet barvu	
+&Copy	TCaracelAndOffsets	OffsetCopy	&Copy		&Copier	&Copiar	&Kopirovt	&Copia
+&Copy	TEditorForm	Copy2	&Copy		&Copier	&Copiar	&Kopirovt	&Copia
+&Copy	TToolLib	ListCopy	&Copy		&Copier	&Copiar	&Kopirovt	&Copia
+&Custom colors:			&Custom colors:		&Couleurs personnalisées :	&Cores Customizadas:	&Zakazkove barvy:	&Colori personalizzati:
+&Cut							&Vyjmt	
+&Date							&Datum	
+&Date of birth							&Datum narozeni	
+&Decompress							&Rozlozit	
+&Define Custom Colors >>			&Define Custom Colors >>		&Définir couleurs person. >>		&Definovat Zakaznicke Barvy 	
+&Delete	TCaracelAndOffsets	OffsetDelete	&Delete		&Annuler	&D"	&Vymazat	&Annulla
+&Delete	TForm1	DeleteBut	&Delete		&Annuler	&D"	&Vymazat	&Annulla
+&Delete	TMenuConfigTools	DeleteBut	&Delete		&Annuler	&D"	&Vymazat	&Annulla
+&Delete	TToolLib	ListDelete	&Delete		&Annuler	&D"	&Vymazat	&Annulla
+&Demo							&Demo	
+&DenNet	TDenNetForm	File1	&DenNet				&DenNet	
+&Description:							&Popis:	
+&Detect							&Detekovat	
+&Direction:							&Smer:	
+&Directory							&Adresar	
+&Disconnect	TDenNetForm	Disconnect1	&Disconnect				&Odpojit	
+&Disconnect All							&Odpojit Vse	
+&Diverse							&Odlisit	
+&Double Buffered							&Zdvoj Vyrovnavano	
+&Down			&Down		&Bas	&Abaixo	&Dolu	&Giù
+&Edit	TEditorForm	Edit1	&Edit		&Editer	&Editar	&Edit	&Modifica
+&Edit Source	TElement_info	BitBtn2	&Edit Source		&Editer source		&Zdroj editace	
+&Edit...	TForm1	EditBut	&Edit...		&Editer...	&Editar...	&Edit...	&Modifica...
+&Edit...	TMenuConfigTools	EditBut	&Edit...		&Editer...	&Editar...	&Edit...	&Modifica...
+&Electric							&Elektricky	
+&email *:							&email *:	
+&Enabled							&Aktivovan	
+&Encrypt							&Sifrovat	
+&EndColor:							&KoncBarva: 	
+&Examples							&Priklady	
+&Exclude							&Vyloucit	
+&Execute							&Provest	
+&Fade:							&Bledn:	
+&Favor color:							&Oblib barva:	
+&fax:							&fax:	
+&Female							&Samici	
+&Filter...							&Filtrovt...	
+&Find							&Nalezt	
+&Find Next			&Find Next		&Trouver suivant	&F"	&Nalezt Dalsi	&Trova succ.
+&Find...	TEditorForm	Searchfor1	&Find...		&Trouver...	&E"...	&Nalezt...	&Trova...
+&First name:							&Krest jmeno: 	
+&Float							&Pohybovt	
+&Folders:			&Folders:		&Fichiers :		&Slozky:	
+&Font...							&Font...	
+&Font:			&Font:		&Police :	&Fonte:	&Font:	&Carattere:
+&from:			&from:				&Od:	
+&Functions							&Funkce:	
+&Game							&Hra	
+&Gas							&Plyn	
+&Give the driving distance							&Udat hnaci vzdalenost	
+&GlobalFocus							&GlobalFokus	
+&Goto Line Number...	TEditorForm	GotoLineNumber1	&Goto Line Number...		&Aller au numéro ligne...		&Skok na Cislo Radky	
+&Green:			&Green:	&Green:	&Vert :	&Verde:	&Zelena:	&Verde:
+&Greyscale							&Stupnicesede	
+&Height:							&Vyska:	
+&Hello							&Hello	
+&Help			&Help		&Aide	&Ajuda	&Napov	&Guida
+&Help	TMainForm	Help1	&Help		&Aide	&Ajuda	&Napov	&Guida
+&Hi Light	TEditorForm	HiLight1	&Hi Light		&Surligner		&Zvyraznit	
+&Hide							&Ukryt	
+&HorzSize:							&HorizRozmer:	
+&ImageList:							&Sezn obrazu	
+&Import							&Import	
+&InActiveColor:							&NeaktivniBarva:	
+&Include							&Zahrnout	
+&Integer							&Celecislo 	
+&Language...							&Jazyk...	
+&Last name:							&Prijmeni	
+&Left							&Levy	
+&Letter							&Pism	
+&List Clients							&Klient Seznam	
+&Listen	TDenNetForm	FileListenItem	&Listen				&Sledovt	
+&ListIndex:							&Rejstriksezn:	
+&LMD							&LMD	
+&LMDButton							&TlacitkoLMD	
+&Load							&Vlozit	
+&Load BML...							&Vlozit BML...	
+&Load from File							&Vlozit z Filu	
+&Load Image							&Vlozit Obraz	
+&Load List...							&Vlozit Sezn...	
+&Load PLL...							&Vlozit PLL...	
+&Load SLL...							&Vlozit SLL...	
+&Load WVL...							&Vlozit WVL...	
+&Load...							&Vlozit...	
+&Lock							&Blokovt	
+&LogFile feature							&Vlastnost Logic Filu	
+&LongHint:							&DlouhyPokyn:	
+&Loop							&Smycka	
+&Looped							&Ve smycce	
+&Lum:			&Lum:				&Jas:	
+&Male							&Samci	
+&Memo							&Memo	
+&Memo...							&Memo...	
+&Minimize							&Minimaliz	
+&Mode							&Rezim	
+&Modify	TEditorForm	Modify1	&Modify		&Modifier		&Modifikovt	
+&MultiLine Mode							&Viceradk Rezim	
+&Name							&Nazev	
+&Name *:							&Nazev *:	
+&Name:			&Name:		&Nom:	&Nome:	&Nazev:	&Nome:
+&Negative							&Zaporny	
+&New							&Novy	
+&New password:	TNewPassword	Label2	&New password:		&Nouveau mot de passe :		&Nove heslo:	
+&Next							&Dalsi	
+&Nice design							&Libivy design	
+&Nonvisual Components:							&Neviditelne Casti:	
+&Normal							&Normalni	
+&Ok							&Ok	
+&OK	TFlashGenForm	OKButton	&OK		&OK	&OK		&OK
+&OK	TGlobal_changer	Ok	&OK		&OK	&OK	&OK	&OK
+&OK	TRs232_form	ConnectBtn	&OK		&OK	&OK		&OK
+&OK	TToolPropForm	OKBut	&OK		&OK	&OK	&OK	&OK
+&OK	TWizard_Header	OKButton	&OK		&OK	&OK	&OK	&OK
+&Old password:	TNewPassword	Label1	&Old password:		&Ancien mot de passe :		&Stare heslo:	
+&One							&Jedna	
+&Opaque							&Nepruhled	
+&Open			&Open		&Ouvrir	&Abrir	&Otevrit	&Apri
+&Open...							&Otevrit...	
+&Option							&Opce	
+&Options							&Opce	
+&Paint							&Barvit	
+&Paragraph...							&Odstavec...	
+&Password:							&Heslo:	
+&Paste	TCaracelAndOffsets	OffsetPaste	&Paste		&Coller	&Colar	&Zabudvt	&Incolla
+&Paste	TEditorForm	Paste2	&Paste		&Coller	&Colar	&Zabudvt	&Incolla
+&Paste	TToolLib	ListPaste	&Paste		&Coller	&Colar	&Zabudvt	&Incolla
+&perfect look							&dokon pohed	
+&Period:							&Perioda	
+&phone:							&telefon:	
+&Picture >>							&Obraz >>	
+&Play							&Hrat	
+&Player name							&Jmeno hrace	
+&Power:							&Energie:	
+&Pred. Color:							&Preddef.Barva:	
+&Preferences	TEditorForm	Preferences1	&Preferences		&Préférences		&Preference	
+&Press							&Stlacit	
+&Press me down...							&Stlac mne...	
+&Press this							&Toto stlac	
+&Press...							&Stlac...	
+&Preview...							&Nahled...	
+&Print...							&Tisk...	
+&Printer Setup...	TEditorForm	PrinterSetup1	&Printer Setup...		&Config. imprimante...		&Nastaveni Tiskarny...	
+&Program:	TToolPropForm	Label2	&Program:		&Programme :		&Program:	
+&Properties			&Properties		&Propriétés	&Propriedades	&Vlastnosti	&Proprietà
+&Property Name:							&Nazev Vlastnosti:	
+&Quit							&Prerust	
+&Read Entries							&Vstupy Cteni	
+&Read only			&Read only		&Lecture uniquement		&Pouze ke cteni	
+&Record...							&Zaznam	
+&Red:			&Red:	&Red:	&Rouge	&Vermelho:	&Crvena:	&Rosso:
+&Redo	TEditorForm	Redo1	&Redo		&Refaire	&Refazer	&Redo	&Ripristina
+&Remove							&Odstranit	
+&ReOpen							&OpetOtevrit	
+&Repeat							&Opakovt	
+&Replace			&Replace		&Remplacer	&R"	&Nahradit	&Sostituisci
+&Replace...							&Nahradit...	
+&Report...							&Zprava...	
+&Request							&Pozadavek	
+&Retry	TDongleDialog	BitBtn1	&Retry		&Reessayer	&Repetir	&Opakovt	&Riprova
+&Right							&Pravy	
+&Right (Current ImageList)							&Pravy (Aktual SeznamObrazu)	
+&Row							&Rada	
+&Run							&Provst	
+&Sat:			&Sat:		&Sam:	&Sab:	&Sat	&Sab:
+&Save			&Save		&Sauvegarder	&Salvar	&Ulozit	&Salva
+&Save as bitmap							&Ulozit jako bitmapu	
+&Save BML...							&Ulozit BML	
+&Save from File							&Ulozit z Filu	
+&Save List...							&Ulozit Seznam...	
+&Save Optimized...							&Ulozit Optimalizovany...	
+&Save Password							&Uozit Heslo 	
+&Save PLL...							&Ulozit PLL...	
+&Save SLL...							&Ulozit SLL...	
+&Save WVL...							&Ulozit WVL	
+&Save...							&Ulozit...	
+&Search	TEditorForm	Search1	&Search		&Rechercher	&C"	&Vyhledat	&Cerca
+&Search...							&Vyhledat...	
+&Selection			&Selection		&Sélection	&e"	&Volba	&Selezione
+&Send							&Poslat	
+&Session name							&Nazev relace	
+&Set							&Nastav	
+&Shape:							&Tvar:	
+&Show							&Ukazat	
+&Single player							&Samost hrac	
+&Size To Image							&Rozmer k Zobraz	
+&Size:			&Size:		&Dimension :	&Tamanho:	&Velik:	&Dimensioni:
+&Source:			&Source:		&source:		&Zdroj:	&origine:
+&Spacing:							&Mezera:	
+&Start							&Start	
+&Stop							&Stop	
+&String:							&Retezec:	
+&Style:							&Styl:	
+&Tab...							&Tab...	
+&Thickness:							&Tloustka:	
+&Threaded							&Se zavitem	
+&Tile							&Dlazd	
+&Time							&Cas	
+&Time:							&Cas:	
+&Tips							&Platky	
+&Title:	TToolPropForm	Label1	&Title:		&Titre :	&Título:	&Titulek:	&Titolo:
+&to:			&to:				&na:	
+&Tools							&Nastr	
+&Tools:	TForm1	Label1	&Tools:		&Outils :		&Nastr:	
+&Two							&Dva	
+&Underline			&Underline		&Souligner	&Sublinhado	&Podtrhnout	&Sottolineato
+&Undo	TEditorForm	Undo1	&Undo		&Détruire	&Desfazer	&Undo	&Annulla
+&Up			&Up		&Haut	&Acima	&Nahoru	&Su
+&User name:							&Jmeno uzivat:	
+&Utilities:	TMenuConfigTools	Label1	&Utilities:		&Utilitaires :		&Obsluz progr:	
+&VertSize:							&VertRozmer:	
+&Visible							&Viditelny	
+&Weight:							&Vaha	
+&Welcome							&Vitame vas	
+&Window							&Okno	
+&WindowList							&SeznamOken	
+&Windows-Standard							&Windows-Standard	
+&Windshield							&Stinitko	
+&WordWrap							&WordWrap	
+&Working dir:	TToolPropForm	Label3	&Working dir:		&Dir. travail :		&Pracovni adresar:	
+&Write Entries							&Vstupy Zapisu	
+( Drag & drop tasks to allocate )							(Ulohy Tahnout & Pustit pro prideleni)	
+(ABSOLUTE)	TFanucScreen21I	Label11	(ABSOLUTE)				(ABSOLUTNI)	
+(ABSOLUTE)	TFanucScreenOT	Label11	(ABSOLUTE)				(ABSOLUTNI)	
+(Author - 			(Author - 		(Auteur-		(Autor -	
+(Date - 			(Date - 		(Date - 		(Datum -	
+(Description - 			(Description - 		(Description - 		(Popis -	
+(DIST TO GO)	TFanucScreen21I	Label21	(DIST TO GO)				(VZDAL K UJETI)	
+(DIST TO GO)	TFanucScreen21I	ToGo3	(DIST TO GO)				(VZDAL K UJETI)	
+(DIST TO GO)	TFanucScreenOT	Label21	(DIST TO GO)				(VZDAL K UJETI)	
+(DIST TO GO)	TFanucScreenOT	ToGo3	(DIST TO GO)				(VZDAL K UJETI)	
+(Machine - 			(Machine - 		(Machine - 		(Stroj -	
+(MACHINE)	TFanucScreen21I	Label16	(MACHINE)				(STROJ)	
+(MACHINE)	TFanucScreenOT	Label16	(MACHINE)				(STROJ)	
+(MEASUREMENT)	TFanucOTWShiftForm	Label2	(MEASUREMENT)				(MERENI)	
+(MEASUREMENT)	TFanucWShiftForm	Label2	(MEASUREMENT)				(MERENI)	
+(None)			(None)		(aucun)	E"	(zadny)	(Nessuno)
+(RELATIVE)	TFanucScreen21I	CheckType	(RELATIVE)				(RELATIVNI)	
+(RELATIVE)	TFanucScreen21I	Label10	(RELATIVE)				(RELATIVNI)	
+(RELATIVE)	TFanucScreenOT	CheckType	(RELATIVE)				(RELATIVNI)	
+(RELATIVE)	TFanucScreenOT	Label10	(RELATIVE)				(RELATIVNI)	
+(SHIFT VALUE)	TFanucOTWShiftForm	Label1	(SHIFT VALUE)				(HODN POSUNUTI)	
+(SHIFT VALUE)	TFanucWShiftForm	Label1	(SHIFT VALUE)				(HODN POSUNUTI)	
+* HELP *	TFanucScreen21I	Label25	* HELP *				*NAPOVED*	
+* HELP *	TFanucScreenOT	Label25	* HELP *				*NAPOVED*	
+* or ?							*nebo ?	
+*********** LMD-Tools is great ! ***********                 LMD-Tools V3.X by LMD Innovative ....           							************  LMD-Nastroje je velky ! **********                             LMD-Nastroje V3.X podle LMD   Inovativni .... 	
+*.BMP	TForm3D	SaveBMP	*.BMP		*.BMP	*.BMP	*.BMP	
+*.exe							*.exe	
+*.fnc	TEditorForm	SaveDialog	*.fnc		*.fnc	*.fnc	*.fnc	
+*.FNC	TEditorForm	OpenDialog	*.FNC		*.FNC	*.FNC	*.FNC	
+*.FNC	TFanucScreen21I	Save_fnc	*.FNC		*.FNC	*.FNC	*.FNC	
+*.FNC	Tscreen	Open_Fnc	*.FNC		*.FNC	*.FNC	*.FNC	
+*.FNC	Tscreen	Save_fnc	*.FNC		*.FNC	*.FNC	*.FNC	
+*.FNL	TFanucScreen21I	Open_Fnc	*.FNL				*.FNL	
+*.txt							*.txt	
+, Column: 			, Column: 		, Colonne : 		, Sloupec:	
+-, M			-, M					
+., T			., T					
+...end of lines							...konec radek	
+[100 calls]							[100 volani]	
+|S&olid			|S&olid		|S&olide	&|Sólido	S&olid	&|Tinta unita
+~;Enter							~;Enter	
++ X							+ X	
++ Y							+ Y	
++ Z							+ Z	
++;Shift							+;Shift	
+< &Back							<Zpet	
+< Back	TCustomToolForm	BackButton	< Back				<Zpet	
+< Z	TCPLTestForm	jogZminus	< Z				<Z	
+···	TCustomToolForm	BrowseBtn	···		···	···		
+···	TTurnWizForm	BtnP3SP	···		···	···		
+0 Colours	TColour_depth_form	colour_depth_text	0 Colours	0 Colors				
+0°	TTurnWizForm	EditPC	0°				0°	
+1, U			1, U					
+2, W			2, W					
+29°	TTurnWizForm	EditPC	29°				29°	
+2D Simulate	TForm2D	N2DSimulate	2D Simulate				Simulovat 2D	
+2D Simulation	TChoice_From	twoD	2D Simulation		Simulation 2 D		2D Simulace	
+2D Simulation	TForm2D		2D Simulation		Simulation 2 D		2D Simulace	
+2D Simulation	TMainForm	sim2d_output	2D Simulation		Simulation 2 D		2D Simulace	
+2D Simulation Setup	TG_setup		2D Simulation Setup				Nastaveni 2D Simulace	
+3 D look							Pohled 3D	
+3 Spindle Start	TCPLTestForm	Mcodes	3 Spindle Start				Start Vretena 3	
+3, R			3, R					
+30 min							30 min	
+30°	TTurnWizForm	EditPC	30°				30°	
+32 (super fast)							32 (super rychly)	
+32Bit							32Bit	
+3D							3D	
+3D bevel							3D ukos	
+3D Effects							3D Efekty	
+3D Section focus								
+3D Simulate	TForm3D	N3DSimulate	3D Simulate				Simulovat 3D	
+3D Simulation	TChoice_From	threeD	3D Simulation		Simulation 3 D		3D Simulace	
+3D Simulation	TForm3D		3D Simulation		Simulation 3 D		3D Simulace	
+3D Simulation	TMainForm	sim3d_output	3D Simulation		Simulation 3 D		3D Simulace	
+3D Simulation Setup	TG3D_setup		3D Simulation Setup				Nastaveni 3D Simulace	
+3D View							Pohled 3D	
+3DEffect-Editor							Editor 3D Efektu	
+4 (high quality)							4 (vysoka jakost)	
+4, X			4, X					
+40 (large)							40 (velky)	
+5 min							5 min	
+5 Spindle stop	TCPLTestForm	Mcodes	5 Spindle stop				5 Stop Vretena	
+5, Z			5, Z					
+55°	TTurnWizForm	EditPC	55°				55°	
+6 min							6 min	
+6, F			6, F					
+60 min							60 min	
+60°	TTurnWizForm	EditPC	60°				60°	
+7, O			7, O					
+8 (medium quality)							8 (stred jakost)	
+8, N			8, N					
+80 (extra)							80 (extra)	
+80°	TTurnWizForm	EditPC	80°				80°	
+9, G			9, G					
+A Tool called 			A Tool called 					
+A:	TForm3D	Label5	A:				A:	
+Abadi MT Condensed Light							Abadi MT Condensed Light	
+Abort							Zrusit	
+Aborts the 3D effect-routine							Rusi rutinu 3D efektu	
+About			About	About (USA)	Au sujet de	Sobre	O	Informazioni su
+about box.							o ramecku	
+About MULTILIZER							O MULTILZERU	
+About...							O...	
+About-Style (AboutDlg)							About-Style (AboutDlg)	
+Absolute	TCPLTestForm	Label3	Absolute				Absolutni	
+Absolute	TTurnWizForm	TabAbsX	Absolute				Absolutni	
+Absolute	TTurnWizForm	TabAbsZ	Absolute				Absolutni	
+Absolute horizontal offset of caption in pixels							Absolutni horizontalni posunuti legendy v pixelech	
+Absolute Offset &X							Absolutni Posunuti &X	
+Absolute Offset &Y							Absolutni Posunuti &Y	
+Absolute vertical offset of caption in pixels							Absolutni vertikalni posunuti legendy v pixelech	
+ACE Report Sample							Vzorek Zpravy ACE	
+Activate offset 			Activate offset 				Aktivovat posunuti	
+Active							Aktivni	
+Active Machine			Active Machine				Aktivni Stroj	
+ActiveForm Sample							Vzorek aktiv formulare	
+Actors							Herci	
+ACTUAL POSITION (RELATIVE)	TFanucScreen21I	Label13	ACTUAL POSITION (RELATIVE)				SKUTECNA POLOHA (RELATIVNI)	
+ACTUAL POSITION (RELATIVE)	TFanucScreenOT	Label13	ACTUAL POSITION (RELATIVE)				SKUTECNA POLOHA (RELATIVNI)	
+Add	TWorkOffsetForm	PopupAdd	Add		Ajouter	Adicionar	Pridat	Somma
+Add comment :							Pridat komentar:	
+Add DEM source							Pridat zdroj DEM	
+Add entry:							Pridat zapis:	
+Add item							Pridat poloz	
+Add Items from AVI...							Pridat polozky z AVI...	
+Add items from Bitmap...							Pridat polozky z Bitmapy	
+Add List							Pridat Sezn	
+Add one or multiple items							Pridat jednu nebo nasobek poloz	
+Add Padding Token...	TEditorForm	AddPadding1	Add Padding Token...		Caractère à insérer...		Pridat Doplnovaci Znamka	
+Add secondary sort indexes with shift left click							S kliknutim leveho shiftu pridat indexy pomocneho trideni 	
+Add section							Pridat sekci	
+Add User Colors							Pridat Uzivatel Barvy	
+Add/Remove Bitmap	TfrmPopMenuEditor	btnBitmap	Add/Remove Bitmap		Ajouter/Enlever Bitmap		Pridat/Odstarnit Bitmapu	
+Additional							Dodatecny	
+Additional Contributions							Dodatecne Prispevky 	
+Additional Information							Dodatecne Informace	
+Addr1							Pridatr1	
+Addr2							Pridatr2	
+Address							Adresa	
+Address 1							Adresa 1	
+Address 2							Adresa 2	
+Address demo							Demo adresy	
+AddString							PridatRetezec	
+All	TControlPanel	Full3typeview1	All		Tout	Todos	Vse	Tutti
+All	TControlPanelStdForm	Full3typeview1	All		Tout	Todos	Vse	Tutti
+Alter			Alter					
+Alter all feed rates by %			Alter all feed rates by %		Modifier toutes les avances par %		Zmenit vsechny posuvy o %	
+Alter All Feed Rates By %	TGlobal_changer	GroupBox1	Alter All Feed Rates By %		Modifier Toutes les Avances par %		Zmenit Vsechny Posuvy O %	
+Alter all spindle speeds by %			Alter all spindle speeds by %		Modifier toutes les vitesses broche par %		Zmenit vsechny otacky O %	
+Alter all X values by %			Alter all X values by %		Modifier toutes les valeurs X par %		Zmenit vsechny hodnoty X o %	
+Alter all Y values by %			Alter all Y values by %		Modifier toutes les valeurs Y par %		Zmenit vsechny hodnoty Y o %	
+Alter all Z values by %			Alter all Z values by %		Modifier toutes les valeurs Z par %		Zmenit vsechny hodnoty Z o %	
+Alter feed rates at ß			Alter feed rates at ß		Modifier vitesses d'avances par ß		Zmenit vsechny posuvy na Beta	
+Alter Feed Rates At ß	TGlobal_changer	GroupBox2	Alter Feed Rates At ß		Modifier Vitesses d'Avances Par ß		Zmenit Vsechny Posuvy Na Beta 	
+Alter Feed Rates..	TEditorForm	AlterFeedRates1	Alter Feed Rates..		Modifier les vitesses d'avances...		Zmenit Posuvy..	
+Alter Speeds...	TEditorForm	AlterSpeeds1	Alter Speeds...		Modifier les vitesses...		Zmenit Otacky..	
+Alter spindle speeds at ß			Alter spindle speeds at ß		Modifier vitesses de broche par ß		Zmenit otacky na Beta	
+Alter X values at ß			Alter X values at ß		Modifier les valeurs X par ß		Zmenit hodnoty X na Beta	
+Alter X Values...	TEditorForm	ScaleXValues1	Alter X Values...		Modifier les valeurs X		Zmenit Hodnoty X... 	
+Alter Y values at ß			Alter Y values at ß		Modifier les valeurs Y par ß		Zmenit hodnoty Y na Beta	
+Alter Z values at ß			Alter Z values at ß		Modifier les valeurs Z par ß		Zmenit hodnoty Z na Beta	
+Alter Z Values...	TEditorForm	ScaleZValues1	Alter Z Values...		Modifier les valeurs Z....		Zmenit Hodnoty Z...	
+Alternative look CheckListEdit							Alternativni CheckList Edit pohledu	
+Ambient	TRFaceEditor	TSAmbient	Ambient				Okoli	
+AMD Athlon							AMD Athlon	
+AMD Duron							AMD Duron	
+AmountLabel							Navesti mnozstvi	
+An indented combobox							Pozadovany combobox	
+an Ini file (located in the application path)							file Ini (umisteny na aplikacni ceste)  	
+an ini file or a registry file, depending on Windows version							file ini nebo file registru v zavislosti na verzi Windows	
+Analog							Analogovy	
+Angle	TForm3D	SetCutAngle	Angle				Uhel	Angolo
+Angle:							Uhel:	
+Any file (*.*)|*.*	TToolPropForm	OpenProgDialog	Any file (*.*)|*.*		Tout fichier (*.*)|*.*		Libovolny file (*.*) *.*	
+Append Line End Token...	TEditorForm	AppendLineEndToken1	Append Line End Token...		???		Pripojit Znamku Konce Radky...	
+Apr			Apr		Avr	Abr		
+April			April		Avril	Abril	Duben	Aprile
+Aqua			Aqua	Aqua	Bleu vert	S"	Voda	Verde acqua
+Arc Angle:	TElement_info	Label13	Arc Angle:		Angle Arc :		Uhel Oblouku	
+Arc Radius:	TElement_info	Label9	Arc Radius:		Rayon Arc :		Polomer Oblouku	
+Arial Black							Arial Black	
+Arial Narrow							Arial Narrow	
+Arial Rounded MT Bold							Arial  Rounded MT Bold	
+Arrange Icons							Usporadat Ikony	
+Attributes			Attributes		Attributs		Atributy	
+Aug			Aug		Août	Ago		Ago
+August			August		Août	Agosto	Srpen	Agosto
+Authenticate							Autentizovat	
+Author	TWizard_Header	Label1	Author		Auteur		Autor	
+Auto	TControlPanel	AutoButton	Auto		Auto		Auto	
+Auto	TControlPanelStdForm	AutoButton	Auto		Auto		Auto	
+Auto	TCPLTestForm	Auto	Auto		Auto		Auto	
+Auto Save Bitmap	TForm2D	AutoSaveBmp	Auto Save Bitmap				Auto Ulozit Bitmapu	
+Auto Save Bitmap	TForm3D	AutoSaveBmp	Auto Save Bitmap				Auto Ulozit Bitmapu	
+Automatic Links							Automaticka spojeni	
+Automatic Tool Change (M06)	TTurnWizForm	ComboGCode	Automatic Tool Change (M06)				Automaticka Vymena Nastroje (M06) 	
+AutoMode	TMainForm	AutoMode	AutoMode				AutoRezim	
+Autosize							AutoRazeni dle Velik	
+Auxilary Graphics			Auxilary Graphics					
+Avaliable custom tips	TCustomToolForm	AvaliableLabel	Avaliable custom tips				Dosazitel Zakazn Platky	
+Axis Key Definition	TKey_def_form		Axis Key Definition		Définition touche axe		Hlavni Definice Osy 	
+B	TForm1	Label3	B					
+B, A, C, D			B, A, C, D					
+Background Colour	TG_setup	Label7	Background Colour	Background Color			Barva Pozadi	
+Background Colour	TG3D_setup	Label7	Background Colour	Background Color			Barva Pozadi	
+Background Colour...	TEditorForm	BackgroundColour1	Background Colour...	Background Color...	Couleur de fond...		Barva Pozadi...	
+Bad ARC End Point			Bad ARC End Point					
+Baud Rate Number unsupported			Baud Rate Number unsupported					
+Belgium			Belgium		Belgique	E"	Belgie	Belgio
+Billet	TBilletDlg		Billet				Prirez	
+Billet	TOptionsDlg	BilletSheet	Billet				Prirez	
+Billet Definition	TWizard_Header	GroupBox1	Billet Definition		Définition Pièce		Definice Prirezu	
+Billet Size	TB_Size		Billet Size		Dimensions Pièce		Rozmer Prirezu	
+Bit:							Bit:	
+BitCount							Citani Bitu	
+Bitmap							Bitmapa	
+Bitmap Files (*.bmp)|*.bmp|All Files (*.*)|*.*							Fily Bitmapy (*.bmp) *.bmp Vsechny Fily (*.*) *.*	
+Bitmap Files (*.BMP)|*.BMP|All Files (*.*)|*.*	TfrmPopMenuEditor	OpenDialog	Bitmap Files (*.BMP)|*.BMP|All Files (*.*)|*.*		Bitmap Files (*.BMP)|*.BMP|All Files (*.*)|*.*		Fily Bitmapy (*.BMP) *.BMP Vsechny Fily (*.*) *.*	
+Bitmap output size	TG3D_setup	Label2	Bitmap output size				Vystupni velikost Bitmapy	
+Bitmap preview	TfrmPopMenuEditor	imgBitmap	Bitmap preview		Vue Bitmap		Nahled Bitmapy	
+Bitmap size:							Velikost Bitmapy:	
+Bitmaps (*.bmp)|*.bmp							Bitmapy (*.bmp)  *.bmp	
+Bitmaps (*.bmp)|*.bmp	TFormMaskGenerator	OpenDialog1	Bitmaps (*.bmp)|*.bmp		Bitmaps (*.bmp)|*.bmp			
+Bitmaps (*.bmp)|*.bmp|All files (*.*)|*.*							Bitmapy (*.bmp) *.bmp Vsechny Fily (*.*) *.*	
+Bitmaps|*.bmp							Bitmapy *.bmp	
+BitSize							Delka bitu	
+BkGroundForm							Formular Pozadi	
+Bl&ue:			Bl&ue:	&Blue:	Bl&eu	&D":	Modry	&Blu:
+Black			Black	Black	Noir	Preto	Cerny	Nero
+Blank line found, do you wish to delete it?			Blank line found, do you wish to delete it?		Ligne vierge trouvée, voulez vous l'annuler ?			
+Blend							Michat	
+Block Skip 	TMainForm	skipBlock	Block Skip 		Saut de bloc		Preskok Bloku	
+Blue:	TfrmColorSelector	Label4	Blue:	Blue:	Bleu	D":	Modry:	Blu:
+bmp							bmp	
+BMP2IML, Import Options							BMP2IML, Opce Importu	
+BMW							BMW	
+Bof							Bof	
+Bold	TCol_pref	style	Bold		Bold	Negrito	Tucny	Grassetto
+Bold	TRichEdit98Editor	BoldBtn	Bold		Bold	Negrito		Grassetto
+Bold Italic	TCol_pref	style	Bold Italic		Gras Italique	Negrito Itálico	Tucna kurziva	Grassetto Corsivo
+BoldBtn	TRichEdit98Editor	BoldBtn	BoldBtn		BoldBtn		BoldBtn 	
+Book Antiqua							Book Antiqua	
+Bookman Old Style							Bookman Old Style	
+Bookmark current record							Aktualni zapis zalozky	
+Border							Ramecek	
+Border && Build							Ramecek && Stavba	
+Border Color							Barva Ramecku	
+BorderColor:							BarvaRamecku:	
+BorderInnerWidth:							VnitrniSirka Ramecku.	
+Borders							Ramecky	
+BorderSides							StranyRamecku 	
+BorderStyle:							StylRamecku:	
+BorderWidth:							SirkaRamecku:	
+Bore retract amount in X - R(2)	TTurnWizForm	LabelRD2	Bore retract amount in X - R(2)				Velikost odsunu z vrtani v X - R(2)	
+BotCen&ter							StredDole 	
+Both	TControlPanel	BothHome	Both				Obe	
+Both X Z	TControlPanel	BothHome	Both X Z				Obe X Z	
+Both X Z	TControlPanelStdForm	BothHome	Both X Z				Obe X Z	
+Bottom To Top	TFxSelectDialog	BitBtn6	Bottom To Top		de Bas en Haut		Zdola na Vrchol	
+Bottom2Top							ZdolanaVrchol	
+BottomLeft							VlevoDole	
+BottomLeft-aligned							Vyrovnano-VlevoDole	
+BottomLeftCurve							SpodniLevaKrivka	
+BottomLeftEdge							SpodniLevyOkraj	
+BottomLeftToTopRight							ZlevaDoleDopravaNahoru 	
+BottomRightCurve							SpodniPravaKrivka 	
+BottomRightEdge							SpodniPravyOkraj	
+Bouncing							Zakmitavani	
+Box							Rameck	
+Brazil			Brazil		Brésil	E"	Brazilie	Brasile
+Browse							Prohledat	
+Browse...							Prohledat...	
+Brush							Stetec	
+Buckled							Sepnuty	
+Buffer Free Size:	TNextStepdebug	Label1	Buffer Free Size:				Volna Kapacita Bufferu: 	
+Buffer Full Events:	TNextStepdebug	Label4	Buffer Full Events:				Uplne Udalosti Bufferu	
+Buffer Low Events:	TNextStepdebug	Label2	Buffer Low Events:				Dolni Udalosti Bufferu 	
+Bulgarisch							Bulharsky	
+Bump							PomPamet	
+Buss							Sbernice	
+Buttons							Tlacitka	
+Bytes							Byty	
+C&enter							S&tred	
+C&lear							V&ymazt	
+C&ollate			C&ollate		&Trier	&o"	S&eradit	&Fascicola
+C&urrency							M&ena	
+C&ut							P&remistit	
+Camera Distance							Vzdalenost Kamery	
+Canada			Canada		Canada	E"	Kanada	Canada
+Cancel			Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TB_Size	Cancel	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TBilletDlg	CancelBtn	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TChoice_From	Cancel	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TCol_pref	Button2	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TCustomToolForm	CancelButton	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TForm3D	Cancel	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TG_setup	BitBtn2	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TG3D_setup	BitBtn2	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TGet_token_form	Cancel	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TGetProjInfo	Cancelbutt	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TKey_def_form	BitBtn1	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TLimitsDlg	CancelBtn	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TLine_numbering	Cancel	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TMaterialPicker	Button1	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TMatPicker	Button2	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TMcodeManual	Cancel	Cancel		Annuler	Cancelar		Annulla
+Cancel	TNewPassword	CancelButton	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TOptionsDlg	CancelBtn	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TRichEdit98Editor	CancelButton	Cancel		Annuler	Cancelar		Annulla
+Cancel	TSetOffsets	ButtonCancel	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TTurnWizForm	BtnCancel	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel	TWizValForm	ProgressBtn	Cancel		Annuler	Cancelar	Zrusit	Annulla
+Cancel changes made to current record							Zrusit zmeny provedene do aktual zaznamu	
+Cancel edit			Cancel edit		Annuler modifications	Cancelar edição	Zrusit editaci	Annulla modifiche
+Cannot Start or End with an Arc			Cannot Start or End with an Arc					
+Caps							Velk pism	
+Caps, Num, Scroll							Velk pism, Cisla, Pretac	
+Caps:							Velk pism:	
+CapsLock							ZamekVelkPism 	
+Caption							Legenda	
+caption FX							FX legendy	
+Caption settings							Nastaveni Legendy	
+Caption:							Legenda:	
+Capture -->	TNextStepdebug	Button1	Capture -->				Snimat -->	
+Capture as Bitmap	TForm3D	SaveasBitmap1	Capture as Bitmap				Snimat jako Bitmapu	
+Capture As Bitmap	TForm3D	SaveABMP	Capture As Bitmap				Snimat Jako Bitmapu	
+CaracelAndOffsets	TCaracelAndOffsets	Pos_size1	CaracelAndOffsets					
+Cascade	TMainForm	Cascade2	Cascade		Cascade		Radit do kaskady	
+Case sensitive							Citlivy na velka mala pism	
+Ce&nterLeft							Vl&evo od stredu	
+Center	TRichEdit98Editor	CenterBtn	Center		Centre	Centralizar		Centra
+Center	TTurnWizForm	TabCenter	Center		Centre	Centralizar	Stred	Centra
+Center Coordinates							Souradnice Stredu	
+CenterBtn	TRichEdit98Editor	CenterBtn	CenterBtn		CenterBtn		Btnstredu	
+Centered							Stredeny	
+Centered grids							Stredeny rastr	
+Centered X, Y							Stredene X, Y	
+Centered X, Y, Z							Stredene X, Y, Z	
+Centered Y							Stredene Y	
+CenterLeft							StredVlevo	
+CenterR&ight							StredV&pravo	
+centimeters							centimetry	
+Centre line Colour	TG_setup	Label5	Centre line Colour	Center line Color			Barva stredove primky	
+Chamfer amount (% of pitch)	TTurnWizForm	LabelPB	Chamfer amount (% of pitch)				Velikost srazeni (% stoupani)	
+Change	TTurnWizForm	BtnChangeE	Change		Remplacer	e"	Zmenit	Cambia
+Change 	TGlobal_changer		Change 		Changer 		Zmenit	
+Change anything you like !							Zmenit cokoli chcete !	
+Change border color							Zmenit okrajovou barvu	
+Change Color							Zmenit Barvu	
+Change Hint Position							Zmenit Polohu Pokynu	
+Change Hint Style							Zmenit Styl Pokynu	
+Change manual spindle speed to S			Change manual spindle speed to S				Zmenit rucni otacky na S	
+Change Password	TNewPassword		Change Password		Changer de mot de passe		Zmenit Heslo	
+Change Password	TParamEdit	ChangePassword1	Change Password		Changer de mot de passe		Zmenit Heslo	
+Change State							Zmenit Stav	
+Change the tool in the machine to Tool Number 			Change the tool in the machine to Tool Number 					
+Change this entry			Change this entry					
+Change to LowerCase	TEditorForm	ChangeAlltoLowerCase1	Change to LowerCase		Changer pour Lowercase		Zmenit na MalaPismena	
+Change to UpperCase	TEditorForm	CangeAlltoUpperCase1	Change to UpperCase		Changer pour Uppercase		Zmenit na VelkaPismena 	
+Change Tool	TCaracelAndOffsets	ChangeTool	Change Tool				Zmenit Nastroj	
+Change Values Above ß	TGlobal_changer	Above_B	Change Values Above ß		Changer les valeurs au dessus de ß		Zmenit Hodnoty nad Beta	
+Change Values At ß	TGlobal_changer	At_b	Change Values At ß		Changer les valeurs à ß		Zmenit Hodnoty na Beta	
+Change Values Below ß	TGlobal_changer	Below_B	Change Values Below ß		Changer les valeurs au dessous de ß		Zmenit Hodnoty pod Beta	
+Changes the Font.							Zmenit Font.	
+Char:Length							Znak:Delka	
+Chat							Chat	
+Check all							Kontrol vse	
+Check Box							Kontrl Rameck	
+CheckBox1							KontrlRameck1	
+CheckBoxes							KontrlRamecky	
+Checkerboard	TFxSelectDialog	BitBtn13	Checkerboard		Vérification clavier		Sachovnice	
+CheckGroup with user defined Glyphs and focus set to the text							KontrlSkupina s uzivatel definovanymi Glify a ohniskem nastavenym na text	
+CheckListEdit with short names							KontrSeznEdit s kratkymi nazvy	
+Chimes (WAV)							Zvony (WAV)	
+Chips	TForm3D	Swarf	Chips				Trisky	
+Choose &Background GIF...							Vyberte &Pozadi GIF...	
+Choose a color from the image, please...	TfrmColorSelector		Choose a color from the image, please...		Choisir une couleur à partir de l'image, svp...		Vyberte z obrazu barvu, prosim...	
+Choose any background							Vyberte libovol pozadi	
+CIM	TFlashGenForm	PackageCombo	CIM		CIM			
+CIM	TMainForm	CIMMenu	CIM		CIM		CIM	
+CIM DDE Server	TDDEServer		CIM DDE Server				DDE Server CIM 	
+CIM Error			CIM Error				Chyba CIM	
+CIM RS232 download error			CIM RS232 download error					
+CIM RS232 download error:- 			CIM RS232 download error:- 				Chyba zavadeni RS232 CIM:-	
+CIM Warning			CIM Warning				Varovani CIM	
+Circle							Kruh	
+Circular Movement Colour	TG_setup	arcs	Circular Movement Colour	Circular Movement Color	Couleur mouvement circulaire		Barva Kruhoveho pohybu	
+Circular Movement Colour	TG3D_setup	arcs	Circular Movement Colour	Circular Movement Color	Couleur mouvement circulaire		Barva Kruhoveho pohybu	
+City							Mesto	
+Clamp Texture 2							Upnout 2 Strukturu	
+Class Name							Nazev Tridy	
+ClassName							NazevTridy	
+Clear							Vymaz	
+Clear	TFxSelectDialog	BitBtn35	Clear		Effacer	Limpar		Azzera
+Clear All							Vymaz Vse	
+Clear Display							Vymaz Display	
+Clear list							Vymaz sezn	
+Clear List							Vymaz Sezn	
+ClearAll							VymazVše	
+Clearance Angle	TCaracelAndOffsets	ClearAngleLabel	Clearance Angle				Uhel hrbetu	
+Clearance Angle	TToolLib	ClearAngleLabel	Clearance Angle				Uhel hrbetu	
+ClearAngleResult	TCaracelAndOffsets	ClearAngleResult	ClearAngleResult				VymazVysledekUhlu	
+ClearPicture							VymazObrazek	
+ClearZBuffer							VymazBufferZ	
+Click a panel to choose the key							Pro volbu klavesy kliknout na panel	
+Click any material to select it	TMatPicker	MainPanel	Click any material to select it				Pro volbu materialu klik na libov material	
+Click Close to continue or click Help to show help on %s.			Click Close to continue or click Help to show help on %s.					
+Click OK to continue with out the file(s), or click Exit to terminate this program.	TFile_warn	Label2	Click OK to continue with out the file(s), or click Exit to terminate this program.				Pro pokrac s filem(y) klinout OK nebo pro ukonc tohoto programu kliknout Exit 	
+Click on the control to stop fencing.							Pro zastaveni mrizky kliknout na prvek riz.	
+Click the button to move mousecursor to a specified x,y-coordinate (represented by a shape-control)							Pro pohyb kurzorumysi na urcenou souradnici x,y (predstavenou tvar rizenim) kliknete na tlcitko 	
+Click the button to request data from the server							Pro vyzad dat ze serveru kliknout tlacitko	
+Click this button to display Positioner-Demo!							Pro zobraz Positioner-Demo kliknout toto tlacitko	
+Click to change...							Kliknout pro zmìnu...	
+ClientArea							KlientOblast 	
+ClientCountLabel							NavestiPocitKlientu 	
+Clients:							Klienti:	
+Clipboard							Schranka	
+Clockwise Arc			Clockwise Arc					
+Clockwise Arc Interpolation (G02)	TTurnWizForm	ComboGCode	Clockwise Arc Interpolation (G02)				Kruhova Interpolace ve smeru CW (G02)	
+Close	TWizNoSuportForm	BtnOk	Close		Fermer	Fechar	Zavrit	Chiudi
+Close me...							Zavri mne...	
+ClosedArrowDown							UzavrSipkaDolu	
+ClosedArrowLeft							UzavrSipkaVlevo 	
+ClosedArrowRight							UzavrSipkaVpravo	
+ClosedArrowUp							UzavrSipkaNahoru	
+CNC &Programming	TMainForm	CNCProgHelpMenu	CNC &Programming		&Programmation CNC		CNC &Programovani	
+CNC &Programming	TMainForm	CNCProgramming1	CNC &Programming		&Programmation CNC		CNC &Programovani	
+CNC Editor	TFlashGenForm	PackageCombo	CNC Editor		Editeur CNC		CNC Editor	
+CNC syntax checked, no errors found.			CNC syntax checked, no errors found.		Syntaxe CNC vérifiée, aucune erreur trouvée		Syntax CNC kontrolovan, bez chyb	
+CNC Turning	TAboutBox		CNC Turning				CNC Soustruz	
+Co&lor:							Ba&rva	
+Code							Kod	
+Code Creator	TFlashGenForm	PackageCombo	Code Creator		Créateur code		Kodovac	
+Code to insert							Kod ke vlozeni	
+coffee							kava	
+Col 3 is fixed							Slpc 3 je pevny	
+Col 3 is read only							Slpc 3 pouze ke cteni	
+Col.							Sl.	
+Collaps panel							Panel zhrouceni	
+Color			Color		couleur	Cor	Barva	Colore
+Color :							Barva:	
+Colordepth							Hloubkabarvy	
+Colors							Barvy	
+Colors to be transparent:							Barvy	
+Colors:							Barvy:	
+Colour depth problem!	TColour_depth_form		Colour depth problem!	Color depth problem!			Hloubka barvy problemat!	
+Colour Format Text	TEditorForm	ColourFormatText1	Colour Format Text	Color Format Text	Texte Format Couleur		Barevny Text Formatu 	
+Colour Preferences	TCol_pref		Colour Preferences	Color Preferences	Préférences Couleurs		Preference barvy 	
+Cols	TCol_pref	Cols	Cols		Cols		Slpce	
+Column							Sloupec	
+Columns							Sloupce	
+COM Port	TRs232_form	GroupBox2	COM Port		Port COM			
+Com Port Configuration Error			Com Port Configuration Error				Chyba Konfigurace Portu COM	
+COM Port Number unsupported			COM Port Number unsupported					
+COM1	TRs232_form	ComPortRG	COM1		COM1		COM1	
+COM2	TRs232_form	ComPortRG	COM2		COM2		COM2	
+COM3	TRs232_form	ComPortRG	COM3		COM3		COM3	
+COM4	TRs232_form	ComPortRG	COM4		COM4		COM4	
+Comb							Combi	
+Combobox							Combobox	
+ComboBox1							ComboBox1	
+Comic Sans							Comic Sans	
+Comm Closed							Uzavreny Koment	
+Comment:			Comment:		Commentaire:	P":	Komentar:	Commento:
+Common Control Sample							Obecny Vzorek Rizeni	
+Common Dialog Sample							Obecny Vzorek Dialogu	
+Comms Locations	TDebugWindow	Inputs	Comms Locations				Umisteni Komentaru	
+Company							Spolecnost	
+Compensation Error			Compensation Error					
+Compiled	TChoice_From	compiles	Compiled		Compilé		Kompilovany	
+Compiled	TMainForm	Comp_output	Compiled		Compilé		Kompilovany	
+Compiled File Ready			Compiled File Ready					
+Compiled Input			Compiled Input		Entrée compilée		Kompilovany Vstup	
+Complex	TFxSelectDialog		Complex		Complexe		Komplexni	
+Complex	TFxSelectDialog	TabSet1	Complex		Complexe			
+Component							Soucast	
+Components							Soucasti	
+Compress							Stlacit	
+Compress image							Zhustit obraz	
+Compress type							Zhustit typ	
+Compressed &Status							Stlaceny &Stav	
+Compression							Stlaceni	
+Computername							Nazevpocitace	
+Computers							Pocitace	
+Con&dition:							Pod&minka:	
+Con&firm new password:	TNewPassword	Label3	Con&firm new password:		Con&firmer nouveau mot de passe :		Pot&vrdit nove heslo:	
+Config. file (*.ini)|*.INI|Any file (*.*)|*.*	TFlashGenForm	OpenDialog1	Config. file (*.ini)|*.INI|Any file (*.*)|*.*		Config. file (*.ini)|*.INI|Any file (*.*)|*.*		Konfig. file(*.ini)  *.INI Libovolny file (*.*) *.*	
+Configure &Utilities...	TMainForm	ConfigureTools1	Configure &Utilities...		Configurer &Utilitaires...		Konfigur &Obsluz progr...	
+Configure Utilities	TMenuConfigTools		Configure Utilities		Configurer Utilitaires		Konfigur Obsluz progr	
+Confirm Changes?	TGlobal_changer	Confirm	Confirm Changes?		Confirmer les changements ?		Potvrdit Zmeny?	
+Confirm password incorrect			Confirm password incorrect		Mot de passe confirmé incorrect		Potvrdit nespravne heslo	
+Connect	TDDEServer	Con_Discon	Connect		Connexion	Ligar	Spojit	Connetti
+Connected clients:							Sousedni klienti:	
+const							konst	
+Constant Surface Speed	TTurnWizForm	GroupST	Constant Surface Speed				Konstantni Obvod Rychlost	
+Constant Surface Speed (G96)	TTurnWizForm	ComboGCode	Constant Surface Speed (G96)				Konstantni Obvodova Rychlost (G96)	
+Constants							Konstanty	
+Cont	TControlPanelStdForm	ContJogButton	Cont				Kont	
+Contact							Kontakt	
+Container Demo							Demo skladu	
+Contents							Obsah	
+ContIncMode	TMainForm	ContIncMode	ContIncMode				SouvPrirRezim	
+Continuous	TMainForm	Continuous1	Continuous		Continu		Souvisly	
+Continuous	TMainForm	progCont	Continuous		Continu		Souvisly	
+Continuous Mode	TMainForm	StatusBar1	Continuous Mode		Mode continu		Souvisly Rezim	
+Contract all							Dohodnt vše	
+Control							Rizeni	
+Control :							Rizeni :	
+Control Panel	TControlPanel		Control Panel		Panneau de configuration	Painel de Controlo	Panel Rizeni	Pannello di controllo
+Control Panel	TControlPanelStdForm		Control Panel		Panneau de configuration	Painel de Controlo	Panel Rizeni	Pannello di controllo
+Control single frames...							Ridit jednotl ramce	
+ControlPanel	TControlPanel	Pos_size1	ControlPanel					
+ControlPanelStd	TControlPanelStdForm	Pos_size1	ControlPanelStd					
+Controls							Rid Prvky 	
+Controls sorting & sizing							Rid prvky trid & prizp velikosti	
+Convert							Prevadet	
+Convert Mill	TFlashGenForm	PackageCombo	Convert Mill		Fraise ???		Prevest Mill	
+COOL							COOL	
+Coolant	TControlPanel	CoolantButton	Coolant		Arrosage		Chlazeni	
+Coolant	TControlPanelStdForm	CoolantButton	Coolant		Arrosage		Chlazeni	
+CoolantOff	TMainForm	CoolantOff	CoolantOff				ChlazeniVyp	
+CoolantOn	TMainForm	CoolantOn	CoolantOn				ChlazeniZap	
+Coordinates	TControlPanel	CoordButton	Coordinates				Souradnice	
+Coordinates	TControlPanelStdForm	CoordButton	Coordinates				Souradnice	
+Coordinates Display Select	TControlPanel	CoordButton	Coordinates Display Select				Zvolena Obrazovka Souradnic	
+Coordinates Display Select	TControlPanelStdForm	CoordButton	Coordinates Display Select				Zvolena Obrazovka Souradnic	
+Coordinates of destination							Souradnice cile	
+Coords	TMainForm	Coords	Coords				Sourad	
+Copies			Copies		Copies	Cópias	Kopie	Copie
+Copperplate Gothic Bold							Kaligraf Gothic Bold	
+Copperplate Gothic Light							Kaligraf Gothic Light	
+Copy	TEditorForm	Copy1	Copy		Copier	Copiar	Kopie	Copia
+Copy	TWorkOffsetForm	PopupCopy	Copy		Copier	Copiar	Kopie	Copia
+Copy all to clipboard							Kopir vse do schranky	
+Copy item to clipboard							Kopir polozk do schranky	
+Copy selected							Zvolena kopie	
+Copy selection to clipboard							Kopirovat volbu do schranky	
+Copy to clipboard							Kopir do schranky	
+Copyright : Denford Ltd (2000)	TAboutBox	Panel7	Copyright : Denford Ltd (2000)				Copyright : Denford Ltd (2000)	
+Copyright : Denford Ltd (2000)	TMySystemInfo	Panel7	Copyright : Denford Ltd (2000)					
+Copyright(C)1998, Domonkos Rico for SimonSoft, Ltd. All rights reserved.	TfrmColorSelector	lblCopyright	Copyright(C)1998, Domonkos Rico for SimonSoft, Ltd. All rights reserved.		Copyright(C)1998, Domonkos Rico for SimonSoft, Ltd. All rights reserved.			
+Could not find Mint chip version			Could not find Mint chip version				Nelze nalezt verzi Mint chip	
+Count:							Citat:	
+Countdown							Odpocitavat	
+Counter Clockwise Arc			Counter Clockwise Arc					
+Counter Clockwise Arc Interpolation (G03)	TTurnWizForm	ComboGCode	Counter Clockwise Arc Interpolation (G03)				Kruhova interpolace CCW (G03)	
+CPLTestForm	TCPLTestForm		CPLTestForm				FormulTestuCPL 	
+Create							Vytvorit	
+Create a new file							Vytvorit novy file	
+Create background item							Vytvorit polozku pozadi	
+Create entries							Vytvorit zapisy	
+Create Exception							Vytvorit Vyjimku	
+Create fixed position item							Vytvor polozk o pevn poloze	
+Create fixed size item							Vytvor polozk o pevn velik	
+Create item with multiple images							Vytvor polozk s vicenasob obrazy	
+Create item without overlap							Vytvorit polozku bez presahu	
+Create items with caption							Vytvorit polozky s legendami	
+Create items with images							Vytvorit polozky bez obrazu	
+Create New Folder			Create New Folder		Créer nouveau fichier	H"	Vytvorit Novou Slozku	Crea nuova cartella
+Create new tip	TCustomToolForm	NewTipRadio	Create new tip				Vytvor nov spicku	
+Create read only item							Vytvor polozk jen ke èteni	
+Create self extracting EXE							Vytvor samovyjimaci EXE	
+Creating...	TSplashForm	description	Creating...				Vytvareni...	
+CSS Mode On	TCPLTestForm	CSSMode	CSS Mode On					
+Ctrl-D for I/O debug	TControlPanel		Ctrl-D for I/O debug				Ctrl-D pro odladeni I/O	
+Ctrl-D for I/O debug	TControlPanelStdForm		Ctrl-D for I/O debug				Ctrl-D pro odladeni I/O	
+Cu&t	TEditorForm	Cut2	Cu&t		C&ouper	&Recortar	Vyj&m	&Taglia
+Culling Mode:							Rezim Odstran:	
+Current Date							Aktual Datum	
+Current Key	TKey_def_form	Hint2	Current Key				Aktual Klaves	
+Current Line = 			Current Line = 		Ligne actuelle =		Aktual Radka =	
+Current locale:							Aktual lokalni:	
+Current path and information about the current disk							Aktual cesta a informace o aktual disku	
+Current settings:							Aktual nastaveni:	
+Current Time							Aktual Cas	
+Current Tool Life	TCaracelAndOffsets	CurrentLifeLabel	Current Tool Life		Durée outil actuel		Aktual Zivotn Nastr	
+Current Tool Life	TToolLib	CurrentLifeLabel	Current Tool Life		Durée outil actuel		Aktual Zivotn Nastr	
+Current User							Aktual Uzivatel	
+CurrentLifeResult	TCaracelAndOffsets	CurrentLifeResult	CurrentLifeResult				AktualVysledekZivot 	
+CurrentUser							Aktual Uzivatel	
+CURSOR	TFanucScreenOT	LabelCursor	CURSOR				KURZOR	
+Cursor Down			Cursor Down					
+Cursor Up			Cursor Up					
+CustNo							C.Zakzn	
+Custom							Zakazn	
+Custom exceptions:							Zakazn vyjimky:	
+Custom functions							Zakazn funkce	
+custom glyphs							zakazn glyfy	
+Custom Locale Ids							Zakazn Id lokalnich	
+Custom locales...							Zakazn lokalni...	
+Custom Tool Wizard	TCustomToolForm		Custom Tool Wizard				Zakazn Tool Wizard	
+Custom Tool Wizard...	TToolLib	CustomButton	Custom Tool Wizard...				Zakazn Tool Wizard	
+Customer :							Zakaznik:	
+Cut	TEditorForm	Cut1	Cut		Couper	Recortar	Vyjm	Taglia
+Cut item to clipboard							Vyjm poloz do schranky	
+Cut to clipboard							Vyjm do schranky	
+Cycle Expansion	TMainForm	CycleExpansionMenuItem	Cycle Expansion		Expansion cycle		Rozsireni Cyklu	
+D							D	
+D&atetime							D&atumcas	
+D3DApplication Alpha Sample							Vzorek 3Daplikace Alpha	
+Dänisch							Dansky	
+Dark							Tmavy	
+Data							Data	
+Data In	TDDEServer	Label2	Data In				Data Do	
+Data Out	TDDEServer	Label1	Data Out				Data Z	
+Data to be sent along with the function code and some other fixed data							Data, ktera maji byt poslana s kodem funkce a dalsimi pevnymi daty  	
+Database Lookup Caption							Legenda Vyhled v Databazi	
+Database Name							Nazev Databaze	
+DatabaseEdit							EditDatabaze	
+DataEdit							EditDat	
+Date	TWizard_Header	Label9	Date		Date	Dat	Datm	Data
+Date and time:							Datum a cas:	
+Date of birth:							Datum naroz:	
+Date:							Datm:	
+DateLabel							NavestiData	
+Datum Position	TForm2D	ToolBarDatum	Datum Position				Poloha Data	
+Datum Position	TForm3D	ToolBarDatum	Datum Position				Poloha Data	
+DDE Configuration			DDE Configuration				Konfigurace DDE	
+DDE File Download Error			DDE File Download Error				Chyba Zavadeni Filu DDE	
+De&lete							Vy&mzat	
+Dec			Dec		Dec	Dez		Dic
+December			December		Décembre	Dezembro	Prosinec	Dicembre
+Decimals:							Decimaly:	
+Default							Standrd	
+Default Billet Size...	TMainForm	DefaultBilletSize1	Default Billet Size...		Dimensions pièce par défaut...		Standrd Velik Prirezu...	
+default button							tlacitko standrdu	
+Default button:							Tlacitko Standrdu:	
+Default height							Vyska standrdu	
+Default Language							Standardni Jazyk 	
+Default movement is on the XY plane.							Standard pohyb je v rovine XY	
+Default settings:							Standrd nastaveni:	
+DefaultButton							StandrdTlacitko 	
+Del Section							Sekce Del	
+Delete			Delete		Annuler	D"		Annulla
+Delete	TWorkOffsetForm	PopupDelete	Delete		Annuler	D"	Vymaz	Annulla
+Delete current record							Vymaz aktual zaznam	
+Delete Line	TCustomToolForm	DeleteBtn	Delete Line				Vymaz Radku	
+Delete record			Delete record		Supprimer enregistrement	Deletar registro	Vamaz Zaznam	Cancella record
+Delete the item entitled 			Delete the item entitled 		Annuler intitulé item		Vymaz opravnenou polozku	
+Delimiter;every other symbol							Odelovac kazdy dalsi symbol	
+Demo							Demo	
+DEMO VERSION			DEMO VERSION				DEMO VERZE	
+Denford CNC File			Denford CNC File				CNC File Denford 	
+Denford CNC File - 			Denford CNC File - 		Fichier CNC Denford			
+Denford Compiled File (*.XNC)|*.XNC|All Files (*.*)|*.*			Denford Compiled File (*.XNC)|*.XNC|All Files (*.*)|*.*		Denford Compiled File (*.XNC)|*.XNC|All Files (*.*)|*.*		Kompilovany File Denford (*.XNC) *.XNC Vsechny Fily (*.*)*.*	
+Denford Language	TFlashGenForm	PackageCombo	Denford Language		Langage Denford		Jazyk Denford	
+Denford Limited	TFlashForm	FlashFormDenfordLabel	Denford Limited		Denford Limited		Denford Limited	
+Denford Limited, Birds Royd, Brighouse, West Yorkshire, HD6 1NB, UK.	TDemoForm	Label1	Denford Limited, Birds Royd, Brighouse, West Yorkshire, HD6 1NB, UK.				Denford Limited, Birds Royd, Brighouse, West Yorkshire, HD6 1NB. UK.	
+Denford Machine Control			Denford Machine Control		Commande machine Denford		Denford Machine Control	
+Denford Virtual Reality	TVRT_form_turn		Denford Virtual Reality		Denford Virtual Reality		Denford Virtual Reality	
+Denford VR Control			Denford VR Control		Commande VR Denford		Denford VR Control	
+Denford VR Turning Demo	TDemoForm		Denford VR Turning Demo				Demo Soustruzeni Denford VR	
+DenNet - Denford Network Command Centre	TDenNetForm		DenNet - Denford Network Command Centre	DenNet - Denford Network Command Center			DenNet - Denford Network Command Centre	
+Depth of cut in X - U(1)	TTurnWizForm	LabelU1	Depth of cut in X - U(1)				Hloubka rezu v X - U(1)	
+Depth of cut in Z - W(1)	TTurnWizForm	LabelW1	Depth of cut in Z - W(1)				Hloubka rezu v Z - W(1)	
+Depth of first cut as radius - Q [µm]	TTurnWizForm	LabelQT2	Depth of first cut as radius - Q [µm]				Hloubka prveho rezu pri polomeru - Q [um]	
+Depth of thread as radius - P [µm]	TTurnWizForm	LabelPT2	Depth of thread as radius - P [µm]				Hloubka zavitu pri polomeru - P [um]	
+Descending							Sestupny	
+Descript Label	TCustomToolForm	DescriptLabel	Descript Label					
+description	TGet_token_form	description	description		description		popis	
+Description	TWizard_Header	Label2	Description		Description		Popis	
+Description & Demo							Popis & Demo	
+Description:							Popis:	
+Designer							Konstrukter	
+DesignerForm							FormulKonstrukte	
+Destination							Urceni	
+destination control							rizeni urceni	
+Destination-Control							Rizeni-Urceni	
+Details			Details		Détails	D"	Detaily	Dettagli
+Details >	TMachProbDlg	Details	Details >				Detaily >	
+Details...							Detaily...	
+Deutsch (Deutschland)							Nemecky (Nemecko)	
+Deutsch (Liechtenstein)							Nemecky (Lichtenstein)	
+Deutsch (Luxemburg)							Nemecky (Luxemburg)	
+Deutsch (Österreich)							Nemecky (Rakousko)	
+Deutsch (Schweiz)							Nemecky (Svycarsko)	
+Developed by the Denford Software Team	TAboutBox	Panel6	Developed by the Denford Software Team		Développé par l'Equipe Logiciel de Denford		Vyvinuto Denford Software Team	
+Development tool :							Vyvojovy prostredek :	
+Development tools							Vyvojove prostredky	
+Diagnose, Parameters			Diagnose, Parameters					
+Dialog Type							Typ Dialogu	
+Diameter	TBilletDlg	DiameterLabel	Diameter				Prumer	
+Diameter	TOptionsDlg	DiameterLabel	Diameter				Prumer	
+Diamond							Kosoctverec	
+Different FrameSides							Odlisne StranyRamce	
+diffuse							difuzni	
+Digital only style with settings for CustomDateTimeFormat							Jen digital styl s nastavenimi proZakaznFormatDatumCas	
+dimLabel							RozmNavest	
+Direct3D7 IM Sample - Cube							Vzorek Direct3D7 IM - Kostka	
+Direct3D7 IM Sample - Texture							Vzorek Direkt3D7 IM - Struktura	
+Direct3D7 IM Sample - Video Texture							Vzorek Direct3D7 IM - Struktura Videa	
+Direction			Direction		Direction		Smer	
+Direction:							Smer.	
+Disconnect All							Vse Rozpojit	
+Display							Zobrazit	
+Display about box							Zobraz kol ramecku	
+Display Driver							Zobraz Driver	
+Display Font							Zobraz Font	
+Display mode							Rezim zobrazni	
+Display mode change							Zmena rezimu zobrazeni	
+Display Options...	TEditorForm	DisplayOptions1	Display Options...		Afficher les options...		Zobraz Opce	
+Display our exception message							Zobraz nase hlaseni vyjimky	
+Display:							Zobrazit:	
+DisplayMemo							ZobrazMemo	
+Display-Style							Zobrazeni-Styl	
+Disposal:							Dostupnst:	
+Distance and direction of finishing cut in X - U(2)	TTurnWizForm	LabelU2	Distance and direction of finishing cut in X - U(2)				Vzdalenost a smer dokoncovaciho rezu v X - U(2)	
+Distance and direction of finishing cut in Z - W(2)	TTurnWizForm	LabelW2	Distance and direction of finishing cut in Z - W(2)				Vzdalenost a smer dokoncovaciho rezu v Z - W(2)	
+Distance to origin	TSetOffsets	OffsetLabel	Distance to origin				Vzdalenst do pocatk	
+Distance:							Vzdalenst:	
+Division by zero							Deleni nulou	
+Do It	TMcodeManual	DoIt	Do It					
+Do you really want to change to Tool?			Do you really want to change to Tool?					
+Do you really want to delete all the tooling data?			Do you really want to delete all the tooling data?					
+Do you really want to disconnect from the Milling Machine			Do you really want to disconnect from the Milling Machine					
+Do you wish to continue ?			Do you wish to continue ?				Chcete pokracovat?	
+Do you wish to continue anyway?			Do you wish to continue anyway?				Chcete nìjak pokracovat?	
+Do you wish to renumber the whole file?			Do you wish to renumber the whole file?				Chcete celý file precislovat?	
+Done			Done		Fait		Proved	
+Dongle Not Found	TDongleDialog	Label1	Dongle Not Found		Clé de sécurité non trouvée		BezpKlic Nenalezen 	
+Dongle Number - 	TMainForm	Security1	Dongle Number - 					
+Don't Show This Again	TMach_Warn	ShowAgain	Don't Show This Again		Ne plus montrer ceci		Znovu Neukazovat	
+Don't show this warning again	TColour_depth_form	warn	Don't show this warning again				Varovani znovu neukazovat	
+Donwload Error: 			Donwload Error: 		Erreur chargement :		Chyba Zavadeni	
+Down							Dolu	
+Draw							Kreslit	
+Draw 2D	TTurn2DForm	Draw2D1	Draw 2D				Kreslit 2D	
+Draw 3D	TTurn2DForm	Draw3D1	Draw 3D				Kreslit 3D	
+Draw Line	TCustomToolForm	LineButton	Draw Line				Kreslit Caru	
+Draw2D	TForm2D	Pos_size1	Draw2D					
+Draw3D	TForm3D	Pos_size1	Draw3D					
+Dri&ves:			Dri&ves:		Com&mandes	&v":	Dri&vy	&Unità:
+Drill/Groove			Drill/Groove					
+Dwell	TDownCounter	Label1	Dwell				Prodl	
+E&ditor	TEditorForm	File1	E&ditor		E&diteur		E&ditor	
+E&xit	TDenNetForm	Exit1	E&xit		Q&uitter	&Sair	E&xit	&Esci
+Easimill	TFlashGenForm	PackageCombo	Easimill		Easimill	Easimill	Easymill	
+Easimill 2	TFlashGenForm	PackageCombo	Easimill 2		Easimill 2	Easimill 2	Easymill 2	
+Easiturn	TFlashGenForm	PackageCombo	Easiturn		Easiturn	Easiturn	Easyturn	
+edit							edit	
+Edit	TWorkOffsetForm	PopupEdit	Edit		Editer	Editar	Edit	Modifica
+EDIT 	TFanucScreen21I	StatDisp1	EDIT 				EDIT	
+EDIT 	TFanucScreenOT	StatDisp1	EDIT 				EDIT	
+EDIT 	Tscreen	InputLine	EDIT 				EDIT	
+Edit  							Edit	
+Edit current record							Edit aktual zaznam	
+Edit current record and send data back to application server							Edit aktual zaznam a poslat data zpet do serveru aplikace	
+Edit record			Edit record		Modifier enregistrement	Editar registro		Modifica record
+Edit Tooling Now			Edit Tooling Now					
+Editing							Editace	
+EditMode	TMainForm	EditMode	EditMode				RezimEdit	
+Editor	TEditorForm		Editor		Editeur		Editor	
+Editor	TFanucScreen21I	Editor1	Editor		Editeur		Editor	
+Editor	TFanucScreenOT	Editor1	Editor		Editeur		Editor	
+Editor	TFlashGenForm	PackageCombo	Editor		Editeur			
+Editor	Tscreen	Editor1	Editor		Editeur		Editor	
+Editor - 			Editor - 		Editeur -		Editor -	
+Editor - New File			Editor - New File		Editeur - Nouveau Fichier		Editor - Novy File	
+Editor Enabled							Editor Aktivovan	
+Editor1	TEditorForm	Pos_size1	Editor1					
+Editors							Editory	
+Effect property	TFxSelectDialog		Effect property		Propriété effet			
+Effects			Effects		Effets	Efeitos	Efekty	Effetti
+e-mail	TEditorForm	RichEdit	e-mail					
+e-mail	Tscreen	EditWindow	e-mail					
+Email:							Email:	
+E-Mail: sales@denford.co.uk	TDemoForm	Label4	E-Mail: sales@denford.co.uk				E-Mail: sales@denford.co.uk	
+Emergency Stop Pressed			Emergency Stop Pressed				Stlacen Nouzovy Stop	
+emission							emise	
+En/Disable							Aktiv/Neaktiv	
+End							Konc	
+End Face Peck Drilling			End Face Peck Drilling					
+End Face Peck Drilling (G74)	TTurnWizForm	ComboGCode	End Face Peck Drilling (G74)				Prerus Vrtani z Cela (G74)	
+End Of Block, /, ¸, #			End Of Block, /, ¸, #					
+End of program - M02	TTurnWizForm	GroupPO	End of program - M02				Konec programu - M02	
+End of Program (M02)	TTurnWizForm	ComboGCode	End of Program (M02)				Konec Programu (M02)	
+end.							konc.	
+end;							konc	
+English			English		Anglais	Inglês	Anglicky	Inglese
+English (United Kindom)							Anglicky (UK) 	
+enhanced positioning at any point on the form.							zdokonalene najizdeni v libovol bodu na tvaru	
+Enter an M code	TMcodeManual		Enter an M code				Zavest M kod	
+enter jog increment here	TCPLTestForm	IncJog	enter jog increment here				zde zavest prirustek jogu	
+Enter Line End Token(s) below			Enter Line End Token(s) below		Entrer caractère fin de ligne ci-dessous		Nize Zavest Znamku(y) Konce Radky 	
+Enter Padding Token(s) below			Enter Padding Token(s) below		Entrer caractère inséré ci-dessous		Nize Zavest Znamku(y) Doplneni	
+Enter Project Information	TGetProjInfo		Enter Project Information				Zavest Projekt Informaci	
+Enter the hostname or IP address for the MidWare server							Zavest nazevhostitele neb IP adresu pro server MidWare	
+Enter the M code you wish to execute here	TMcodeManual	McodeText	Enter the M code you wish to execute here				Zavest M kod, ktery zde chcete provest	
+Enviroment							Prostredi	
+Environment							Prostredi	
+Environment String							Retezec Prostredi	
+EqualLetters							StejnaPismena	
+Equipment installation							Instalace zarizeni	
+Error in code, Token not recognised			Error in code, Token not recognised					
+Error in code, Tool Number Not Valid			Error in code, Tool Number Not Valid					
+Error in code, Value is invalid			Error in code, Value is invalid					
+Error too many G codes on one line			Error too many G codes on one line					
+Error trying to open file			Error trying to open file					
+EStop			EStop		Arrêt d'urgence		EStop	
+Etched							Leptany	
+Evaluation expired							Prosle hodnoceni	
+even	TRs232_form	ParityRG	even		pair	Pares	suda	Pari
+Examples							Priklady	
+Excluded Properties							Zahrnute Vlastnosti	
+Execute							Provadet	
+Execute Mode	TMainForm	ExecuteMode2	Execute Mode		Exécuter Mode		Provadeci Rezim	
+Executes the 3D-effect routine.							Provadi rutinu 3D-efektu	
+EXE-Files|*.exe							Fily-EXE *.exe	
+Exit	TFile_warn	Exit	Exit		Quitter	Sair	Exit	Esci
+Exit	TMainForm	Exitbut	Exit		Quitter	Sair	Exit	Esci
+Exit application							Opustit aplikaci	
+Exit program? Save your data first!			Exit program? Save your data first!					
+Exit the application							Opustit tuto aplikaci	
+Exit|							Exit	
+Expand all							Vse roztahn	
+Expanded Code	TExpanded	Panel1	Expanded Code		Code agrandi		Rozsireny Kod	
+Export...	TToolLib	Export	Export...		Export...	x"...		Esporta...
+Export...	TWorkOffsetForm	MenuExport	Export...		Export...	x"...	Export...	Esporta...
+External	TToolLib	ClassGroup	External				Externi	
+f							f	
+F :	TForm2D	StatusBar	F :				F :	
+F :	TForm3D	StatusBar	F :				F :	
+F&ind...							N&alezt	
+F&ont...							F&ont	
+F:	TTurn2DForm	StatusBar1	F:	BG:		BG:	F:	BG:
+Failed to Find a valid Tool-			Failed to Find a valid Tool-					
+Fanuc 21i Open File			Fanuc 21i Open File				Otevrit File Fanuc 21i	
+Fanuc 21i TA	TFanucScreen21I		Fanuc 21i TA				Fanuc 21i TA	
+Fanuc CNC File (*.FNC)|*.FNC|Text File (*.txt)|*.txt|Any File (*.*)|*.*	TEditorForm	OpenDialog	Fanuc CNC File (*.FNC)|*.FNC|Text File (*.txt)|*.txt|Any File (*.*)|*.*		Fanuc CNC File (*.FNC)|*.FNC|Text File (*.txt)|*.txt|Any File (*.*)|*.*		File Fanuc CNC (*.FNC) *.FNC Text File (*.txt) *.txt Libov File (*.*) *.*	
+Fanuc CNC File (*.FNL)|*.FNL|Text File (*.txt)|*.txt|Any File (*.*)|*.*			Fanuc CNC File (*.FNL)|*.FNL|Text File (*.txt)|*.txt|Any File (*.*)|*.*				File Fanuc CNC (*.FNL) *.FNL Text File (*.txt) *.txt Libov File (*.*) *.* 	
+Fanuc CNC File|*.FNC|Text File|*.txt|Any File|*.*	TEditorForm	SaveDialog	Fanuc CNC File|*.FNC|Text File|*.txt|Any File|*.*		Fanuc CNC File|*.FNC|Text File|*.txt|Any File|*.*		File Fanuc CNC *.FNC Text File *.txt Libov File *.*	
+Fanuc Files|*.FNC|Any File|*.*	TFanucScreen21I	Save_fnc	Fanuc Files|*.FNC|Any File|*.*				Fily Fanuc *.FNC Libov File*.*	
+Fanuc Files|*.FNC|Any File|*.*	Tscreen	Open_Fnc	Fanuc Files|*.FNC|Any File|*.*				Fily Fanuc *.FNC Libov File*.*	
+Fanuc Files|*.FNC|Any File|*.*	Tscreen	Save_fnc	Fanuc Files|*.FNC|Any File|*.*				Fily Fanuc *.FNC Libov File *.*	
+Fanuc Files|*.FNL|Any File|*.*	TFanucScreen21I	Open_Fnc	Fanuc Files|*.FNL|Any File|*.*				Fily Fanuc *.FNL Libov File *.*	
+Fanuc Knob Goes Here	TFanucScreen21I	Panel1	Fanuc Knob Goes Here				Zde Nastup OtocKnoflik Fanuc	
+Fanuc Knob Goes Here	TFanucScreenOT	KnobPanel	Fanuc Knob Goes Here				Zde Nastup OtocKnoflik Fanuc	
+Fanuc OM	TFlashGenForm	PackageCombo	Fanuc OM		Fanuc OM	Fanuc OM	Fanuc OM	
+Fanuc OT	TFanucScreenOT		Fanuc OT		Fanuc OT	Fanuc OT	Fanuc OT	
+Fanuc OT	TFlashGenForm	PackageCombo	Fanuc OT		Fanuc OT	Fanuc OT		
+FanucKnob	TFanucKnob		FanucKnob				OtKnoflFanuc	
+Fanucl	TFlashGenForm	PackageCombo	Fanucl		Fanucl	Fanucl	FanucI	
+Fanucld	TFlashGenForm	PackageCombo	Fanucld		Fanucld	Fanucld	FanucId	
+Fanucm	TFlashGenForm	PackageCombo	Fanucm		Fanucm	Fanucm	Fanucm	
+Fanucmd	TFlashGenForm	PackageCombo	Fanucmd		Fanucmd	Fanucmd	Fanucmd	
+FanucOffs	TFanucOffs		FanucOffs				FanucOffs	
+FanucOpPanel	TFanucOpPanel		FanucOpPanel				OpPanelFanuc	
+Fanucsm	TFlashGenForm	PackageCombo	Fanucsm		Fanucsm	Fanucsm	Fanucsm	
+Färöisch							Faersky	
+Farsi							Farsi	
+fast							rychl	
+Fast Traverse			Fast Traverse					
+Faster							Rychlej	
+Fastest							Nejrychl	
+Fat/Slim							Tlust/Tenk	
+Favour color:							Oblib barva:	
+FAX							FAX	
+Fax:							fax:	
+Feb			Feb		Fév	Fev		
+February			February		Février	Fevereiro	Unor	Febbraio
+Feed	TControlPanel	Label1	Feed		Avance		Posuv	
+Feed	TControlPanel	Label2	Feed		Avance		Posuv	
+Feed	TControlPanel	Label3	Feed		Avance		Posuv	
+Feed	TControlPanelStdForm	Label1	Feed		Avance		Posuv	
+Feed	TControlPanelStdForm	Label3	Feed		Avance		Posuv	
+Feed :	TTurnWizForm	LabelF	Feed :				Posuv :	
+Feed Override	TControlPanel	FeedBar	Feed Override				Regulace Posuvu	
+Feed Override	TControlPanelStdForm	FeedBar	Feed Override				Regulace Posuvu	
+Feed Override	TCPLTestForm	FlatPanel1	Feed Override				Regulace Posuvu	
+Feed Override	TFloatKnob		Feed Override				Regulace Posuvu	
+Feed Per Minute	TTurnWizForm	GroupFT	Feed Per Minute				Posuv Za Minutu	
+Feed Per Minute (G98)	TTurnWizForm	ComboGCode	Feed Per Minute (G98)				Posuv Za Minutu (G98)	
+Feed Per Revolution	TTurnWizForm	GroupFT	Feed Per Revolution				Posuv Na Otacku 	
+Feed Per Revolution (G99)	TTurnWizForm	ComboGCode	Feed Per Revolution (G99)				Posuv Na Otacku (G99)	
+Feed Type			Feed Type					
+Feed Type	TTurnWizForm	GroupFT	Feed Type				Druh Posuvu	
+Feed:	TControlPanel	FeedLabel	Feed:				Posuv:	
+Feed:	TControlPanelStdForm	FeedLabel	Feed:				Posuv:	
+FeedDown	TMainForm	FeedDown	FeedDown				SnizPosuvu	
+FeedUp	TMainForm	FeedUp	FeedUp				ZvysPosuv	
+Fi&nd what:			Fi&nd what:		Tr&ouver que :	&Localizar:	Nalezt co:	&Trova:
+Field Layout Editor							Editor Usporadani Pole	
+file	TEditorForm	RichEdit	file		Fichier	Ficheiro		File
+file	Tscreen	EditWindow	file		Fichier	Ficheiro		File
+File	Tdebug2	File1	File		Fichier	Ficheiro	File	File
+File	TMainForm	File2	File		Fichier	Ficheiro	File	File
+File &name:			File &name:		Nom& de fichier :	&Nome de ficheiro:	File nazev:	&Nome file:
+File associated images : <IMG src="ssys:test.doc"> <IMG src="ssys:test.xls">							Obrazy prirazene filu :< IMG src="ssyy:test.doc"> <IMG src="ssys:test.xls">	
+File Control	TMainForm	Toolbar_File_Control	File Control		Commande fichier		Rizeni Filu	
+File formatting takes place when opening a CNC file in the Fanuc21i editor,			File formatting takes place when opening a CNC file in the Fanuc21i editor,				Formatovani filu se provadi priotevreni CNC filu v editoru Fanuc21i,	
+File Input			File Input		Entrée fichier		Vstup Filu	
+File not found.			File not found.					
+File related commands							Prikazy tykajici se filu	
+File size :	TPlugInManagerPropForm	Label3	File size :				Velikost filu:	
+File:	TMainForm	StatusBar2	File:		Fichier :	Ficheiro:	File:	File:
+FileInputForm	TFileInputForm		FileInputForm				VstupniFormFilu	
+Filename	TCustomToolForm	FileNameLabel	Filename				Nazevfilu	
+Files dropped from File-Manager/Explorer or messages from events							Fily odpadly z File-Manager/Explorer nebo hlaseni z udalosti	
+Files of &type:			Files of &type:		Fichiers de &type :	&Ficheiros do tipo:	Fily &typu	&Tipo file:
+fill							vypln	
+Fill							Vypln	
+Find			Find		Trouver	E"	Nalezt	Trova
+Find first							Nalezt prvni	
+Find help							Nalezt pomoc	
+Find next							Nalezt dalsi	
+Finishing			Finishing					
+Finishing allowance - R	TTurnWizForm	LabelRT1	Finishing allowance - R				Dokonc pridavek - R	
+First record			First record		Premier enregistrement	Primeiro registro	Prvni zaznam	Primo record
+Flash							Blikat	
+Flash	TFlashGenForm	PackageCombo	Flash		Flash			
+Flash Code	TFlashGenForm	FlashCodeLabel	Flash Code		Code flash		Kod Blikani	
+Flash Code Destination File	TFlashGenForm	DestFileLabel	Flash Code Destination File		Fichier destination code Flash		Cilovy File Kodu Blikani	
+Flash Code Install File	TFlashGenForm	InstallFileLabel	Flash Code Install File		Fichier installation code Flash		Instal File Kodu Blikani	
+Flash User Name	TFlashGenForm	UserNameLabel	Flash User Name		Nom utilisateur Flash		Blikat Jmeno Uzivat	
+Flat							Plochy	
+Fly							Let	
+Font			Font		Police	Fonte	Font	Carattere
+Font >>							Font>>	
+Font properties							Vlastnosti fontu	
+Font size							Velik fontu	
+Font st&yle:			Font st&yle:		St&yle police :	&Estilo do tipo de letra:	St&yl fontu	&Stile:
+Font...	TEditorForm	Font1	Font...		Police...	Fonte...	Font...	Carattere...
+Font:							Font:	
+Font3D							3Dfont	
+FontFX							FXfont	
+Fonts							Fonty	
+Fontsize							Velikfontu	
+FontSize:							VelikFontu:	
+Fontsmoothing							Vyhlazovanifontu	
+Football							Fotbal	
+Footer	TEditorForm	Footer1	Footer		Bas de page	Rodapé	Pata str	Piè pagina
+For full working version contact Denford Ltd : 	TDemoForm	Label5	For full working version contact Denford Ltd : 				Pro plnou prac verzi kontaktujte Denford Ltd :	
+For Registering Information go to 							Pro Informaci o registraci pokracujte na	
+Force feed back sample							Zasahn pro vzorek zpetne vazby 	
+Force the refresh of menu	TfrmMenuEditor	btnRefresh	Force the refresh of menu		Forcer la remise à zéro du menu		Zasahnete pro obnoveni menu	
+Form							Form	
+format							format	
+Format							Format	
+Format file (*.NCF)|*.NCF|Text file (*.txt)|*.txt|Any file (*.*)|*.*			Format file (*.NCF)|*.NCF|Text file (*.txt)|*.txt|Any file (*.*)|*.*		Format file (*.NCF)|*.NCF|Text file (*.txt)|*.txt|Any file (*.*)|*.*		Format file (*.NCF) *.NCF Text file(*.txt) *.txt Libov file (*.*)	
+Format Using...	TEditorForm	LoadFormat1	Format Using...		Format utilisant...		Uziti Formatu... 	
+FormMaskGenerator	TFormMaskGenerator		FormMaskGenerator		FormMaskGenerator		GeneratorMaskyFormulare  	
+Forward	TTurnWizForm	GroupSO	Forward				Dopredu	
+Forward (Z/W)							Dopredu (Z/W)	
+Frame:							Ramec:	
+France			France		France	E"	Francie	Francia
+Free							Volny	
+French			French		Français	Francês	Francouzk	francese
+Freq:							Frekv:	
+Frequency							Frekvence	
+Frequency :							Frekvence :	
+Frog							Zaba	
+From :							Od :	
+Front	TMaterialEditorForm	TSFront	Front				Vpredu	
+ftp	TEditorForm	RichEdit	ftp					
+ftp	Tscreen	EditWindow	ftp					
+Fuchsia			Fuchsia	Fuchsia	Fuchsia	Lilás	Anilin cerv	Fucsia
+Full active section							Plna aktiv sekce	
+Full Compatibel with Standard Mask Edit Control 							Plne Kompatibilni s Rizenim Editace Standard Masky 	
+Full Edit	TfrmMenu	Edit2	Full Edit				Plna Edit	
+Full Line	TfrmPopMenuEditor	chkFullLine	Full Line		Ligne pleine		Plna Cara	
+Full sort							Uplne trid	
+Function							Funkce	
+G	TCol_pref	Example	G		G		G	
+G Code Not Supported	TWizNoSuportForm		G Code Not Supported				G Kod Neni Podporovan	
+G Value							Hodnota G	
+General	TOptionsDlg	GeneralSheet	General				Vseobec	
+Gentle							Jemny	
+Georgia							Georgia	
+Germany							Nemecko	
+Get							Vyvolan	
+gif							gif	
+GIF Files (*.gif)|*.gif|All Files (*.*)|*.*							Fily GIF (*.gif) *.gif Vsechny Fily (*.*) *.*	
+GIF Files (*.gif)|*.gif|Bitmap Files (*.bmp)|*.bmp|All Files (*.*)|*.*							Fily GIF (*.gif) *.gif Fily Bitmapy (*.bmp) *.bmp Vsechny Fily (*.*) *.*	
+gopher	TEditorForm	RichEdit	gopher					
+gopher	Tscreen	EditWindow	gopher					
+Gradients							Gradienty	
+Graphics							Grafika	
+Gray			Gray	Gray	Gris	S"	Seda	grigio
+Green			Green	Green	Vert	Verde	Zelena	Verde
+Green:	TfrmColorSelector	Label3	Green:	Green:	Vert :	Verde:	Zelena:	Verde:
+Grid Size	TCustomToolForm	GridSizeLabel	Grid Size				Velik mrizky	
+Grid with graphics							Mrizka s grafikou	
+Groove retract amount in Z - R(2)	TTurnWizForm	LabelRG2	Groove retract amount in Z - R(2)				Velikost vyjeti ze zapichu v Z - R(2)	
+Grooving			Grooving					
+Grooving Cycle (G75)	TTurnWizForm	ComboGCode	Grooving Cycle (G75)				Zapich Cyklus (G75)	
+Group			Group				Skupina	
+H	TForm1	Label4	H					
+Hardware							Hardware	
+Has not been assigned, keep current tool?			Has not been assigned, keep current tool?					
+Header							Zahlavi	
+Header Wizard	TWizard_Header		Header Wizard		Header Wizard		Header Wizard	
+Header...	TEditorForm	Header1	Header...		Entête	Cabeçalho...	Zahlavi...	Intestazione...
+Heid OM	TFlashGenForm	PackageCombo	Heid OM		Heid OM		Heid OM	
+Heiden	TFlashGenForm	PackageCombo	Heiden		Heiden		Heiden	
+Heidenk	TFlashGenForm	PackageCombo	Heidenk		Heidenk		Heidenk	
+height							vyska	
+Height	TG3D_setup	Label5	Height		Hauteur	Altura	Vyska	Alt.
+Height of items							Vyska polozek	
+Height:							Vyska:	
+HeightField							PoleVysky	
+Help	TTurnWizForm	BtnHelp	Help		Aide	Ajuda	Napov	Guida
+Help	TWizNoSuportForm	BtnHelp	Help		Aide	Ajuda	Napov	Guida
+Help topics							Predmty napov	
+Here: TopLeft with OffsetX = 10 and OffsetY=10							Zde: VrchniLevy s PosunX=10 a PosunY=10	
+Hidden	TToolbar_SetupForm	Hidden	Hidden		Cacher	Oculta	Skryty	Nascosto
+Hidden panel							Skryty panel	
+Hide							Skryt	
+Hide -->	TFanucScreen21I	HideRightPanel	Hide -->				Skryt-->	
+Hide All							Skryt Vse	
+Hide Buttons	TFanucScreen21I	ShowHideButtons	Hide Buttons				Skryt Tlacitka	
+Hide Buttons	TFanucScreenOT	ShowHideButtons	Hide Buttons				Skryt Tlacitka	
+Hide Buttons	Tscreen	ShowHideButtons	Hide Buttons				Skryt Tlacitka	
+Hide Edit Panel	TFanucScreenOT	ShowHideBtn	Hide Edit Panel				Skryt Panel Edit	
+High							Vysky	
+High light Colour	TG_setup	Label6	High light Colour	High light Color			Zvyraz Barva	
+Highest							Nejvyssi	
+Highlight							Zvyraznit	
+Hint							Pokyn	
+Hint Color							Barva Pokynu	
+Hint Position:							Poloha Pokynu:	
+Hint Style:							Styl Pokynu:	
+Home	TControlPanel	HomeBox	Home		POM		Domov	
+Home	TControlPanel	HomeButton	Home		POM		Domov	
+Home	TControlPanelStdForm	HomeBox	Home		POM		Domov	
+Home	TControlPanelStdForm	HomeButton	Home		POM		Domov	
+Home	TCPLTestForm	Home	Home		POM		Domov	
+HomeAll	TCPLTestForm	Button3	HomeAll				VseDomu	
+HomeAll	TMainForm	HomeAll	HomeAll				VseDomu	
+HomeMode	TMainForm	HomeMode	HomeMode		POM		Rezim	
+HomeX	TCPLTestForm	Button1	HomeX				VychpolX	
+HomeX	TMainForm	HomeX	HomeX				VychpolX	
+HomeZ	TCPLTestForm	Button2	HomeZ				VychpolZ	
+HomeZ	TMainForm	HomeZ	HomeZ				VychpolZ	
+Homing aborted			Homing aborted				Navrat vychpol zrusen	
+Horizontal							Horizontalni	
+Hour Glass  							Hodin Sklo	
+Hour:							Hodin	
+Hour;hh							Hodina hh	
+Howl (MP3)							Vyt (MP3)	
+HTML							HTML	
+HTML Text							Text HTML	
+http	TEditorForm	RichEdit	http					
+http	Tscreen	EditWindow	http					
+http://www.denford.com	TDemoForm	Label3	http://www.denford.com				http://www.denford.com	
+http://www.lmd.de							http://www.Imd.de	
+http://www.lmdtools.com							http://www.Imdtools.com	
+http://www.multilizer.com/support							http://www. multilizer.com/support	
+http://www.tmssoftware.com							http://www.tmssoftware.com	
+https	TEditorForm	RichEdit	https					
+https	Tscreen	EditWindow	https					
+Hu&e:			Hu&e:		teinte	&Matiz:	Zab&arv:	&Ton:
+I : 	TTurnWizForm	LabelI	I : 					
+ID							ID	
+Ident:							Ident:	
+Import...	TToolLib	Import	Import...		Importer...	I"...		Importa...
+Import...	TWorkOffsetForm	MenuImport	Import...		Importer...	I"...		Importa...
+In this mode - select an item you want	TFanucScreen21I	Label27	In this mode - select an item you want				V tomto rezimu - zvolte poloz kterou chcete	
+In this mode - select an item you want to know more about by clicking it with the ? mouse pointer.	TFanucScreenOT	Label27	In this mode - select an item you want to know more about by clicking it with the ? mouse pointer.				V tomto rezimu - zvolte poloz o ktere chcete vedet vice kliknutim na ni s ? ukazatelem myši	
+In X Axis			In X Axis					
+In Z Axis			In Z Axis					
+Inc	TControlPanelStdForm	IncJogButton	Inc				Prir	
+Inc Jog	TCPLTestForm	IncJogButton	Inc Jog				Prir Jogu	
+Inc Jog Amount	TCPLTestForm	FlatPanel3	Inc Jog Amount				Velikost Prir Jogu	
+Inc1	TMainForm	Inc1	Inc1				Prir1	
+Inc10	TMainForm	Inc10	Inc10				Prir10	
+Inc100	TMainForm	Inc100	Inc100				Prir100	
+Inc1K	TMainForm	Inc1k	Inc1K				Prir1K	
+inch			inch		inch		palec	
+Inch	TMainForm	Inch1	Inch		Inch		Palec	
+Inch	TWizard_Header	Units	Inch		Inch		Palec	
+IncHigh	TMainForm	IncHigh	IncHigh				PrirVysoky 	
+Include radius	TSetOffsets	RadioGroup	Include radius				Zahrnout polomer	
+Incremental	TTurnWizForm	TabIncX	Incremental				Prirustkovy	
+Incremental	TTurnWizForm	TabInZ	Incremental				Prirustkovy	
+Indents							Odsazeni	
+Index							Rejstrik	
+Index: 							Rejstrik:	
+Indicator							Indikator	
+Information	TFlashForm		Information		Information	Informação	Informace	Informazione
+InformationLabel Demo							Demo NavestiInformaci	
+Ini file:							File ini:	
+INI files							Fily INI	
+Initialising controller . . .	TMintSplash	Label2	Initialising controller . . .				Inicializacni kontroler...	
+Innoview Data Technologies Oy							Innoview Data Technologies Oy	
+Input			Input		input			input
+Input File:							Vstupni File:	
+Input Files:							Vstupní Fily:	
+Input Status	TDebugWindow	StaticText1	Input Status				Status Vstupu	
+Ins							Ins	
+Insert			Insert		Inserer	Inserir		Inserisci
+Insert	TCaracelAndOffsets	ToolInsert	Insert		Inserer	Inserir	Vlozit	Inserisci
+Insert full linked items							Vloz uplne spojene polozky	
+Insert half linked items							Vlozit polospojene polozky	
+Insert new record							Vlozit nvy zaznam	
+Insert record			Insert record		Insérer enregistrement	Inserir registro	Vlozit zaznam	Inserisci record
+Inserted TLMDInformationLabels							Vlozena NavestiInformaciTLMD 	
+Inserted TLMDProgressFill							Vlozena PostupovaVyplnTLMD	
+Install :							Instal :	
+Internal	TFlashGenForm	PackageCombo	Internal		Interne			
+Internal	TToolLib	ClassGroup	Internal		Interne		Interni	
+Internal Bitmap:							Interni Bitmapa:	
+Internal Data:							Interni Data:	
+Internal Picture:							Interni Obrazek:	
+Internal Wave:							Interni Vlna:	
+International money order							Mezinarodni penezni prikaz	
+International:							Mezinarodni:	
+Interpolation			Interpolation					
+Invalid Radius			Invalid Radius					
+Invalid tool index			Invalid tool index				Neplat rejstrik nastr	
+Invalid tool index - 			Invalid tool index - 				Neplat rejstrik nastr -	
+Invalid value stored in Tool Offset Table			Invalid value stored in Tool Offset Table					
+is not a valid tool name			is not a valid tool name				neni platnym nazvem nastroje	
+It will run, but the image quality will be poor.	TColour_depth_form	Label3	It will run, but the image quality will be poor.					
+Italic	TCol_pref	style	Italic		Italic	Itálico	Italic	Corsivo
+Italic	TRichEdit98Editor	ItalicBtn	Italic		Italic	Itálico		Corsivo
+Items							Polozky	
+Jaguar							Jaguar	
+Jan			Jan		Jan			Gen
+January			January		Janvier	Janeiro	Leden	Gennaio
+Jog	TControlPanel	JogButton	Jog		Jog		Jog	
+Jog	TControlPanel	JogModePanel	Jog		Jog		Jog	
+Jog	TControlPanelStdForm	JogButton	Jog		Jog		Jog	
+Jog	TControlPanelStdForm	JogModePanel	Jog		Jog		Jog	
+Jog	TCPLTestForm	Jog	Jog		Jog		Jog	
+JogMode	TMainForm	JogMode	JogMode				RezimJog	
+JogTrap	TControlPanel	JogTrap	JogTrap				JogPast	
+JogTrap	TControlPanelStdForm	JogTrap	JogTrap				JogPast	
+JogXMinus	TMainForm	JogXMinus	JogXMinus				JogXMinus	
+JogXPlus	TMainForm	JogXPlus	JogXPlus				JogXPlus	
+JogZMinus	TMainForm	JogZMinus	JogZMinus				JogZMinus	
+JogZPlus	TMainForm	JogZPlus	JogZPlus				JogZPlus	
+Joystick							PakOvladac	
+Jul			Jul		Juil			Lug
+July			July		Juillet	Julho	Crvnec	Luglio
+JumpMode							SkokRežim	
+Jun			Jun		Juin			Giu
+June			June		Juin	Junho	Crven	Giugno
+Just to test sub menu...	TfrmMenu	x21	Just to test sub menu...				Prave pro test sub menu...	
+Justify	TRichEdit98Editor	JustifyBtn	Justify		Justifier		Zarovnt	
+JustifyBtn	TRichEdit98Editor	JustifyBtn	JustifyBtn		JustifyBtn		TlacZarovn	
+K : 	TTurnWizForm	LabelK	K : 				K :	
+K, I, H, Y			K, I, H, Y					
+Kaleidoscope	TFxSelectDialog	BitBtn34	Kaleidoscope		Kaleidoscope		Kaleidoskop	
+Katalanisch							Katalansky	
+Key							Klav	
+Key 1							Klav 1	
+Key 2							Klav 2	
+Key 3							Klav 3	
+Key assign							Priraz klaves	
+Keyboard							Klavesnice	
+Keys Down	TMainForm	Label1	Keys Down				Klavesy Dolu	
+Keys Up	TMainForm	Label2	Keys Up				Klav Nahoru	
+L	TForm1	Label5	L					
+L&andscape			L&andscape		&Paysage	&Paisagem	P&anorama	&Orizzontale
+L&ined							L&emov	
+L&ocale...							L&okalni...	
+L&ocate...							U&mistit...	
+L, Q, P, V			L, Q, P, V					
+L:	TForm3D	Label6	L:				L:	
+Large	TMainForm	LargeIcons2	Large		Grand		Velky	
+Large	TMainForm	MenuItem3	Large		Grand		Velky	
+Last M Code			Last M Code		Dernier code M		Posledni M Kod 	
+Last record			Last record		Dernier enregistrement	Último registro	Posled zaznam	Ultimo record
+Last Speed Value			Last Speed Value		Dernière valeur vitesse de broche		Posled Hodnt Otacek	
+Last Tool Value			Last Tool Value		Dernière valeur outil		Posled Hodnt Nastr	
+Lathe CAM	TMainForm	MillCAM_output	Lathe CAM				Lathe CAM	
+Lathe CAM Designer	TFlashGenForm	PackageCombo	Lathe CAM Designer		Lathe CAM Designer		Lathe CAM Designer	
+Lathes			Lathes				Soustruhy	
+Layout							Usporad	
+LDesign	TFlashGenForm	PackageCombo	LDesign		LDesign		LDesign	
+Left	TRichEdit98Editor	LeftBtn	Left		Gauche	Esquerda	Levy	Sinistra
+Left - right							Levy - pravy	
+Left mouse btn -> select color							Leve tlac mysi -> volit barvu	
+Left To Right	TFxSelectDialog	BitBtn3	Left To Right		De gauche à droite		Zleva Doprava	
+Left2Right							ZlevaDoprava	
+Length	TCaracelAndOffsets	LengthLabel	Length		Longueur	O"	Delka	Lunghezza
+Let you select the language and locale							Zvolte jazyk a lokalni 	
+Level:							Uroven:	
+Light							Svetel	
+Lime			Lime	Lime	Citron vert	S"	Citron	Verde limone
+Limits	TLimitsDlg		Limits				Limity	
+Limits	TOptionsDlg	LimitsSheet	Limits				Limity	
+Line Number = 			Line Number = 		Numéro de ligne =		Cislo Radky=	
+Line Number:	TElement_info	Label2	Line Number:		Numéro de ligne :		Cislo Radky:	
+Line Numbering	TLine_numbering		Line Numbering		Nombre de lignes :		Cislovani Radek	
+Line Numbering...	TEditorForm	LineNumbering1	Line Numbering...		Nombre de lignes...		Cislovani Radek...	
+Linear			Linear					
+Linear Interpolation (G01)	TTurnWizForm	ComboGCode	Linear Interpolation (G01)				Linearni Interpolace (G01)	
+Linear Movement Colour	TG_setup	linears	Linear Movement Colour	Linear Movement Color	Couleur mouvement linéaire		Barva Linear Pohybu	
+Linear Movement Colour	TG3D_setup	linears	Linear Movement Colour	Linear Movement Color	Couleur mouvement linéaire		Barva Linear Pohybu	
+List			List		Liste		Sezn	
+List files of &type:			List files of &type:		Fichiers liste de &type :	&Listar ficheiros do tipo:	Seznam filu typu	&Tipo file:
+List nesting :	TInfoForm	Label17	List nesting :					
+Load an image							Zavest obraz	
+Load AVI							Zavest AVI	
+Load Ini							Zavest Ini	
+Load Level 1 Defaults	TMainForm	LoadLevel1Defaults1	Load Level 1 Defaults		Chargement par défaut Niveau 1		Zavest Standardy Urovne1	
+Load Level 2 Defaults	TMainForm	LoadLevel1Defaults2	Load Level 2 Defaults		Chargement par défaut Niveau 2		Zavest Standardy Urovne2	
+Load Level 3 Defaults	TMainForm	LoadLevel3Defaults1	Load Level 3 Defaults		Chargement par défaut Niveau 3		Zavest Standardy Urovne3	
+Load tip form file	TCustomToolForm	LoadTipRadio	Load tip form file				Zavst file tvaru spicky 	
+Locale							Lokalni	
+Locale...							Lokalni...	
+Look &in:			Look &in:		Visualiser& :	&Procurar em:	Podivat &se:	&Cerca in:
+Look&up...							Vyhled&at...	
+Low							Nizky	
+Lowest							Nizsi	
+Low-res	TForm3D	LoDetail	Low-res				Nizke-roz	
+Luxembourg			Luxembourg		Luxembourg	E"	Luxembourg	Lussemburgo
+LZX							LZX	
+M :	TForm2D	StatusBar	M :				M :	
+M :	TForm3D	StatusBar	M :				M :	
+M Code 			M Code 				M Kod	
+M Code Menu	TControlPanel	MCodeButton	M Code Menu				Menu M Kodu	
+M Code Menu	TControlPanelStdForm	MCodeButton	M Code Menu				Menu M Kodu	
+M Codes	TControlPanel	MCodeButton	M Codes		codes M		M Kody	
+M Codes	TControlPanelStdForm	MCodeButton	M Codes		codes M		M Kody	
+M Codes	TCPLTestForm	Mcodes	M Codes		codes M		M Kody	
+M:	TTurn2DForm	StatusBar1	M:				M:	
+M98 Sub Program	TTurnWizForm	OpenSubProg	M98 Sub Program				Sub Program M98	
+Machine	TControlPanel	DisplayTypeLabel	Machine		Machine		Stroj	
+Machine	TControlPanel	MachineCoordinates1	Machine		Machine		Stroj	
+Machine	TControlPanel	MachLabel	Machine		Machine		Stroj	
+Machine	TControlPanelStdForm	DisplayTypeLabel	Machine		Machine		Stroj	
+Machine	TControlPanelStdForm	MachineCoordinates1	Machine		Machine		Stroj	
+Machine	TControlPanelStdForm	MachLabel	Machine		Machine		Stroj	
+Machine	TCPLTestForm	Label4	Machine		Machine		Stroj	
+Machine	TMainForm	Mach_output	Machine		Machine		Stroj	
+Machine Co ordinates			Machine Co ordinates					
+Machine Control	TMainForm	Toolbar_machine	Machine Control		Commande machine		Rizeni Stroje	
+Machine Error	TMachProbDlg		Machine Error				Chyba Stroje	
+Machine Error : 			Machine Error : 				Chyba Stroje :	
+Machine Error: 			Machine Error: 					
+Machine Link Error			Machine Link Error				Chyba Spojeni Stroje	
+Machine list file			Machine list file		fichier liste machine		File seznamu stroju	
+Machine not ready, unable to carry out the required command			Machine not ready, unable to carry out the required command				Stroj nepripraven, neschopen provest pozadovany prikaz	
+Machine not safe - Guard open			Machine not safe - Guard open				Stroj nebezpecny - Otevreny kryt	
+Machine not safe - Homing aborted			Machine not safe - Homing aborted				Stroj nebezpecny - Zrusen navrat do vychpolohy	
+Machine Offset : 	TWorkOffsetForm	MachOSNameLabel	Machine Offset : 				Korekce Stroje :	
+Machine Parameters...	TMainForm	SetupMachineParameters2	Machine Parameters...				Parametry Stroje...	
+Machine specific INI File			Machine specific INI File				File INI specificky stroji	
+Machine Tooling File Does not exists, Select One Now			Machine Tooling File Does not exists, Select One Now					
+Macro							Makro	
+mailto	TEditorForm	RichEdit	mailto					
+mailto	Tscreen	EditWindow	mailto					
+Main View							Hlavni pohled	
+MainFm							HlavTvar	
+MainForm							HlavniTvar	
+MainForm	TMainForm	Pos_size1	MainForm					
+MainMenu							HlavniMenu	
+Make Active	TParamEdit	ChangeActive	Make Active				Aktivovat	
+Make Current	TWorkOffsetForm	PopupCurrent	Make Current		Faire courant		Ucinit Aktual	
+Make message beep on fill Edit1							Zvuk signal na Edit1 vyplne  	
+Make your app's look like the big ones !							Aby vase aplikace vypadaly skvele !	
+Manual							Rucni	
+Manual Feed	TCPLTestForm	FlatPanel2	Manual Feed				Rucni Posuv	
+Manual Speed	TCPLTestForm	FlatPanel4	Manual Speed				Rucni Otacky	
+Manual tool change aborted			Manual tool change aborted				Rucni vymena nastroje zrusena	
+Map 2 Scale							Meritko Map 2	
+Mar			Mar		Mars			
+March			March		Mars	Março	Brezen	Marzo
+mark	TRs232_form	ParityRG	mark		marque			
+Maroon			Maroon	Maroon	Bordeaux	S"	Kastanova	Bordeaux
+Masks (*.msk)|*.msk|All Files (*.*)|*.*	TFormMaskGenerator	SaveDialog1	Masks (*.msk)|*.msk|All Files (*.*)|*.*		Masks (*.msk)|*.msk|All Files (*.*)|*.*			
+Match &case			Match &case		Correspondre &case	&c"	Prizpus &pripad	&Maiuscole/minuscole
+Match &whole word only			Match &whole word only		correspondre &mot complet uniquement	&Apenas palavras inteiras	Prizpusobit &pouze cele slovo	&Parola intera
+Material Colour	TG_setup	Label4	Material Colour	Material Color			Barva Materialu	
+Material Editor	TMaterialEditorForm		Material Editor				Editor Materialu	
+Material Picker	TMaterialPicker		Material Picker				Podavac Materialu 	
+Material Picker	TMatPicker		Material Picker				Podavac Materialu 	
+Material Preview	TMaterialEditorForm	GroupBox1	Material Preview				Nahled Materialu	
+Material type	TG3D_setup	Label1	Material type				Typ materialu	
+Math							Matem	
+Matisse ITC							Matisse ITC	
+Max Tool Life	TCaracelAndOffsets	MaxLifeLabel	Max Tool Life				Max Zivot Nastr	
+Max Tool Life	TToolLib	MaxLifeLabel	Max Tool Life				Max Zivot Nastr	
+Maximum Cutting FeedRate	TOptionsDlg	MaxFeedLabel	Maximum Cutting FeedRate				Maximal Rezny Posuv	
+Maximum Depth of Cut	TOptionsDlg	MaxCutLabel	Maximum Depth of Cut				Maximal Hloubka Rezu	
+Maximum Tool Life	TToolEditForm	Label10	Maximum Tool Life					
+MaxSteps							MaxStupne	
+May			May		Mai	Maio	Kvetn	Maggio
+Maze Map							Mapa Bludiste	
+MBUTTON							MTLACITKO	
+MCode	TMainForm	MCode	MCode				MKod	
+MDI	TControlPanel	MDIButton	MDI				MDI	
+MDI	TControlPanelStdForm	MDIButton	MDI				MDI	
+MDI	TCPLTestForm	MDI	MDI				MDI	
+MDIMode	TMainForm	MDIMode	MDIMode				RezimMDI	
+Measure	TForm3D	MeasureButt	Measure				Mira	
+Measuring Controls	TForm3D	MeasureTBar	Measuring Controls				Prvky Mereni	
+message	TmessageF	message_top	message		message			
+Message							Hlaseni	
+Message	TmessageF	Label2	Message		Message			
+Methods							Metody	
+Metric	TMainForm	Metric1	Metric		Métrique		Metricky	
+Metric	TMainForm	StatusBar1	Metric		Métrique		Metricky	
+Metric	TWizard_Header	Units	Metric		Métrique		Metricky	
+Mill CAM Designer	TFlashGenForm	PackageCombo	Mill CAM Designer		Mill CAM Designer		Mill CAM Designer	
+Mill CAM Designer 3	TFlashGenForm	PackageCombo	Mill CAM Designer 3		Mill CAM Designer 3		Mill CAM Designer 3	
+Miller 32	TFlashGenForm	PackageCombo	Miller 32		Miller 32		Miller 32	
+Milling CAM	TFlashGenForm	PackageCombo	Milling CAM		CFAO Fraisage		CAM frezovani	
+Minimize All							Vse minimaliz	
+Minimize all windows							Minimaliz vsechna okna	
+Minimum cutting depth [µm]	TTurnWizForm	LabelQT1	Minimum cutting depth [µm]				Minimal rezna hloubka [um]	
+Minimum number length (eg 3 = 001)	TLine_numbering	Label3	Minimum number length (eg 3 = 001)		Longueur maxi nombre (ex 3 = 001)		Minimal delka cisla (pr 3=001)	
+Mint Debug Window	TDebugWindow		Mint Debug Window				Nepouz Okno Odlad	
+Mint Information	TGetMintVer		Mint Information				Nepouz Informace	
+Mint Program file			Mint Program file				Nepouz File programu	
+Mint program on machine is different - download the new one from the PC ?			Mint program on machine is different - download the new one from the PC ?				Nepouzity program na stroji je jiny - zavedete z PC novy ?	
+Mint program on machine is different - download the one from the PC ?			Mint program on machine is different - download the one from the PC ?				Nepouzity program na stroji je jiny - zavedete z PC program ?	
+Mint Splash	TMintSplash		Mint Splash				Nepouz Oplach	
+Minute:							Minuta:	
+Minutes;mm							Minuty mm	
+Miracs	TFlashGenForm	PackageCombo	Miracs		Mirac		Zazraky	
+Mirror							Zrcadlo	
+mm			mm		mm	mm	mm	
+mm	TSetOffsets	Metric1	mm		mm	mm	mm	
+mm	TSetOffsets	Metric2	mm		mm	mm	mm	
+mm	TWizard_Header	Label6	mm		mm	mm	mm	
+mm	TWizard_Header	Label8	mm		mm	mm	mm	
+MM	TOptionsDlg	Label2	MM		MM	MM	MM	
+MM/min	TOptionsDlg	Label1	MM/min				MM/min	
+Modal data	TMainForm	dataInfo	Modal data		données modales		Modalni data	
+Modal Data	TMainForm	dataInfo	Modal Data		données modales		Modalni Data	
+Mode							Rezim	
+Modem							Modem	
+Modified			Modified		Modifié	E"	Modifikovan	Modificato
+Multiple Cutting			Multiple Cutting					
+Multiple file drops are not possible, accepting the first file only.			Multiple file drops are not possible, accepting the first file only.					
+Must be in Automatic to change tool	TCaracelAndOffsets	ChangeTool	Must be in Automatic to change tool				Musi byt pro vymenu nastroje v Auto	
+Must be in Home mode			Must be in Home mode				Musi byt v rezimu Navratu vychpoloh	
+N/A							N/A	
+N0000	TFanucScreenOT	BigN	N0000				N0000	
+Name			Name		Nom	Nome	Nazev	Nome
+Navy			Navy	Navy	Marine	S"	Tmmodry	Blu scuro
+Near: (0,0) Eye -> Obj							Blizky: (0,0) Oko  ->  Obj	
+Negative							Negativni	
+Negative Length	TBilletDlg	LengthMLabel	Negative Length				Negativni Delka	
+Negative Length	TOptionsDlg	LengthMLabel	Negative Length				Negativni Delka	
+Net&work...			Net&work...		Rés&eau...	&Rede...	Sit	&Rete...
+New	TCaracelAndOffsets	New1	New		Nouveau		Novy	
+New...	TMainForm	New1	New...		Nouveau...		Novy	
+news	TEditorForm	RichEdit	news					
+news	Tscreen	EditWindow	news					
+Next							Dalsi	
+Next >	TCustomToolForm	NextButton	Next >		Suivant >		Dalsi >	Prossimo >
+Next record			Next record		La fiche suivante	Próximo registro	Dalsi zaznam	Record successivo
+Next Step DEBUG	TNextStepdebug		Next Step DEBUG				Dalsi krok ODLADENI	
+Niederländisch (Holland)							Holandsky 	
+nntp	TEditorForm	RichEdit	nntp					
+nntp	Tscreen	EditWindow	nntp					
+No							Bez	
+No Current Tool	TNoCurrentTool		No Current Tool				Bez Aktual Nastr 	
+No Drawing Elements drawn for that Line			No Drawing Elements drawn for that Line					
+No Drawing Elements in range			No Drawing Elements in range					
+No effect	TFxSelectDialog	BitBtn37	No effect		Sans effet		Bez ucinku	
+No Effect	TFxSelectDialog	Label4	No Effect		Sans effet		Bez Ucinku	
+No error; please ignore!			No error; please ignore!					
+No longer exists in this Tool Library, Delete this Tool data?			No longer exists in this Tool Library, Delete this Tool data?					
+No Mcodes Defined in parameters			No Mcodes Defined in parameters				Zadne M kody Definovane v parametech	
+No Movement to start Compensation with			No Movement to start Compensation with					
+No output has been selected please choose one now.	TChoice_From	Label1	No output has been selected please choose one now.		Aucune sortie n'a été sélectionnée, en choisir une maintenant SVP.		Nebyl zvolen zadny vystup, prosim zvolte nyni jeden.	
+No.							Cis.	
+NO.      X           Z           R    T	TFanucOffs	Edit1	NO.      X           Z           R    T				CIS.      X      Z      R   T      	
+NO.      X           Z           R    T	TFanucOTOffs	HeaderLabel	NO.      X           Z           R    T				CIS.      X      Z      R   T 	
+Node style							Styl uzlu	
+Nodes							Uzly	
+none	TRs232_form	HandshakingRG	none		Aucun	Nenhuma		Nessuno
+none	TRs232_form	ParityRG	none		Aucun	Nenhuma	zadny	Nessuno
+None	TControlPanelStdForm	ToolOffsetValue	None		Aucun	Nenhuma	Zadny	Nessuno
+None	TControlPanel	ToolOffsetValue	None		Aucun	Nenhuma	Zadny	Nessuno
+None	TMainForm	MenuItem4	None		Aucun	Nenhuma	Zadny	Nessuno
+None	TMainForm	None2	None		Aucun	Nenhuma	Zadny	Nessuno
+Normal							Normalni	
+Normal Curosr	TForm2D	DefaultButt	Normal Curosr				Bezny Kurzor	
+Normal memo							Bezne memo	
+Normalize							Normaliz	
+Normals smoothing							Vyhlazeni normal	
+Nothing							Nic	
+Nov			Nov		Nov			
+November			November		Novembre	Novembro	Listopad	Novembre
+NoWhere							NiKde	
+Nr.							Cis.	
+Num							Cisel	
+Num:							Cisel:	
+Number of &copies:			Number of &copies:		&Nombre de copies:	&c":	Pocet &kopii	&Numero di copie:
+Number of calls:							Pocet volani	
+Number of finishing passes	TTurnWizForm	LabelPA	Number of finishing passes				Pocet dokoncovacich pruchodu	
+Number of items to convert:							Pocet prevadenych polozek	
+Number of repeat patterns - R	TTurnWizForm	LabelR2	Number of repeat patterns - R				Pocet opakovani vzoru - R	
+Numbering Increment	TLine_numbering	Label2	Numbering Increment		Incrément nombre		Prirustek Cislovani	
+Numbering Token	TLine_numbering	Label4	Numbering Token		Caractère nombre		Znamka Cislovani	
+Numbers:							Pocty:	
+Numl	TFlashGenForm	PackageCombo	Numl		Numl		Ciselz	
+NumLock							CiselZamek	
+Ø, S			Ø, S					
+O0000	TFanucScreenOT	BigO	O0000				O0000	
+O0000 N0000	TFanucScreenOT	SmallOffsetToolL	O0000 N0000				O0000 N0000	
+Object based							Objekt zalozeny	
+Object Data...	TTurn2DForm	ObjectData1	Object Data...		Données objet...		Data Objektu...	
+Object Number:	TElement_info	Label17	Object Number:		Object Number:		Cislo Objektu:	
+ObjectCountLabel							NavestiCitaniObjektu	
+Objects:							Objekty	
+Oct			Oct		Oct	Out		Ott
+October			October		Octobre	Outubro	Rijen	Ottobre
+odd	TRs232_form	ParityRG	odd		Impair		lichy	
+Offset							Posun	
+Offset :	TTurnWizForm	LabelO	Offset :				Posun :	
+Offset decides whether the outer edges are drawn sharp.							Posun rozhoduje zda budou vnejsi hrany ostre vytazeny. 	
+Offset Menus			Offset Menus					
+Offset value can not be zero			Offset value can not be zero					
+Offset:	TControlPanelStdForm	ToolOffsetLabel	Offset:				Posun:	
+Offset:	TControlPanel	ToolOffsetLabel	Offset:				Posun:	
+Offsets			Offsets		Correcteurs		Posuny	
+Offsets	TMainForm	mat_offset	Offsets		Correcteurs		Posuny	
+Offsets	TWorkOffsetForm	MenuFile	Offsets		Correcteurs		Posuny	
+Offsets:	TMainForm	StatusBar2	Offsets:		Correcteurs:		Posuny:	
+Ofst#	TCPLTestForm	Label15	Ofst#				Posn#	
+Oil	TFlashGenForm	PackageCombo	Oil		Oil	Oil	Olej	
+Ok							Ok	
+Ok	TForm2	Button1	Ok		Ok	Ok		OK
+OK			OK		OK	OK	OK	OK
+OK	TAboutBox	Button1	OK		OK	OK	OK	OK
+OK	TB_Size	OK	OK		OK	OK	OK	OK
+OK	TBilletDlg	OKBtn	OK		OK	OK	OK	OK
+OK	TChoice_From	Ok	OK		OK	OK	OK	OK
+OK	TCol_pref	Button1	OK		OK	OK	OK	OK
+OK	TColour_depth_form	OKBtn	OK		OK	OK		OK
+OK	TDDEServer	Button1	OK		OK	OK	OK	OK
+OK	TDebugWindow	Button1	OK		OK	OK	OK	OK
+OK	TDemoForm	Button1	OK		OK	OK	OK	OK
+OK	TDemoForm	OK	OK		OK	OK	OK	OK
+OK	TElement_info	BitBtn1	OK		OK	OK	OK	OK
+OK	TFile_warn	OK	OK		OK	OK	OK	OK
+OK	TG_setup	BitBtn1	OK		OK	OK	OK	OK
+OK	TG3D_setup	BitBtn1	OK		OK	OK	OK	OK
+OK	TGet_token_form	Ok	OK		OK	OK	OK	OK
+OK	TGetProjInfo	OkButt	OK		OK	OK	OK	OK
+OK	TKey_def_form	OKButton1	OK		OK	OK	OK	OK
+OK	TLimitsDlg	OKBtn	OK		OK	OK	OK	OK
+OK	TLine_numbering	Ok	OK		OK	OK	OK	OK
+OK	TMachProbDlg	OKBtn	OK		OK	OK	OK	OK
+OK	TMySystemInfo	Button1	OK		OK	OK		OK
+OK	TNewPassword	OKButton	OK		OK	OK	OK	OK
+OK	TNoCurrentTool	OKButton	OK		OK	OK	OK	OK
+OK	TOptionsDlg	OKBtn	OK		OK	OK	OK	OK
+OK	TParamEdit	OKButton	OK		OK	OK	OK	OK
+OK	TRichEdit98Editor	OkButton	OK		OK	OK		OK
+OK	TSetOffsets	ButtonOK	OK		OK	OK	OK	OK
+OK	TToolbar_SetupForm	OKButton	OK		OK	OK	OK	OK
+OK	TTurnWizForm	BtnOK	OK		OK	OK	OK	OK
+Ok && Insert							Ok &&Vlozit	
+Old password incorrect			Old password incorrect		Ancien mot de passe incorrect		Nespravne stare heslo	
+Olive			Olive	Olive	Olive	Verde Azeitona	Olivov	Verde oliva
+On							Na	
+On the Left	TFanucScreen21I	OntheLeft1	On the Left				Nalevo	
+On the Left	TFanucScreenOT	OntheLeft1	On the Left				Nalevo	
+On the Left	Tscreen	OntheLeft1	On the Left				Nalevo	
+On the Right	TFanucScreen21I	OntheRight1	On the Right				Napravo	
+On the Right	TFanucScreenOT	OntheRight1	On the Right				Napravo	
+On the Right	Tscreen	OntheRight1	On the Right				Napravo	
+One							Jedna	
+Only Text							Pouze Text	
+Only True Types Fonts							Pouze Verne Typy Fontu	
+OØØØØ NØØØØØ	TFanucScreen21I	Label3	OØØØØ NØØØØØ				O0000 N0000	
+OØØØØ NØØØØØ	Tscreen	Label3	OØØØØ NØØØØØ				O0000 N0000	
+Opaque							Matny	
+Open			Open		Ouvrir	Abrir	Otevrit	Apri
+Open &Picture...							Otevrit &Obrazek...	
+Open an existing file							Otevrit stavajici file	
+Open another Form							Otevrit dalsi Formular	
+Open as &read-only			Open as &read-only		Ouvrir en &Lecture uniquement	&Abrir como só de leitura	Otevr jako &pouze cteni	&Apri in sola lettura
+Open Fanuc File	TFanucScreen21I	Open_Fnc	Open Fanuc File				Otevrit File Fanuc	
+Open Fanuc File	Tscreen	Open_Fnc	Open Fanuc File				Otevrit File Fanuc	
+Open file							Otevrit file	
+Open Form1							Otevrit Form1	
+Open Form2							Otevrit Form2	
+Open Form3							Otevrit Form3	
+Open HTF...							Otevrit HTF...	
+Open image file...							Otevrit file obrazu...	
+Open Picture							Otevrit Obrazek	
+Open Project...	TMainForm	OpenProject1	Open Project...				Otevrit Project...	
+Open...	TCaracelAndOffsets	Open1	Open...		Ouvrir...	Abrir...	Otevrit...	Apri...
+Open...	TMainForm	LoadCNC	Open...		Ouvrir...	Abrir...	Otevrit...	Apri...
+Open|							Otevrit	
+OpenArrowDown							OtevrenaSipkaDolu 	
+OpenArrowLeft							OtevrSipkaVlevo	
+OpenArrowRight							OtevrSipkaVpravo	
+OpenArrowUp							OtevrSipkaNahoru	
+OpenGL scene view							OtevritGL pohled sceny	
+OpenGL Window	TKnob3D		OpenGL Window					
+OpenGL Window	TOpenGL2D		OpenGL Window					
+OpenGL Window	TWin3D		OpenGL Window				OtevritGL Okno	
+Opening a Project will overwrite all current Tool and Offset data			Opening a Project will overwrite all current Tool and Offset data				Otevreni Projektu orientuje vsechny aktual Nastroje a data Korekci	
+Opera 							Opera	
+Operating System							Operacni System	
+Operating system :							Operacni system :	
+Operation is not allowed							Operace neni dovolena	
+operation Timed Out			operation Timed Out				Prekrocen cas operace	
+operation Timed Out: 			operation Timed Out: 				Prekrocen cas operace:	
+Operator Alarm (Help)			Operator Alarm (Help)					
+Opt. tabs							Opcni tab	
+Option							Opce	
+Optional stop - M01	TTurnWizForm	GroupPO	Optional stop - M01				Volitelny Stop - M01	
+Optional Stop (M01)	TTurnWizForm	ComboGCode	Optional Stop (M01)				Volitelny Stop (M01)	
+Options	TMainForm	toolbar_modal	Options		Options	O"	Opce	Opzioni
+Options	TOptionsDlg		Options		Options	O"	Opce	Opzioni
+Options	TParamEdit	Options1	Options		Options	O"	Opce	Opzioni
+Options..	TTurn2DForm	Options1	Options..		Options..	O"..	Opce...	Opzioni..
+Options...	TForm2D	Setup	Options...		Options...	O"...	Opce...	Opzioni...
+Options...	TForm3D	Setup	Options...		Options...	O"...	Opce...	Opzioni...
+or							neb	
+Orac	TFlashGenForm	PackageCombo	Orac		Orac		Orac	
+Order the product from:							Objednat produkt od:	
+Orientation			Orientation		Orientation	Orientaçao	Orientace	Orientamento
+Orientation :							Orientace :	
+Original							Original	
+original Bitmap							original Bitmapa	
+OS100%	TFanucScreen21I	OverrideLabel	OS100%				OS100%	
+OS100%	TFanucScreenOT	OverrideLabel	OS100%				OS100%	
+Other							Ostatni	
+others							ostatni	
+Ouput, Start			Ouput, Start					
+Out of memory. You need at least 4M for this function			Out of memory. You need at least 4M for this function					
+Outline							Obrys	
+OutLine							ObRys	
+Output File:							Vystupni File.	
+Output Folder:							Vystupni Slozka:	
+Outputs	TMainForm	Toolbar_output	Outputs		Sorties		Vystupy	
+Ownerdraw							Vlastnickyvykr	
+P&arameters:	TToolPropForm	Label4	P&arameters:		P&aramètres :		P&arametry:	
+P&ortrait			P&ortrait		&Portrait	&Retrato	P&ortret	&Verticale
+P&roportional Zoom							P&roporcni Zoom	
+Pa&ges			Pa&ges		&Pages	&Páginas	St&ranky	&Pagine
+Pa&use							Za&stav	
+Package	TFlashGenForm	PackageLabel	Package		Emballage		Balik	
+Packages	TDongleForm	Label1	Packages		Emballages			
+Page							Strank	
+PAGE	TFanucScreenOT	LabelPage	PAGE		page	Página	STRAN	Pagina
+Page 							Strank	
+Page : 1							Strank : 1	
+Page Down			Page Down					
+Page Up			Page Up					
+Paint							Barva	
+Pan							Pan	
+Panel3	TFanucScreen21I	Panel3	Panel3				Panel3	
+Panel3	TFanucScreenOT	Panel3	Panel3				Panel3	
+Paper			Paper		Papier	Papel	Papir	Foglio
+Password							Heslo	
+Paste	TEditorForm	Paste1	Paste		Coller	Colar	Zabudvt	Incolla
+Paste	TWorkOffsetForm	PopupPaste	Paste		Coller	Colar	Zabudvt	Incolla
+Paste all from clipboard							Zabudovat vse ze schranky	
+Paste As &New	TToolLib	ListPasteNew	Paste As &New				Zabud Jako &Nove	
+Paste from Clipboard							Zabudovat ze schranky	
+Paste item from clipboard							Zabudovat poloz ze schranky	
+Paste selection from clipboard							Zabudovat volbu ze schranky	
+Pattern Repeat			Pattern Repeat					
+Patterns							Vzory	
+Pause	TMainForm	pauseButton	Pause		Pause	Parar	Zastav	Pausa
+Peck return amount in X - R(1)	TTurnWizForm	LabelRG1	Peck return amount in X - R(1)				Velikost navratu z prerus v X - R(1) 	
+Peck return amount in Z - R(1)	TTurnWizForm	LabelRD1	Peck return amount in Z - R(1)				Velikost navratu z prerus v Z - R(1)	
+Pecking depth in X - P [µm]	TTurnWizForm	LabelPG2	Pecking depth in X - P [µm]				Hloubka preruseni v X - P [um]	
+Pecking depth in Z - Q [µm]	TTurnWizForm	LabelQD2	Pecking depth in Z - Q [µm]				Hloubka preruseni v Z - Q [um] 	
+Per Rev Mode On	TCPLTestForm	PerRevMode	Per Rev Mode On				Zap Rezimu Na Otac	
+Percent							Procento	
+Person							Osoba	
+Person File							Osobni File	
+Person:							Osoba:	
+Personal Details							Osobni Detaily	
+Perspective							Perspektivni	
+Picture:			Picture:		Image :	Figura:		Immagine:
+place the machine in Auto mode to proceed.			place the machine in Auto mode to proceed.				Pro pokracovani dat stroj do rezimu Auto. 	
+Plastic Colour	TG3D_setup	Label4	Plastic Colour	Plastic Color			Plasticka Barva	
+Please Choose!	TChoice_From		Please Choose!		Veuillez choisir SVP !		Prosim Vybrat!	
+Please select a different com port before using CIM RS232 Input.			Please select a different com port before using CIM RS232 Input.				Pred uzitim Vstupu CIM RS232 zvolte prosim jiny port com.	
+Please Wait . . .	TMintSplash	Label1	Please Wait . . .				Prosim Cekejte . . . 	
+Polnisch							Polsky	
+Populate							Osidlit	
+Port							Port	
+Portugal			Portugal		Portugal	E"	Portugal	Portogallo
+Portugiesisch (Brasilien)							Portugalsky (Brasilie)	
+Portugiesisch (Portugal)							Portugalsky (Portugal) 	
+Portuguese			Portuguese		Portugais	Português	Portugalsky	Portoghese
+pos	TControlPanel	FeedBar	pos				pos	
+pos	TControlPanel	SpindleBar	pos				pos	
+pos	TControlPanel	TrackBar1	pos				pos	
+Position			Position					Posizione
+Position:							Poloha:	
+Positioning							Najizdeni	
+Positions							Polohy	
+Positive Length	TBilletDlg	LengthPLabel	Positive Length				Kladna Delka	
+Positive Length	TOptionsDlg	LengthPLabel	Positive Length				Kladna Delka	
+Post and view results							Zapst a prohledn vysledky	
+Post changes of current record							Zapsat zmeny aktual zaznamu	
+Post edit			Post edit		Poster modifications	Confirmar edição	Edit posty	Conferma modifiche
+Post Output	TChoice_From	Post_out	Post Output		Sortie Post		Vystup Posty	
+Post Output	TMainForm	Post_output	Post Output		Sortie Post		Vystup Posty	
+Postal Code							Postovni Kod	
+pounds							libry	
+POV (Point of view)							POV (Misto pohledu)	
+Press A Key On the KeyBoard Now	TKey_def_form	Hint1	Press A Key On the KeyBoard Now		Appuyer sur une touche sur le clavier maintenant		Nyni Stlacte Na Klavesnici Klavesu A	
+Press ESC, to stop syntax check.			Press ESC, to stop syntax check.		Appuyer sur ESC pour arrêter la vérification de syntaxe.		Pro zastav kontroly syntaxu stlacte ESC.	
+Press HELP (OPR ALARM) key again to leave help mode	TFanucScreenOT	Label31	Press HELP (OPR ALARM) key again to leave help mode				Pro opust rezimu napovedy stlacte opet klavesu HELP (OPR ALARM)	
+Press HELP key again to leave help mode	TFanucScreen21I	Label31	Press HELP key again to leave help mode				Pro opust rezimu napovedy stlacte opet klav HELP	
+Preview			Preview		Aperçu	Visualizador	Nahled	Anteprima
+Principality of Monaco			Principality of Monaco		Principauté de Monaco		Monacke knizectvi	
+Print			Print		Imprimer	Imprimir	Tisk	Stampa
+Print preview							Nahled tisku 	
+Print Preview	TDemoForm	PrintPreviewButton	Print Preview		Aperçu avant Impression	v"	Nahled Tisku	Anteprima Stampa
+Print range			Print range		Étendue	l"		Intervallo
+Print Setup			Print Setup		Configuration de l'impression	Configurar impressão	Nastav Tisku	Imposta stampante
+Print to fi&le			Print to fi&le		&Imprimer dans un fichier	&l"	Tisk do fi&lu	&Stampa su file
+Print...	TEditorForm	Print1	Print...		Imprimer...	Imprimir...	Tisk...	Stampa...
+Printer			Printer		Imprimante	Impressora	Tiskarn	Stampante
+Printer &Setup...							Nastav &Tiskarny	
+Printers							Tiskarny	
+Printing							Tisk	
+Prior record			Prior record		Enregistrement précédent	Registro anterior	Drivejsi zaznm	Record precedente
+Priority :							Priorita :	
+Process							Proces	
+Processors							Procesory	
+Processor-Type							Procesor-Typ 	
+Profile end block number - Q	TTurnWizForm	LabelQ	Profile end block number - Q				Cislo bloku konce profilu - Q	
+Profile start block number - P	TTurnWizForm	LabelP	Profile start block number - P				Cislo bloku zacatku profilu - P	
+Program			Program					
+Program	TControlPanel	ProgLabel	Program				Program	
+Program	TControlPanel	ProgramCoordinates1	Program				Program	
+Program	TControlPanelStdForm	Label9	Program				Program	
+Program	TControlPanelStdForm	ProgLabel	Program				Program	
+Program	TControlPanelStdForm	ProgramCoordinates1	Program				Program	
+PROGRAM 	TFanucScreen21I	TopLabel	PROGRAM 				PROGRAM	
+PROGRAM 	TFanucScreenOT	TopLabel	PROGRAM 				PROGRAM	
+PROGRAM 	Tscreen	Label2	PROGRAM 				PROGRAM	
+Program Operations			Program Operations					
+Program Operations	TTurnWizForm	GroupPO	Program Operations				Programove Operace	
+Program stop - M00	TTurnWizForm	GroupPO	Program stop - M00				Stop programu - M00	
+Program Stop (M00)	TTurnWizForm	ComboGCode	Program Stop (M00)				Stop Programu (M00)	
+Program stop and reset - M30	TTurnWizForm	GroupPO	Program stop and reset - M30				Stop programu a reset - M30	
+Program Stop and Reset (M30)	TTurnWizForm	ComboGCode	Program Stop and Reset (M30)				Stop Programu a Reset (M30)	
+Programm							Program	
+Programmatic interface							Programovy interface	
+Programmer interface							Programatorsky interface	
+Progress							Postup	
+Progress-Test							Postupovy Test	
+Project load failed			Project load failed				Chyba zavad projektu	
+Properties							Vlastnosti	
+Property							Vlastnost	
+Property Name							Nazev vlastnosti	
+prospero	TEditorForm	RichEdit	prospero					
+prospero	Tscreen	EditWindow	prospero					
+Provider list							Sezn dodavat	
+ProviderSettingModem							ModemDodavatelNastaveni 	
+Purple			Purple	Purple	Pourpre	S"	Purpur	Viola
+Quality							Jakost	
+Quit							Prers	
+Quit and &Cancel							Prerusit a &Zrusit	
+Quit and Cancel							Prerusit a Zrusit	
+Quits the application							Rusi aplikaci	
+R	TForm1	Label1	R					
+R : 	TTurnWizForm	LabelR	R : 				R :	
+R Value							Hodnot R	
+R&andomize							T&ransformov	
+R. nose dn							R.spicka dolu	
+R. nose up							R.spicka nahoru	
+Radio Group							Radio Skupina	
+Radius			Radius					Raggio
+Radius	TTurnWizForm	TabRadius	Radius				Polomer	Raggio
+Radius Programming	TMainForm	StatusBar1	Radius Programming				Polomerov Programovani	
+Radius:	TCaracelAndOffsets	Label3	Radius:				Polomer.	Raggio:
+RadiusLabel	TSetOffsets	RadiusLabel	RadiusLabel				NavestiPolom	
+RadiusResult	TCaracelAndOffsets	RadiusResult	RadiusResult				VysledekPolom	
+Random Block	TFxSelectDialog	BitBtn12	Random Block		Bloc aléatoire		Nahodny Blok 	
+Random Lines	TFxSelectDialog	BitBtn44	Random Lines		Lignes aléatoires		Nahodne Radky	
+Range							Rozsah	
+RAPID			RAPID				RAPID	
+Rapid Movement Colour	TG_setup	rapids	Rapid Movement Colour	Rapid Movement Color	Couleur déplacement rapide		Barva Rychloposuvu	
+Rapid Movement Colour	TG3D_setup	rapids	Rapid Movement Colour	Rapid Movement Color	Couleur déplacement rapide		Barva Rychloposuvu	
+Rapid Traverse (G00)	TTurnWizForm	ComboGCode	Rapid Traverse (G00)				Prejezd Rychlopos (G00)	
+Re&place with:			Re&place with:		&Remplacer par:	&Substituir por:		&Sostituisci con:
+Reached MDI Line Limit			Reached MDI Line Limit				Dosazen Limit Radek MDI	
+Read / Write Dongle	TDongleForm		Read / Write Dongle		Lire/Ecrire Clé de sécurité			
+Read only							Pouze cteni	
+Re-Capture	TForm3D	ReCapture	Re-Capture				Znovu Ziskat	
+Rectangle							Ctyruhelnik	
+Rectangles							Ctyruhelniky	
+Red			Red	Red	Rouge	Vermelho	Cervna	Rosso
+RED RED							RED RED	
+Red:	TfrmColorSelector	Label2	Red:	Red:	Rouge:	Vermelho:	Red:	Rosso:
+Redo							Redo	
+Redo	TDemoForm	RedoButton	Redo		Refaire	Refazer		Ripristina
+Redraw	TFxSelectDialog	BitBtn36	Redraw		Redessiner			
+Redraw	TTurn2DForm	Redraw1	Redraw		Redessiner		Prekreslit	
+Reference			Reference					
+Reference Movement Colour	TG_setup	RefsLabel	Reference Movement Colour	Reference Movement Color			Barva Referenc Pohybu	
+Refresh data			Refresh data		Rafraîchir données	Atualizar dados	Obnovit data	Aggiorna i dati
+Refresh menu	TfrmMenuEditor	btnRefresh	Refresh menu		Rafraichir le menu		Obnovit menu	
+Registered Company							Registrovana Spolecnost 	
+registered Plug-ins :	TPlugInManagerPropForm	Label1	registered Plug-ins :					
+Regular	TCol_pref	style	Regular		Normal		Pravideln	Normale
+Regular expressions							Pravidelne výrazy	
+Regular expressions can consist of :							Pravidelne vyrazy se mohou skladat z :	
+Remove	TCaracelAndOffsets	ToolRemove	Remove				Odstranit	
+Remove DEM source							Odstranit zdroj DEM	
+Remove item	TXCollectionEditor	ACRemove	Remove item					
+Remove Line End Token...	TEditorForm	RemoveLineEndToken1	Remove Line End Token...		Enlever caractère fin de ligne...		Odstranit znamku Konce Radky...	
+Remove Numbering	TLine_numbering	removeN	Remove Numbering		Enlever numération		Odstarnit Cislovani	
+Remove Padding Token...	TEditorForm	RemovePadding1	Remove Padding Token...		Enlever caractère inséré...		Odstranit Znamku Doplnìní...	
+Remove Wallpaper							Odstranit Tapetu	
+Render Size							Interpret Velik	
+Render to Bitmap							Interpret na Bitmapu	
+Render To Bitmap							Intrepret Na Bitmapu	
+ReOpen	TMainForm	Reopen	ReOpen		RéOuvrir		OpetOtevr	
+ReOpen	TMainForm	Reopen1	ReOpen		RéOuvrir		OpetOtevr	
+Replace			Replace		Remplacer	R"	Nahradit	Sostituisci
+Replace &All			Replace &All		&Remplacer tout	&Substituir tudo	Nahradit &Vse	&Sostituisci tutto
+Request	TGet_token_form		Request		Demande		Pozadavek	
+Reset			Reset					
+Reset	TForm3D	ResetView	Reset				Reset	
+Reset	TWin3D	ResetView	Reset					
+Reset image to original size	TfrmColorSelector	btnReset	Reset image to original size		Reconfigurer image à sa taille originale		Reset obraz na puvodni velikost	
+Reset Proportional Device...	TVRT_form_turn	ResetProportionalDevice1	Reset Proportional Device...		Reconfigurer Dispositif proportionnel		Reset Proporcni Zarizeni...	
+Resi&zable							S menitel&velik 	
+Resources							Zdroje	
+Restless							Neklidny	
+Res-Viewer							Res-Ucastnik	
+Retract amount - R	TTurnWizForm	LabelR1	Retract amount - R				Velikost odjeti - R	
+Retry							Opak	
+Return to Reference (G28)	TTurnWizForm	ComboGCode	Return to Reference (G28)				Navrat do Reference (G28)	
+Reverse	TTurnWizForm	GroupSO	Reverse				Zpetny	
+Revolutions Per Minute	TTurnWizForm	GroupST	Revolutions Per Minute				Otacky Za Minutu	
+Revolving Drum							Otocny Buben	
+Rewind	TMainForm	rewindbutton	Rewind		Réembobiner		Previnout	
+Right	TRichEdit98Editor	RightBtn	Right		Droit	Direita	Pravy	Destra
+Right Line							Prava Cara	
+RightPanel							PravyPanel	
+Ring							Kruh	
+Robot Dip Switches	TRs232_form	GroupBox1	Robot Dip Switches		Interrupteurs robot		Prepinace Robotu	
+Rotate							Otacet	
+Rotated							Otaceny	
+Rotated centeredText							Otaceny stredenyText	
+Rotated Text							Otaceny Text	
+Rotating Label							Otocne Navesti	
+Rotation							Otaceni	
+Roughing feed rate - F	TTurnWizForm	LabelF2	Roughing feed rate - F				Hrubovaci posuv - F	
+Rounded							Zaokrouhl	
+RoundRectangle							ZaoblenyCtyruhelnik	
+Row mode HTML formatted							Formatovany rezim radek HTML	
+Row:Rows							Radka:Radky 	
+RS 232 Setup	TRs232_form		RS 232 Setup		ConfigurationRS 232		Nastaveni RS232	
+RS232 Configuration			RS232 Configuration				Konfigurace RS232	
+RTS/CTS	TRs232_form	HandshakingRG	RTS/CTS		RTS/CTS	RTS/CTS	RTS/CTS	
+RTS/CTS + XON/XOFF	TRs232_form	HandshakingRG	RTS/CTS + XON/XOFF		RTS/CTS + XON/XOFF	RTS/CTS + XON/XOFF	RTS/CTS + XON/XOFF	
+Run	TMach_Warn	Button1	Run		Exécuter	R"	Beh	Esegui
+S	TControlPanel	S	S				S	
+S	TControlPanelStdForm	S	S				S	
+S :	TForm2D	StatusBar	S :				S :	
+S :	TForm3D	StatusBar	S :				S :	
+S&ave Picture...							U&lozit Obrazek...	
+S&top							S&top	
+S:	TTurn2DForm	StatusBar1	S:				S:	
+Safety			Safety		Sécurité		Bezpec	
+Save &As...							Ulozit &Jako	
+Save &in:			Save &in:		Enregistrer &dans :	&Guardar em:	Ulozit &do	&Salva in:
+Save alterations?			Save alterations?					
+Save As			Save As		Enregistrer sous 	Salvar Como	Uloz Jako	Salva con nome
+Save As	TForm3D	SaveAs	Save As		Enregistrer sous 	Salvar Como	Uloz Jako	Salva con nome
+Save as &type:			Save as &type:		Enregistrer sous &type :	&Guardar com o tipo:	Ulozit jako &typ:	&Tipo file:
+Save as XLS							Ulozit jako XLS	
+Save As...	TCaracelAndOffsets	SaveAs1	Save As...		Enregistrer sous...	Salvar Como...	Ulozit Jako...	Salva con nome...
+Save As...	TMainForm	SaveAs1	Save As...		Enregistrer sous...	Salvar Como...	Ulozit Jako...	Salva con nome...
+Save column formatting							Ulozit formatovani sloupcu	
+Save current image...							Ulozit aktual obraz...	
+Save Fanuc File	TFanucScreen21I	Save_fnc	Save Fanuc File				Ulozit File Fanuc	
+Save Fanuc File	Tscreen	Save_fnc	Save Fanuc File				Ulozit File Fanuc	
+Save file as &type:			Save file as &type:		Enregistrer fichier sous &type :	&Guardar ficheiro como:	Ulozit file jako &typ	&Tipo file:
+Save file as default tooling file?			Save file as default tooling file?				Ulozit file jako standard nastroj file?	
+Save Format...	TEditorForm	SaveFormat1	Save Format...		Enregistrer Format...		Ulozit Format...	
+Save Items as Bitmap...							Ulozit Polozky jako Bitmapu...	
+Save List							Ulozit Sezn	
+Save Picture As							Ulozit Obrazek Jako	
+Save Position							Ulozit Polohu	
+Save Project...	TMainForm	SaveProjectMnu	Save Project...		Enregistrer projet...		Ulozit Projekt...	
+Save the Bitmap selected	TfrmPopMenuEditor	btnSave	Save the Bitmap selected		Enregistrer le Bitmap sélectionné		Ulozit zvolenou Bitmapu	
+Save the following values into							Ulozit nasledujici hodnoty do	
+Save the original file first?			Save the original file first?				Nejprve ulozit puvodni file?	
+Save to file							Ulozit do filu	
+Save To File							Ulozit Do Filu	
+Save...							Ulozit...	
+Save|							Ulozit	
+SaveAs	TMainForm	SaveAs	SaveAs				UloztJako	
+Sc&ript:			Sc&ript:		Sc&ript	&Script:		&Script:
+Scale	TCustomToolForm	ScaleBar	Scale				Meritko	
+Scale to fit							Hodici se merit	
+Screen							Obrazov	
+Screenheight							Vyskaobrazovk 	
+Scroll:							Pretoc:	
+ScrollLock							ZamekPretac	
+SE							SE	
+Search							Vyhledat	
+Search & Replace							Vyhledat & Nahradit	
+Search Dialog							Dialog Vyhledav	
+Search for							Hledat	
+Search for machine . . .	TMainForm	Searchformachine1	Search for machine . . .				Hledat stroj . . .	
+Second:							Druhy.	
+Seconds;ss							Vteriny; ss 	
+Section 0 fixed							Sekce pevne 0	
+Section-Editor							Editor-Sekce	
+SectionListBox demo v1.8							Demo v1.8 RamecekSeznamuSekce	
+Sections							Casti	
+Security Check	TDongleDialog		Security Check		Vérification sécurité		Kontrola Zabezpeci	
+Select &all							Zvolit &vse	
+Select &All	TEditorForm	selectAll2	Select &All		Sélectionner &Tout	&Seleccionar Tudo	Zvolit &Vse	&Seleziona tutto
+Select a border style							Zvolit styl okraje	
+Select all							Zvolit vse	
+Select All	TEditorForm	selectAll1	Select All		Sélectionner tout	Seleccionar Tudo	Zvolit Vse	Seleziona tutto
+Select Compiled Output	TMainForm	Comp_output	Select Compiled Output		Sélectionner sortie compilée		Zvolit Kompilovany Vystup	
+Select date							Zvolit datum	
+Select Device...	TVRT_form_turn	SelectDevice1	Select Device...		Sélectionner dispositif...		Zvolit Zarizeni...	
+Select file to open							Zvolit file k otevreni	
+Select files							Zvolit fily	
+Select Font							Zvolit Font	
+Select Fontsize							Zvolit Velikostfontu	
+Select Language	TMainForm	SelectLangItem	Select Language		Sélectionner la langue		Zvolit Jazyk	
+Select Line	TCustomToolForm	SelectButton	Select Line				Zvolit Caru	
+Select Locale							Zvolit Lokalni	
+Select offset type	TSetOffsets	RadioGroup	Select offset type				Zvolit typ korekce	
+Select Palette...							Zvolit Paletu	
+Select Post Processor output	TMainForm	Post_output	Select Post Processor output		Sélectionner sortie Post-Processeur		Zvolit Vystup Postprocesoru	
+Select real machine	TMainForm	Mach_output	Select real machine		Sélectionner la machine réelle		Zvolit skutecny stroj	
+Select Sublanguage							Zvolit Subjazyk	
+Select the active language							Zvolit aktivni jazyk	
+Select the active language and locale							Zvolit aktivni jazyk a lokalni	
+Select the active locale							Zvolit aktivni lokalni	
+Select the directory where your DEMs files are stored (all source DEMs must be in the same directory)							Zvolit adresar kde jsou ulozeny vase fily DEM (vsechny zdrojove DEM musi byt ve stejnem adresari)	
+Select the interval for the RepeatedClick (in mSec.)							Zvolit interval pro OpakovaneKliknuti (v mSec)	
+Select Tool	TNoCurrentTool	ToolGroup	Select Tool				Zvolit Nastroj	
+Select User Color							Zvolit Uzivatel Barvu	
+Select virtual machine	TMainForm	VR_Output	Select virtual machine		Sélectionner la machine virtuelle		Zvolit virtualni stroj	
+Select Working Directory			Select Working Directory		Sélectionner Directory de Travail		Zvolit Aktivni Adresar	
+Selected :							Zvoleny :	
+Selected color is:	TfrmColorSelector	Label1	Selected color is:		La couleur sélectionnée est :		Zvolena barva je: 	
+Selection							Volba	
+Send							Poslat	
+Send Data	TDDEServer	Button2	Send Data				Poslat Data	
+Send item :							Poslat polozk :	
+Send To...							Poslat Do...	
+Send us a Mail...							Posli nam Mail...	
+SendKeys Test-Editor							SendKeys Test-Editor 	
+Sep			Sep		Sept	Set		Set
+September			September		Septembre	Setembro	Zari	Settembre
+Serbisch							Srbsky	
+Serial Number	TDongleForm	Label2	Serial Number		Numéro de série			
+Server							Server	
+ServerEdit							ServerEdit 	
+ServerForm							ServerForm	
+Session list							Zapis relace	
+Set							Zadat	
+Set mode...							Zadat rezim	
+Set Normal							Zadat Normalu 	
+Set proxy info							Zadat info zast	
+Set selected item center alignment							Zadat vyrovnani zvol polozky na stred	
+SetOffsets	TSetOffsets		SetOffsets				ZadatPosunti	
+Setting of communication							Nastaveni komunikace	
+Setting Up Machine	Tprogress		Setting Up Machine		Règlage machine		Serizeni stroje	
+Setting Up Tool 			Setting Up Tool 		Règlage outil		Serizeni Nastroje	
+Settings	TTurn2DForm	Settings1	Settings		Paramètres		Zadani	Impostazioni
+Setup	TMainForm	Setup2	Setup		Configuration	S"	Nastav	Impostazioni
+Setup	TVRT_form_turn	ToolbarButton971	Setup		Configuration	S"	Nastav	Impostazioni
+Setup Machine Parameters...	TMainForm	SetupMachineParameters2	Setup Machine Parameters...		Configuration paramètres machine...		Nastav Parametry Stroje	
+Setup Parameters	TParamEdit		Setup Parameters				Nastav Parametry	
+Setup Proportional Device...	TVRT_form_turn	SetupProportionalDevice1	Setup Proportional Device...		Configuration dispositif proportionnel...		Nastav Proporcni Zarizeni	
+SetXOffset	TMainForm	SetXOffset	SetXOffset				ZadtPosunX	
+SetZOffset	TMainForm	SetZOffset	SetZOffset				ZadtPosunZ	
+several FX effect							vlastni FX efekt	
+Shadow							Stin	
+Shadow Alpha							Shadow Alpha	
+Shank Length	TToolLib	LengthLabel	Shank Length				Delka Stopky	
+Shape							Tvar	
+Shift (+/-)	TGlobal_changer	Label1	Shift (+/-)		Shift (+/-)		Posun (+/-)	
+Shift + Drag moves on the XZ plane.							Posouvani + Vleceni v rovine XZ 	
+Show &Normal	TEditorForm	ShowNormal1	Show &Normal		Afficher &Normal		Ukazat &Normalu	
+Show 2D Draw Element	TEditorForm	Show2DDrawElement1	Show 2D Draw Element		Afficher élément Dessin 2 D		Ukazat Element 2D Kresleni	
+Show 2D simulation window	TMainForm	sim2d_output	Show 2D simulation window		Afficher fenêtre simulation 2D		Ukazat okno 2D simulace	
+Show 3D simulation window	TMainForm	sim3d_output	Show 3D simulation window		Afficher fenêtre simulation 3D		Ukazat okno 3D simulace	
+Show All	TToolbar_SetupForm	ShowAllButton	Show All		Afficher tout		Ukazt vse	
+Show all languages							Ukazat vsechny jazyky	
+Show All Offsets	TCaracelAndOffsets	Showall	Show All Offsets				Ukazt vsechna posun	
+Show Contouring points	TG3D_setup	Show_contour	Show Contouring points				Ukazat body obrabeni tvaru	
+Show Cutter	TG_setup	show_cutter	Show Cutter		Afficher Fraise		Ukazat Nuz	
+Show Cutter	TG3D_setup	show_cutter	Show Cutter		Afficher Fraise		Ukazat Nuz	
+Show Datum	TTurn2DForm	Datum1	Show Datum				Ukazat Datum	
+Show Dimensions	TForm2D	CrossPosButt	Show Dimensions				Ukazat Rozmery	
+Show End Points	TTurn2DForm	EndPoints	Show End Points				Ukazat Konc Body	
+Show Hints							Ukazt Pokyny	
+Show Move History							Ukazat Historii Pohybu	
+Show Move History	TG3D_setup	MoveHistCheck	Show Move History					
+Show occupied 							Ukazat obsazene	
+Show offsets window	TMainForm	mat_offset	Show offsets window		Afficher fenêtre correcteurs		Ukazat okna korekci	
+Show Original Size	TForm3D	ShowOriginal	Show Original Size				Ukazat Puvodni Velikost	
+Show Slider	TControlPanel	FSShowSlider	Show Slider				Ukazat Jezdec	
+Show Slider	TControlPanelStdForm	FSShowSlider	Show Slider				Ukazat Jezdec	
+Show Text Style							Ukazat Styl Textu	
+Show Tool Path	TTurn2DForm	ToolPath1	Show Tool Path				Ukazat Drahu Nastr	
+Show tooling library	TMainForm	ToolLib_but	Show tooling library		Afficher bibliothèque d'outils		Ukazat knihovnu nastroj	
+Show tooling panel	TMainForm	Tooling_but	Show tooling panel		Afficher panneau changeur outil		Ukazat panel nastroju	
+Show type							Ukazat typ	
+Show warning when play is pressed	TMainForm	WarnOnPlay	Show warning when play is pressed				Ukazat varovani pri stlaceni hrat	
+Shows build progress							Ukazuje postup stavby	
+Shows information about DCALC							Ukazuje informaci o DCALC	
+Shows the current settings.							Ukazuje aktual nastaveni.	
+Shows what languages are enabled							Ukazuje jake jazyky jsou aktivovany	
+Si&ze:			Si&ze:		&Taille:	&Tamanho:	Ve&lik	&Dimensione:
+SignPlaces							Mistapodpisu	
+Silver			Silver	Silver	Argent	S"	Stribr	Grigio chiaro
+Simple							Jednodu	
+Simple CheckListEdit							Jednod Edit Kontrolsezn	
+Simple Edit							Jednodu Edit	
+Simple Text Item 1							Jednod Text Polozka 1	
+Simple Text Item 2							Jednod Text Polozka 2	
+Simulate	TTurn2DForm	Simulate	Simulate				Simulovat	
+Single							Jednotl	
+Site License	TFlashGenForm	PackageCombo	Site License		Licence site		Licnce Mistapouziti	
+Size			Size		Dimension	Tamanho	Velik	Dimensione
+Size (Bytes)							Velik (Byty)	
+Size (Lines)							Velik (Radky)	
+Size Billet to fit Window	TForm2D	ShowOriginal	Size Billet to fit Window				Velik Prirezu odpovid Oknu	
+Size:							Velik:	
+Sizeable panel							Nadrozmer panel	
+Skip Block OFF	TMainForm	StatusBar1	Skip Block OFF		Saut de bloc OFF		Vyp Preskoku Bloku	
+Slice	TForm3D	CutOpen	Slice				Vyrez	
+Small 	TMainForm	MenuItem2	Small 		Petit		Maly	
+Small 	TMainForm	SmallIcons2	Small 		Petit		Maly	
+Small glyph							Maly glyf	
+Small image list							Sezn malych obrazu	
+Small Trackbar...								
+Smooth							Hladky	
+Snap to Default Button							Navadeci Tlacitko Standardu	
+Snap to grid	TCustomToolForm	SnapCheckBox	Snap to grid		Attacher à la Grille		Navadeci mrizka	Griglia con Snap
+Software							Software	
+Software R&D project 							Projekt Software R&D	
+Solid							Plny	
+Sorry File not recognised			Sorry File not recognised					
+Sort							Tridit	
+Source	TMainForm	Source1	Source		Source		Zdroj	origine
+Source:	TElement_info	Label6	Source:		Source:		Zdroj:	origine:
+Sp&eedButtons							Tl&acitkaOtacek	
+space	TRs232_form	ParityRG	space		espace	Espaço	mezera	Barraspazio
+Speaker							Mikrofon	
+Special	TFxSelectDialog		Special		Spécial		Zvlastni	
+Special	TFxSelectDialog	TabSet1	Special		Spécial			
+Speed	TControlPanel	Label2	Speed		Vitesse	D"	Otacky	Velocità
+Speed	TControlPanel	Label4	Speed		Vitesse	D"	Otacky	Velocità
+Speed	TControlPanelStdForm	Label2	Speed		Vitesse	D"	Otacky	Velocità
+Speed	TControlPanelStdForm	Label4	Speed		Vitesse	D"	Otacky	Velocità
+Speed (%):							Otacky (%):	
+Speed :	TTurnWizForm	LabelS	Speed :				Otacky :	
+Speed Override	TCPLTestForm	alabel	Speed Override				Regulace Otacek	
+Speed Type	TTurnWizForm	GroupST	Speed Type				Typ Otacek	
+Speed:	TControlPanel	SpindleLabel	Speed:		Vitesse:	D":	Otacky:	Velocità:
+Speed:	TControlPanelStdForm	SpindleLabel	Speed:		Vitesse:	D":	Otacky:	Velocità:
+Speeding fine:							Pokuta prekr rychl	
+spf4bit							spf4bit	
+spf8bit							spf8bit	
+spfDefault							spfStandard	
+spfMono							spfMono	
+Spheres							Koule	
+Spin							Rozp	
+Spindle	TControlPanel	SpindleButton	Spindle		Broche		Vreteno	
+Spindle	TControlPanel	SpindleLabel	Spindle		Broche		Vreteno	
+Spindle Operations			Spindle Operations					
+Spindle Operations	TTurnWizForm	GroupSO	Spindle Operations				Operace Vretena	
+Spindle Override	TControlPanel	SpindleBar	Spindle Override				Regulace Vretena	
+Spindle Override	TControlPanelStdForm	SpindleBar	Spindle Override				Regulace Vretena	
+Spindle Revolutions Per Minute (G97)	TTurnWizForm	ComboGCode	Spindle Revolutions Per Minute (G97)				Otacky Vretena Za Minutu (G97)	
+SpindleStop	TMainForm	SpindleStop	SpindleStop				StopVretena	
+ß Value	TGlobal_changer	Label3	ß Value		Valeur ß 		Hodn Beta	
+Starmill	TFlashGenForm	PackageCombo	Starmill		Starmill		Starmill	
+Start	TMainForm	startbutton	Start		Démarrage		Spustit	Inizio
+Start App							Spustit Apl	
+Start download							Spustit zavadeni	
+Start fencing...							Spustit	
+Start Number	TLine_numbering	Label1	Start Number		Début numéro		Cislo Pocatku	
+START the spindle manually - M			START the spindle manually - M				SPUSTIT vreteno rucne - M	
+Starturn	TFlashGenForm	PackageCombo	Starturn		Starturn	Starturn	Starturn	
+State							Stav	
+Static Text							Staticky Text	
+Statistics							Statistika	
+Status :							Status :	
+Status:			Status:		Status:	Estado:	Status.	Stato:
+StatusBar Editor							Editor ListyStavu	
+stEllipse							stElipsa	
+Step	TMainForm	Step1	Step		Pas		Krok	
+Step over in X - P [µm]	TTurnWizForm	LabelPD2	Step over in X - P [µm]				Prekrocit v X - P [um]	
+Step over in Z - Q [µm]	TTurnWizForm	LabelQG2	Step over in Z - Q [µm]				Prekrocit v Z - Q [um]	
+Steps (%)	TControlPanel	FSPopupSteps	Steps (%)				Kroky (%)	
+Steps (%)	TControlPanelStdForm	FSPopupSteps	Steps (%)				Kroky (%)	
+Stock Removal			Stock Removal					
+Stock Removal Finishing (G70)	TTurnWizForm	ComboGCode	Stock Removal Finishing (G70)				Dokonc Odber Materialu (G70)	
+Stock Removal in X (G71)	TTurnWizForm	ComboGCode	Stock Removal in X (G71)				Odber Materialu v X (G71)	
+Stock Removal in Z (G72)	TTurnWizForm	ComboGCode	Stock Removal in Z (G72)				Odber Materialu v Z (G72)	
+Stock Removal Pattern Repeat (G73)	TTurnWizForm	ComboGCode	Stock Removal Pattern Repeat (G73)				Opakovani Vzoru Odberu Materialu (G73)	
+stOctagon							stOsmiuhelnik	
+Stop	TMach_Warn	Button2	Stop		Stop	o"	Stop	Termina
+Stop	TMainForm	stopbutton	Stop		Stop	o"	Stop	Termina
+Stop	TTurnWizForm	GroupSO	Stop		Stop	o"	Stop	Termina
+Stop Bits	TRs232_form	stop_bits	Stop Bits		Bits de stop		Zaver Bity	
+STOP the spindle manually - M			STOP the spindle manually - M				ZASTAVIT vreteno rucne - M	
+Stopping the Machine will enable the next CIM command to activate do you wish to continue?			Stopping the Machine will enable the next CIM command to activate do you wish to continue?				Zastaveni Stroje bude aktivovat dalsi prikaz CIM pro aktivaci, chcete pokracovat?	
+Stopwatch							Stopky	
+Stri&keout			Stri&keout		&Barré	&Rasurado	Vysk&rtnout	&Barrato
+String							Retezc	
+Strings							Retezce	
+Style	TCol_pref	style	Style		Style		Styl	
+Style:							Styl:	
+Style: 							Styl:	
+StyleInner:							StylVnitrni:	
+StyleOuter:							StylVnejsi:	
+Styles							Styly	
+Sub program call - M98	TTurnWizForm	GroupSP	Sub program call - M98				Vyvolani podprogramu - M98	
+Sub Program Call (M98)	TTurnWizForm	ComboGCode	Sub Program Call (M98)				Vyvolani Podprogramu (M98)	
+Sub program end - M99	TTurnWizForm	GroupSP	Sub program end - M99				Konec podprogramu - M99	
+Sub Program End and Return (M99)	TTurnWizForm	ComboGCode	Sub Program End and Return (M99)				Konec Podprogramu a Navrat (M99)	
+Sub program file name	TTurnWizForm	LabelP3SP	Sub program file name				Nazev filu podprogramu	
+Sub program id	TTurnWizForm	LabelP2SP	Sub program id				Id podprogramu	
+Sub Program Operations			Sub Program Operations					
+Sub Program Operations	TTurnWizForm	GroupSP	Sub Program Operations				Operace Podprogramu	
+Sub program repeats	TTurnWizForm	LabelP1SP	Sub program repeats				Opakovani podprogramu	
+subitem							podpolozk	
+Subitem editing							Editace podpolozky	
+Subitem select							Volba podpolozky	
+Sublanguage...							Dilci jazyk...	
+Sunken							Potopeny	
+Support							Podpora	
+Support:							Podpora:	
+Switch 2	TRs232_form	Label1	Switch 2		Switch 2			
+Switch 3	TRs232_form	Label2	Switch 3		Switch 3			
+Switch between continuous and step mode 	TMainForm	progCont	Switch between continuous and step mode 		Basculer entre le mode continu et pas à pas		Prepnout mezi souvislym a krokovym rezimem	
+Switch between Metric and Inch units	TMainForm	level2mm	Switch between Metric and Inch units		Basculer entre unités métriques et impériales		Prepnout mezi Metric a Palc jedntkami	
+Switch between Metric and Inch units	TMainForm	UnitsButton	Switch between Metric and Inch units		Basculer entre unités métriques et impériales		Prepnout mezi Metric a Palc jedntkami	
+Switch Block skip On or Off	TMainForm	skipBlock	Switch Block skip On or Off		Basculer entre Saut de bloc On ou Off		Zap nebo Vyp Preskok Bloku	
+Switzerland			Switzerland		Suisse	Suíça	Svycarsko	Svizzera
+Symbol							Symbol	
+Synchronize							Synchronizovat	
+System							System	
+System >	TAboutBox	Button2	System >				System >	
+System Info	TMySystemInfo		System Info					
+System Info	TMySystemInfo	Panel5	System Info				Info Systemu	
+System-Info							System-Info	
+System-Information							System-Informace	
+T	TFanucScreen21I	Label28	T	FG		FG	T	FG
+T	TFanucScreenOT	Label28	T	FG		FG	T	FG
+T :	TForm2D	StatusBar	T :				T :	
+T :	TForm3D	StatusBar	T :				T :	
+T#	TCPLTestForm	Label14	T#				T#	
+T.							T.	
+T:	TTurn2DForm	StatusBar1	T:	FG:		FG:	T:	FG:
+t2							t2	
+Target	TCPLTestForm	labelX	Target				Cil	
+Target directory :							Cilovy adresar :	
+Target Properties							Cilove Vlastnosti	
+Target Property							Cilova Vlastnost	
+tea							caj	
+Teal			Teal	Teal	Gris-bleu	S"	Cirka	Verde acqua
+Tel: +44(0)1484 712264	TDemoForm	Label2	Tel: +44(0)1484 712264				Tel: +44(0)1484 712264	
+telnet	TEditorForm	RichEdit	telnet					
+telnet	Tscreen	EditWindow	telnet					
+Text Background	TCol_pref	Label2	Text Background		Origines texte		Pozadi Textu	
+Text Color							Barva Textu	
+Text Colour	TCol_pref	Label1	Text Colour	Text Color	Couleur du texte		Barva Textu	
+Text Editor							Textovy Editor	
+Text Files (*.txt) | *.txt | All Files (*.*) | *.*							Text Fily (*.txt) *.txt Vsechny Fily (*.*) *.*	
+Text Files (*.txt) | *.txt |Pascal Files (*.pas)|*.pas|C Files (*.c;*.cpp;*.hpp;*.h)|*.c;*.cpp;*.hpp;*.h| All Files (*.*) | *.*							Text Fily (*.txt) *.txt Pascal Fily (*.pas) *.pas C Fily (*.c *.cpp *.hpp *.h) *.c *.cpp *.hpp *.h Vsechny Fily (*.*) *.*	
+Text files (*.txt)|*.txt|All files (*.*)|*.*							Text fily (*.txt) *.txt Vsechny fily (*.*) *.*	
+Text files (*.txt)|*.txt|All files|*.*							Text fily (*.txt) *.txt Vsechny fily *.*	
+Text only							Pouze text	
+Text property of pane 1 is used							Je uzita vlastnost textu z pole 1	
+Text to find :							Hledany text :	
+Texture	TMaterialEditorForm	TSTexture	Texture					
+Texture Mode	TRTextureEdit	Label1	Texture Mode				Struktur Rezim	
+The %s Code you have selected to edit, %s is not currently supported by the Wizard.			The %s Code you have selected to edit, %s is not currently supported by the Wizard.					
+The file is large do you wish to turn Colour Formatting off?			The file is large do you wish to turn Colour Formatting off?	The file is large do you wish to turn Color Formatting off?				
+The G Code you have selected to edit is not currently supported by the Wizard. Click OK to continue or click Help for help on the selected G Code.	TWizNoSuportForm	LabelNS	The G Code you have selected to edit is not currently supported by the Wizard. Click OK to continue or click Help for help on the selected G Code.					
+The line number of the source code in the original file.	TElement_info	Panel11	The line number of the source code in the original file.		Le numéro de ligne du code source dans le fichier original		Cislo radky zdrojoveho kodu v puvodnim filu	
+The Machine is not in Auto Mode			The Machine is not in Auto Mode					
+The machine is not in the correct mode to execute this file			The machine is not in the correct mode to execute this file				Stroj neni pro provedeni tohoto filu ve spravnem rezimu	
+The name "			The name "					
+The offset '%s' already exists, please enter a unique name.			The offset '%s' already exists, please enter a unique name.				Posun '%s' jiz existuje, zavedte prosim unikatni nazev.	
+The order number in which the object will be machined.	TElement_info	Panel10	The order number in which the object will be machined.		Le numéro d'ordre dans lequel l'objet sera usiné		Cislo objednavky, ve ktere bude objekt obraben.	
+The original source code that generated the object(s)	TElement_info	Panel12	The original source code that generated the object(s)		Le code source original que génère l'objet		Puvodni zdrojovy kod, ktery object(y) generoval	
+The VR Machine is not in Auto Mode			The VR Machine is not in Auto Mode					
+The X and Y Centre point of and arc, the angle of sweep and the radius.	TElement_info	Arc_stuff	The X and Y Centre point of and arc, the angle of sweep and the radius.	The X and Y Center point of and arc, the angle of sweep and the radius.	Le point central X et Y d'un arc, l'angle de glissement et le rayon		X a Y Stredu oblouku, uhel otaceni a polomer.	
+The X,Y and Z End Position	TElement_info	Panel4	The X,Y and Z End Position		La position finale X, Y et Z		Konc Poloha X,Y a Z	
+The X,Y and Z Start Position	TElement_info	Panel2	The X,Y and Z Start Position		La position de départ X, Y et Z		Pocatec Poloha X,Y a Z	
+There is a problem saving the file 			There is a problem saving the file 					
+this file is large and may take some time to format, do you wish to continue?			this file is large and may take some time to format, do you wish to continue?				tento file je velky a jeho formatovani muze trvat dele, chcete pokracovat?	
+This is a checked item!	TfrmMenu	x11	This is a checked item!					
+This Program requires a minimum of 	TColour_depth_form	Label1	This Program requires a minimum of 					
+This Software is licensed to	TFlashForm	FlashFormToLabel	This Software is licensed to		Ce logiciel est sous licence			
+This tool can not be delete as it in use by the machine			This tool can not be delete as it in use by the machine					
+This will execute your M code	TMcodeManual	DoIt	This will execute your M code					
+Thread			Thread					
+Thread Movement Colour	TG_setup	threads	Thread Movement Colour	Thread Movement Color			Barva Zavitovaciho Pohybu	
+Thread Movement Colour	TG3D_setup	threads	Thread Movement Colour	Thread Movement Color			Barva Zavitovaciho Pohybu	
+Thread Multiple Cutting (G76)	TTurnWizForm	ComboGCode	Thread Multiple Cutting (G76)				Rezani Vicechodeho Zavitu (G76)	
+Thread pitch - F	TTurnWizForm	LabelFT2	Thread pitch - F				Stoupani zavitu - F	
+Tile	TMainForm	Tile2	Tile		carreau ???	Mosaico	Dlazd	Affianca
+Time							Cas	
+Tip Angle	TCaracelAndOffsets	AngleLabel	Tip Angle				Uhel Spicky	
+Tip Angle	TToolLib	AngleLabel	Tip Angle				Uhel Spicky	
+Tip Orientation	TCaracelAndOffsets	TipOrdLabel	Tip Orientation				Orientace Spicky	
+Tip Orientation	TToolLib	TipOrdLabel	Tip Orientation				Orientace Spicky	
+Tip Size	TToolLib	TipSizeLabel	Tip Size				Velik Spic	
+Title :							Titul :	
+To							Do	
+to :							do :	
+To go	TControlPanelStdForm	ToGoLabel	To go				Jit	
+To go	TControlPanel	ToGoLabel	To go				Jit	
+To Go	TCPLTestForm	Label9	To Go				Jit	
+to know more about by clicking it	TFanucScreen21I	Label29	to know more about by clicking it				poznat vice kliknutim na	
+Token	TGet_token_form	Token	Token		Caractère		Znamka	
+TokenN	TLine_numbering	TokenN	TokenN		TokenN		ZnamkaN	
+Tool			Tool		Outil			
+Tool	TControlPanel	ToolLabel	Tool		Outil		Nastr	
+Tool :	TTurnWizForm	LabelT	Tool :				Nastrj :	
+Tool Bar Setup	TToolbar_SetupForm		Tool Bar Setup				Nastaveni HorizMenu	
+Tool Bars...	TMainForm	ToolBars2	Tool Bars...				HorizMenu...	
+Tool Change			Tool Change					
+Tool change aborted			Tool change aborted				Vymena nastr zrusena	
+Tool Class	TToolLib	ClassGroup	Tool Class				Trida Nastrje	
+Tool Colour	TCaracelAndOffsets	ColourLabel	Tool Colour	Tool Color			Barva Nastrje	
+Tool Colour	TToolLib	Label2	Tool Colour	Tool Color			Barva Nastrje	
+Tool Data	TToolEditForm		Tool Data					
+Tool Data File may be corrupt			Tool Data File may be corrupt					
+Tool Diameter	TToolEditForm	Label1	Tool Diameter					
+Tool Length	TToolEditForm	Label2	Tool Length					
+Tool Length Offset	TToolEditForm	Label3	Tool Length Offset					
+Tool Library	TMainForm	ToolLib_but	Tool Library		Bibliothèque outils		Knihov Nastr	
+Tool Library	TToolLib		Tool Library		Bibliothèque outils		Knihov Nastr	
+Tool Library	TToolLib	File1	Tool Library		Bibliothèque outils		Knihov Nastr	
+Tool Name	TToolLib	ToolNameLabel	Tool Name				Nazev Nastr	
+Tool name entered is not unique			Tool name entered is not unique				Zavedeny nazev nastroje neni u nikatni	
+Tool Name Not Unique			Tool Name Not Unique				Nazev nastroje neni unikatni	
+Tool No. 1	TCaracelAndOffsets	ToolNoLabel	Tool No. 1				Nastroj C. 1	
+Tool Nose Radius	TCaracelAndOffsets	RadiusLabel	Tool Nose Radius				Polomer Spicky Nastr	
+Tool Nose Radius	TToolLib	RadiusLabel	Tool Nose Radius				Polomer Spicky Nastr	
+Tool offset does not exist			Tool offset does not exist				Nastr korekce neexistuje	
+Tool Orientation	TCaracelAndOffsets	ToolOrtLabel	Tool Orientation				Orientace Nastroje	
+Tool Orientation	TToolLib	ToolOrtLabel	Tool Orientation				Orientace Nastroje	
+Tool Path Only	TTurn2DForm	ToolPathOnly1	Tool Path Only				Pouze Draha Nastr	
+Tool tip angle	TTurnWizForm	LabelPC	Tool tip angle				Uhel spicky nastr	
+Tool Type	TCaracelAndOffsets	TypeLabel	Tool Type				Typ nastr	
+Tool Type	TToolLib	TypeLabel	Tool Type				Typ nastr	
+Tool Window	TDemoForm	SampleToolWindow	Tool Window				Okno Nastroje	
+Tool Window Sample	TDemoForm	ToolWinButton	Tool Window Sample				Vzorek Okna Nastroje	
+Tool:	TControlPanelStdForm	ToolLabel	Tool:				Nastr:	
+Tool:	TControlPanel	ToolLabel	Tool:				Nastr:	
+ToolBar Captions	TMainForm	MenuItem5	ToolBar Captions		Captages Barre Outils		Legenda Horiz Menu	
+ToolBar Captions	TMainForm	ToolBarCaptions2	ToolBar Captions		Captages Barre Outils		Legenda Horiz Menu	
+ToolBar Icons	TMainForm	MenuItem1	ToolBar Icons		Icones Barre Outils		Ikony Horiz Menu	
+ToolBar Icons	TMainForm	ToolBars1	ToolBar Icons		Icones Barre Outils		Ikony Horiz Menu	
+Tooling	TCaracelAndOffsets		Tooling		Carroussel		Nastroje	
+Tooling	TCaracelAndOffsets	File1	Tooling		Carroussel		Nastroje	
+Tooling	TMainForm	Tooling_but	Tooling		Carroussel		Nastroje	
+Tooling File			Tooling File				File Nastroju	
+ToolLib	TToolLib	Pos_size1	ToolLib					
+Tools	TCPLTestForm	FlatGroupBox1	Tools				Nastr	
+ToolsPanel							PanelNastr	
+Total Lines = 			Total Lines = 		Lignes totales =		Radky Celkem =	
+tpr	TMainForm	SaveProjDialog	tpr				tpr	
+Tracing							Tracing	
+track bar							tyc rizeni	
+Trackbar							TycRizeni	
+transparent							pruhledny	
+Transparent							Pruhledny	
+TRANSPARENT							PRUHLEDNY	
+Traverse			Traverse					
+Triac	TFlashGenForm	PackageCombo	Triac		Triac		Triak	
+TTD	TCustomToolForm	OpenTipFile	TTD				TTD	
+Turbo	TForm3D	Turbo	Turbo				Turbo	
+Turn2DForm	TTurn2DForm		Turn2DForm				Formul2DSoustr	
+Turning CAM	TFlashGenForm	PackageCombo	Turning CAM				CAM Soustruz	
+Turning Projects (*.tpr)|*.tpr|All Files (*.*)|*.*	TMainForm	SaveProjDialog	Turning Projects (*.tpr)|*.tpr|All Files (*.*)|*.*				Projekty Soustruzeni (*.tpr) *.tpr Vsechny Fily (*.*) *.*	
+Turning Wizard			Turning Wizard				Wizard Soustruze	
+TurnRight (D)							PraveSoustr (D)	
+TurnWizForm	TTurnWizForm		TurnWizForm				FormSoustrWiz	
+Tutor Assigned Keys	TMainForm	MachineOpsPanel	Tutor Assigned Keys				Klavesy Pridelene Tutoru	
+Tutor Data File			Tutor Data File				Datov File Tutoru 	
+Two							Dva	
+Two-sided							Dvoustranny	
+txt							txt	
+type							typ	
+Type			Type		Type	n"	Typ	Tipo
+Type :							Typ :	
+Type:			Type:		Type:	n":	Typ:	Tipo:
+TypeResult	TCaracelAndOffsets	TypeResult	TypeResult				TypVysledek	
+Typical	TFxSelectDialog		Typical		Typique		Typicky	
+Typical	TFxSelectDialog	TabSet1	Typical		Typique			
+U	TFanucScreen21I	CheckX	U				U	
+U	TFanucScreen21I	Label4	U				U	
+U	TFanucScreen21I	UCaption	U				U	
+U	TFanucScreenOT	CheckX	U				U	
+U	TFanucScreenOT	Label4	U				U	
+U	TFanucScreenOT	UCaption	U				U	
+U : 	TTurnWizForm	LabelU	U : 				U :	
+Unable to add sequential line number at cursor position.			Unable to add sequential line number at cursor position.				Na poloze kurzoru nelze pridat poradove cislo radky.	
+Unable to connect CIM RS232			Unable to connect CIM RS232				Nelze provest spojeni CIM RS232 	
+Unable to find file,			Unable to find file,				Nelze nalezt file	
+Unable to locate data block between sequence numbers			Unable to locate data block between sequence numbers				Mezi poradova cisla nelze umistit datovy blok	
+UnCheckAll							NekontrolVse	
+Underline	TRichEdit98Editor	UnderlineBtn	Underline		Souligner	Sublinhado	Podtrhnout	Sottolineato
+UnderlineBtn	TRichEdit98Editor	UnderlineBtn	UnderlineBtn		UnderlineBtn		TlacPodtrzeni	
+Undo							Undo	
+Undo	TDemoForm	UndoButton	Undo		Défaire	Desfazer		Annulla
+Unformatted text :							Neformatovany text :	
+Unit							Jednt	
+unit NavEd;							jednotka NavEd	
+United Kingdom			United Kingdom		Royaume Uni	E"	Spojene Kralovstvi	Regno Unito
+United States			United States		Etats Unis	W"	Spojene Staty	Stati Uniti
+Units	TMainForm	level2mm	Units		Unités	Unidades	Jednot	Unità di misura
+Units	TMainForm	MeasurementUnits2	Units		Unités	Unidades	Jednot	Unità di misura
+Units	TMainForm	UnitsButton	Units		Unités	Unidades	Jednot	Unità di misura
+Units	TWizard_Header	Units	Units		Unités	Unidades	Jednot	Unità di misura
+Unknown			Unknown		Inconnu		Neznamy	
+Untitled			Untitled		sans titre	sem nome	Neoznac	
+Up							Nahoru	
+Up One Level			Up One Level		Niveau jusqu'à un ???		O Uroven Vys	
+Update							Aktualiz	
+Update Format	TEditorForm	UpdateFormat1	Update Format		Format ajourné		Aktualiz Format	
+Update List							Aktualiz Seznam	
+Update me							Aktualiz mne	
+Updated files							Aktualizovane fily	
+URLs							URL	
+USA							USA	
+use bitmaps							uzij bitmapy	
+Use Coolant	TTurnWizForm	CheckC	Use Coolant				Uzij Chlazeni	
+Use Default Hint Colors							Uzij Standard Barvy Pokynu	
+Use double click or space key to select an item below							K volbe nize uvedene polozky uzij dvojkliknuti nebo mezernik	
+use gradients							uzij gradienty	
+Use Offsets	TForm2D	Useoffsets	Use Offsets				Uzij Korekce	
+Use Offsets	TForm3D	Useoffsets	Use Offsets				Uzij Korekce	
+Use origin only	TSetOffsets	RadioGroup	Use origin only				Uzij pouze original	
+use the suggested alternative,			use the suggested alternative,					
+Use this File in the Control?			Use this File in the Control?					
+Use Tool Colours	TG_setup	UseToolCol	Use Tool Colours	Use Tool Colors			Uzij Barvy Nastroju	
+uses							Uziva	
+US-funds							US-fondy	
+Using Glyph for Filling							Uziti Glyfu Pro Vypln 	
+Utilities	TMainForm	ToolsMenu	Utilities		Utilitaires		ObslProgr	
+Utility Properties	TToolPropForm		Utility Properties		Propriétés Utilitaire		Vlastnosti ObslProgr	
+v							v	
+Validation in progress.	TWizValForm	ProgressLabel	Validation in progress.				Platnost pokracuje	
+Value := 0							Hodnota := 0	
+Value was not acceptable			Value was not acceptable					
+Values added for this move do not differ from the previous move.			Values added for this move do not differ from the previous move.				Hodnoty pridane pro tento pohyb se nelisi od predesleho pohybu.	
+var							var	
+Various							Ruzny	
+Velocity							Rychlost	
+Version 0.1	TMainForm	Security1	Version 0.1					
+Version Info :	TInfoForm	Label3	Version Info :				Verze Info :	
+Vert.							Vert.	
+Vert. month mode							Vert. mesicni rezim 	
+Vertical							Vertikalni	
+vertical meters are possible...							vertikalni citace jsou mozne	
+Vertical ScrollText:							Vertikal PretocText	
+Vertical Stripes	TFxSelectDialog	BitBtn15	Vertical Stripes		Traits verticaux		Vertikalni Pruhy	
+Vertical style							Vertikalni styl	
+Vertical Wipe In	TFxSelectDialog	BitBtn9	Vertical Wipe In		Vertical Wipe In		Vertikalni	
+Vertical Wipe Out	TFxSelectDialog	BitBtn59	Vertical Wipe Out		Vertical Wipe Out		Vertikalni	
+View	TMainForm	View2	View		Vue	Visualizar	Pohled	Visualizza
+View Buttons	TFanucScreen21I	ViewButtons1	View Buttons				Tlacitka Pohledu	
+View Buttons	TFanucScreenOT	ViewButtons1	View Buttons				Tlacitka Pohledu	
+View Buttons	Tscreen	ViewButtons1	View Buttons				Tlacitka Pohledu	
+View CAB file							File 	
+View Cycle Expansion	TMainForm	ViewCycleExpand	View Cycle Expansion				Rozsireni Pohled Cyklu	
+View Object Data	TForm3D	ViewObjectData	View Object Data				Data Objektu Pohledu	
+View...	TMainForm	View1	View...		Vue...	Visualizar...	Pohled...	Visualizza...
+Viewing Controls	TForm3D	ViewingTBar	Viewing Controls				Rizeni Pozorovani	
+Viewing Controls	TWin3D	ViewingTBar	Viewing Controls					
+ViewLabel							NavestiPohl	
+Viewport Dimensions :	TInfoForm	Label35	Viewport Dimensions :				Rozmery Zaberu :	
+Virtual Reality CNC Turning	TAboutBox	Panel5	Virtual Reality CNC Turning				Virtual Reality CNC Soustruzeni	
+Visit our web site for latest LMD-Tools releases and other related infos:							Navstivte nasi web stranku pro ziskani novych LMD-Tools releases a dalsich info: 	
+Visit our Website...							Navst nasi Webstranku...	
+Visuals							OpticZar	
+Volume							Obsah	
+VR CNC Turning Demo	TDemoForm		VR CNC Turning Demo				Demo VR CNC Soustruz	
+VR Machine	TMainForm	VR_Output	VR Machine		Machine Virtuelle		VR Stroj	
+VR Turning	TMainForm		VR Turning				VR Soustruz 	
+VR Turning	TSplashForm	VersionInfo	VR Turning				VR Soustruz 	
+VR View Bar	TVRT_form_turn	Toolbar971	VR View Bar		Barre vue Virtuelle		VR Pohled Menu	
+W	TFanucScreen21I	CheckZ	W				W	
+W	TFanucScreen21I	Label8	W				W	
+W	TFanucScreen21I	WCaption	W				W	
+W	TFanucScreenOT	CheckZ	W				W	
+W	TFanucScreenOT	Label8	W				W	
+W	TFanucScreenOT	WCaption	W				W	
+W : 	TTurnWizForm	LabelW	W : 				W :	
+wais	TEditorForm	RichEdit	wais					
+wais	Tscreen	EditWindow	wais					
+Walk							Cesta	
+Wallonisch (Belgien)							Valonsky	
+Wallpaper							Tapeta	
+Warn User When Play is Pressed	TMainForm	WarnUserWhenPlayisPressed1	Warn User When Play is Pressed		Attirer l'attention de l'utilisateur lorsque la touche Animation est appuyée		Varovani Uzivateli Pri Stlaceni Hrat	
+Warning	TFile_warn		Warning		Attention	Aviso	Varovani	Attenzione
+Warning	TMach_Warn		Warning		Attention	Aviso	Varovani	Attenzione
+WARNING	TColour_depth_form	Label2	WARNING		Avertissement	Aviso	VAROVANI	Attenzione
+WARNING - The following file(s) are not present	TFile_warn	Label1	WARNING - The following file(s) are not present				VAROVANI - Nasled file(y) se zde nenachazi	
+Warning Beep							Varov ZvukSignal	
+water							voda	
+wav							wav	
+Wave							Vlna	
+Wave (*.wav)|*.wav|All files (*.*)|*.*							Vlna (*.wav) *.wav Vsechny fily (*.*) *.*	
+Wave 1							Vlna 1	
+Wave 2							Vlna 2	
+Wave Editor							Vlnovy Editor	
+WaveItem - Properties							VlnPolozka - Vlastnosti	
+WaveList-Editor							VlnSeznam-Editor 	
+Web							Web	
+weight							vaha	
+Weight:							Vaha:	
+Welcome							Vitame vas	
+Where 							Kde	
+Where:			Where:		Where:	P":	Kde:	Dove:
+which adds your applications							coz pripoji vase aplikace	
+White			White	White	Blanc	Branco	Bila	
+Whole words only							Pouze cela slova	
+Wide trackbar							Siroky ovladac	
+Width	TG3D_setup	Label3	Width		Largeur		Sirka	
+Width/Diameter	TCaracelAndOffsets	WidthLabel	Width/Diameter				Sirka/Prumer	
+Width/Diameter	TToolLib	WidthLabel	Width/Diameter				Sirka/Prumer	
+Width:							Sirka:	
+WidthInner:							SirkaVnitrni:	
+WidthOuter:							SirkaVnejsi:	
+WidthResult	TCaracelAndOffsets	WidthResult	WidthResult				SirkaVysledna	
+Window	TMainForm	Window	Window	Window			Okno	
+Window related commands such as Tile and Cascade							Prikazy vztazene k oknu jako Dlazdice a Kaskada	
+Window2D	TWindow2D		Window2D					
+Windows	TMainForm	Windows2	Windows		Windows		Windows	
+Wire	TForm3D	WireFrame	Wire				Drat	
+with the ? mouse pointer.	TFanucScreen21I	Label30	with the ? mouse pointer.				s ? ukazatelem mysi	
+Wizards	TEditorForm	Wizards1	Wizards		Wizards		Wizardy	
+Work Offset:	TControlPanel	OffsetLabel	Work Offset:				Prac Posunuti:	
+Work Offset:	TControlPanelStdForm	OffsetLabel	Work Offset:				Prac Posunuti:	
+Work Piece Co ordinates			Work Piece Co ordinates					
+Work Piece Offsets	TWorkOffsetForm		Work Piece Offsets		Correcteurs pièce		Posunuti Obrobku	
+WORK SHIFT	TFanucOTWShiftForm		WORK SHIFT				PRAC POSUNUTI	
+WORK SHIFT	TFanucWShiftForm		WORK SHIFT				PRAC POSUNUTI	
+WorkOffsetForm	TWorkOffsetForm	Pos_size1	WorkOffsetForm					
+World Size							Svet Velikost	
+X	TB_Size	X	X		X	X	X	
+X	TControlPanel	BigXLabel	X		X	X	X	
+X	TControlPanel	SmallXLabel	X		X	X	X	
+X	TControlPanelStdForm	BigXLabel	X		X	X	X	
+X	TControlPanelStdForm	Label7	X		X	X	X	
+X	TControlPanelStdForm	SmallXLabel	X		X	X	X	
+X	TControlPanel	XLabel	X		X	X	X	
+X	TCPLTestForm	Label1	X		X	X	X	
+X	TCPLTestForm	Label10	X		X	X	X	
+X	TCPLTestForm	Label11	X		X	X	X	
+X	TCPLTestForm	Label5	X		X	X	X	
+X	TCPLTestForm	Label7	X		X	X	X	
+X	TFanucOTWShiftForm	Label6	X		X	X	X	
+X	TFanucOTWShiftForm	XM	X		X	X	X	
+X	TFanucOTWShiftForm	XS	X		X	X	X	
+X	TFanucScreen21I	BigXorU	X		X	X	X	
+X	TFanucScreen21I	Label12	X		X	X	X	
+X	TFanucScreen21I	Label17	X		X	X	X	
+X	TFanucScreen21I	Label23	X		X	X	X	
+X	TFanucScreen21I	ToGo1	X		X	X	X	
+X	TFanucScreenOT	BigXorU	X		X	X	X	
+X	TFanucScreenOT	Label12	X		X	X	X	
+X	TFanucScreenOT	Label17	X		X	X	X	
+X	TFanucScreenOT	Label23	X		X	X	X	
+X	TFanucScreenOT	Label32	X		X	X	X	
+X	TFanucScreenOT	Label34	X		X	X	X	
+X	TFanucScreenOT	ToGo1	X		X	X	X	
+X	TFanucWShiftForm	Label6	X		X	X	X	
+X	TFanucWShiftForm	XM	X		X	X	X	
+X	TFanucWShiftForm	XS	X		X	X	X	
+X	TWizard_Header	Label3	X		X	X	X	
+X	TWorkOffsetForm	XLabel	X		X	X	X	
+X-	TLimitsDlg	Label_XMinus	X-		X-	X-	X-	
+X-	TOptionsDlg	Label_XMinus	X-		X-	X-	X-	
+X  \/	TCPLTestForm	jogxminus	X  \/				X  v	
+X /\	TCPLTestForm	JogXPlus	X /\				X  ^	
+X :	TForm2D	StatusBar	X :		X :	X :	X :	
+X :	TForm3D	StatusBar	X :		X :	X :	X :	
+X : 	TTurnWizForm	LabelX	X : 				X :	
+X axis	TVectorEditorForm	Label1	X axis				osa X	
+X Axis	TControlPanelStdForm	XHome	X Axis				Osa X	
+X Axis	TControlPanel	XHome	X Axis				Osa X	
+X Centre:	TElement_info	Label11	X Centre:	X Center:	Centre X :		Stred X:	
+X End:	TElement_info	Label5	X End:		Fin X :		Konc X:	
+X extents							rozsah X	
+X Offset							Korekce X	
+X Size	TB_Size	Label2	X Size		Dimension X :		Rozmr X	
+X Start:	TElement_info	Label1	X Start:		Début X :		Pocatk X	
+X tool offset:	TCaracelAndOffsets	Label1	X tool offset:				korekce nastr X:	
+X:	TForm3D	Label3	X:		X:	X:	X:	
+X:	TTurn2DForm	StatusBar1	X:		X:	X:	X:	
+X:	TWindow2D	XText	X:		X:	X:		
+X+	TLimitsDlg	Label_XPlus	X+		X+	X+	X+	
+X+	TOptionsDlg	Label_XPlus	X+		X+	X+	X+	
+X= 			X= 		X= 	X= 	X=	
+XON/XOFF	TRs232_form	HandshakingRG	XON/XOFF		XON/XOFF	XON/XOFF	XON/XOFF	
+XY Grid position							Poloha mrizky XY	
+Y							Y	
+Y	TWizard_Header	Label4	Y		Y			
+Y axis	TVectorEditorForm	Label2	Y axis				osa Y	
+Y Centre:	TElement_info	Label15	Y Centre:	Y Center:	Centre Y :		Stred Y:	
+Y End:	TElement_info	Label7	Y End:		Fin Y :		Konc Y:	
+Y extents							rozsah Y	
+Y Start:	TElement_info	Label10	Y Start:		Début Y :		Pocatk Y	
+Y:	TWindow2D	YText	Y:				Y:	
+Y= 			Y= 		Y= 		Y=	
+Year with thousands;yyyy							Rok s tisici;yyyy	
+Year:							Rok:	
+Year;yy							Rok;yy	
+Yellow			Yellow	Yellow	Jaune	S"	Zluta	Giallo
+Yes							Ano	
+YOffset							KorkceY 	
+You have pressed the 'Operators Alarm' button. This button would normally show the alarm number display, on this simulator it enables help mode.	TFanucScreenOT	Label3	You have pressed the 'Operators Alarm' button. This button would normally show the alarm number display, on this simulator it enables help mode.				Stlacili jste tlacitko Alarm Obsluhy. toto tlacitko by normalne ukazalo zobrazeni cisla alarmu, na simulatoru aktivuje rezim napovedy	
+Z	TB_Size	Z	Z		Z	Z	Z	
+Z	TControlPanel	BigZLabel	Z		Z	Z	Z	
+Z	TControlPanel	SmallZLabel	Z		Z	Z	Z	
+Z	TControlPanelStdForm	BigZLabel	Z		Z	Z	Z	
+Z	TControlPanelStdForm	Label5	Z		Z	Z	Z	
+Z	TControlPanelStdForm	SmallZLabel	Z		Z	Z	Z	
+Z	TControlPanel	ZLabel	Z		Z	Z	Z	
+Z	TCPLTestForm	Label12	Z		Z	Z	Z	
+Z	TCPLTestForm	Label13	Z		Z	Z	Z	
+Z	TCPLTestForm	Label2	Z		Z	Z	Z	
+Z	TCPLTestForm	Label6	Z		Z	Z	Z	
+Z	TCPLTestForm	Label8	Z		Z	Z	Z	
+Z	TFanucOTWShiftForm	Label5	Z		Z	Z	Z	
+Z	TFanucOTWShiftForm	ZM	Z		Z	Z	Z	
+Z	TFanucOTWShiftForm	ZS	Z		Z	Z	Z	
+Z	TFanucScreen21I	BigZorW	Z		Z	Z	Z	
+Z	TFanucScreen21I	Label15	Z		Z	Z	Z	
+Z	TFanucScreen21I	Label20	Z		Z	Z	Z	
+Z	TFanucScreen21I	Label22	Z		Z	Z	Z	
+Z	TFanucScreen21I	ToGo2	Z		Z	Z	Z	
+Z	TFanucScreenOT	BigZorW	Z		Z	Z	Z	
+Z	TFanucScreenOT	Label15	Z		Z	Z	Z	
+Z	TFanucScreenOT	Label20	Z		Z	Z	Z	
+Z	TFanucScreenOT	Label22	Z		Z	Z	Z	
+Z	TFanucScreenOT	ToGo2	Z		Z	Z	Z	
+Z	TFanucWShiftForm	Label5	Z		Z	Z	Z	
+Z	TFanucWShiftForm	ZM	Z		Z	Z	Z	
+Z	TFanucWShiftForm	ZS	Z		Z	Z	Z	
+Z	TWizard_Header	Label5	Z		Z	Z	Z	
+Z	TWorkOffsetForm	ZLabel	Z		Z	Z	Z	
+Z-	TLimitsDlg	Label_ZMinus	Z-		Z-	Z-	Z-	
+Z-	TOptionsDlg	Label_ZMinus	Z-		Z-	Z-	Z-	
+Z :	TForm2D	StatusBar	Z :		Z :	Z :	Z :	
+Z :	TForm3D	StatusBar	Z :		Z :	Z :	Z :	
+Z : 	TTurnWizForm	LabelZ	Z : 				Z :	
+Z >	TCPLTestForm	jogzplus	Z >				Z >	
+Z axis	TVectorEditorForm	Label3	Z axis				osa Z	
+Z Axis	TControlPanelStdForm	ZHome	Z Axis				Osa Z	
+Z Axis	TControlPanel	ZHome	Z Axis				Osa Z	
+Z Centre:	TElement_info	Label15	Z Centre:	Z Center:			Stred Z:	
+Z End:	TElement_info	caption30	Z End:		Fin Z :		Konc Z:	
+Z Size	TB_Size	Label1	Z Size		Dimension Z		Velik Z	
+Z Start:	TElement_info	Label8	Z Start:		Début Z :		Pocatk Z:	
+Z tool offset:	TCaracelAndOffsets	Label2	Z tool offset:				korkce nastr Z:	
+Z:	TForm3D	Label4	Z:		Z:	Z:	Z:	
+Z:	TTurn2DForm	StatusBar1	Z:		Z:	Z:	Z:	
+Z+	TLimitsDlg	Label_ZPlus	Z+		Z+	Z+	Z+	
+Z+	TOptionsDlg	Label_ZPlus	Z+		Z+	Z+	Z+	
+Z= 			Z= 		Z= 	Z= 	Z=	
+Zimbabwe			Zimbabwe		Zimbabwe		Zimbabwe	
+Zip							Zip	
+Zoom							Zoom	
+Zoom &In							Zvetsit &Mer	
+Zoom &Out							Zmensit &Mer	
+Zoom / Position	TForm2D	ToolBarCursors	Zoom / Position				Zoom/Poloha	
+Zoom In	TForm2D	ZoomInButt	Zoom In		Zoom In		Zvetsit Mer	
+Zoom Limits	TTurn2DForm	ZoomLimits1	Zoom Limits				Limity Zoomu	
+Zoom Out	TForm2D	ZoomOutButt	Zoom Out		Zoom Out		Zmensit Mer	

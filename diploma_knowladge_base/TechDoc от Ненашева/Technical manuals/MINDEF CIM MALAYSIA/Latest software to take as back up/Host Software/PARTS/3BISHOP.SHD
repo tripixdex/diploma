@@ -1,0 +1,65 @@
+1101402998 C:\CIM\LAYOUTS\GBTEST.CEL
+2
+gbtest
+9
+1 20 2 10 1 2 0 0 1000000 20 1000000 1 PICK  gbtest PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 20 1000000 30 1000000 3 gbtest 1 2 101
+Moving part 101 from Station 1 to Station 2
+
+2 110 3 2 9 6 0 0 30 1000000 140 1000000 test_l.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 140 1000000 150 1000000 3 gbtest 2 3 101
+Moving part 101 from Station 2 to Station 3
+
+3 170 3 3 8 7 0 0 150 1000000 320 1000000 test_m.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 4 3 320 1000000 330 1000000 3 gbtest 3 4 101
+Moving part 101 from Station 3 to Station 4
+
+1 10 2 10 1 0 0 330 1000000 340 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 4 1 1 4 340 1000000 350 1000000 3 gbtest 4 1 101
+Moving part 101 from Station 4 to Station 1
+
+1 20 2 1 10 0 1 350 1000000 370 1000000 1 PICK Conveyor PLACE gbtest
+Loading ASRS from Station 1
+
+gbtest
+9
+1 20 2 10 1 2 0 20 1000000 20 1000000 1 PICK  gbtest PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 40 1000000 30 1000000 3 gbtest 1 2 102
+Moving part 102 from Station 1 to Station 2
+
+2 110 3 2 9 6 0 0 140 1000000 140 1000000 test_l.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 250 1000000 150 1000000 3 gbtest 2 3 102
+Moving part 102 from Station 2 to Station 3
+
+3 170 3 3 8 7 0 0 320 1000000 320 1000000 test_m.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 4 3 490 1000000 330 1000000 3 gbtest 3 4 102
+Moving part 102 from Station 3 to Station 4
+
+1 10 2 10 1 0 0 500 1000000 340 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 4 1 1 4 510 1000000 350 1000000 3 gbtest 4 1 102
+Moving part 102 from Station 4 to Station 1
+
+1 20 2 1 10 0 1 520 1000000 370 1000000 1 PICK Conveyor PLACE gbtest
+Loading ASRS from Station 1
+
+Comments-File description
+name
+no of processes
+Cell, Duration, no of resources, Resources[...], Load Station, Unload Station, Start [a, b], End [a, b], Capacity, Sequence name
+Description

@@ -1,0 +1,18 @@
+VirtDD.EXE
+
+Virtual Device Driver for the Denford CIM System
+
+To use:-
+
+1 - Place the VirtDD.EXE file in the CI\CIM\BIN folder
+
+2 - Create a shortcut to this file, with...
+
+	The name of the devices INI file placed on the command line 'Target' parameter
+	The name of the folder containing the devices INI file placed in the 'Start In' parameter.
+
+Example for a Virtual Robot 2 in Cell2...
+
+Shortcut Taget   Parameter = "C:\CIM\BIN\VIRTDD.EXE C:\CIM\CELL2\ROBOT.INI"
+Shortcut Startin Parameter = "C:\CIM\CELL2"
+

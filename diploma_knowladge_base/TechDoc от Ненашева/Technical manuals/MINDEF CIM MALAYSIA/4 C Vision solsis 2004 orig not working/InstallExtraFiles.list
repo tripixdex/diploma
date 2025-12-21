@@ -1,0 +1,92 @@
+; This is a list of files to be copied from this directory and subdirectorys.
+; Use a semicolon for comments. 
+; Each line should contain the relative path to the file from this directory.
+
+; Microsoft Runtime files
+MFC42.dll
+msvcr71.dll
+MSVCRT.DLL
+
+1394camera.dll ; CMU 1394 camera interface
+1394dll.dll
+
+PlxApi.dll
+
+WinIo.dll
+WinIo.sys
+WinIo.vxd
+
+; Default Directorys
+Devcode
+Env
+Graph
+History
+Images
+Learn
+Notes
+OAS
+Sequences
+Undo
+
+; Denford code
+Imdust.exe
+Launcher.exe
+Devcode\Denford.dll
+Devcode\Denford.chm
+Capture.tbx
+Objects.tbx
+
+; ControlScreen
+CONTROLSCREENS\BUTTONBAR\button1.bmp
+CONTROLSCREENS\HELP\main.hel
+CONTROLSCREENS\ITEMBMPS\auto.bmp
+CONTROLSCREENS\ITEMBMPS\bulb.bmp
+CONTROLSCREENS\ITEMBMPS\burst.bmp
+CONTROLSCREENS\ITEMBMPS\identify.bmp
+CONTROLSCREENS\ITEMBMPS\load.bmp
+CONTROLSCREENS\ITEMBMPS\snap.bmp
+CONTROLSCREENS\MAINMENU\auto.lrn
+CONTROLSCREENS\MAINMENU\bulb.lrn
+CONTROLSCREENS\MAINMENU\burst.lrn
+CONTROLSCREENS\MAINMENU\identify.lrn
+CONTROLSCREENS\MAINMENU\load.lrn
+CONTROLSCREENS\MAINMENU\main.lrn
+CONTROLSCREENS\MAINMENU\snap.lrn
+
+; Objects
+OBJECTS\bishop_a.bmp
+OBJECTS\bishop_b.bmp
+OBJECTS\bishop_c.bmp
+OBJECTS\bishop_d.bmp
+OBJECTS\bishop_e.bmp
+OBJECTS\bishop_f.bmp
+OBJECTS\castle_a.bmp
+OBJECTS\castle_b.bmp
+OBJECTS\castle_c.bmp
+OBJECTS\castle_d.bmp
+OBJECTS\castle_e.bmp
+OBJECTS\castle_f.bmp
+OBJECTS\king_a.bmp
+OBJECTS\king_b.bmp
+OBJECTS\king_c.bmp
+OBJECTS\king_d.bmp
+OBJECTS\king_e.bmp
+OBJECTS\king_f.bmp
+OBJECTS\knight_a.bmp
+OBJECTS\knight_b.bmp
+OBJECTS\knight_c.bmp
+OBJECTS\knight_d.bmp
+OBJECTS\knight_e.bmp
+OBJECTS\knight_f.bmp
+OBJECTS\pawn_a.bmp
+OBJECTS\pawn_b.bmp
+OBJECTS\pawn_c.bmp
+OBJECTS\pawn_d.bmp
+OBJECTS\pawn_e.bmp
+OBJECTS\pawn_f.bmp
+OBJECTS\queen_a.bmp
+OBJECTS\queen_b.bmp
+OBJECTS\queen_c.bmp
+OBJECTS\queen_d.bmp
+OBJECTS\queen_e.bmp
+OBJECTS\queen_f.bmp

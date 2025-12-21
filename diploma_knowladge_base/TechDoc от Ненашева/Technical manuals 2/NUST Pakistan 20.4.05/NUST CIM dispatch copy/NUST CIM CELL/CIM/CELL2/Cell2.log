@@ -1,0 +1,477 @@
+22:11:2004
+10:56:23	Cell to Host	Robot2 IDLE
+22:11:2004
+22:11:2004
+11:53:33	Cell to Host	Robot2 IDLE
+24:11:2004
+25:11:2004
+12:07:25	Milling Test	Ready
+12:07:28	Milling Test	BUSY
+12:08:28	Milling Test	IDLE
+12:09:17	Milling Test	Ready
+12:09:20	Milling Test	BUSY
+12:10:18	Milling Test	IDLE
+12:10:28	Milling Test	Ready
+12:10:31	Milling Test	BUSY
+12:11:31	Milling Test	IDLE
+13:48:29	Milling Test	Ready
+13:48:32	Milling Test	BUSY
+13:49:31	Milling Test	IDLE
+13:51:07	Cell to Host	IDLE C:\CIM\CELL2\TEST_M.SEQ
+14:28:25	DoCommand test_m.SEQ
+14:28:25	Milling Test	Ready
+14:28:25	Milling Test	BUSY
+14:28:26	Cell to Host	Ready test_m.SEQ
+14:28:26	Cell to Host	BUSY test_m.SEQ
+14:28:26	Cell to Host	Miller BUSY 1
+14:28:27	Cell to Host	Miller IDLE 1
+14:28:28	Cell to Host	Robot2 BUSY 1
+14:28:47	Cell to Host	Robot2 IDLE 1
+14:28:48	Cell to Host	Miller BUSY 2
+14:28:49	Cell to Host	Miller IDLE 2
+14:28:49	Cell to Host	Miller BUSY 5 TEST_m.FNC
+14:28:49	Cell to Host	Miller IDLE 5 TEST_m.FNC
+14:28:50	Cell to Host	Miller BUSY 3
+14:29:03	Cell to Host	Miller IDLE 3
+14:29:03	Cell to Host	Miller BUSY 1
+14:29:04	Cell to Host	Miller IDLE 1
+14:29:05	Cell to Host	Robot2 BUSY 2
+14:29:24	Milling Test	IDLE
+14:29:25	Cell to Host	Robot2 IDLE 2
+14:29:25	Cell to Host	IDLE test_m.SEQ
+14:30:11	DoCommand test_m.SEQ
+14:30:11	Milling Test	Ready
+14:30:11	Milling Test	BUSY
+14:30:12	Cell to Host	Ready test_m.SEQ
+14:30:12	Cell to Host	BUSY test_m.SEQ
+14:30:12	Cell to Host	Miller BUSY 1
+14:30:13	Cell to Host	Miller IDLE 1
+14:30:13	Cell to Host	Robot2 BUSY 1
+14:30:32	Cell to Host	Robot2 IDLE 1
+14:30:33	Cell to Host	Miller BUSY 2
+14:30:34	Cell to Host	Miller IDLE 2
+14:30:34	Cell to Host	Miller BUSY 5 TEST_m.FNC
+14:30:35	Cell to Host	Miller IDLE 5 TEST_m.FNC
+14:30:35	Cell to Host	Miller BUSY 3
+14:30:48	Cell to Host	Miller IDLE 3
+14:30:49	Cell to Host	Miller BUSY 1
+14:30:50	Cell to Host	Miller IDLE 1
+14:30:51	Cell to Host	Robot2 BUSY 2
+14:31:10	Milling Test	IDLE
+14:31:11	Cell to Host	Robot2 IDLE 2
+14:31:12	Cell to Host	IDLE test_m.SEQ
+14:57:04	DoCommand test_m.SEQ
+14:57:04	Milling Test	Ready
+14:57:04	Milling Test	BUSY
+14:57:05	Cell to Host	Ready test_m.SEQ
+14:57:06	Cell to Host	BUSY test_m.SEQ
+14:57:06	Cell to Host	Miller BUSY 1
+14:57:06	Cell to Host	Miller IDLE 1
+14:57:07	Cell to Host	Robot2 BUSY 1
+14:57:26	Cell to Host	Robot2 IDLE 1
+14:57:26	Cell to Host	Miller BUSY 2
+14:57:28	Cell to Host	Miller IDLE 2
+14:57:28	Cell to Host	Miller BUSY 5 TEST_m.FNC
+14:57:28	Cell to Host	Miller IDLE 5 TEST_m.FNC
+14:57:29	Cell to Host	Miller BUSY 3
+14:57:42	Cell to Host	Miller IDLE 3
+14:57:43	Cell to Host	Miller BUSY 1
+14:57:44	Cell to Host	Miller IDLE 1
+14:57:44	Cell to Host	Robot2 BUSY 2
+14:58:03	Milling Test	IDLE
+14:58:04	Cell to Host	Robot2 IDLE 2
+14:58:05	Cell to Host	IDLE test_m.SEQ
+14:58:48	DoCommand test_m.SEQ
+14:58:48	Milling Test	Ready
+14:58:48	Milling Test	BUSY
+14:58:49	Cell to Host	Ready test_m.SEQ
+14:58:49	Cell to Host	BUSY test_m.SEQ
+14:58:50	Cell to Host	Miller BUSY 1
+14:58:50	Cell to Host	Miller IDLE 1
+14:58:51	Cell to Host	Robot2 BUSY 1
+14:59:10	Cell to Host	Robot2 IDLE 1
+14:59:10	Cell to Host	Miller BUSY 2
+14:59:11	Cell to Host	Miller IDLE 2
+14:59:12	Cell to Host	Miller BUSY 5 TEST_m.FNC
+14:59:12	Cell to Host	Miller IDLE 5 TEST_m.FNC
+14:59:13	Cell to Host	Miller BUSY 3
+14:59:26	Cell to Host	Miller IDLE 3
+14:59:27	Cell to Host	Miller BUSY 1
+14:59:28	Cell to Host	Miller IDLE 1
+14:59:28	Cell to Host	Robot2 BUSY 2
+14:59:47	Milling Test	IDLE
+14:59:48	Cell to Host	Robot2 IDLE 2
+14:59:49	Cell to Host	IDLE test_m.SEQ
+15:13:26	DoCommand test_m.SEQ
+15:13:26	Milling Test	Ready
+15:13:26	Milling Test	BUSY
+15:13:27	Cell to Host	Ready test_m.SEQ
+15:13:28	Cell to Host	BUSY test_m.SEQ
+15:13:28	Cell to Host	Miller BUSY 1
+15:13:29	Cell to Host	Miller IDLE 1
+15:13:29	Cell to Host	Robot2 BUSY 1
+15:13:48	Cell to Host	Robot2 IDLE 1
+15:13:49	Cell to Host	Miller BUSY 2
+15:13:50	Cell to Host	Miller IDLE 2
+15:13:50	Cell to Host	Miller BUSY 5 TEST_m.FNC
+15:13:51	Cell to Host	Miller IDLE 5 TEST_m.FNC
+15:13:51	Cell to Host	Miller BUSY 3
+15:14:04	Cell to Host	Miller IDLE 3
+15:14:05	Cell to Host	Miller BUSY 1
+15:14:06	Cell to Host	Miller IDLE 1
+15:14:07	Cell to Host	Robot2 BUSY 2
+15:14:25	Milling Test	IDLE
+15:14:26	Cell to Host	Robot2 IDLE 2
+15:14:27	Cell to Host	IDLE test_m.SEQ
+15:15:13	DoCommand test_m.SEQ
+15:15:13	Milling Test	Ready
+15:15:13	Milling Test	BUSY
+15:15:14	Cell to Host	Ready test_m.SEQ
+15:15:14	Cell to Host	BUSY test_m.SEQ
+15:15:14	Cell to Host	Miller BUSY 1
+15:15:15	Cell to Host	Miller IDLE 1
+15:15:16	Cell to Host	Robot2 BUSY 1
+15:15:35	Cell to Host	Robot2 IDLE 1
+15:15:36	Cell to Host	Miller BUSY 2
+15:15:37	Cell to Host	Miller IDLE 2
+15:15:37	Cell to Host	Miller BUSY 5 TEST_m.FNC
+15:15:37	Cell to Host	Miller IDLE 5 TEST_m.FNC
+15:15:38	Cell to Host	Miller BUSY 3
+15:15:51	Cell to Host	Miller IDLE 3
+15:15:51	Cell to Host	Miller BUSY 1
+15:15:53	Cell to Host	Miller IDLE 1
+15:15:53	Cell to Host	Robot2 BUSY 2
+15:16:12	Milling Test	IDLE
+15:16:13	Cell to Host	Robot2 IDLE 2
+15:16:13	Cell to Host	IDLE test_m.SEQ
+15:24:25	DoCommand test_m.SEQ
+15:24:25	Milling Test	Ready
+15:24:25	Milling Test	BUSY
+15:24:26	Cell to Host	Ready test_m.SEQ
+15:24:27	Cell to Host	BUSY test_m.SEQ
+15:24:27	Cell to Host	Miller BUSY 1
+15:24:28	Cell to Host	Miller IDLE 1
+15:24:28	Cell to Host	Robot2 BUSY 1
+15:24:47	Cell to Host	Robot2 IDLE 1
+15:24:48	Cell to Host	Miller BUSY 2
+15:24:49	Cell to Host	Miller IDLE 2
+15:24:49	Cell to Host	Miller BUSY 5 TEST_m.FNC
+15:24:50	Cell to Host	Miller IDLE 5 TEST_m.FNC
+15:24:50	Cell to Host	Miller BUSY 3
+15:25:03	Cell to Host	Miller IDLE 3
+15:25:04	Cell to Host	Miller BUSY 1
+15:25:04	Cell to Host	Miller IDLE 1
+15:25:05	Cell to Host	Robot2 BUSY 2
+15:25:23	Milling Test	IDLE
+15:25:24	Cell to Host	Robot2 IDLE 2
+15:25:25	Cell to Host	IDLE test_m.SEQ
+15:26:12	DoCommand test_m.SEQ
+15:26:12	Milling Test	Ready
+15:26:12	Milling Test	BUSY
+15:26:13	Cell to Host	Ready test_m.SEQ
+15:26:13	Cell to Host	BUSY test_m.SEQ
+15:26:13	Cell to Host	Miller BUSY 1
+15:26:14	Cell to Host	Miller IDLE 1
+15:26:15	Cell to Host	Robot2 BUSY 1
+15:26:34	Cell to Host	Robot2 IDLE 1
+15:26:35	Cell to Host	Miller BUSY 2
+15:26:36	Cell to Host	Miller IDLE 2
+15:26:36	Cell to Host	Miller BUSY 5 TEST_m.FNC
+15:26:37	Cell to Host	Miller IDLE 5 TEST_m.FNC
+15:26:37	Ce26:11:2004
+ 6:57:20	Milling Test	Ready
+ 6:57:23	Milling Test	BUSY
+ 6:58:22	Milling Test	IDLE
+ 6:59:30	Milling Test	Ready
+ 6:59:32	Milling Test	BUSY
+ 7:00:32	Milling Test	IDLE
+ 9:01:02	Milling Test	Ready
+ 9:01:05	Milling Test	BUSY
+ 9:02:03	Milling Test	IDLE
+ 9:12:02	Milling Test	Ready
+ 9:12:05	Milling Test	BUSY
+ 9:13:03	Milling Test	IDLE
+11:09:56	Cell to Host	IDLE C:\CIM\CELL2\TEST_M.SEQ
+11:35:41	DoCommand test_m.SEQ
+11:35:41	Milling Test	Ready
+11:35:41	Milling Test	BUSY
+11:35:42	Cell to Host	Ready test_m.SEQ
+11:35:42	Cell to Host	BUSY test_m.SEQ
+11:35:42	Cell to Host	Miller BUSY 1
+11:35:43	Cell to Host	Miller IDLE 1
+11:35:43	Cell to Host	Robot2 BUSY 1
+11:36:02	Cell to Host	Robot2 IDLE 1
+11:36:03	Cell to Host	Miller BUSY 2
+11:36:04	Cell to Host	Miller IDLE 2
+11:36:04	Cell to Host	Miller BUSY 5 TEST_m.FNC
+11:36:05	Cell to Host	Miller IDLE 5 TEST_m.FNC
+11:36:05	Cell to Host	Miller BUSY 3
+11:36:18	Cell to Host	Miller IDLE 3
+11:36:18	Cell to Host	Miller BUSY 1
+11:36:19	Cell to Host	Miller IDLE 1
+11:36:20	Cell to Host	Robot2 BUSY 2
+11:36:39	Milling Test	IDLE
+11:36:39	Cell to Host	Robot2 IDLE 2
+11:36:40	Cell to Host	IDLE test_m.SEQ
+11:37:36	DoCommand test_m.SEQ
+11:37:36	Milling Test	Ready
+11:37:36	Milling Test	BUSY
+11:37:36	Cell to Host	Ready test_m.SEQ
+11:37:37	Cell to Host	BUSY test_m.SEQ
+11:37:37	Cell to Host	Miller BUSY 1
+11:37:37	Cell to Host	Miller IDLE 1
+11:37:38	Cell to Host	Robot2 BUSY 1
+11:37:57	Cell to Host	Robot2 IDLE 1
+11:37:57	Cell to Host	Miller BUSY 2
+11:37:58	Cell to Host	Miller IDLE 2
+11:37:59	Cell t21:03:2005
+19:04:2005
+14:47:55	Cell to Host	Robot2 IDLE
+19:04:2005
+19:04:2005
+16:17:46	Cell to Host	Robot2 IDLE
+20:04:2005
+ 8:08:41	Milling Test	Ready
+ 8:08:44	Milling Test	BUSY
+ 8:09:54	Milling Test	IDLE
+ 8:13:09	Cell to Host	IDLE C:\CIM\CELL2\TEST_M.SEQ
+ 8:17:52	DoCommand TEST_M.SEQ
+ 8:17:52	Milling Test	Ready
+ 8:17:53	Milling Test	BUSY
+ 8:17:53	Cell to Host	Ready TEST_M.SEQ
+ 8:17:54	Cell to Host	BUSY TEST_M.SEQ
+ 8:17:54	Cell to Host	Miller BUSY 1
+ 8:17:55	Cell to Host	Miller IDLE 1
+ 8:17:56	Cell to Host	Robot2 BUSY 1
+ 8:18:19	Cell to Host	Robot2 IDLE 1
+ 8:18:20	Cell to Host	Miller BUSY 2
+ 8:18:20	Cell to Host	Miller IDLE 2
+ 8:18:21	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:18:21	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:18:22	Cell to Host	Miller BUSY 3
+ 8:18:37	Cell to Host	Miller IDLE 3
+ 8:18:38	Cell to Host	Miller BUSY 1
+ 8:18:38	Cell to Host	Miller IDLE 1
+ 8:18:39	Cell to Host	Robot2 BUSY 2
+ 8:19:03	Milling Test	IDLE
+ 8:19:04	Cell to Host	Robot2 IDLE 2
+ 8:19:04	Cell to Host	IDLE TEST_M.SEQ
+ 8:19:47	DoCommand TEST_M.SEQ
+ 8:19:47	Milling Test	Ready
+ 8:19:48	Milling Test	BUSY
+ 8:19:48	Cell to Host	Ready TEST_M.SEQ
+ 8:19:49	Cell to Host	BUSY TEST_M.SEQ
+ 8:19:49	Cell to Host	Miller BUSY 1
+ 8:19:49	Cell to Host	Miller IDLE 1
+ 8:19:50	Cell to Host	Robot2 BUSY 1
+ 8:20:14	Cell to Host	Robot2 IDLE 1
+ 8:20:15	Cell to Host	Miller BUSY 2
+ 8:20:15	Cell to Host	Miller IDLE 2
+ 8:20:16	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:20:16	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:20:16	Cell to Host	Miller BUSY 3
+ 8:20:32	Cell to Host	Miller IDLE 3
+ 8:20:33	Cell to Host	Miller BUSY 1
+ 8:20:33	Cell to Host	Miller IDLE 1
+ 8:20:33	Cell to Host	Robot2 BUSY 2
+ 8:20:58	Milling Test	IDLE
+ 8:20:59	Cell to Host	Robot2 IDLE 2
+ 8:20:59	Cell to Host	IDLE TEST_M.SEQ
+ 8:21:42	DoCommand TEST_M.SEQ
+ 8:21:42	Milling Test	Ready
+ 8:21:43	Milling Test	BUSY
+ 8:21:43	Cell to Host	Ready TEST_M.SEQ
+ 8:21:44	Cell to Host	BUSY TEST_M.SEQ
+ 8:21:44	Cell to Host	Miller BUSY 1
+ 8:21:45	Cell to Host	Miller IDLE 1
+ 8:21:46	Cell to Host	Robot2 BUSY 1
+ 8:22:09	Cell to Host	Robot2 IDLE 1
+ 8:22:10	Cell to Host	Miller BUSY 2
+ 8:22:11	Cell to Host	Miller IDLE 2
+ 8:22:11	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:22:12	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:22:12	Cell to Host	Miller BUSY 3
+ 8:22:27	Cell to Host	Miller IDLE 3
+ 8:22:27	Cell to Host	Miller BUSY 1
+ 8:22:28	Cell to Host	Miller IDLE 1
+ 8:22:29	Cell to Host	Robot2 BUSY 2
+ 8:22:52	Milling Test	IDLE
+ 8:22:53	Cell to Host	Robot2 IDLE 2
+ 8:22:54	Cell to Host	IDLE TEST_M.SEQ
+ 8:28:26	DoCommand TEST_M.SEQ
+ 8:28:26	Milling Test	Ready
+ 8:28:27	Milling Test	BUSY
+ 8:28:27	Cell to Host	Ready TEST_M.SEQ
+ 8:28:28	Cell to Host	BUSY TEST_M.SEQ
+ 8:28:28	Cell to Host	Miller BUSY 1
+ 8:28:29	Cell to Host	Miller IDLE 1
+ 8:28:29	Cell to Host	Robot2 BUSY 1
+ 8:28:54	Cell to Host	Robot2 IDLE 1
+ 8:28:54	Cell to Host	Miller BUSY 2
+ 8:28:55	Cell to Host	Miller IDLE 2
+ 8:28:55	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:28:56	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:28:56	Cell to Host	Miller BUSY 3
+ 8:29:11	Cell to Host	Miller IDLE 3
+ 8:29:12	Cell to Host	Miller BUSY 1
+ 8:29:13	Cell to Host	Miller IDLE 1
+ 8:29:13	Cell to Host	Robot2 BUSY 2
+ 8:29:37	Milling Test	IDLE
+ 8:29:38	Cell to Host	Robot2 IDLE 2
+ 8:29:38	Cell to Host	IDLE TEST_M.SEQ
+ 8:30:22	DoCommand TEST_M.SEQ
+ 8:30:22	Milling Test	Ready
+ 8:30:23	Milling Test	BUSY
+ 8:30:23	Cell to Host	Ready TEST_M.SEQ
+ 8:30:24	Cell to Host	BUSY TEST_M.SEQ
+ 8:30:24	Cell to Host	Miller BUSY 1
+ 8:30:25	Cell to Host	Miller IDLE 1
+ 8:30:26	Cell to Host	Robot2 BUSY 1
+ 8:30:50	Cell to Host	Robot2 IDLE 1
+ 8:30:50	Cell to Host	Miller BUSY 2
+ 8:30:51	Cell to Host	Miller IDLE 2
+ 8:30:51	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:30:52	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:30:52	Cell to Host	Miller BUSY 3
+ 8:31:07	Cell to Host	Miller IDLE 3
+ 8:31:08	Cell to Host	Miller BUSY 1
+ 8:31:08	Cell to Host	Miller IDLE 1
+ 8:31:09	Cell to Host	Robot2 BUSY 2
+ 8:31:33	Milling Test	IDLE
+ 8:31:34	Cell to Host	Robot2 IDLE 2
+ 8:31:35	Cell to Host	IDLE TEST_M.SEQ
+ 8:32:17	DoCommand TEST_M.SEQ
+ 8:32:17	Milling Test	Ready
+ 8:32:18	Milling Test	BUSY
+ 8:32:18	Cell to Host	Ready TEST_M.SEQ
+ 8:32:19	Cell to Host	BUSY TEST_M.SEQ
+ 8:32:19	Cell to Host	Miller BUSY 1
+ 8:32:19	Cell to Host	Miller IDLE 1
+ 8:32:20	Cell to Host	Robot2 BUSY 1
+ 8:32:45	Cell to Host	Robot2 IDLE 1
+ 8:32:46	Cell to Host	Miller BUSY 2
+ 8:32:46	Cell to Host	Miller IDLE 2
+ 8:32:47	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:32:47	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:32:48	Cell to Host	Miller BUSY 3
+ 8:33:02	Cell to Host	Miller IDLE 3
+ 8:33:03	Cell to Host	Miller BUSY 1
+ 8:33:04	Cell to Host	Miller IDLE 1
+ 8:33:04	Cell to Host	Robot2 BUSY 2
+ 8:33:28	Milling Test	IDLE
+ 8:33:28	Cell to Host	Robot2 IDLE 2
+ 8:33:29	Cell to Host	IDLE TEST_M.SEQ
+ 8:40:53	DoCommand TEST_M.SEQ
+ 8:40:53	Milling Test	Ready
+ 8:40:54	Milling Test	BUSY
+ 8:40:54	Cell to Host	Ready TEST_M.SEQ
+ 8:40:55	Cell to Host	BUSY TEST_M.SEQ
+ 8:40:55	Cell to Host	Miller BUSY 1
+ 8:40:56	Cell to Host	Miller IDLE 1
+ 8:40:56	Cell to Host	Robot2 BUSY 1
+ 8:41:21	Cell to Host	Robot2 IDLE 1
+ 8:41:21	Cell to Host	Miller BUSY 2
+ 8:41:23	Cell to Host	Miller IDLE 2
+ 8:41:23	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:41:23	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:41:24	Cell to Host	Miller BUSY 3
+ 8:41:39	Cell to Host	Miller IDLE 3
+ 8:41:40	Cell to Host	Miller BUSY 1
+ 8:41:40	Cell to Host	Miller IDLE 1
+ 8:41:40	Cell to Host	Robot2 BUSY 2
+ 8:42:04	Milling Test	IDLE
+ 8:42:05	Cell to Host	Robot2 IDLE 2
+ 8:42:05	Cell to Host	IDLE TEST_M.SEQ
+ 8:42:48	DoCommand TEST_M.SEQ
+ 8:42:48	Milling Test	Ready
+ 8:42:49	Milling Test	BUSY
+ 8:42:49	Cell to Host	Ready TEST_M.SEQ
+ 8:42:50	Cell to Host	BUSY TEST_M.SEQ
+ 8:42:50	Cell to Host	Miller BUSY 1
+ 8:42:51	Cell to Host	Miller IDLE 1
+ 8:42:52	Cell to Host	Robot2 BUSY 1
+ 8:43:16	Cell to Host	Robot2 IDLE 1
+ 8:43:16	Cell to Host	Miller BUSY 2
+ 8:43:17	Cell to Host	Miller IDLE 2
+ 8:43:17	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:43:18	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:43:18	Cell to Host	Miller BUSY 3
+ 8:43:32	Cell to Host	Miller IDLE 3
+ 8:43:33	Cell to Host	Miller BUSY 1
+ 8:43:34	Cell to Host	Miller IDLE 1
+ 8:43:35	Cell to Host	Robot2 BUSY 2
+ 8:43:59	Milling Test	IDLE
+ 8:43:59	Cell to Host	Robot2 IDLE 2
+ 8:44:00	Cell to Host	IDLE TEST_M.SEQ
+ 8:44:43	DoCommand TEST_M.SEQ
+ 8:44:43	Milling Test	Ready
+ 8:44:44	Milling Test	BUSY
+ 8:44:44	Cell to Host	Ready TEST_M.SEQ
+ 8:44:45	Cell to Host	BUSY TEST_M.SEQ
+ 8:44:45	Cell to Host	Miller BUSY 1
+ 8:44:45	Cell to Host	Miller IDLE 1
+ 8:44:46	Cell to Host	Robot2 BUSY 1
+ 8:45:11	Cell to Host	Robot2 IDLE 1
+ 8:45:12	Cell to Host	Miller BUSY 2
+ 8:45:12	Cell to Host	Miller IDLE 2
+ 8:45:13	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:45:13	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:45:14	Cell to Host	Miller BUSY 3
+ 8:45:28	Cell to Host	Miller IDLE 3
+ 8:45:28	Cell to Host	Miller BUSY 1
+ 8:45:29	Cell to Host	Miller IDLE 1
+ 8:45:30	Cell to Host	Robot2 BUSY 2
+ 8:45:54	Milling Test	IDLE
+ 8:45:55	Cell to Host	Robot2 IDLE 2
+ 8:45:55	Cell to Host	IDLE TEST_M.SEQ
+ 8:55:02	DoCommand TEST_M.SEQ
+ 8:55:02	Milling Test	Ready
+ 8:55:03	Milling Test	BUSY
+ 8:55:04	Cell to Host	Ready TEST_M.SEQ
+ 8:55:04	Cell to Host	BUSY TEST_M.SEQ
+ 8:55:04	Cell to Host	Miller BUSY 1
+ 8:55:05	Cell to Host	Miller IDLE 1
+ 8:55:06	Cell to Host	Robot2 BUSY 1
+ 8:55:30	Cell to Host	Robot2 IDLE 1
+ 8:55:31	Cell to Host	Miller BUSY 2
+ 8:55:32	Cell to Host	Miller IDLE 2
+ 8:55:32	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:55:32	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:55:33	Cell to Host	Miller BUSY 3
+ 8:55:47	Cell to Host	Miller IDLE 3
+ 8:55:48	Cell to Host	Miller BUSY 1
+ 8:55:49	Cell to Host	Miller IDLE 1
+ 8:55:49	Cell to Host	Robot2 BUSY 2
+ 8:56:13	Milling Test	IDLE
+ 8:56:14	Cell to Host	Robot2 IDLE 2
+ 8:56:15	Cell to Host	IDLE TEST_M.SEQ
+ 8:56:57	DoCommand TEST_M.SEQ
+ 8:56:57	Milling Test	Ready
+ 8:56:58	Milling Test	BUSY
+ 8:56:58	Cell to Host	Ready TEST_M.SEQ
+ 8:56:59	Cell to Host	BUSY TEST_M.SEQ
+ 8:56:59	Cell to Host	Miller BUSY 1
+ 8:56:59	Cell to Host	Miller IDLE 1
+ 8:57:00	Cell to Host	Robot2 BUSY 1
+ 8:57:25	Cell to Host	Robot2 IDLE 1
+ 8:57:25	Cell to Host	Miller BUSY 2
+ 8:57:26	Cell to Host	Miller IDLE 2
+ 8:57:27	Cell to Host	Miller BUSY 5 TEST_m.FNC
+ 8:57:27	Cell to Host	Miller IDLE 5 TEST_m.FNC
+ 8:57:27	Cell to Host	Miller BUSY 3
+ 8:57:42	Cell to Host	Miller IDLE 3
+ 8:57:42	Cell to Host	Miller BUSY 1
+ 8:57:43	Cell to Host	Miller IDLE 1
+ 8:57:44	Cell to Host	Robot2 BUSY 2
+ 8:58:08	Milling Test	IDLE
+ 8:58:09	Cell to Host	Robot2 IDLE 2
+ 8:58:10	Cell to Host	IDLE TEST_M.SEQ
+ 8:58:52	DoCommand TEST_M.SEQ
+ 8:58:52	Milling Test	Ready
+ 8:58:52	Milling Test	BUSY
+ 8:58:53	Cell to Host	Ready TEST_M.SEQ
+ 8:58:53	Cell to Host	BUSY TEST_M.SEQ
+ 8:58:53	Cell to Host	Miller BUSY 1
+ 8:58:54	Cell to Host	Miller IDLE 1
+ 8:58:55	Cell to Host	Robot2 BUSY 1
+ 8:59:1

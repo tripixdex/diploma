@@ -1,0 +1,51 @@
+BISHOP
+1116441218 C:\CIM\PARTS\BISHOP.PP
+1116427806 C:\CIM\LAYOUTS\CADCAM.CEL
+14
+1 20 2 19 1 2 0 0 1000000 20 1000000 1 PICK BISHOP PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 20 1000000 30 1000000 3 BISHOP 1 2 #PART#
+Moving part #PART# from Station 1 to Station 2
+
+3 15 1 13 0 0 30 1000000 45 1000000 3 0 BISHOP
+CodeTag Inspection
+
+2 110 3 2 8 9 0 0 45 1000000 155 1000000 BISHOP_L.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 155 1000000 165 1000000 3 BISHOP 2 3 #PART#
+Moving part #PART# from Station 2 to Station 3
+
+4 110 3 3 10 11 0 0 165 1000000 275 1000000 BISHOP_M.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 6 3 275 1000000 285 1000000 3 BISHOP 3 6 #PART#
+Moving part #PART# from Station 3 to Station 6
+
+1 10 7 1 19 15 14 16 17 18 0 0 285 1000000 295 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 6 1 1 6 295 1000000 305 1000000 3 BISHOP 6 1 #PART#
+Moving part #PART# from Station 6 to Station 1
+
+1 20 3 1 19 15 15 1 305 1000000 325 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 7
+
+6 10 3 14 15 16 16 15 325 1000000 335 1000000 1 8
+AGV moving part #PART# to Station 8
+
+7 15 3 16 17 18 0 0 335 1000000 350 1000000 BISHOP_C.SEQ
+Load/Process/Unload Sequence for CMM
+
+6 10 3 14 16 15 15 16 350 1000000 360 1000000 1 7
+AGV moving part #PART# to Station 7
+
+1 20 2 15 19 0 15 360 1000000 380 1000000 1 PICK AGV PLACE BISHOP
+Loading ASRS from Station 7
+
+Comments: File description
+name
+number of processes
+Cell, Duration, number of resources, Resources[...], Load Station, Unload Station, Start [a, b], End [a, b], Sequence name
+Description

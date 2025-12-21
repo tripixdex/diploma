@@ -1,0 +1,469 @@
+'**********************************  
+'**                            ****
+'**   MicroMill 2000 NS Mint   ****
+'**                            ****
+'**********************************
+'
+'
+
+'**********************************  
+'**   Start of main Config bit   **                                    
+'**********************************
+Auto    '*Guard Release Mod
+Startup 
+  
+  Define ALLAXES = 0,1,2
+  CONFIG[ALLAXES]=2;
+  Axes[ALLAXES]
+  ABORT:Wait=10
+  SCALE[ALLAXES]=1;
+  LIMITMODE[ALLAXES] =  0;
+  STOPINPUTMODE[ALLAXES] =  0;
+  SOFTLIMITMODE[ALLAXES] =  0;
+  INPUTMODE       = 00000000000000000    ' inputs 11 is edge triggered
+  INPUTPOSTRIGGER = 00000000000000000    ' inputs 11 is edge triggered
+  INPUTNEGTRIGGER = 00000000000000000    ' inputs 11 is edge triggered
+'  INPUTMODE = 0x0000              ' inputs 12 to 15 are level trigger (must be for home)
+  INPUTACTIVELEVEL = 0x07BF       ' a 0 is inverted
+  HOMEINPUT[ALLAXES] =  12,13,14
+  STOPINPUT[ALLAXES] =  11,11,11
+  ACCEL[ALLAXES] =  15000;
+  DECEL[ALLAXES] =  15000;
+  ERRORDECEL[ALLAXES] =  15000;  
+  SPEED[ALLAXES] =  40000;
+'  SRAMP[ALLAXES] =  0.0000, 0.0000, 0.0000
+  HOMEBACKOFF[ALLAXES] =  10;
+  HOMESPEED[ALLAXES] =  3000;
+  MOVEBUFFERSIZE[ALLAXES] =  200;
+  RESETALL 
+  DRIVEENABLE[ALLAXES]=0;
+  RELAY.0=1
+'  CONTOURANGLE[ALLAXES]=35;             ' This will be overwriten by VR Milling
+  CONTOURMODE[ALLAXES]=3;
+  TRIGGERMODE[0,1,2]=0;
+  INPUTDEBOUNCE.0=2
+  INPUTDEBOUNCE.1=2  
+  STOPINPUTMODE[ALLAXES]=3;
+  IDLEPOS[ALLAXES]=2;
+  FEEDRATEMODE[ALLAXES]=3; 'feedrate mode enabled and override enable and analogue override  
+  OUT=00000000000000000 ' *Guard Release Mod  
+End Startup
+  
+
+
+'***********************************  
+'** Start of main Mint program    **                                    
+'***********************************
+Dim ModeLast=0 
+Dim SpeedLast=0 
+Dim SpindleRunning=0
+Dim MachineSafe=0
+Dim SafetyFeed=250 * 315 / 60 'Feed when door open =150mm/min into steps/second
+Dim SpindleOverride=100
+Dim Spindle=500
+Dim SpindleDAC=50   'this is 50% spindle output ie, 5 Volts DC
+Dim doorstate=0
+Dim DisplayCount=0
+Dim LedCount=0
+Dim ResetCount=0
+Dim CycleReset=0
+Dim Out12Flag=0
+Dim ViceFlag=0
+Dim StepsPerMM=314.959
+Dim MaxFeed=123
+
+'Constants:-
+Const STOPSW = 11   ' Define the Stop switch input
+Const DOORSW = 6    ' Define the Door switch input !! remember to change Event IN6 name
+Const DOOROPENSW = 17  ' Define door open on xtra IO bank (was X1.0)
+Const POCKET = 1    ' Location 1 in non volatile memory
+Define ALLAXES = 0,1,2
+
+Run modify_speed ' Start this task to override Feed from pots 
+Run SafetyCheck  ' another task    
+Run CheckRemoteStuff ' CIM type checking
+Run GuardCheck       ' *Guard Release Mod
+OUT.0=0          ' Clear all outputs
+OUT.1=0
+? "MicroMill 2000 NS MintV5 (c)Denford Ltd"
+machinesafe=1
+IMASK=0xFFFFF        ' turn on IN6 event handler
+COMMS(19)=!INSTATEX.DOORSW
+DPREVENT = 19
+Wait=200
+
+COMMS(7) = NVLONG.POCKET    ' read last tool used
+If COMMS(7) > 50 Or COMMS(7) < 0 Then COMMS(7)=0   ' check for garbage value
+
+Loop                              
+   If COMMS(2) <> ModeLast Then NewMode
+   If COMMS(4) <> SpeedLast Then NewSpindle 
+   If COMMS(39) <> StepsPerMM Then SetupFeeds
+   If COMMS(14) <> MaxFeed Then SetupFeeds        
+End Loop  
+    
+' Called when comms(39) - stepsPerMM is changed 
+Sub SetupFeeds( )
+  If COMMS(39) > 0 Then
+    StepsPerMM=COMMS(39)
+    MaxFeed=COMMS(14)
+    '?"steps per", stepspermm
+    HOMESPEED[ALLAXES] = 400*StepsPerMM / 60;
+    HOMEBACKOFF[ALLAXES] = 10;
+    SafetyFeed=150 * StepsPerMM / 60 'Feed when door open =150mm/min into steps/second
+    MAXSPEED[ALLAXES] = MaxFeed;
+    ACCEL[ALLAXES] =  100*StepsPerMM;
+    DECEL[ALLAXES] =  100*StepsPerMM;
+    '?"comms 14: ", COMMS(14)
+  EndIf
+End Sub
+  
+Sub NewMode( )
+  ModeLast = COMMS(2)
+End Sub
+Sub NewSpindle( )
+  If COMMS(4) * SpindleOverride / 100 < COMMS(15) Then
+    spindle = COMMS(4) * SpindleOverride / 100
+  Else
+    spindle = COMMS(15)
+  EndIf
+  ' COMMS(35) is Min spindle speed
+  If spindle < COMMS(35) Then Spindle=COMMS(35)
+  If SpindleDAC < 0 Then SpindleDAC = 0
+  If COMMS(15)=0 Then COMMS(15)=1
+  SpindleDAC = 100 * (spindle / (COMMS(15)*1.1))
+  If SpindleDAC > 100 Then SpindleDAC = 100
+  If SpindleDAC < 0 Then SpindleDAC=0
+  AUXDAC.0 = SpindleDAC
+  SpeedLast = COMMS(4)  
+  DPREVENT=6                       ' tell PC to look at comms(6)
+End Sub
+
+' Perform a toolchange to this tool
+Sub ToolChange (Tool As Integer)
+  SpindleStop
+  Wait = 250
+  NVLONG.Pocket = Tool  : Rem Store last tool selected in non volotile
+End Sub       
+
+' Stop the spindle
+Sub SpindleStop( )
+Dim ZSRAvail=0  
+  If OUT0 And (Spindle > 500) Then     :Rem if spindle running > 500RPM
+    If INSTATEX.7 Then ZSRAvail=1              :Rem if so is ZSR input working ?
+    OUT0 = 0
+    If ZSRAvail Then 
+      Repeat                         : Rem if zsr available then wait for that
+      Until !INSTATEX.7 Or INSTATEX.STOPSW
+    EndIf
+    If !ZSRAvail Then
+      Wait=Spindle                  :Rem otherwise just wait a time
+    EndIf
+  EndIf
+  OUT0 = 0                 :Rem stop spindle now
+  Wait=200
+  SpindleRunning=0
+End Sub   
+  
+' Spindle clockwise
+Sub SpindleStart( )
+  If SpindleRunning Then
+     SpindleStop
+     Wait=1500
+   EndIf 
+  If MachineSafe Then      'Only if safe
+     OUTX.7=0   '*Guard Release Mod
+     OUT0 = 1       :Rem spindle run
+     SpindleRunning=1
+   EndIf
+End Sub
+
+Sub Mcode (M As Integer)
+ ' ? "Do Mcode M",M
+  Select Case M
+    Case 0: SpindleStop
+    Case 3,13:   SpindleStart
+    Case 4,14:   SpindleStart
+    Case 5,30:   SpindleStop
+    Case 62:    Mcode62
+    Case 63:    Mcode63
+    Case 64:    Mcode64
+    Case 65:    Mcode65
+    Case 66:    Mcode66
+    Case 67:    Mcode67
+    Case 76:    Mcode76
+    Case 77:    Mcode77      
+  End Select
+End Sub
+
+'Set the Z axis brake output  0=locked, 1=released
+Sub SetBrake (state As Integer)
+' now used for drive 5v logic output-turn off resets any drive error
+'  If state Then Wait (500)  
+  OUTX.15 = state And !INSTATEX.STOPSW
+'  ?"Brake is ", state
+  End Sub
+  
+ 
+'****************************************
+'*    Cim type routines
+'****************************************
+Sub SetVice(ViceOn As Integer)
+  If !COMMS(38) Then  ' only stop spindle if not in remote vice mode
+    If SpindleRunning Then SpindleStop
+  EndIf
+  OUT8=ViceOn
+End Sub
+  
+Sub Mcode62( )
+Rem: Turn auxiliary output 12 on
+  If !COMMS(34) Then
+   OUT12=1
+  Else
+    Out12Flag=1
+  EndIf
+End Sub
+
+Sub Mcode64( )
+Rem: Turn auxiliary output 12 off
+  If !COMMS(34) Then
+   OUT12=0
+  Else
+    Out12Flag=0
+  EndIf
+End Sub
+
+Sub Mcode63( )
+Rem: Turn auxiliary output 13 on
+  If !COMMS(38) Then        'if not in remote Vice mode
+   OUT13=1
+  EndIf
+End Sub
+
+Sub Mcode65( )
+Rem: Turn auxiliary output 13 off
+  If !COMMS(38) Then       'only if not in remote Vice mode
+   OUT13=0
+  EndIf
+End Sub
+
+Sub Mcode66( )
+Rem: Wait for input 18
+  Repeat
+  Until INSTATEX.18 Or INSTATEX.STOPSW Or CycleReset
+End Sub
+
+Sub Mcode76( )
+Rem: Wait for NOT input 18
+  Repeat
+  Until !INSTATEX.18 Or INSTATEX.STOPSW Or CycleReset
+End Sub
+
+Sub Mcode67( )
+Rem: Wait for input 19
+  Repeat
+  Until INSTATEX.19 Or INSTATEX.STOPSW Or CycleReset
+End Sub
+
+Sub Mcode77( )
+Rem: Wait for NOT input 19
+  Repeat
+  Until !INSTATEX.19 Or INSTATEX.STOPSW Or CycleReset
+End Sub
+
+
+'**************************************
+'** Start of events and threads code **
+'**************************************
+'
+' This event is called every time COMMS(1) is changed
+Event COMMS1    
+  Dim Command = 0
+  Command = COMMS(1)   
+' ?"comms1 changed",command  
+  If Command=7 Then ToolChange COMMS(7)
+  If Command=18 Then MCode COMMS(18)  
+'  If command=36 Then 
+'     SortOutDoorSwitch
+'     SortOutEStop
+'  EndIf
+  COMMS(1) = 0        ' Signifies Task has completed
+ End Event 
+
+  Event STOP
+    STOPINPUT[ALLAXES]=-1;
+    CANCELALL
+    SetBrake !INSTATEX.STOPSW
+    SpindleStop
+    OUTX.7=0   '*Guard Release Mod      
+    COMMS(37)=!INSTATEX.STOPSW
+    DPREVENT=37    
+    Pause IDLE[ALLAXES]
+    DRIVEENABLE[ALLAXES]=0;
+    Wait=50
+    Run WaitNotEstop
+ End Event
+ 
+ ' this is called when door is opened only
+ Event IN6
+    IMASK=0xFFFBF       ' turn off IN6 event handler
+    MachineSafe=0
+    CANCELALL
+    SUSPEND[ALLAXES]=1;
+    COMMS(19)=!INSTATEX.DOORSW
+    If !COMMS(34) Then   ' dont notify if in remote control mode
+      DPREVENT = 19
+    EndIf
+    If SpindleRunning Then SpindleStop
+    Pause IDLE[ALLAXES]
+    Run WaitDoorClosed
+ End Event
+    
+' update speed and feed overrides
+Task modify_speed 
+
+Dim ReadOverride=0
+Dim PotCheckCounter=0
+Dim FPotCheckCounter=0
+Dim PotCheckTotal=0
+Dim FPotCheckTotal=0
+Dim LastSpindleOv=0
+Dim LastFeedOv=0
+
+  Wait=1500                         ' make sure first event is generated
+  Loop  
+    '****** Feed POT:-
+    If COMMS(8) Then                'If Feed POT fitted
+      ReadOverride=(ADC.1*3) - 2
+      ' Feed pot hysterisis :-
+      FPotCheckTotal=FPotCheckTotal+Abs(ReadOverride-LastFeedOv)
+      FPotCheckCounter=FPotCheckCounter+1
+      If FPotCheckCounter>150 Then
+        If Abs(FPotCheckTotal/FPotCheckCounter) > 4 Then
+          ReadOverride=Round(ReadOverride/5)*5   'make increments of 5
+          If ReadOverride<5 Then ReadOverride=0   
+          If ReadOverride>150 Then ReadOverride=150  
+          FEEDRATEOVERRIDE=ReadOverride;    'Override value from POT
+          COMMS(5) = ReadOverride           ' Update the PC
+          LastFeedOv=ReadOverride
+        EndIf
+        FPotCheckCounter=0
+        FPotCheckTotal=0
+      EndIf
+    Else  
+      FEEDRATEOVERRIDE=COMMS(5);        'Override value from PC comms
+    EndIf 
+    
+    '****** Spindle POT:-
+    If COMMS(9) Then                'if spindle pot fitted
+      SpindleOverride=(ADC.0*(70/50)) +50      'Spindle override from POT
+    Else
+      SpindleOverride=COMMS(6)      'Spindle override from PC comms
+    EndIf
+    ' Spindle pot hysterisis :-
+    PotCheckTotal=PotCheckTotal+Abs(SpindleOverride-LastSpindleOv)
+    PotCheckCounter=PotCheckCounter+1
+    If PotCheckCounter>200 Then
+      If Abs(PotCheckTotal/PotCheckCounter) > 4 Then
+        COMMS(6)=Round(SpindleOverride/5)*5
+        LastSpindleOv=SpindleOverride
+        NewSpindle
+      EndIf
+      PotCheckCounter=0
+      PotCheckTotal=0
+    EndIf
+  End Loop  
+End Task                     
+    
+
+Task SafetyCheck 
+  COMMS(19)=0            'Initially say machine not safe
+  Loop
+    CycleReset = COMMS(98)
+    If CycleReset Then ResetCount=ResetCount+1
+    If ResetCount > 500 Then 
+      COMMS(98)=0
+      ResetCount=0
+    EndIf
+    
+    DRIVEENABLE[ALLAXES]=COMMS(36) And !INSTATEX.STOPSW;
+    'if connected and enabled and Brake is off then turn it on
+    If COMMS(36) And !INSTATEX.STOPSW And !OUTX.15 Then
+      SetBrake !INSTATEX.STOPSW
+    EndIf
+    ' if not connected and Brake is off, turn it back on
+    If !COMMS(36) And OUTX.15 Then
+      SetBrake 0
+    EndIf    
+    If !MachineSafe Then 
+       SPEED[ALLAXES] = SafetyFeed;      'limit the feed to a safe feedrate
+    EndIf
+    ' Display EStopped message  :
+    If INSTATEX.STOPSW Then
+      LED=-2
+      DisplayCount=DisplayCount+1
+      If DisplayCount > 350 Then 
+        DisplayCount=0
+        LedCount=LedCount+1
+        If LedCount > 4 Then LedCount=0
+      EndIf
+      Select Case LedCount
+        Case 0: LEDDISPLAY=0x79     'E
+        Case 1: LEDDISPLAY=0x6d     'S
+        Case 2: LEDDISPLAY=0x78     't
+        Case 3: LEDDISPLAY=0x5C     'o
+        Case 4: LEDDISPLAY=0x73     'P 
+      End Select
+    Else
+      LED=0                 ' else display axis 0 status
+    EndIf 
+    End Loop  
+ End Task    
+   
+Task CheckRemoteStuff
+  Loop
+    If COMMS(38) Then 'Rem Checks for vice commands from CIM Device Driver
+      ViceFlag=INSTATEX.19
+      SetVice ViceFlag 
+      OUT13=!ViceFlag   'Rem vice status output
+    EndIf
+    Rem - Out12flag on means machine busy, off means idle
+    If COMMS(34) Then 
+      'Turn auxiliary output 1 on if door closed:-
+      If Out12Flag Then OUT12=1
+      'Only turn off when door is open  
+      If !Out12Flag And INSTATEX.DOOROPENSW Then OUT12=0
+    EndIf
+  End Loop
+ End Task 
+ 
+ Task GuardCheck '*Guard Release Mod
+   Loop
+    If !OUTX.7 And !SpindleRunning And !INSTATEX.STOPSW Then
+      Wait=4000
+      OUTX.7=1
+    EndIf
+   End Loop
+ End Task   
+ 
+ 
+ Task WaitNotEstop
+  Repeat
+  Until !INSTATEX.StopSW       'repeat until not in estop
+  SetBrake (!INSTATEX.STOPSW And COMMS(36))
+  COMMS(37)=!INSTATEX.STOPSW
+  DPREVENT=37
+  STOPINPUT[ALLAXES]=STOPSW;
+End Task
+
+Task WaitDoorClosed
+  Wait=2000                  ' wait to let host see door is open
+  CANCELALL
+  SUSPEND[ALLAXES]=0;          ' allow them to jog machine with door open
+  Repeat
+  Until !INSTATEX.DOORSW
+  COMMS(19)=!INSTATEX.DOORSW
+  DPREVENT = 19
+  MachineSafe=1
+  IMASK=0xFFFFF        ' turn on IN6 event handler
+End Task

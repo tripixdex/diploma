@@ -1,0 +1,84 @@
+/******************************************
+
+Compiler Directives...
+
+INC_OLE2;_OCFDLL;_RTLDLL;_BIDSDLL;_OWLDLL;STRICT;_OWLPCH;_OCFPCH;_OWLALLPCH;_OWLALLPCH;_RTLDLL;_BIDSDLL;_OWLDLL; NOSITE
+
+/******************************************
+Changes to the Scheduler...
+
+06/03/98 - JHB - Added an INI entry to CIM.INI to stop checking file
+					  date/times.
+CIM.INI
+					  [main]
+					  CheckTime=0	;do not check times
+					  CheckTime=1  ;do check times
+
+06/03/98 - JHB - Directories now come from CIM.INI, no longer hard coded.
+
+10/03/98 - JHB - The current working directory is now remembered when a user
+					  changes directory. This means that when a user opens a route
+					  in a directory other than the on specified in CIM.INI, the BOP
+					  and everything else is also found.
+
+10/03/98 - JHB - Browsing a part in the order entry dialog now appends a CR/LF
+
+11/03/98 - JHB - The current working directory is now recorded when a part is
+					  selected in the order entry dialog. This allows the user to
+					  change directories without loosing the assosiated BOP.
+
+16/03/98 - JHB - Product Version changed to 1.1 in Resource Editor
+					  Copyright date changed to 1998	
+
+17/03/98 - JHB - The key window is now invisible. It can be viewed from
+					  the "View -> Key Window" menu	
+
+17/03/98 - JHB - Changes to the Help system...
+					  The help menu now only has two entries. 'Contents' and 'About'.
+					  'Contents' shows the help file whose name is specified by an
+					  entry in SCHEDULE.INI. The directory is read from
+					  CIM.INI -> cim_HTML=
+					  These files can have any extension, and will use the windows
+					  file assosiations to launch the appropriate viewer. This way
+					  we can use either .HLP or .HTML documents.
+					  ('About' is the normal about box)
+SCHEDULE.INI
+		[Help]
+		main=host1.hlp
+
+20/03/98 - JHB - Fixed the problem with the Key Window always becoming visible
+					  when a new schedule is made. (it used to ignore the menu
+					  selection and show itself anyway, now it only show itself if
+					  the menu item is checked)	
+
+20/03/98 - JHB - Browsing for a part in the part order dialog now defaults to
+					  the parts directory (it was picking up the last directory used,
+					  usually the layouts directory). It also remembers any directory
+					  you have changed into, and uses this directory if you browse
+					  again.
+
+25/05/99 - JHB - Now checks for multiple instances of itself and only
+						allows one instance to run.
+
+25/05/99 - JHB - Created version 1.2
+
+28/05/99 - JHB - Changes to SOFTLOK routines to make NT Compatible.
+					  NOTE: MNxx.386 (win 95) or SOFTLOK.SYS (NT) is required.
+					  Requires NOSITE compiler directive.
+
+--/07/99 - AG  - Made Flashable.
+
+20/10/00 - JHB - Changes to the variable names used for Parts to make things
+                 easier to read...
+                 P changed to Process
+                 Processes changed to NumberOfProcesses
+
+20/10/00 - JHB - 'Calculating' dialog now shows more info
+                 (added to try and locate a crashing problem when running on NT)
+
+24/10/00 - JHB - Reading "CheckTime" entry in CIM.INI was causing crashes on NT
+                 (at Teeside university) when calculating the schedule. Now Fixed.
+
+24/10/00 - JHB - Created version 1.3
+
+*****************************************/

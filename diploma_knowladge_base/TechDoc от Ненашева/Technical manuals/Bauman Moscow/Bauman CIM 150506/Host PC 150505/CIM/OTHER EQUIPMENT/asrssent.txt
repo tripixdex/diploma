@@ -1,0 +1,2 @@
+"PICK 2 PLACE 0 2 1 5  
+" 24 characters sent

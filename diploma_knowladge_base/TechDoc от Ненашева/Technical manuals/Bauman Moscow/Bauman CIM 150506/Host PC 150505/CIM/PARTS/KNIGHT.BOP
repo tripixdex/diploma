@@ -1,0 +1,54 @@
+KNIGHT
+1141923754 C:\CIM\PARTS\KNIGHT.PP
+1146239644 C:\CIM\LAYOUTS\BAUMAN.CEL
+15
+1 20 2 13 1 2 0 0 1000000 20 1000000 1 PICK Knight PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 20 1000000 30 1000000 3 KNIGHT 1 2 #PART#
+Moving part #PART# from Station 1 to Station 2
+
+2 30 1 9 0 0 30 1000000 60 1000000 3 0 KNIGHT
+CodeTag Inspection
+
+3 60 3 2 11 10 0 0 60 1000000 120 1000000 Ltest.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 120 1000000 130 1000000 3 KNIGHT 2 3 #PART#
+Moving part #PART# from Station 2 to Station 3
+
+4 60 3 3 7 6 0 0 130 1000000 190 1000000 Mtest.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 4 3 190 1000000 200 1000000 3 KNIGHT 3 4 #PART#
+Moving part #PART# from Station 3 to Station 4
+
+5 30 1 17 0 0 200 1000000 230 1000000 1
+VisionSystem Inspection
+
+0 10 0 5 4 230 1000000 240 1000000 3 KNIGHT 4 5 #PART#
+Moving part #PART# from Station 4 to Station 5
+
+1 10 7 1 13 15 14 16 14 15 0 0 240 1000000 250 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 5 1 1 5 250 1000000 260 1000000 3 KNIGHT 5 1 #PART#
+Moving part #PART# from Station 5 to Station 1
+
+1 20 3 1 13 15 15 1 260 1000000 280 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 6
+
+7 10 3 14 15 16 16 15 280 1000000 290 1000000 1 7
+AGV moving part #PART# to Station 7
+
+7 10 3 14 16 15 15 16 290 1000000 300 1000000 1 6
+AGV moving part #PART# to Station 6
+
+1 20 2 15 13 0 15 300 1000000 320 1000000 1 PICK AGV PLACE Knight
+Loading ASRS from Station 6
+
+Comments: File description
+name
+number of processes
+Cell, Duration, number of resources, Resources[...], Load Station, Unload Station, Start [a, b], End [a, b], Sequence name
+Description

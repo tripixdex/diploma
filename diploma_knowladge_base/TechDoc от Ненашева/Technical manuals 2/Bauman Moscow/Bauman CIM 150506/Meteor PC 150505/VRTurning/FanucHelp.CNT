@@ -1,0 +1,62 @@
+:Base  FanucHelp.HLP
+:Title Contents Title
+1 Introduction
+1 Fanuc 21 Control for VR Turning=Intro
+1 Operator Keys Descriptions
+1 Auto Key=Auto Key
+1 Edit Key=Edit Key
+1 MDI Key=MDI Key
+1 Home Key=Home Key
+1 Jog Key=Jog Key
+1 Inc Key=Inc Key
+1 Single Key=Single Key
+1 Block Del Key=Block Del Key
+1 Low x1 Key=Low x1 Key
+1 Medl x10 Key=Medl x10 Key
+1 Med x100 Key=Med x100 Key
+1 Medh x1K Key=Medh x1K Key
+1 High Key=High Key
+1 Jog X- Key=Jog Xm Key
+1 Jog X+ Key=JogXpKey
+1 Jog Z- Key=Jog Zm Key
+1 Jog Z+ Key=Jog Zp Key
+1 Start Key=start key
+1 Stop Key=Stop key
+1 Pause Key=Pause Key
+1 SPDL CW Key=SPDL CW Key
+1 SPDL STOP Key=SPDL STOP Key
+1 SPDL CCW Key=SPDL CCW Key
+1 Coolant On Key=Coolant On Key
+1 Coolant Off Key=Coolant Off Key
+1 Pos Key=pos key
+1 Prog Key=Prog Key
+1 Offset Key=Offset Key
+1 Shift Key=Shift Key
+1 Can Key=Can Key
+1 Input Key=Input Key
+1 Custom Graph Key=Custom Graph Key
+1 Alter Key=Alter Key
+1 Insert Key=Insert Key
+1 Delete Key=Delete Key
+1 Page Up Key=Page Up Key
+1 Page Down Key=Page Down Key
+1 Cursor Up Key=Cursor Up Key
+1 Cursor Left Key=Cursor Left Key
+1 Cursor Right Key=Cursor Right Key
+1 Cursor Down key=Cursor Down key
+1 Reset Key=Reset Key
+1 Softkey Keys=Softkey Keys
+1 Estop Button=Estop Button
+1 Edit mode
+1 How to load a CNC program=How to load a CNC program
+1 How to save a CNC program=How to save a CNC program
+1 How to edit a program=How to edit a program
+1 How to Alter an item=How to Alter an item
+1 How to Insert an item=How to Insert an item
+1 How to Delete an item=How to Delete an item
+1 What is the edit line ?=What is the edit line ?
+1 Softkeys
+1 What are Softkeys ?=What are Softkeys ?
+1 Offsets
+1 Setting Work Offsets=Setting Work Offsets
+1 Setting Tool Offsets=Setting Tool Offsets

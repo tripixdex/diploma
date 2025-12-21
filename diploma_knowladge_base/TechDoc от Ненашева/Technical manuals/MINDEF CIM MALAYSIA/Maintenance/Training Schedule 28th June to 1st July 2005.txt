@@ -1,0 +1,25 @@
+Training Schedule 28th June to 1st July 2005
+
+
+Tuesday 28th June 2005
+
+1. Replace Z axis drive card in ASRS and test ASRS
+
+2. Build camera system and test	
+
+3. Install and  Test new CMM device driver
+
+4. Reset Parameters and Keep relays in Triac Fanuc and Cyclone after Tony Gills visit
+
+
+Wednesday 29th June 2005
+
+1. Hub was not connected correctly on Host and Cell computers after cable tidy up was performed (Used ports 2 and 3 instead of 1 and 2) 
+
+2. Training of Vision system was performed and Trainees created a class of parts called CHESS.CLS
+
+3. The trainees designed from first principles a shop floor layout called CIM2005.SFL for the full CIM layout
+
+4. The trainees created new Process Plans for the King, Queen, Bishop, Knight and Rook utilising the existing Process plans
+
+5. The trainees created new Route Plans for the King, Queen, Bishop, Knight and Rook 

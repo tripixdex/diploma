@@ -1,0 +1,22 @@
+test_markers 1 - - - T - -
+if FALSE
+{{
+	message 'No class has been defined.'
+	show 4.0
+	break
+}}
+
+loop 0 In Loop
+{{
+	test_input 378 1 1
+	if TRUE
+	{{
+		close 1
+		avgframe A 8
+		window A
+		send_output 378 2
+		identify_object A
+	}}
+}}
+
+

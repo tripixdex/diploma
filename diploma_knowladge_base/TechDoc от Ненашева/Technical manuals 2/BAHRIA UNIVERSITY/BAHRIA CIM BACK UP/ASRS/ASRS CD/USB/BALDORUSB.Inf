@@ -1,0 +1,73 @@
+; Installation inf for Baldor USB devices.
+;
+; (c) Copyright 2003, 2004 Baldor
+;
+
+[Version]
+Signature="$CHICAGO$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+provider=%BALD%
+DriverVer=02/26/2004,1.0.0.1
+
+[SourceDisksNames]
+1="BaldorUSB Installation Disk",,,
+
+[SourceDisksFiles]
+BALDORUSB.sys = 1
+BALDORUSB.inf = 1
+
+[Manufacturer]
+%MfgName%=Baldor
+
+[Baldor]
+%USB\VID_12AF&PID_0001.DeviceDesc%=BALDORUSB.Dev, USB\VID_12AF&PID_0001
+
+;[PreCopySection]
+;HKR,,NoSetupUI,,1
+
+[DestinationDirs]
+BALDORUSB.Files.Ext = 10,System32\Drivers
+BALDORUSB.Files.Inf = 10,INF
+
+[BALDORUSB.Dev]
+CopyFiles=BALDORUSB.Files.Ext, BALDORUSB.Files.Inf
+AddReg=BALDORUSB.AddReg
+
+[BALDORUSB.Dev.NT]
+CopyFiles=BALDORUSB.Files.Ext, BALDORUSB.Files.Inf
+AddReg=BALDORUSB.AddReg
+
+[BALDORUSB.Dev.NT.Services]
+Addservice = BALDORUSB, 0x00000002, BALDORUSB.AddService
+
+[BALDORUSB.AddService]
+DisplayName    = %BALDORUSB.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\BALDORUSB.sys
+LoadOrderGroup = Base
+
+[BALDORUSB.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,BALDORUSB.sys
+HKLM,"System\Currentcontrolset\Services\BaldorUSB\Parameters","MaximumTransferSize",0x10001,4096
+HKLM,"System\Currentcontrolset\Services\BaldorUSB\Parameters","DebugLevel",0x10001,2
+HKLM,"System\Currentcontrolset\services\BaldorUSB\Parameters","BaldorUSBEnable",0x10001,1
+
+[BALDORUSB.Files.Ext]
+BALDORUSB.sys
+
+[BALDORUSB.Files.Inf]
+BALDORUSB.Inf
+
+
+;---------------------------------------------------------------;
+
+[Strings]
+BALD="Baldor"
+MfgName="Baldor"
+USB\VID_12AF&PID_0001.DeviceDesc="Baldor USB Device"
+BALDORUSB.SvcDesc="BALDORUSB.SYS - Baldor USB Device"
+

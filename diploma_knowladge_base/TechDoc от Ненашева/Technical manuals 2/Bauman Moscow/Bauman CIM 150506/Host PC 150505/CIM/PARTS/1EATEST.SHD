@@ -1,0 +1,236 @@
+1146239644 C:\CIM\LAYOUTS\BAUMAN.CEL
+5
+King
+15
+1 20 2 13 1 2 0 0 1000000 20 1000000 1 PICK King PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 20 1000000 30 1000000 3 King 1 2 101
+Moving part 101 from Station 1 to Station 2
+
+2 30 1 9 0 0 30 1000000 60 1000000 3 0 King
+CodeTag Inspection
+
+3 60 3 2 11 10 0 0 60 1000000 120 1000000 Ltest.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 120 1000000 130 1000000 3 King 2 3 101
+Moving part 101 from Station 2 to Station 3
+
+4 60 3 3 7 6 0 0 130 1000000 190 1000000 Mtest.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 4 3 190 1000000 200 1000000 3 King 3 4 101
+Moving part 101 from Station 3 to Station 4
+
+5 30 1 17 0 0 200 1000000 230 1000000 1
+VisionSystem Inspection
+
+0 10 0 5 4 230 1000000 240 1000000 3 King 4 5 101
+Moving part 101 from Station 4 to Station 5
+
+1 10 7 1 13 15 14 16 14 15 0 0 240 1000000 250 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 5 1 1 5 250 1000000 260 1000000 3 King 5 1 101
+Moving part 101 from Station 5 to Station 1
+
+1 20 3 1 13 15 15 1 260 1000000 280 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 6
+
+7 10 3 14 15 16 16 15 280 1000000 290 1000000 1 7
+AGV moving part 101 to Station 7
+
+7 10 3 14 16 15 15 16 290 1000000 300 1000000 1 6
+AGV moving part 101 to Station 6
+
+1 20 2 15 13 0 15 300 1000000 320 1000000 1 PICK AGV PLACE King
+Loading ASRS from Station 6
+
+QUEEN
+15
+1 20 2 13 1 2 0 20 1000000 20 1000000 1 PICK Queen PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 40 1000000 30 1000000 3 QUEEN 1 2 102
+Moving part 102 from Station 1 to Station 2
+
+2 30 1 9 0 0 60 1000000 60 1000000 3 0 QUEEN
+CodeTag Inspection
+
+3 60 3 2 11 10 0 0 120 1000000 120 1000000 Ltest.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 180 1000000 130 1000000 3 QUEEN 2 3 102
+Moving part 102 from Station 2 to Station 3
+
+4 60 3 3 7 6 0 0 190 1000000 190 1000000 Mtest.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 4 3 250 1000000 200 1000000 3 QUEEN 3 4 102
+Moving part 102 from Station 3 to Station 4
+
+5 30 1 17 0 0 260 1000000 230 1000000 1
+VisionSystem Inspection
+
+0 10 0 5 4 290 1000000 240 1000000 3 QUEEN 4 5 102
+Moving part 102 from Station 4 to Station 5
+
+1 10 7 1 13 15 14 16 14 15 0 0 320 1000000 250 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 5 1 1 5 330 1000000 260 1000000 3 QUEEN 5 1 102
+Moving part 102 from Station 5 to Station 1
+
+1 20 3 1 13 15 15 1 340 1000000 280 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 6
+
+7 10 3 14 15 16 16 15 360 1000000 290 1000000 1 7
+AGV moving part 102 to Station 7
+
+7 10 3 14 16 15 15 16 370 1000000 300 1000000 1 6
+AGV moving part 102 to Station 6
+
+1 20 2 15 13 0 15 380 1000000 320 1000000 1 PICK AGV PLACE Queen
+Loading ASRS from Station 6
+
+BISHOP
+13
+1 20 2 13 1 2 0 40 1000000 20 1000000 1 PICK Bishop PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 60 1000000 30 1000000 3 BISHOP 1 2 103
+Moving part 103 from Station 1 to Station 2
+
+2 30 1 9 0 0 90 1000000 60 1000000 3 0 BISHOP
+CodeTag Inspection
+
+3 60 3 2 11 10 0 0 180 1000000 120 1000000 Ltest.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 4 2 240 1000000 130 1000000 3 BISHOP 2 4 103
+Moving part 103 from Station 2 to Station 4
+
+5 30 1 17 0 0 290 1000000 160 1000000 1
+VisionSystem Inspection
+
+0 10 0 5 4 320 1000000 170 1000000 3 BISHOP 4 5 103
+Moving part 103 from Station 4 to Station 5
+
+1 10 7 1 13 15 14 16 14 15 0 0 400 1000000 180 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 5 1 1 5 410 1000000 190 1000000 3 BISHOP 5 1 103
+Moving part 103 from Station 5 to Station 1
+
+1 20 3 1 13 15 15 1 420 1000000 210 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 6
+
+7 10 3 14 15 16 16 15 440 1000000 220 1000000 1 7
+AGV moving part 103 to Station 7
+
+7 10 3 14 16 15 15 16 450 1000000 230 1000000 1 6
+AGV moving part 103 to Station 6
+
+1 20 2 15 13 0 15 460 1000000 250 1000000 1 PICK AGV PLACE Bishop
+Loading ASRS from Station 6
+
+KNIGHT
+15
+1 20 2 13 1 2 0 280 1000000 20 1000000 1 PICK Knight PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 300 1000000 30 1000000 3 KNIGHT 1 2 104
+Moving part 104 from Station 1 to Station 2
+
+2 30 1 9 0 0 310 1000000 60 1000000 3 0 KNIGHT
+CodeTag Inspection
+
+3 60 3 2 11 10 0 0 340 1000000 120 1000000 Ltest.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 400 1000000 130 1000000 3 KNIGHT 2 3 104
+Moving part 104 from Station 2 to Station 3
+
+4 60 3 3 7 6 0 0 410 1000000 190 1000000 Mtest.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 4 3 470 1000000 200 1000000 3 KNIGHT 3 4 104
+Moving part 104 from Station 3 to Station 4
+
+5 30 1 17 0 0 480 1000000 230 1000000 1
+VisionSystem Inspection
+
+0 10 0 5 4 510 1000000 240 1000000 3 KNIGHT 4 5 104
+Moving part 104 from Station 4 to Station 5
+
+1 10 7 1 13 15 14 16 14 15 0 0 520 1000000 250 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 5 1 1 5 530 1000000 260 1000000 3 KNIGHT 5 1 104
+Moving part 104 from Station 5 to Station 1
+
+1 20 3 1 13 15 15 1 540 1000000 280 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 6
+
+7 10 3 14 15 16 16 15 560 1000000 290 1000000 1 7
+AGV moving part 104 to Station 7
+
+7 10 3 14 16 15 15 16 570 1000000 300 1000000 1 6
+AGV moving part 104 to Station 6
+
+1 20 2 15 13 0 15 580 1000000 320 1000000 1 PICK AGV PLACE Knight
+Loading ASRS from Station 6
+
+ROOK
+15
+1 20 2 13 1 2 0 440 1000000 20 1000000 1 PICK Rook PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 460 1000000 30 1000000 3 ROOK 1 2 105
+Moving part 105 from Station 1 to Station 2
+
+2 30 1 9 0 0 470 1000000 60 1000000 3 0 ROOK
+CodeTag Inspection
+
+3 60 3 2 11 10 0 0 500 1000000 120 1000000 Ltest.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 560 1000000 130 1000000 3 ROOK 2 3 105
+Moving part 105 from Station 2 to Station 3
+
+4 60 3 3 7 6 0 0 570 1000000 190 1000000 Mtest.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 4 3 630 1000000 200 1000000 3 ROOK 3 4 105
+Moving part 105 from Station 3 to Station 4
+
+5 30 1 17 0 0 640 1000000 230 1000000 1
+VisionSystem Inspection
+
+0 10 0 5 4 670 1000000 240 1000000 3 ROOK 4 5 105
+Moving part 105 from Station 4 to Station 5
+
+1 10 7 1 13 15 14 16 14 15 0 0 680 1000000 250 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 5 1 1 5 690 1000000 260 1000000 3 ROOK 5 1 105
+Moving part 105 from Station 5 to Station 1
+
+1 20 3 1 13 15 15 1 700 1000000 280 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 6
+
+7 10 3 14 15 16 16 15 720 1000000 290 1000000 1 7
+AGV moving part 105 to Station 7
+
+7 10 3 14 16 15 15 16 730 1000000 300 1000000 1 6
+AGV moving part 105 to Station 6
+
+1 20 2 15 13 0 15 740 1000000 320 1000000 1 PICK AGV PLACE Rook
+Loading ASRS from Station 6
+
+Comments-File description
+name
+no of processes
+Cell, Duration, no of resources, Resources[...], Load Station, Unload Station, Start [a, b], End [a, b], Capacity, Sequence name
+Description

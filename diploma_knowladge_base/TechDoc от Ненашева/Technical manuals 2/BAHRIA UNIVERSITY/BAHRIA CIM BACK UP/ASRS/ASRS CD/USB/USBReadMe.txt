@@ -1,0 +1,14 @@
+Installing the Denford Machine Baldor USB driver:
+If you have connected the Denford Machine to the PC using the USB connection, it will be necessary to install the USB driver. 
+When the Machine is powered, Windows (2000 or XP only) will automatically detect the controller and request the driver.
+The driver consists of two files, baldorusb.inf and baldorusb.sys. Both files must be present for installation.
+1. Follow the on-screen instructions to select and install the driver. The driver files are available on the supplied Denford USB machine Driver CD or on the Machines’ Virtual Reality CNC CD under “USB“ directory. If you are using a copy of the driver located on the hard disk, a floppy disk or another CD, the two driver files should be in the same folder.
+2. During installation, Windows may report that the driver is ?unsigned?. This is normal for the Baldor USB driver, so click the “Continue Anyway” button to continue with the installation. When installation is complete, a new Baldor controller device will be listed in the Universal Serial Bus controllers section of Windows Device Manager.
+
+Upgrading the Denford Machine Baldor USB driver:
+If a Baldor USB driver has already been installed, then it is upgraded as follows:
+1. Open Windows Device Manager, and locate the Baldor USB Device in the Universal Serial Bus controllers section.
+2. Right-click the Baldor USB Device and select Update Driver...
+3. Follow the on-screen instructions as above to select and install the driver. On Windows XP it is normal for Windows to report that it is Setting a system restore point. This enables the driver version to be rolled back to a previous version in the event of any problems.
+Note: If the Machine  is later connected to a different USB port on the host computer, Windows may report that it has found new hardware. Either install the driver files again for the new USB port, or connect to the original USB port where it will be recognized in the usual way. 
+

@@ -1,0 +1,125 @@
+-	-	-
+&File	&File	&Fichier
+&New	&New	&Nouveau
+&New...	&New...	&Nouveau...
+&Open...	&Open...	&Ouvrir...
+&Options	&Options	&Options
+&Save	&Save	&Sauvegarder
+1	1	1
+2	2	2
+3	3	3
+Action	Action	Action
+Add	Add	Ajouter
+Add a new command	Add a new command	Ajouter une nouvelle commande
+Add Wait	Add Wait	Ajout attente
+Add Wait Automatically	Add Wait Automatically	Ajout attente automatiquement
+Are you sure you want to delete this command	Are you sure you want to delete this command	Etes vous sûr de vouloir effacer cette commande
+Available Interlocks	Available Interlocks	Disponibles Interblocages
+Browse	Browse	Parcourir
+Can not obtain interlock - 	Can not obtain interlock -	Impossible d'obtenir interblocage 
+Cancel	Cancel	Annuler
+Cim Command File|*.CMD	Cim Command File|*.CMD	Fichier Commande CIM|*.CMD
+Cim Sequence File (*.seq)|*.seq	Cim Sequence File (*.seq)|*.seq	Fichier Séquence CIM (*.seq)|*.seq
+CNC File (*.fnc)|*.fnc|CNC File (*.fnl)|*.fnl|CNC File (*.mir)|*.mir|Tap File (*.tap)|*.tap|Any File (*.*)|*.*	CNC File (*.fnc)|*.fnc|CNC File (*.fnl)|*.fnl|CNC File (*.mir)|*.mir|Tap File (*.tap)|*.tap|Any File (*.*)|*.*	Fichier CNC (*.fnc)|*.fnc|Fichier CNC (*.fnl)|*.fnl|Fichier CNC (*.mir)|*.mir|Fichier TAP (*.tap)|*.tap|Tous file (*.*)|*.*
+CNC File (*.fnc)|*.fnc|Tap File (*.tap)|*.tap|Any File (*.*)|*.*	CNC File (*.fnc)|*.fnc|Tap File (*.tap)|*.tap|Any File (*.*)|*.*	Fichier CNC (*.fnc)|*.fnc|Fichier Tap (*.tap)|*.tap|Tous fichiers (*.*)|*.*
+Command	Command	Commande
+Command Editor	Command Editor	Editeur Commande
+command file will be associated with.	command file will be associated with.	le nouveau fichier de commande y sera associé.
+Command File:	Command File:	Fichier Commande:
+Command Insert	Command Insert	Insertion De Commande
+Command Line:	Command Line:	Ligne De Commande:
+Command Overwrite	Command Overwrite	La Commande Recouvrent
+Command Parameters	Command Parameters	Paramètres Commande
+Commands	Commands	Commandes
+Configuration file (*.ini)|*.ini	Configuration file (*.ini)|*.ini	Fichier configuration (*.ini)|*.ini
+Could not save History List	Could not save History List	Impossible sauvegarder Liste Histoire
+Current Cell:	Current Cell:	Cellule actuelle:
+Delete	Delete	Effacer
+Delete the displayed command	Delete the displayed command	Effacer la commande affichée
+Description	Description	Description
+Device	Device	Dispositif
+Device Cell	Device Cell	Cellule Dispositif
+Device:	Device:	Dispositif:
+Devices	Devices	Dispositifs
+Do you want to save your sequence file?	Do you want to save your sequence file?	Voulez vous sauvegarder votre fichier séquence ?
+Do you wish to continue?	Do you wish to continue?	Voulez vous continuer ?
+Do you wish to locate it yourself?	Do you wish to locate it yourself?	Voulez vous le localiser vous-même ?
+Do you wish to set this as the default command file,	Do you wish to set this as the default command file,	Voulez vous configurer ceci comme fichier de commande par défaut,
+E&xit	E&xit	Q&uitter
+Edit	Edit	Editer
+Edit Command	Edit Command	Editer commande
+Edit the displayed command	Edit the displayed command	Editer la commande affichée
+English	English	
+English (Australia)	English (Australia)	
+English (Belize)	English (Belize)	
+English (Canada)	English (Canada)	
+English (Caribbean)	English (Caribbean)	
+English (Ireland)	English (Ireland)	
+English (Jamaica)	English (Jamaica)	
+English (New Zealand)	English (New Zealand)	
+English (South Africa)	English (South Africa)	
+English (Trinidad y Tobago)	English (Trinidad y Tobago)	
+English (United Kingdom)	English (United Kingdom)	
+English (United States)	English (United States)	
+Enter CNC Filename	Enter CNC Filename	Entrer nom fichier CNC
+Enter Code-Tag label	Enter Code-Tag label	Entrer étiquette Code-Tag
+Enter command	Enter command	Entrer Commande
+Enter File Description	Enter File Description	Entrer description fichier
+Enter file name	Enter file name	Entrer nom de fichier
+Enter part to measure	Enter part to measure	Entrer la partie pour mesurer 	
+Error on writing file	Error on writing file	Erreur sur fichier écrit
+filename	filename	Nom de fichier
+for the currently selected machine	for the currently selected machine	pour la machine actuellement sélectionnée
+French	French	
+French (Belgium)	French (Belgium)	
+French (Canada)	French (Canada)	
+French (France)	French (France)	
+French (Luxembourg)	French (Luxembourg)	
+French (Switzerland)	French (Switzerland)	
+Gives the available machines within the cells	Gives the available machines within the cells	Donne les machines disponibles dans les cellules
+Gives the command file name or code number	Gives the command file name or code number	Donne le nom du fichier de commande ou le numéro de code
+Gives the text description of the command	Gives the text description of the command	Donne la description texte de la commande
+has changed, do you wish to save before exiting?	has changed, do you wish to save before exiting?	a été changé, voulez vous le sauvegarder avant de quitter?
+I/O Signal Control	I/O Signal Control	Contrôle Signaux I/0
+Information needed	Information needed	Informations nécessaires
+Insert	Insert	Insertion
+INSERT	INSERT	INSERT
+Interlocks	Interlocks	Interblocages
+KEEP	KEEP	MAINTIEN
+Leaving Sequence Editor	Leaving Sequence Editor	Quitter Editeur Séquence
+Machine Table file (*.dat)|*.dat	Machine Table file (*.dat)|*.dat	Fichier tableau machine (*.dat)|*.dat
+message	message	message
+Message	Message	Message
+Native	Native	Original
+New	New	Nouvelle
+New Command	New Command	Nouvelle commande
+New Command File	New Command File	fichier nouvelle commande
+New Device	New Device	Nouveau dispositif
+None!	None!	Aucun !
+Number	Number	Numéro
+OK	OK	OK
+Options	Options	Options
+Overwrite existing file?	Overwrite existing file?	Ecraser fichier existant ?
+Robot Options	Robot Options	Options robot
+RS232 Control	RS232 Control	Contrôle RS232
+Save &As...	Save &As...	E&nregistrer sous...
+Save Sequence file?	Save Sequence file?	Enregistrer fichier Séquence ?
+Select an existing or specifiy a new device, the new	Select an existing or specifiy a new device, the new	Sélectionner un dispositif existant ou en spécifier un nouveau,
+Semaphores file (*.dat)|*.dat	Semaphores file (*.dat)|*.dat	Fichier Sémaphores (*.dat)|*.dat
+Sequence File Editor	Sequence File Editor	Editeur Fichier Séquence
+Sorry that file does not exist, or could not be opened	Sorry that file does not exist, or could not be opened	Désolé que le fichier n'existe pas, ou ne pourrait pas être ouvert	
+TAKE	TAKE	PRENDRE
+The command file selected will be associated with the currently selected machine	The command file selected will be associated with the currently selected machine	Le fichier commande sélectionné sera associé à la machine actuellement sélectionnée
+The file	The file	Le fichier
+The file does not exist or is corrupt	The file does not exist or is corrupt	le fichier n'existe pas ou a une erreur
+The Sequence file must have a description	The Sequence file must have a description	Le fichier séquence doit avoir une description
+This file has changed, do you wish to save before exiting?	This file has changed, do you wish to save before exiting?	Ce fichier a-t-vous changé, souhaitez-vous sauvegarder avant de quitter?	
+This file uses devices not present in 	This file uses devices not present in 	
+This file uses devices not present in the Cell	This file uses devices not present in the Cell	Ce fichier utilise des dispositifs non présents dans la cellule
+This machine does not belong in the current cell	This machine does not belong in the current cell	Cette machine n'appartient pas à la cellule actuelle
+Unable to find the Machine Table file (Manufobj.dat), please locate it before continuing.	Unable to find the Machine Table file (Manufobj.dat), please locate it before continuing.	Impossible de trouver le fichier tableau machine  (Manufobj.dat), veuillez le localiser avant de continuer.
+Unable to find the Semaphores file (Semaphrs.dat), please locate it before continuing.	Unable to find the Semaphores file (Semaphrs.dat), please locate it before continuing.	Impossible de trouver le fichier Sémaphores (Semaphrs.dat), veuillez le localiser avant de continuer. 
+Unable to locate any Cells	Unable to locate any Cells	Impossible de localiser cellule
+Unable to locate the configuration file for currently selected machine	Unable to locate the configuration file for currently selected machine	Impossible de localiser le fichier configuration pour la machine actuellement sélectionnée
+Untitled	Untitled	Sans titre
+Wait	Wait	Attente

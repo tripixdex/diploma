@@ -1,0 +1,7 @@
+[RS232]
+com port=2
+Baud Rate=6
+Data Bits=2
+Parity=2
+Hand Shaking=3
+Stop Bits=0

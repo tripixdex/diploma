@@ -1,0 +1,11 @@
+0 5
+Local
+1 1 6 CONVEYOR
+Local
+2 1 12 ASRS
+CIMCELL
+0 2 10 7 CELL1
+CIMCELL
+0 2 9 8 CELL2
+Local
+0 1 11 Delay

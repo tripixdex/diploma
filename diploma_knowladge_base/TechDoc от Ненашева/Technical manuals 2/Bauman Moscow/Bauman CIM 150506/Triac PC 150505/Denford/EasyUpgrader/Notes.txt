@@ -1,0 +1,50 @@
+file name format and what it means:
+
+eg, 5216.firmware.2
+First number is version (5216)
+Then a dot (.)
+Next is the type of file (firmware,cpld,fpga,comms)
+Then the Controller ID number (0-3)
+0: NST001 with old bootloader (only works up to 5035 firmware but can be updated by Baldor
+1: NST001 none USB card but will run all the latest firmware (hopefully)
+2: NST002 USB nextmove ST
+3: NSB - Nextmove ESB (servo machines)
+
+The software looks at say the firmware version on the control, and if the file (eg,5216) number is higher, will update the control
+
+************************************** machine ID ***************************
+NVLong locations for machine ID:
+NVLong[5]=round(IDNumber/10)
+NVLong[6]=IDNumber MOD 10
+eg, Cyclone is [5]=1 and [6]=3 which is 13
+
+  TMachineID=(idUnknown,           //0
+              MicroRouter,         //1
+              MicroRouterPro,      //2
+              MicroRouterCompact,  //3
+              MicroRouterVertical, //4
+              Novamill,            //5
+              NovamillPro,         //6
+              Triton,              //7
+              TritonPro,           //8
+              Triac,               //9
+              TriacVME,            //10
+              Micromill,           //11
+              MaxiRouter,          //12
+              Cyclone,             //13
+              CycloneStepper,      //14
+              Meteor,              //15
+              Microturn2000,       //16
+              Microturn,           //17
+              Mirac,               //18
+              Novaturn);           //19
+
+
+******************************** Machine Serial Number ****************************
+Starts at NVLong[7]
+eg,
+Serial number is: H  0  1  2  3  4  /  5  6  7
+Locations are:    7  8  9  10 11 12    13 14 15
+and contain ascii char value of serial number chars
+
+
