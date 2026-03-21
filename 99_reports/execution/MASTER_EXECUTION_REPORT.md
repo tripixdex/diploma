@@ -47,9 +47,12 @@
 
 ## Latest Commit / Latest Branch
 - Latest branch: `stage-00-freeze-scope`
-- Latest commit: `2f586fb` (`stage0: freeze scope and execution scaffold`)
+- Latest commit at review time: resolve with `git rev-parse --short HEAD`
+- Stage 0 commits:
+  - `2f586fb` (`stage0: freeze scope and execution scaffold`)
+  - `522475b` (`stage0: close scope freeze report`)
 
 ## History of Completed Stage Reports
 | Stage | Report Path | Status | Branch | Commit |
 | --- | --- | --- | --- | --- |
-| Stage 0 | `99_reports/execution/STAGE_00_REPORT.md` | Completed | `stage-00-freeze-scope` | `2f586fb` |
+| Stage 0 | `99_reports/execution/STAGE_00_REPORT.md` | Completed | `stage-00-freeze-scope` | `2f586fb`, `522475b` |

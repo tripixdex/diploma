@@ -38,7 +38,8 @@
 - Checked current git status on `main`.
 - Created and switched to branch `stage-00-freeze-scope`.
 - Created commit `2f586fb` with message `stage0: freeze scope and execution scaffold`.
-- Final report update commit: pending until Stage 0 closeout metadata is saved.
+- Created commit `522475b` with message `stage0: close scope freeze report`.
+- Final HEAD for Stage 0 closeout must be resolved with `git rev-parse --short HEAD` at review time.
 
 ## Validation Performed
 - Verified required Stage 0 scaffold directories were absent or incomplete before creation.
