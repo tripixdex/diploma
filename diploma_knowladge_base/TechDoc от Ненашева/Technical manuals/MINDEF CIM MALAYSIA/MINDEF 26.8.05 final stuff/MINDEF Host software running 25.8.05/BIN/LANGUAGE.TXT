@@ -1,3 +1,0 @@
-Native	Native	-1		0		0
-English	English	9		1		0
-French	français	12		1		0

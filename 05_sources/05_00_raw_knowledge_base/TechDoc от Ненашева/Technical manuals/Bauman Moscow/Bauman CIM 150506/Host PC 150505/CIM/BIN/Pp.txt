@@ -1,0 +1,75 @@
+/********************************************
+
+Compiler Directives...
+
+_RTLDLL;_BIDSDLL;_OWLDLL;STRICT;_OWLPCH;_OWLALLPCH;_OWLALLPCH;_RTLDLL;_BIDSDLL;_OWLDLL; NOSITE
+
+/********************************************
+
+Changes made to the Process Planner...
+
+06/03/98 - JHB - Selecting a new machine now displays a combo box
+					  to choose the machines name from a list.	
+
+13/03/98 - JHB - The drawing editor button has moved and changed its
+					  name to 'Edit..'
+					  It Now gives an error if the drawing editor can not be found
+					  (it should be specified in PP.INI).
+PP.INI
+		[CAD]
+		tool=c:\denford\mc_des2.exe
+
+13/03/98 - JHB - The Route Planner launching  button has moved and changed its
+					  name to 'Launch the Route Planner ->'.
+					  It Now gives an error if the route planner can not be found
+					  (it should be in the BIN dir and called route.exe).
+
+13/03/98 - JHB - The opitz database is now kept in the BIN (opitz.tab)
+					  (was in the parts directory).
+
+13/03/98 - JHB - If only one machine was used, the machines data wasn't saved.
+					  This has now been fixed.
+
+13/03/98 - JHB - The last line of a chunk (material, fixtures and company
+					  details) wasn't being saved if it didn't end in a <return>.
+					  This has now been fixed. 
+
+17/03/98 - JHB - Changes to the Help system...
+					  The help menu now only has two entries. 'Contents' and 'About'.
+					  'Contents' shows the help file whose name is specified by an
+					  entry in PP.INI. The directory is read from
+					  CIM.INI -> cim_HTML=
+					  These files can have any extension, and will use the windows
+					  file assosiations to launch the appropriate viewer. This way
+					  we can use either .HLP or .HTML documents.
+					  'About' now shows a normal about box (this didn't exist before).
+PP.INI
+		[Help]
+		main=host1.hlp
+
+18/03/98 - JHB - The opitz 'CODE' button can be disabled to remove the Opitz
+					  functionality of the Process Planner via PP.INI in
+					  the BIN directory.
+PP.INI
+		[main]
+		opitz=0		;remove opitz functionality
+		opitz=1		;add opitz functionality
+
+18/03/98 - JHB - When reading in a PP file, CNC file names longer than
+					  12 characters can now be accomodated. (it used to blow up when
+					  loading a PP with CNC file names longer than 12 characters)
+
+24/05/99 - JHB - Now check for more than one instance of itself running
+						and only allows the one instance
+
+25/05/99 - JHB - Created version 1.2
+
+28/05/99 - JHB - Changes to SOFTLOK routines to make NT Compatible.
+					  NOTE: MNxx.386 (win 95) or SOFTLOK.SYS (NT) is required.
+					  Requires NOSITE compiler directive.
+
+--/07/99 - AG  - Made Flashable.
+
+20/09/99 - AG  - Changed button caption from 'CNC File' to 'Parameter'.
+
+*********************************************/

@@ -1,0 +1,250 @@
+12:11:2004
+ 8:19:05	Load / Unload CMM - King	Ready
+ 8:19:08	Load / Unload CMM - King	BUSY
+ 8:19:52	Load / Unload CMM - Bishop	Ready
+12:11:2004
+16:11:2004
+19:11:2004
+ 9:10:58	Load / Unload CMM - Bishop	Ready
+ 9:11:05	Load / Unload CMM - Bishop	BUSY
+ 9:13:54	Load / Unload CMM - Bishop	Ready
+ 9:14:00	Load / Unload CMM - Bishop	BUSY
+ 9:17:05	Load / Unload CMM - Bishop	Ready
+ 9:17:35	Load / Unload CMM - Bishop	BUSY
+19:11:2004
+ 9:28:10	Load / Unload CMM - Bishop	Ready
+ 9:28:28	Load / Unload CMM - Bishop	BUSY
+19:11:2004
+ 9:31:17	Load / Unload CMM - Bishop	Ready
+ 9:31:21	Load / Unload CMM - Bishop	BUSY
+ 9:32:03	Load / Unload CMM - Bishop	Stopped
+19:11:2004
+ 9:33:37	Load / Unload CMM - Bishop	Ready
+ 9:33:40	Load / Unload CMM - Bishop	BUSY
+19:11:2004
+ 9:38:20	Load / Unload CMM - Bishop	Ready
+ 9:38:23	Load / Unload CMM - Bishop	BUSY
+19:11:2004
+ 9:39:24	Load / Unload CMM - Bishop	Ready
+ 9:39:30	Load / Unload CMM - Bishop	BUSY
+19:11:2004
+ 9:45:50	Load / Unload CMM - Bishop	Ready
+ 9:45:55	Load / Unload CMM - Bishop	BUSY
+19:11:2004
+ 9:48:08	Load / Unload CMM - Bishop	Ready
+ 9:48:14	Load / Unload CMM - Bishop	BUSY
+19:11:2004
+ 9:51:37	Load / Unload CMM - Bishop	Ready
+ 9:51:44	Load / Unload CMM - Bishop	BUSY
+19:11:2004
+19:11:2004
+10:47:37	Test CMM Bishop Part	Ready
+10:47:41	Test CMM Bishop Part	BUSY
+11:21:43	Test CMM Bishop Part	Ready
+11:21:46	Test CMM Bishop Part	BUSY
+11:23:07	Test CMM Bishop Part	Ready
+11:23:10	Test CMM Bishop Part	BUSY
+11:24:01	Test CMM Bishop Part	Ready
+11:24:04	Test CMM Bishop Part	BUSY
+11:58:37	Test CMM Bishop Part	Ready
+11:58:47	Test CMM Bishop Part	BUSY
+12:16:32	Test CMM Bishop Part	Ready
+12:16:39	Test CMM Bishop Part	BUSY
+12:17:24	Test CMM Bishop Part	IDLE
+12:18:49	Load / Unload CMM - Bishop	Read19:11:2004
+y
+12:19:12	Load / Unload CMM - Bishop	BUSY
+12:29:28	Load / Unload CMM - Bishop	Ready
+12:29:32	Load / Unload CMM - Bishop	BUSY
+12:31:14	Load / Unload CMM - Bishop	IDLE
+22:11:2004
+10:03:46	Cell to Host	Robot3 IDLE
+10:05:50	Disconnect
+10:49:43	Disconnect
+11:10:48	Disconnect
+22:11:2004
+11:48:08	Cell to Host	Robot3 IDLE
+23:11:2004
+ 7:35:45	Cell to Host	Robot3 IDLE
+ 7:39:30	Disconnect
+ 7:45:33	Load / Unload CMM - Bishop	Ready
+ 7:45:38	Load / Unload CMM - Bishop	BUSY
+ 7:47:20	Load / Unload CMM - Bishop	IDLE
+ 7:47:46	Load / Unload CMM - Bishop	Ready
+ 7:47:49	Load / Unload CMM - Bishop	BUSY
+ 7:49:30	Load / Unload CMM - Bishop	IDLE
+ 7:51:04	Cell to Host	IDLE C:\CIM\CELL3\BISHOP_C.SEQ
+ 9:54:43	Disconnect
+ 9:58:08	Load / Unload CMM - Bishop	Ready
+ 9:58:08	Cell to Host	Ready C:\CIM\CELL3\BISHOP_C.SEQ
+ 9:58:13	Load / Unload CMM - B16:05:2005
+16:05:2005
+16:05:2005
+18:05:2005
+14:57:23	Cell to Host	Robot3 IDLE
+15:05:51	Disconnect
+15:25:23	Disconnect
+15:44:39	DoCommand ROOK_C.SEQ
+15:44:39	Load / Unload CMM - Rook	Ready
+15:44:40	Load / Unload CMM - Rook	BUSY
+15:44:41	Cell to Host	Ready ROOK_C.SEQ
+15:44:41	Cell to Host	BUSY ROOK_C.SEQ
+15:44:42	Cell to Host	Robot3 BUSY 2
+15:45:10	Cell to Host	Robot3 IDLE 2
+15:45:11	Cell to Host	CMM BUSY 1 R
+15:47:28	Cell to Host	CMM IDLE 1 R
+15:47:29	Cell to Host	Robot3 BUSY 3
+15:47:55	Load / Unload CMM - Rook	IDLE
+15:47:55	Cell to Host	Ro18:05:2005
+bot3 IDLE 3
+15:47:56	Cell to Host	IDLE ROOK_C.SEQ
+16:01:06	Disconnect
+18:05:2005
+16:17:25	Cell to Host	Robot3 IDLE
+16:28:53	DoCommand ROOK_C.SEQ
+16:28:53	Load / Unload CMM - Rook	Ready
+16:28:53	Load / Unload CMM - Rook	BUSY
+16:28:54	Cell to Host	Ready ROOK_C.SEQ
+16:28:55	Cell to Host	BUSY ROOK_C.SEQ
+16:28:56	Cell to Host	Robot3 BUSY 2
+16:29:23	Cell to Host	Robot3 IDLE 2
+16:29:24	Cell to Host	CMM BUSY 1 R
+16:31:48	Cell to Host	CMM IDLE 1 R
+16:31:49	Cell to Host	Robot3 BUSY 3
+16:32:15	Load / Unload CMM - Rook	IDLE
+16:32:15	Cell to Host	Robot3 IDLE 3
+16:32:16	Cell to Host	IDLE ROOK_C.SEQ
+16:35:29	DoCommand ROOK_C.SEQ
+16:35:29	Load / Unload CMM - Rook	Ready
+16:35:29	Load / Unload CMM - Rook	BUSY
+16:35:30	Cell to Host	Ready ROOK_C.SEQ
+16:35:31	Cell to Host	BUSY ROOK_C.SEQ
+16:35:31	Cell to Host	Robot3 BUSY 2
+16:35:59	Cell to Host	Robot3 IDLE 2
+16:36:00	Cell to Host	CMM BUSY 1 R
+16:40:47	Disconnect
+16:41:32	Load / Unload CMM - Rook	Ready
+16:41:35	Load / Unload CMM - Rook	BUSY
+16:44:21	Load / Unload CMM - Rook	IDLE
+16:44:28	Load / Unload CMM - Rook	Ready
+16:44:32	Load / Unload CMM - Rook	BUSY
+16:47:18	Load / Unload CMM - Rook	IDLE
+20:05:2005
+18:07:19	Cell to Host	Robot3 IDLE 1
+18:21:43	DoCommand KING_C.SEQ
+18:21:43	Load / Unload CMM - King	Ready
+18:21:44	Load / Unload CMM - King	BUSY
+18:21:44	Cell to Host	Ready KING_C.SEQ
+18:21:45	Cell to Host	BUSY KING_C.SEQ
+18:21:46	Cell to Host	Robot3 BUSY 2
+18:22:14	Cell to Host	Robot3 IDLE 2
+18:22:15	Cell to Host	CMM BUSY 1 K
+18:27:54	Cell to Host	CMM IDLE 1 K
+18:27:55	Cell to Host	Robot3 BUSY 3
+18:28:21	Load / Unload CMM - King	IDLE
+18:28:22	Cell to Host	Robot3 IDLE 3
+18:28:22	Cell to Host	IDLE KING_C.SEQ
+18:31:36	DoCommand QUEEN_C.SEQ
+18:31:36	Load / Unload CMM - Queen	Ready
+18:31:37	Load / Unload CMM - Queen	BUSY
+18:31:37	Cell to Host	Ready QUEEN_C.SEQ
+18:31:37	Cell to Host	BUSY QUEEN_C.SEQ
+18:31:38	Cell to Host	Robot3 BUSY 2
+18:32:06	Cell to Host	Robot3 IDLE 2
+18:32:07	Cell to Host	CMM BUSY 1 Q
+18:34:38	Cell to Host	CMM IDLE 1 Q
+18:34:39	Cell to Host	Robot3 BUSY 3
+18:35:05	Load / Unload CMM - Queen	IDLE
+18:35:05	Cell to Host	Robot3 IDLE 3
+18:35:06	Cell to Host	IDLE QUEEN_C.SEQ
+18:40:27	Disconnect
+20:05:2005
+18:44:31	Load / Unload CMM - Bishop	Ready
+18:44:54	Load / Unload CMM - Bishop	BUSY
+18:47:03	Load / Unload CMM - Bishop	IDLE
+18:48:36	Load / Unload CMM - Bishop	Ready
+18:48:41	Load / Unload CMM - Bishop	BUSY
+18:50:50	Load / Unload CMM - Bishop	IDLE
+20:05:2005
+18:56:02	Cell to Host	Robot3 IDLE
+19:10:34	DoCommand KING_C.SEQ
+19:10:34	Load / Unload CMM - King	Ready
+19:10:35	Load / Unload CMM - King	BUSY
+19:10:36	Cell to Host	Ready KING_C.SEQ
+19:10:37	Cell to Host	BUSY KING_C.SEQ
+19:10:38	Cell to Host	Robot3 BUSY 2
+19:11:06	Cell to Host	Robot3 IDLE 2
+19:11:07	Cell to Host	CMM BUSY 1 K
+19:15:54	Disconnect
+19:17:32	Load / Unload CMM - King	Ready
+19:17:38	Load / Unload CMM - King	BUSY
+19:21:23	Load / Unload CMM - King	Ready
+19:21:27	Load / Unload CMM - King	BUSY
+19:24:13	Load / Unload CMM - King	IDLE
+19:24:57	Load / Unload CMM - King	Ready
+19:25:02	Load / Unload CMM - King	BUSY
+19:27:47	Load / Unload CMM - King	IDLE
+30:06:2005
+14:08:49	Test CMM Bishop Part	Ready
+14:08:53	Test CMM Bishop Part	BUSY
+14:09:17	Test CMM Bishop Part	Ready
+14:09:20	Test CMM Bishop Part	BUSY
+14:10:18	Load / Unload CMM - Bishop	Ready
+14:10:23	C:\CIM\CELL3\BISHOP_C.SEQ	ERROR Unable to take control of  CMM
+14:11:03	Load / Unload CMM - Bishop	Ready
+14:11:09	C:\CIM\CELL3\BISHOP_C.SEQ	ERROR Unable to take control of  CMM
+14:11:40	Load / Unload CMM - Bishop	Ready
+14:11:48	C:\CIM\CELL3\BISHOP_C.SEQ	ERROR Unable to take control of  CMM
+30:06:2005
+14:13:39	Load / Unload CMM - Bishop	Ready
+14:13:46	Load / Unload CMM - Bishop	BUSY
+30:06:2005
+14:16:42	Load / Unload CMM - King	Ready
+14:16:57	Load / Unload CMM - King	BUSY
+30:06:2005
+30:06:2005
+14:19:34	Load / Unload CMM - King	Ready
+14:19:38	Load / Unload CMM - King	BUSY
+30:06:2005
+14:24:32	Load / Unload CMM - King	Ready
+14:24:36	Load / Unload CMM - King	BUSY
+30:06:2005
+30:06:2005
+30:06:2005
+14:27:47	Load / Unload CMM - King	Ready
+14:27:50	Load / Unload CMM - King	BUSY
+14:36:35	Load / Unload CMM - Bishop	Ready
+14:36:38	Load / Unload CMM - Bishop	BUSY
+30:06:2005
+30:06:2005
+14:39:15	Load / Unload CMM - Bishop	Ready
+14:39:18	Load / Unload CMM - Bishop	BUSY
+30:06:2005
+14:41:36	Load / Unload CMM - Bishop	Ready
+14:41:39	Load / Unload CMM - Bishop	BUSY
+30:06:2005
+14:43:06	Load / Unload CMM - Bishop	Ready
+14:43:09	Load / Unload CMM - Bishop	BUSY
+30:06:2005
+14:53:00	Load / Unload CMM - Bishop	Ready
+14:53:07	Load / Unload CMM - Bishop	BUSY
+30:06:2005
+14:58:28	Load / Unload CMM - Bishop	Ready
+14:58:31	Load / Unload CMM - Bishop	BUSY
+30:06:2005
+30:06:2005
+15:09:33	Load / Unload CMM - Bishop	Ready
+15:09:36	Load / Unload CMM - Bishop	BUSY
+30:06:2005
+30:06:2005
+15:23:19	Load / Unload CMM - Bishop	Ready
+15:23:26	Load / Unload CMM - Bishop	BUSY
+30:06:2005
+16:18:20	Load / Unload CMM - Rook	Ready
+16:18:28	Load / Unload CMM - Rook	BUSY
+30:06:2005
+17:10:20	Load / Unload CMM - Rook	Ready
+17:10:23	Load / Unload CMM - Rook	BUSY
+30:06:2005
+17:12:34	Load / Unload CMM - Rook	Ready
+17:12:37	Load / Unload CMM - Rook	BUSY

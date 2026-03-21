@@ -1,0 +1,129 @@
+ %% PLEASE DO NOT MODIFY OR DELETE THIS FILE! %% 
+ %% This file contains information about the installation of an application. %% 
+ %% It will be used to automatically remove all application components from your computer if you choose to do so. %% 
+
+
+NOTE: Beginning of the bootstrapper section
+
+CONFIG: Title: "Denfords Pcdmis Interface"
+
+ACTION: RegKey: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion", "SharedDLLs"
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\VB6STKIT.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\COMCAT.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\STDOLE2.TLB"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\ASYCFILT.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\OLEPRO32.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\OLEAUT32.DLL"
+(File currently on disk was already up to date)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\MSVBVM60.DLL"
+(File currently on disk was already up to date)
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\COMCAT.DLL"
+
+ACTION: TLBRegister: "C:\WINDOWS\SYSTEM32\STDOLE2.TLB"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\OLEPRO32.DLL"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\OLEAUT32.DLL"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\MSVBVM60.DLL"
+
+NOTE: End of the bootstrapper section
+
+NOTE: Now spawning the main Setup program 'Setup1.exe'....
+
+ACTION: CreateDir: "C:\Documents and Settings\CMM\Start Menu\Programs\Denfords Pcdmis Interface"
+
+ACTION: CreateDir: "C:\Program Files\Denfords\images"
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\images\Rook.jpg"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\images\Queen.jpg"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\images\Knight.jpg"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\images\King.jpg"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\images\General.jpg"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\images\Bishop.jpg"
+(File was not found or was an older version -- new file copied)
+
+ACTION: CreateDir: "C:\Program Files\Denfords\program"
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\program\Rook.PRG"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\program\Queen.PRG"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\program\Knight.PRG"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\program\King.PRG"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\program\Bishop.PRG"
+(File was not found or was an older version -- new file copied)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\program\Alignment.PRG"
+(File was not found or was an older version -- new file copied)
+
+ACTION: SharedFile: "C:\WINDOWS\System32\COMDLG32.OCX"
+(File was not found or was an older version -- new file copied)
+
+ACTION: SharedFile: "C:\WINDOWS\System32\pdf.tlb"
+(File was not found or was an older version -- new file copied)
+
+NOTE: The file 'RICHED32.DLL' was not copied because it is intended for use under Windows 95 only.  It is not needed under Windows NT 3.51 or 4.0.
+
+ACTION: SharedFile: "C:\WINDOWS\System32\RICHTX32.OCX"
+(File was not found or was an older version -- new file copied)
+
+ACTION: SharedFile: "C:\WINDOWS\System32\VSFLEX3.OCX"
+(File was not found or was an older version -- new file copied)
+
+ACTION: SharedFile: "C:\WINDOWS\System32\MSCOMM32.OCX"
+(File was not found or was an older version -- new file copied)
+
+ACTION: SharedFile: "C:\WINDOWS\System32\pcdlrn.tlb"
+(File currently on disk was already up to date)
+
+ACTION: PrivateFile: "C:\Program Files\Denfords\Denford Interface.exe"
+(File was not found or was an older version -- new file copied)
+
+ACTION: DllSelfRegister: "C:\WINDOWS\System32\COMDLG32.OCX"
+
+ACTION: TLBRegister: "C:\WINDOWS\System32\pdf.tlb"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\System32\RICHTX32.OCX"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\System32\VSFLEX3.OCX"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\System32\MSCOMM32.OCX"
+
+ACTION: TLBRegister: "C:\WINDOWS\System32\pcdlrn.tlb"
+
+ACTION: ShellLink: "Denfords Pcdmis Interface", "Denfords Pcdmis Interface"
+
+ACTION: RegKey: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion", "App Paths\Denford Interface.exe"
+
+ACTION: RegValue: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Denford Interface.exe", ""
+

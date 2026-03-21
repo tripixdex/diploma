@@ -1,0 +1,227 @@
+1116468806 C:\CIM\LAYOUTS\CADCAM.CEL
+5
+KING
+14
+1 20 2 19 1 2 0 0 1000000 20 1000000 1 PICK KING PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 20 1000000 30 1000000 3 KING 1 2 101
+Moving part 101 from Station 1 to Station 2
+
+3 15 1 13 0 0 30 1000000 45 1000000 3 0 KING
+CodeTag Inspection
+
+2 110 3 2 8 9 0 0 45 1000000 155 1000000 KING_L.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 155 1000000 165 1000000 3 KING 2 3 101
+Moving part 101 from Station 2 to Station 3
+
+4 110 3 3 10 11 0 0 165 1000000 275 1000000 KING_M.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 6 3 275 1000000 285 1000000 3 KING 3 6 101
+Moving part 101 from Station 3 to Station 6
+
+1 10 7 1 19 15 14 16 17 18 0 0 285 1000000 295 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 6 1 1 6 295 1000000 305 1000000 3 KING 6 1 101
+Moving part 101 from Station 6 to Station 1
+
+1 20 3 1 19 15 15 1 305 1000000 325 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 7
+
+6 10 3 14 15 16 16 15 325 1000000 335 1000000 1 8
+AGV moving part 101 to Station 8
+
+7 150 3 16 17 18 0 0 335 1000000 485 1000000 KING_C.SEQ
+Load/Process/Unload Sequence for CMM
+
+6 10 3 14 16 15 15 16 485 1000000 495 1000000 1 7
+AGV moving part 101 to Station 7
+
+1 20 2 15 19 0 15 495 1000000 515 1000000 1 PICK AGV PLACE KING
+Loading ASRS from Station 7
+
+QUEEN
+14
+1 20 2 19 1 2 0 20 1000000 20 1000000 1 PICK QUEEN PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 40 1000000 30 1000000 3 QUEEN 1 2 102
+Moving part 102 from Station 1 to Station 2
+
+3 15 1 13 0 0 50 1000000 45 1000000 3 0 QUEEN
+CodeTag Inspection
+
+2 110 3 2 8 9 0 0 155 1000000 155 1000000 QUEEN_L.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 265 1000000 165 1000000 3 QUEEN 2 3 102
+Moving part 102 from Station 2 to Station 3
+
+4 110 3 3 10 11 0 0 275 1000000 275 1000000 QUEEN_M.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 6 3 385 1000000 285 1000000 3 QUEEN 3 6 102
+Moving part 102 from Station 3 to Station 6
+
+1 10 7 1 19 15 14 16 17 18 0 0 515 1000000 295 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 6 1 1 6 525 1000000 305 1000000 3 QUEEN 6 1 102
+Moving part 102 from Station 6 to Station 1
+
+1 20 3 1 19 15 15 1 535 1000000 325 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 7
+
+6 10 3 14 15 16 16 15 555 1000000 335 1000000 1 8
+AGV moving part 102 to Station 8
+
+7 15 3 16 17 18 0 0 565 1000000 350 1000000 QUEEN_C.SEQ
+Load/Process/Unload Sequence for CMM
+
+6 10 3 14 16 15 15 16 580 1000000 360 1000000 1 7
+AGV moving part 102 to Station 7
+
+1 20 2 15 19 0 15 590 1000000 380 1000000 1 PICK AGV PLACE QUEEN
+Loading ASRS from Station 7
+
+BISHOP
+14
+1 20 2 19 1 2 0 40 1000000 20 1000000 1 PICK BISHOP PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 60 1000000 30 1000000 3 BISHOP 1 2 103
+Moving part 103 from Station 1 to Station 2
+
+3 15 1 13 0 0 70 1000000 45 1000000 3 0 BISHOP
+CodeTag Inspection
+
+2 110 3 2 8 9 0 0 265 1000000 155 1000000 BISHOP_L.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 375 1000000 165 1000000 3 BISHOP 2 3 103
+Moving part 103 from Station 2 to Station 3
+
+4 110 3 3 10 11 0 0 385 1000000 275 1000000 BISHOP_M.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 6 3 495 1000000 285 1000000 3 BISHOP 3 6 103
+Moving part 103 from Station 3 to Station 6
+
+1 10 7 1 19 15 14 16 17 18 0 0 610 1000000 295 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 6 1 1 6 620 1000000 305 1000000 3 BISHOP 6 1 103
+Moving part 103 from Station 6 to Station 1
+
+1 20 3 1 19 15 15 1 630 1000000 325 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 7
+
+6 10 3 14 15 16 16 15 650 1000000 335 1000000 1 8
+AGV moving part 103 to Station 8
+
+7 15 3 16 17 18 0 0 660 1000000 350 1000000 BISHOP_C.SEQ
+Load/Process/Unload Sequence for CMM
+
+6 10 3 14 16 15 15 16 675 1000000 360 1000000 1 7
+AGV moving part 103 to Station 7
+
+1 20 2 15 19 0 15 685 1000000 380 1000000 1 PICK AGV PLACE BISHOP
+Loading ASRS from Station 7
+
+KNIGHT
+14
+1 20 2 19 1 2 0 375 1000000 20 1000000 1 PICK KNIGHT PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 395 1000000 30 1000000 3 KNIGHT 1 2 104
+Moving part 104 from Station 1 to Station 2
+
+3 15 1 13 0 0 405 1000000 45 1000000 3 0 KNIGHT
+CodeTag Inspection
+
+2 110 3 2 8 9 0 0 420 1000000 155 1000000 KNIGHT_L.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 530 1000000 165 1000000 3 KNIGHT 2 3 104
+Moving part 104 from Station 2 to Station 3
+
+4 110 3 3 10 11 0 0 540 1000000 275 1000000 KNIGHT_M.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 6 3 650 1000000 285 1000000 3 KNIGHT 3 6 104
+Moving part 104 from Station 3 to Station 6
+
+1 10 7 1 19 15 14 16 17 18 0 0 705 1000000 295 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 6 1 1 6 715 1000000 305 1000000 3 KNIGHT 6 1 104
+Moving part 104 from Station 6 to Station 1
+
+1 20 3 1 19 15 15 1 725 1000000 325 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 7
+
+6 10 3 14 15 16 16 15 745 1000000 335 1000000 1 8
+AGV moving part 104 to Station 8
+
+7 15 3 16 17 18 0 0 755 1000000 350 1000000 KNIGHT_C.SEQ
+Load/Process/Unload Sequence for CMM
+
+6 10 3 14 16 15 15 16 770 1000000 360 1000000 1 7
+AGV moving part 104 to Station 7
+
+1 20 2 15 19 0 15 780 1000000 380 1000000 1 PICK AGV PLACE KNIGHT
+Loading ASRS from Station 7
+
+ROOK
+14
+1 20 2 19 1 2 0 555 1000000 20 1000000 1 PICK ROOK PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 575 1000000 30 1000000 3 ROOK 1 2 105
+Moving part 105 from Station 1 to Station 2
+
+3 15 1 13 0 0 585 1000000 45 1000000 3 0 ROOK
+CodeTag Inspection
+
+2 110 3 2 8 9 0 0 600 1000000 155 1000000 ROOK_L.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 710 1000000 165 1000000 3 ROOK 2 3 105
+Moving part 105 from Station 2 to Station 3
+
+4 110 3 3 10 11 0 0 720 1000000 275 1000000 ROOK_M.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 6 3 830 1000000 285 1000000 3 ROOK 3 6 105
+Moving part 105 from Station 3 to Station 6
+
+1 10 7 1 19 15 14 16 17 18 0 0 840 1000000 295 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 6 1 1 6 850 1000000 305 1000000 3 ROOK 6 1 105
+Moving part 105 from Station 6 to Station 1
+
+1 20 3 1 19 15 15 1 860 1000000 325 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 7
+
+6 10 3 14 15 16 16 15 880 1000000 335 1000000 1 8
+AGV moving part 105 to Station 8
+
+7 15 3 16 17 18 0 0 890 1000000 350 1000000 ROOK_C.SEQ
+Load/Process/Unload Sequence for CMM
+
+6 10 3 14 16 15 15 16 905 1000000 360 1000000 1 7
+AGV moving part 105 to Station 7
+
+1 20 2 15 19 0 15 915 1000000 380 1000000 1 PICK AGV PLACE ROOK
+Loading ASRS from Station 7
+
+Comments-File description
+name
+no of processes
+Cell, Duration, no of resources, Resources[...], Load Station, Unload Station, Start [a, b], End [a, b], Capacity, Sequence name
+Description

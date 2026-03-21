@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>The Process Planner</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial" SIZE=4><P ALIGN="JUSTIFY">The Process Planner</P><IMG SRC="Proces1E.gif" WIDTH=32 HEIGHT=32 ALIGN="LEFT" HSPACE=12>
+</B></FONT><FONT SIZE=2><P>The Process Planner is simply a documentation tool, used to describe the functions necessary to produce a component. Each component has a unique name, an identification number and several other properties defined by the process plan; the machining and measurement requirements are listed together with timing information and all tooling and work-holding data.</P>
+<P>To enhance the power of the Process Planner, the Opitz Component and Material Classification System is provided to help apply a group-technology identification number to each component. Each digit of the Opitz-number refers to a particular characteristic of the component, hence components with similar characteristics can be grouped into component families.</P>
+</FONT><B><FONT SIZE=4><P ALIGN="JUSTIFY">Usage</P>
+</B></FONT><FONT SIZE=2><P>The Process Planner is a documentation tool which aids in the creation of a component database. Its interface is a simple form to be filled in with the relevant details. When the application is started, a blank form appears:</P>
+<P><IMG SRC="Proces2E.gif" WIDTH=568 HEIGHT=325></P>
+<I><P ALIGN="CENTER">The Process Planner</P>
+</I><P>To create a new component the component name must be entered into the </FONT><B><FONT FACE="Arial" SIZE=4>Part Name</B></FONT><FONT SIZE=2> box. All other information is optional, but completing the form provides a useful record of the manufacturing requirements of the component. </P>
+<P>The </FONT><B><FONT FACE="Arial" SIZE=4>Code</B></FONT><FONT SIZE=2> box may hold any internal reference to a component which is meaningful to the user’s organisation, or may be left blank. Another option is to generate a group-theory component code by pressing the </FONT><B><FONT FACE="Arial" SIZE=4>Code</B></FONT><FONT SIZE=2> button. ()</P>
+<P>A CAD drawing may be associated with the component by typing its name into the </FONT><B><FONT FACE="Arial" SIZE=4>Drawing</B></FONT><FONT SIZE=2> box, or by using the button to select one from the database. The </FONT><B><FONT FACE="Arial" SIZE=4>Drawing</B></FONT><FONT SIZE=2> button creates a standard file selection dialogue and transfers the chosen name to the Drawing box on the form.</P>
+<P>The two large boxes labelled </FONT><B><FONT FACE="Arial" SIZE=4>Special Fixtures</B></FONT><FONT SIZE=2> and </FONT><B><FONT FACE="Arial" SIZE=4>Materials</B></FONT><FONT SIZE=2> enable the user to enter any component specific details concerning fixtures and materials. These boxes allow the entry of more than one line of text, as does the large box on the right which is available for any extra notes that need to be maintained. </P>
+<P>To associate a machine tool resource to a component, the </FONT><B><FONT FACE="Arial" SIZE=4>New Machine</B></FONT><FONT SIZE=2> button should be pressed. A dialogue appears which prompts for a machine tool name which is added to the Machine list when the OK button is pressed. Now the details of that tool can be added in the CNC File, Setup and Time boxes. A Machine may have a name or reference number and may use a CNC file for the production of the component. The two time values are for setting up tools and fixtures and for the actual machining duration.</P>
+<I><P>Note</I>: machines such as robots, conveyors and storage devices (which only handle material) should not be entered at this stage if they do not play a part in altering the shape or value of the component. It is possible to produce a component using any shop-floor layout, providing it contains the correct production machines; however the material handling devices vary from layout to layout and hence should not be defined in the process plan of a particular component. These devices should only be added when a route for the component is created with a particular shop-floor layout.</P>
+<P>The operations to be carried out on that machine are edited by means of the Operation buttons. These buttons allow the user to create a new operation; modify and delete existing operations and to insert operations into the list.</P>
+<P>This New Operation button creates a Operation Definition form.</P>
+<P ALIGN="CENTER"><IMG SRC="Proces3E.gif" WIDTH=318 HEIGHT=172></P>
+<I><P ALIGN="CENTER">The Operation Definition Form</P>
+</I><P>This creates a record of the details relating to a single operation to be carried out on a machine tool used in the production of the component. When the OK button is pressed the new operation is added to the Operation List.</P>
+<P>The Operation box could contain a textual description of each operation to be undertaken. The Tools required together with the Spindle Speeds and Feed Rates can also be stored in the appropriate boxes.</P>
+<P>Any number of machines may be added to the list for a component and any number of operations can be stored for each machine. When a machine name is highlighted in the Machine List box, the operations for that machine are displayed in the Operations List together with the CNC File and the timings.</P>
+</FONT><B><FONT SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">Process Planner Controls</P>
+</FONT><FONT SIZE=2><P>The </FONT><FONT FACE="Arial" SIZE=4>File</FONT><FONT SIZE=2> Menu</P>
+</FONT><FONT FACE="Arial" SIZE=4><P>New</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Clears the current process plan and allows a user to start with an empty form after first prompting to save any data.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Open...</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Allows the user to select a process plan from the file store and will open the file for editing.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Save</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Uses the name in the Part Name edit box to save the process plan for the component with a </FONT><B><FONT FACE="Arial" SIZE=4>.pp</B></FONT><FONT SIZE=2> extension. If there is no name one must be entered.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Print...</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Sends the entire Process Plan to the specified printer. The machines and all the operations are listed consecutively.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Print Preview...</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Displays a draft printout of the process plan.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Print Setup...</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Allows the user to choose and configure a printer.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Exit</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Quits the Process Planner application after prompting to save any modified data.</P>
+<B><P>&nbsp;</P>
+<P>The Form</P>
+</FONT><FONT FACE="Arial" SIZE=4><P>Route Button</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Starts the Denford Route Planner application for the current process plan.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Drawing Button</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Sends the drawing filename in the </FONT><B><FONT FACE="Arial" SIZE=4>Drawing</B></FONT><FONT SIZE=2> edit box to a CAD package specified in the </FONT><B><FONT FACE="Arial" SIZE=4>pp.ini</B></FONT><FONT SIZE=2> initialisation file.</P>
+<B><P>&nbsp;</P>
+<P>The Machine buttons</P>
+</FONT><FONT FACE="Arial" SIZE=4><P>New Machine Button</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Prompts for a machine name and adds it to the machine list.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Modify</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Allows the user to modify a machine name.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Insert</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Inserts a new machine before the currently selected machine.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Delete</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Deletes the currently selected operation.</P>
+</FONT><B><FONT SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+</FONT><FONT SIZE=2><P>The Operation buttons</P>
+</FONT><FONT FACE="Arial" SIZE=4><P>New Operation Button</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Displays the Operation Definition form and adds the new operation to the end of the Operation List.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Modify</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Opens the Operation Definition box to allow the user to modify the currently selected operation.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Insert</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Inserts a new operation before the currently selected operation.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Delete</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Deletes the currently selected operation.</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>

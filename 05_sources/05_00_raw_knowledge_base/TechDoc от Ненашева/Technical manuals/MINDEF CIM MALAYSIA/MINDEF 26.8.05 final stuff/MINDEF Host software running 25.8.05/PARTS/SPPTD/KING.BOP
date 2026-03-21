@@ -1,0 +1,39 @@
+KING
+1116508322 C:\CIM\PARTS\SPPTD\KING.PP
+1116597602 C:\CIM\LAYOUTS\SPPTD\SPPTD.CEL
+10
+1 20 2 13 1 2 0 0 1000000 20 1000000 1 PICK KING PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 20 1000000 30 1000000 3 KING 1 2 #PART#
+Moving part #PART# from Station 1 to Station 2
+
+3 15 1 14 0 0 30 1000000 45 1000000 3 0 KING
+CodeTag Inspection
+
+2 110 3 2 9 8 0 0 45 1000000 155 1000000 KING_L.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 3 2 155 1000000 165 1000000 3 KING 2 3 #PART#
+Moving part #PART# from Station 2 to Station 3
+
+4 110 3 3 11 10 0 0 165 1000000 275 1000000 KING_M.SEQ
+Load/Process/Unload Sequence for Miller
+
+0 10 0 6 3 275 1000000 285 1000000 3 KING 3 6 #PART#
+Moving part #PART# from Station 3 to Station 6
+
+1 10 2 13 1 0 0 285 1000000 295 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 6 1 1 6 295 1000000 305 1000000 3 KING 6 1 #PART#
+Moving part #PART# from Station 6 to Station 1
+
+1 20 2 1 13 0 1 305 1000000 325 1000000 1 PICK Conveyor PLACE KING
+Loading ASRS from Station 1
+
+Comments: File description
+name
+number of processes
+Cell, Duration, number of resources, Resources[...], Load Station, Unload Station, Start [a, b], End [a, b], Sequence name
+Description

@@ -1,0 +1,1209 @@
+Auto 
+' ====================================================================
+' Project:       Fruit Machine Simulator
+' Customer:      Baldor
+' H/W Platform:  NextMove ESB
+' Date:          1/5/2003
+' Author:        Stuart Bratton
+' Drives:        3 off Micro Flex 6A
+' Motors:        3 off BSM50N-xxxAE
+' Firmware:      Build 51xx
+' Description:   Fruit Machine Simulator originally written for Drives
+'                and Controls 2003
+' ====================================================================
+
+' --------------------------------------------------------------------
+' Constants
+' --------------------------------------------------------------------
+
+'Development flags
+Const _bDevelop = _FALSE
+
+'Machine properties
+Const _nMotorPPR As Integer    = 4000
+Const _nSpinDistance As Integer = 30 * _nMotorPPR 'Must be even !!
+Const _nSymbols As Integer = 10
+
+'CanOpen network
+Const _nHMI As Integer = 2
+Const _nCanTimeout As Integer = 3000
+
+'HMI Pages
+Const _nAlarmPage As Integer = 4
+Const _nWinPage As Integer = 5
+
+'LED symbols
+Const _nChard = 94
+
+'Game States
+Const _nNoCredit As Integer = 0
+Const _nStart As Integer    = 1
+Const _nHold As Integer     = 2
+Const _nNudge As Integer    = 3
+Const _nSpin As Integer     = 4
+Const _nWin As Integer      = 5
+
+'Fixed probabilities...
+Const _nFeatureProb As Integer = 3
+Const _nGambleProb As Integer  = 3
+
+'--------------------------------
+'Symbol order
+'--------------------------------
+'        Reel 1   Reel 2   Reel 3
+'Cherry    0        5        3
+'Orange    1        8        5
+'Lemon     2        0        8
+'Pear      3        7        0
+'Grape     4        2        7
+'Melon     5        4        1
+'Bell      6        9        4
+'Seven     7        1        9
+'Bars      8        6        2
+'Mint      9        3        6
+
+' --------------------------------------------------------------------
+' Macros
+' --------------------------------------------------------------------
+'Axes
+Define axALL   = 0,1,2,3,4,5,6
+Define axSERVOS = 0,1,2
+
+'Digital I/O
+Define ipSTART   = INSTATEX.0
+Define ipREEL1   = INSTATEX.1
+Define ipREEL2   = INSTATEX.2
+Define ipREEL3   = INSTATEX.3
+Define ipCOLLECT = INSTATEX.4
+Define ipDRV1OK  = INSTATEX.5
+Define ipDRV2OK  = INSTATEX.6
+Define ipDRV3OK  = INSTATEX.7
+Define opSTART   = OUTX.0
+Define opHOLD1   = OUTX.1
+Define opHOLD2   = OUTX.2
+Define opHOLD3   = OUTX.3
+Define opCOLLECT = OUTX.4
+
+'HMI
+Define cmCREDIT       = COMMS(_nHMI,255)
+Define cmLAST_COLLECT = COMMS(_nHMI,256)
+
+Define cmWIN_AMOUNT   = COMMS(_nHMI,258)
+Define cmHIGH_SCORE   = COMMS(_nHMI,259)
+
+Define cmINSERT     = COMMS(_nHMI,1)
+Define cmMESSAGE    = COMMS(_nHMI,2)
+Define cmNEXT_WIN   = COMMS(_nHMI,3)
+
+Define cmHOLD_PROB  = COMMS(_nHMI,5)
+Define cmNUDGE_PROB = COMMS(_nHMI,6)
+
+Define cmREEL_SPEED = COMMS(_nHMI,8)
+Define cmREEL_DECEL = COMMS(_nHMI,9)
+Define cmGAMBLE     = COMMS(_nHMI,10)
+
+Define cmREEL1      = COMMS(_nHMI,15)
+Define cmREEL2      = COMMS(_nHMI,16)
+Define cmREEL3      = COMMS(_nHMI,17)
+
+Define cmRESTART         = COMMS(_nHMI,99)
+Define cmERROR           = COMMS(_nHMI,50)
+Define cmERL             = COMMS(_nHMI,51)
+Define cmERRAXIS         = COMMS(_nHMI,52)
+Define cmAER0            = COMMS(_nHMI,53)
+Define cmAER1            = COMMS(_nHMI,54)
+Define cmAER2            = COMMS(_nHMI,55)
+Define cmMER             = COMMS(_nHMI,57)
+Define cmCUR_PAGE        = COMMS(_nHMI,60)
+Define cmPAGE_REQUEST    = COMMS(_nHMI,63)
+
+'NVRAM
+Define nvINIT         = NVFLOAT(1)
+Define nvLAST_COLLECT = NVFLOAT(2)
+Define nvHIGHEST      = NVFLOAT(3)
+
+' --------------------------------------------------------------------
+' Variables
+' --------------------------------------------------------------------
+'Download detection
+Dim nDefault As Integer
+
+'Homing
+Dim bHomeOK As Integer
+Dim bRestart As Integer
+
+'Can network
+Dim bCanSetup As Integer
+Dim nCanEvent As Integer
+Dim nEventInfo As Integer
+Dim nLocationUpdated As Integer
+
+'Machine
+Dim nGameStatus As Integer
+Dim nReelPos(1 To 3) As Integer
+Dim nReelTarget(1 To 3) As Integer
+Dim fCredit As Float
+Dim nWinType As Integer
+Dim nNextWin As Integer
+Dim mkHold As Integer
+Dim bHold As Integer
+Dim bNudge As Integer
+Dim nHoldProb As Integer
+Dim nNudgeProb As Integer
+Dim nReelToNudge As Integer
+Dim nNudgeTime As Integer
+Dim nReelSpeed As Integer
+Dim nReelDecelTime As Integer
+Dim nLEDPattern(0 To 5) As Integer
+
+'Win details
+Dim nWinTable(1 To 12,1 To 3) As Integer
+Dim fWinAmounts(0 To 12) As Float
+
+'General use
+Dim i As Integer
+Dim j As Integer
+Dim nErr As Integer
+Dim nErl As Integer
+Dim nAxisError(0 To 2) As Integer
+Dim nErrAxis As Integer
+Dim nMer As Integer
+
+'-----------------------------------------------------------
+' Start of main program
+'-----------------------------------------------------------
+'Initialise local data
+doInit
+
+'Setup HMI data
+doInitHMI
+
+'Start task that updates HMI...
+TaskPriority HMI_Write, 1
+Run HMI_Write
+
+?"Homing"
+doHomeSeq
+
+Run Control, LampControl, Messages
+
+Pause _FALSE
+End
+
+Task Control
+  ?"Game started"
+  Loop
+    'Determine whether to spin reels...
+    If nGameStatus = _nSpin Then doSpin
+  End Loop  
+End Task
+
+'-------------------------------------------------------------------
+' Read data from HMI panel
+'-------------------------------------------------------------------
+Task HMI_Read
+  Select Case nLocationUpdated
+    Case 1 'Credit button
+      If nGameStatus = _nNoCredit Then
+        fCredit = fCredit + 1
+        nGameStatus = _nStart
+      End If
+      cmINSERT = 0
+    Case 5 'Hold probability
+      nHoldProb = Int(cmHOLD_PROB)
+    Case 6 'Nudge probability
+      nNudgeProb = Int(cmNUDGE_PROB)
+    Case 8 'Reel speed
+      nReelSpeed = Int(cmREEL_SPEED)
+      SPEED[axSERVOS] = (nReelSpeed/60) * _nMotorPPR;
+    Case 9 'Deceltime
+      nReelDecelTime = Int(cmREEL_DECEL)
+      DECELTIME[axSERVOS] = nReelDecelTime;
+      
+  End Select
+End Task
+
+Task HMI_Write
+  Dim fLastCredit As Float
+  Loop
+    fLastCredit = fCredit'Update credit display
+    cmCREDIT = fCredit
+    cmNEXT_WIN = nNextWin
+    Repeat
+      Wait = 200
+    Until (fCredit <> fLastCredit) Or (nNextWin <> cmNEXT_WIN)
+  End Loop
+End Task
+
+Task LampControl
+  Const _nLampDelay As Integer = 250
+  Dim nLampPattern As Integer
+  Dim nDirection As Integer
+  Dim nLEDIndex As Integer
+  
+  nLEDIndex = 1
+  
+  Loop
+  
+    Select Case nGameStatus
+      
+      Case _nNoCredit
+        'Flash button lamps back and forward
+        nLampPattern = 1
+        nDirection = -1
+        Repeat
+          Wait = _nLampDelay
+          nLampPattern = Shift(nLampPattern,nDirection)
+          OUT.0 = nLampPattern
+          If (OUT.0 & 16) Or (OUT.0 & 1) Then nDirection = nDirection * -1
+        Until nGameStatus <> _nNoCredit  
+            
+      Case _nStart
+        'Flash Start button and light collect button...
+        nLampPattern = 010001
+        Repeat
+          OUT.0 = nLampPattern  
+          Wait =  _nLampDelay
+          nLampPattern = nLampPattern Xor 01
+        Until nGameStatus <> _nStart
+        
+      Case _nHold
+        'Light collect button and
+        'flash the start and hold buttons unless selected (then the button stays lit)
+        nLampPattern  = 011111
+        Repeat
+          OUT.0 = nLampPattern Or mkHold
+          Wait = _nLampDelay
+          nLampPattern = (nLampPattern Xor 01111) Or mkHold
+        Until nGameStatus <> _nHold
+        
+      Case _nNudge
+        'Flash all the hold buttons quickly...
+        Repeat
+          OUT.0 = 01110 
+          Wait = _nLampDelay/4
+          OUT.0 = 00000
+          Wait = _nLampDelay/4
+        Until nGameStatus <> _nNudge
+        
+      Case _nSpin
+        'Turn off all lamps...
+        OUT.0 = OUT.0 And 0x7E0  
+        Repeat
+          'Make LED display run round following reel 3...
+          'Reel 3 nominally moves twice the spin distance...
+          If VELDEMAND.2 > 2000 Then
+            Wait = 1500000 * (1/VELDEMAND.2)
+            LEDDISPLAY = nLEDPattern(nLEDIndex)
+            nLEDIndex = (nLEDIndex + 1)%6
+          End If
+          
+        Until nGameStatus <> _nSpin
+                
+      Case _nWin
+        'Flash button lamps back and forward quickly...
+        nLampPattern = 1
+        nDirection = -1
+        Repeat
+          Wait = _nLampDelay/4
+          nLampPattern = Shift(nLampPattern,nDirection)
+          OUT.0 = nLampPattern
+          If (OUT.0 & 16) Or (OUT.0 & 1) Then nDirection = nDirection * -1
+        Until nGameStatus <> _nWin
+        
+    End Select
+    
+  End Loop  
+
+End Task
+
+Task Messages
+  Dim nMessageNo As Integer
+  
+  Loop
+  
+    Select Case nGameStatus
+      
+      Case _nNoCredit
+        'Display tempting messages to play the game
+        Repeat
+           For nMessageNo = 1 To 3
+             cmMESSAGE = nMessageNo
+             Time = 0
+             Repeat
+               'Do nothing
+             Until (Time > 3000) Or (nGameStatus <> _nNoCredit)
+           Next nMessageNo
+        Until nGameStatus <> _nNoCredit  
+            
+      Case _nStart
+        'Display start message
+        Repeat
+          If cmMESSAGE <> 4 Then cmMESSAGE = 4
+        Until nGameStatus <> _nStart
+        
+      Case _nHold
+        'Display the hold available message
+        Repeat
+          If cmMESSAGE <> 5 Then cmMESSAGE = 5
+        Until nGameStatus <> _nHold
+        
+      Case _nNudge
+        'Display the Nudge Quick message
+        Repeat
+          If cmMESSAGE <> 6 Then cmMESSAGE = 6
+        Until nGameStatus <> _nNudge
+        
+      Case _nSpin
+        'Are you a winner ?
+        Repeat
+          If cmMESSAGE <> 7 Then cmMESSAGE = 7
+        Until nGameStatus <> _nSpin
+        
+      Case _nWin
+        'You've won !
+        Repeat
+          If cmMESSAGE <> 8 Then cmMESSAGE = 8
+        Until nGameStatus <> _nWin
+
+    End Select
+    
+  End Loop  
+
+End Task
+
+Task NudgeReels
+  'This task is terminated by a win or a timeout
+  Dim nReturn As Integer
+  nNudgeTime = setRandomNudgeTime()
+  Time = 0
+  Repeat
+    If ipREEL1 And !ipREEL2 And !ipREEL3 Then
+      nReelToNudge = 1
+    Else If !ipREEL1 And ipREEL2 And !ipREEL3 Then
+      nReelToNudge = 2
+    Else If !ipREEL1 And !ipREEL2 And ipREEL3 Then
+      nReelToNudge = 3
+    Else
+      nReelToNudge = 0
+    End If
+    If nReelToNudge <> 0 Then
+      MOVER.(nReelToNudge-1) = _nMotorPPR/_nSymbols
+      GO.(nReelToNudge-1)
+      Pause IDLE.(nReeltoNudge-1)
+      Wait = 600
+      nReelPos(nReelToNudge) = (nReelPos(nReelToNudge) + 1) % _nSymbols
+    End If
+    nReturn = doCheckWin()
+  Until (nReturn <> 0) Or (Time > nNudgeTime * 1000)
+End Task
+
+Task ErrorHandler
+  ?"Starting error handler task"
+  STOP[axSERVOS]
+
+  cmERROR = nErr
+  cmERL = nErl
+  cmERRAXIS = nErrAxis
+  cmAER0 = nAXISERROR(0)
+  cmAER1 = nAXISERROR(1)
+  cmAER2 = nAXISERROR(2)
+  cmMER  = nMer
+
+  cmPAGE_REQUEST = _nAlarmPage
+  Repeat
+    Wait = 250
+  Until cmRESTART
+  cmRESTART = 0
+  CANCELALL
+  cmPAGE_REQUEST = 1
+  Repeat
+    Wait = 250
+  Until cmCUR_PAGE = 1
+  cmPAGE_REQUEST = 0
+  ?"Restarting from Error Handler"
+  Run  
+End Task
+
+Sub doInit( )
+  'Initialise variable states
+  bHomeOK = 0
+  bRestart = 0
+  bCanSetup = 0
+  mkHold = 00000
+  
+  'Setup win table...
+  nWinTable =  0, 0,0,1,2,3,4,5,6,7,8,9,_
+              -1, 5,5,8,0,7,2,4,9,1,6,3,_
+              -1,-1,3,5,8,0,7,1,4,9,2,6
+  
+  'Setup win amounts...
+  fWinAmounts = 0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.4, 5.0
+  
+  'Setup LED pattern (runs when reels spin)...
+  nLEDPattern = 8,16,32,1,2,4
+  
+  'Initialise normally retentive data that will be lost on power cycle
+  If nDefault = 0 Then
+    nHoldProb = 25
+    nNudgeProb = 10
+    nReelSpeed = 2000
+    nReelDecelTime = 100
+    nDefault = 1
+  End If
+  
+  'Initialise NVRAM if necessary...
+  If !nvINIT Then
+    nvLAST_COLLECT = 0
+    nvHIGHEST = 0
+    nvINIT = 1
+  End If
+    
+  'Initialise outputs
+  opSTART = _OFF
+  opHOLD1 = _OFF
+  opHOLD2 = _OFF
+  opHOLD3 = _OFF
+  
+  'Initialise operating states...
+  bHomeOK = _FALSE
+  If fCredit > 0 Then
+    nGameStatus = _nStart
+  Else
+    nGameStatus = _nNoCredit
+  End If
+  
+  'Determine when to generate next guaranteed win...
+  nNextWin = setRandomWinTime()
+  
+  'Setup motor parameters...
+  SPEED[axSERVOS] = (nReelSpeed/60) * _nMotorPPR;
+  ACCELTIME[axSERVOS] = 400;
+  DECELTIME[axSERVOS] = nReelDecelTime;
+    
+End Sub
+
+Sub doInitHMI( )
+  
+  cmHIGH_SCORE = nvHIGHEST
+  
+  'Force HMI to Page 1
+  cmPAGE_REQUEST = 1
+  Repeat
+    Wait = 200
+  Until cmCUR_PAGE = 1
+  cmPAGE_REQUEST = 0
+  
+  'Load adjustable settings
+  cmHOLD_PROB = nHoldProb
+  cmNUDGE_PROB = nNudgeProb
+  cmREEL_SPEED = nReelSpeed
+  cmREEL_DECEL = nReelDecelTime
+  
+End Sub
+
+Sub doHomeSeq( )
+  Dim fNo As Float
+  Dim nSeedTime As Integer
+  
+  cmMESSAGE = 9
+  Wait = 250
+  Time = 0
+  RESET[axSERVOS]
+  HOME[axSERVOS] = _hmPOSITIVE_INDEX;
+  Pause IDLE[axSERVOS]
+  bHomeOK = _TRUE
+  nReelPos(1) = 0
+  nReelPos(2) = 0
+  nReelPos(3) = 0
+  'Generate new random seed...
+  nSeedTime = Time
+  For i = 1 To nSeedTime
+    fNo = Rnd()
+  Next i
+
+End Sub
+
+'-------------------------------------------------------------------
+' Spin the reels !
+'-------------------------------------------------------------------
+Sub doSpin( )
+  Dim idx As Integer
+  Dim nReturn As Integer
+  Dim nMove As Integer
+  Dim bFeature As Integer
+  Dim bQuit As Integer
+  Dim bAdvance As Integer
+  Dim nReel3 As Integer
+  
+  'Set Game status
+  nGameStatus = _nSpin
+  
+  'Determine target positions
+  setTargets
+  
+  'Load moves...
+  'If a reel is held then don't move it..
+  For idx = 0 To 2
+    If (mkHold & (2^(idx+1))) Then
+      MOVER.idx = 0
+      'Final position is unchanged...
+      nReelPos(idx+1) = nReelPos(idx+1)
+    Else
+      nMove = Round(_nSpinDistance + (idx*_nSpinDistance/2) _
+                  + ( _nMotorPPR * (nReelTarget(idx+1) - nReelPos(idx+1))/_nSymbols)) 
+      MOVER.idx = nMove
+      ?"Move ",idx," = ",nMove
+      'Set final position...
+      nReelPos(idx+1) = nReelTarget(idx+1)
+    End If
+  Next idx
+  
+  GO[axSERVOS]
+  Pause IDLE[axSERVOS]
+ 
+  'Check for win...
+  nReturn = doCheckWin()
+  
+  'If there's no win then decide whether to produce a random nudge...
+  If nReturn = 0 Then
+    bNudge = getNudge()
+    If bNudge Then
+      nGameStatus = _nNudge
+      Run NudgeReels
+      Pause TaskStatus(NudgeReels) <> _tskTERMINATED
+      Repeat
+        'Do nothing
+      Until TaskStatus(NudgeReels) = _tskTERMINATED
+      OUT.0 = OUT.0 And 0x7F0
+      nReturn = doCheckWin()
+      If nReturn <> 0 Then
+        'It's a nudged in winner !
+        doWinDisplay nReturn
+      End If
+    End If
+  Else
+    'It's a straight in winner !
+    doWinDisplay nReturn
+  End If
+  
+  If nReturn <> 0 Then
+    'If a win less than max amount has occured decide whether to offer
+    'the cash trail feature...
+    bFeature = getFeature()
+    'If the cash trail is active...
+    If bFeature Then
+      bQuit = _FALSE
+      'Keep generating a gamble win/lose until a loss or a collect or jackpot...
+      While (!bQuit) And (nWinType < 12)
+        'Display gamble/collect page...
+        cmPAGE_REQUEST = 7
+        cmGAMBLE = 0
+        Repeat
+          Wait = 250
+        Until cmGAMBLE <> 0
+        Select Case cmGAMBLE
+          Case 1 'Gamble
+            bAdvance = getGambleSuccess
+            'Initially set all three reels to move to next highest win...
+            nWinType = nWinType + 1
+            nReturn = nReturn + 1
+            setTargets
+            For idx = 0 To 2
+              nMove = Round(_nSpinDistance + (idx*_nSpinDistance/2) _
+                      + ( _nMotorPPR * (nReelTarget(idx+1) - nReelPos(idx+1))/_nSymbols)) 
+              MOVER.idx = nMove
+              'Remember old position of reel 3 and set final position...
+              nReel3 = nReelPos(3)
+              nReelPos(idx+1) = nReelTarget(idx+1)
+            Next idx
+            If bAdvance Then
+              'No need to modify winning targets...
+            Else
+              'If the current win is less than three cherries then
+              'make the first reel anything but a cherry
+              If (nWinType-1) < 3 Then
+                CANCEL.0
+                Repeat
+                  nMove = Round(Rnd() * 9)
+                Until nMove <> 0
+                MOVER.0 = Round(_nSpinDistance + ( _nMotorPPR * nMove/_nSymbols)) 
+                nReelPos(1) = nMove
+              Else
+                'Set the third reel to miss out  (stays where it is effectively)...
+                CANCEL.2
+                MOVER.2 = Round(_nSpinDistance + _nSpinDistance) 
+                nReelPos(3) = nReel3
+              End If
+              'You  lose !!!         
+              nWinType = 0
+              nReturn = 0
+              bQuit = _TRUE  
+            End If
+            
+            'Spin the reels...
+            GO[axSERVOS]
+            Pause IDLE[axSERVOS]
+            
+            'Display result of gamble...
+            doWinDisplay nWinType
+            
+          Case Else 'Collect
+            bQuit = _TRUE
+            Exit While
+        End Select
+      End While
+    End If
+  End If
+  'Add to credit as required...
+  fCredit = fCredit + fWinAmounts(nReturn)
+  
+  'Clear Hold bit mask...
+  mkHold = 0000
+  
+  'If there is credit left decide whether to produce a random hold...
+  If fCredit > 0 Then
+    bHold = getHold()
+    If bHold Then
+      nGameStatus = _nHold
+    Else
+      nGameStatus = _nStart
+    End If
+  Else
+    nGameStatus = _nNoCredit    
+  End If
+
+  'Display Main Screen...
+  cmPAGE_REQUEST = 1
+  Repeat
+    Wait = 250
+  Until cmCUR_PAGE = 1
+  cmPAGE_REQUEST = 0    
+End Sub
+
+Sub setTargets( )
+
+  Select Case nWinType
+    Case 0
+      'Random
+      nReelTarget(1) = setRandomTarget()
+      nReelTarget(2) = setRandomTarget()
+      nReelTarget(3) = setRandomTarget()
+    
+    Case 1 
+      '0, Random (not 0), Random
+      nReelTarget(1) = nWinTable(1,1)
+      Repeat
+        nReelTarget(2) = setRandomTarget() 
+      Until nReelTarget(2) <> nWinTable(1,1)
+      nReelTarget(3) = setRandomTarget() 
+      
+    Case 2
+      '0, 0, Random (not 0)
+      nReelTarget(1) = nWinTable(2,1)
+      nReelTarget(2) = nWinTable(2,2)
+      Repeat
+        nReelTarget(3) = setRandomTarget() 
+      Until nReelTarget(3) <> nWinTable(2,1)
+      
+    Case Else
+      nReelTarget(1) = nWinTable(nWinType,1)
+      nReelTarget(2) = nWinTable(nWinType,2)
+      nReelTarget(3) = nWinTable(nWinType,3)
+
+  End Select
+  
+End Sub
+
+Sub doStart( )
+  If (nGameStatus <> _nStart) And (nGameStatus <> _nHold) Then Exit Sub
+  If (fCredit = 0) Or (bHomeOK = _FALSE) Then Exit Sub
+  nGameStatus = _nSpin
+  fCredit = fCredit - 0.1
+  If nNextWin = 0 Then
+    nWinType = setRandomWinType()
+    nNextWin = setRandomWinTime()
+  Else
+    nNextWin = nNextWin - 1 
+    nWinType = 0
+  End If
+End Sub
+
+Sub doHold1( )
+  If (nGameStatus <> _nHold) And (nGameStatus <> _nNudge) Then Exit Sub
+  If nGameStatus = _nHold Then
+    mkHold = mkHold Xor 00010  
+  End If
+End Sub
+
+Sub doHold2( )
+  If (nGameStatus <> _nHold) And (nGameStatus <> _nNudge) Then Exit Sub
+  If nGameStatus = _nHold Then
+    mkHold = mkHold Xor 00100  
+  End If
+End Sub
+
+Sub doHold3( )
+  If (nGameStatus <> _nHold) And (nGameStatus <> _nNudge) Then Exit Sub
+  If nGameStatus = _nHold Then
+    mkHold = mkHold Xor 01000  
+  End If
+End Sub
+
+'-------------------------------------------------------------------
+' Display Win Information on HMI...
+'-------------------------------------------------------------------
+Sub doWinDisplay(ByVal nWin As Integer)
+    'On a win give the HMI time to display the win page
+    nGameStatus = _nWin
+    'Set the graphics on the win page...
+    cmREEL1 = nReelPos(1)
+    cmREEL2 = nReelPos(2)
+    cmREEL3 = nReelPos(3)
+    'Set the win amount...
+    cmWIN_AMOUNT = fWinAmounts(nWin)
+    'Display the win page...
+    cmPAGE_REQUEST = _nWinPage
+    Repeat
+      Wait = 250
+    Until cmCUR_PAGE = _nWinPage
+    cmPAGE_REQUEST = 0
+    Wait = 3000
+End Sub
+
+'-------------------------------------------------------------------
+' Initialise the CanOpen network and slave nodes
+'-------------------------------------------------------------------
+Function doInitCan( ) As Integer 
+  COMMSMODE = 0        ' CANOpen
+  NODE = 1             ' Motion Controller must be CAN master (1)
+  BUSRESET.1           ' CANBus reset
+  BUSBAUD.1 = 500      ' Baud rate must suit HMI setting
+  NODETYPE._nHMI = 0   ' Remove HMI node from network
+  
+  'Scanning for CANopen panel
+  ?"Scanning for HMI"
+  Time=0 
+  NODESCAN._nHMI
+  Pause NODELIVE._nHMI Or Time > _nCanTimeout
+
+  If !NODELIVE._nHMI Then
+    'Failed to detect HMI
+    ?"Failed to detect HMI"
+    doInitCan = 0
+    Exit Function
+  End If
+  
+  'Once panel is live make a CANopen connection...  
+  Time=0
+  Repeat
+    CONNECT.1._nHMI = 1
+    Wait=1000
+  Until (CONNECTSTATUS._nHMI & 01000) Or Time > _nCanTimeout 
+  
+  If Time > _nCanTimeout Then
+    'Failed to connect to CANopen panel
+    ?"Failed to make Can connection to HMI"
+    doInitCan = 0
+    Exit Function
+  End If
+  
+  'Success...
+  doInitCan = 1
+End Function
+
+'-----------------------------------------------------------------------------
+' Generate random target for Reel
+'-----------------------------------------------------------------------------
+Function setRandomTarget( ) As Integer
+  setRandomTarget = Int(Rnd()*10)
+End Function
+
+'-------------------------------------------------------------------
+' Decide when to create guaranteed win
+'-------------------------------------------------------------------
+Function setRandomWinTime( ) As Integer
+  'Generate number between 20 and 100
+  setRandomWinTime = Int(Rnd()* 20) + 20
+End Function
+
+'-------------------------------------------------------------------
+' Decide what type of win to create
+'-------------------------------------------------------------------
+Function setRandomWinType( ) As Integer
+  'Win type gives 1 to 12 index into Win table array
+  setRandomWinType = Int(Rnd() * 12) + 1
+End Function
+
+'-------------------------------------------------------------------
+' Decide how long to nudge...
+'-------------------------------------------------------------------
+Function setRandomNudgeTime( ) As Integer
+  'Random nudge time from 3 to 10 seconds
+  setRandomNudgeTime = Round(Rnd() * 7) + 3
+End Function
+
+'-----------------------------------------------------------------------------
+' Check win line
+'-----------------------------------------------------------------------------
+Function doCheckWin( ) As Integer
+  Dim nReel As Integer
+  Dim nIdx As Integer
+  Dim nMatch As Integer
+  
+  'Look at the first reel...
+  Select Case nReelPos(1)
+    Case 0
+      If nReelPos(2) <> 5 Then
+        nWinType = 1
+      Else
+        If nReelPos(3) = 3 Then
+          nWinType = 3
+        Else
+          nWinType = 2
+        End If
+      End If
+    
+    Case Else
+      For nIdx = 4 To 12
+        nMatch = 0
+        For nReel = 1 To 3
+          If nReelPos(nReel) = nWinTable(nIdx,nReel) Then
+            nMatch = nMatch + 1
+          End If
+        Next nReel
+        If nMatch = 3 Then Exit For
+      Next nIdx
+      
+      If nMatch = 3 Then
+        nWinType = nIdx
+      Else
+        nWinType = 0
+      End If
+      
+  End Select
+    
+  doCheckWin = nWinType  
+    
+End Function
+
+'-----------------------------------------------------------------------------
+' Determine whether to produce a hold...
+'-----------------------------------------------------------------------------
+Function getHold( ) As Integer
+  If Round(Rnd()*100) < nHoldProb Then
+    getHold = _TRUE
+  Else
+    getHold = _FALSE
+  End If
+End Function
+
+'-----------------------------------------------------------------------------
+' Determine whether to produce a nudge...
+'-----------------------------------------------------------------------------
+Function getNudge( ) As Integer
+  If Round(Rnd()*100) < nNudgeProb Then
+    getNudge = _TRUE
+  Else
+    getNudge = _FALSE
+  End If
+End Function
+
+'-----------------------------------------------------------------------------
+' Determine whether to offer feature...
+'-----------------------------------------------------------------------------
+Function getFeature( ) As Integer
+  If Round(Rnd()*10) < _nFeatureProb Then
+    getFeature = _TRUE
+  Else
+    getFeature = _FALSE
+  End If
+End Function
+
+'-----------------------------------------------------------------------------
+' Determine whether gamble is successful...
+'-----------------------------------------------------------------------------
+Function getGambleSuccess( ) As Integer
+  If Round(Rnd()*10) < _nGambleProb Then
+    getGambleSuccess = _TRUE
+  Else
+    getGambleSuccess = _FALSE
+  End If
+End Function
+
+'-----------------------------------------------------------------------------
+' Start
+'-----------------------------------------------------------------------------
+Event IN0
+  doStart
+End Event
+
+'-----------------------------------------------------------------------------
+' Hold/Nudge for Reel 1
+'-----------------------------------------------------------------------------
+Event IN1
+  doHold1
+End Event
+
+'-----------------------------------------------------------------------------
+' Hold/Nudge for Reel 2
+'-----------------------------------------------------------------------------
+Event IN2
+  doHold2
+End Event
+
+'-----------------------------------------------------------------------------
+' Hold/Nudge for Reel 3
+'-----------------------------------------------------------------------------
+Event IN3
+  doHold3
+End Event
+
+'-----------------------------------------------------------------------------
+' Collect Button
+'-----------------------------------------------------------------------------
+Event IN4
+  If (nGameStatus = _nStart) Or (nGameStatus = _nHold) Then
+    nvLAST_COLLECT = fCredit
+    cmLAST_COLLECT = fCredit
+    If fCredit > nvHIGHEST Then
+      nvHIGHEST = fCredit
+      cmHIGH_SCORE = fCredit
+    End If
+    'Decide whether to populate the 'Today's Hall of Fame'...
+    For i = 260 To 264
+      If fCredit > COMMS(_nHMI,i) Then
+        For j = 265 To (i+1) Step -1
+          COMMS(_nHMI,j) = COMMS(_nHMI,j-1)
+        Next j
+        COMMS(_nHMI,i) = fCredit
+        Exit For
+      End If
+    Next i
+    
+    'Display Hall of Fame...
+    cmPAGE_REQUEST = 6
+    Repeat
+      Wait = 250
+    Until cmCUR_PAGE = 6
+    Wait = 5000
+    cmPAGE_REQUEST = 1
+    Repeat
+      Wait = 250
+    Until cmCUR_PAGE = 1
+    cmPAGE_REQUEST = 0
+    'Start from scratch...
+    fCredit = 0
+    Wait = 500
+    nGameStatus = _nNoCredit
+    opCOLLECT = _OFF
+  End If
+End Event
+
+'-----------------------------------------------------------------------------
+' Comms 5 Event used for debugging without i/o
+'-----------------------------------------------------------------------------
+Event COMMS5
+  Select Case COMMS(5)
+    Case 1
+      doStart
+    Case 2
+      doHold1
+    Case 3
+      doHold2
+    Case 4
+      doHold3
+  End Select
+End Event
+
+Event BUS1
+  nCanEvent = BUSEVENT.1 
+  'Caneventinfo.1 is the comms location that is being updated
+  nEventInfo = BUSEVENTINFO.1
+  
+  Select Case nCanEvent
+    Case _cethmi_comms_update
+      nLocationUpdated = nEventInfo  
+      Run HMI_Read
+    Case _cetbus_operational
+      'Print "CAN bus 1 is operational"
+    Case _cetbus_passive
+      'Print "CAN bus 1 is passive"
+    Case _cetbus_off
+      'Print "CAN bus 1 is off"
+    Case _cetreceive_overrun
+      'Print "Receive overrun on CAN bus 1"
+    Case _cettransmit_overrun
+      'Print "Transmit overrun on CAN bus 1"
+    Case _cetlive
+      'Print "Node ",nEventInfo," has become live on CAN bus 1"
+    Case _cetdied
+      'Print "Node ",nEventInfo," had died on CAN bus 1"
+    Case _cetemergency
+      'Print "Error on Node ",nEventInfo," on CAN bus 1"
+  End Select
+End Event
+
+Event ONERROR
+  Dim nIdx As Integer
+  ?"Entered Onerror"
+  
+  'Ignore Can protocol or timeout errors
+  If Err = 42 Or Err = 21 Then Exit Event
+        
+  'Handle NVRAM not initialised...
+  If Err = 37 Then
+    For nIdx = 1 To 100
+      NVFLOAT(nIdx) = 0
+    Next nIdx
+    Run
+  End If
+
+  'Any other error
+  End HMI_Write, LampControl, Messages, NudgeReels
+  'Record the error info...
+  nErr = Err
+  nErl = Erl
+  For nIdx = 0 To 2
+    nAxisError(nIdx) = AXISERROR.nIdx
+  Next nIdx
+  nErrAxis = ErrAxis
+  nMer = MER
+  'Clear the error
+  CANCELALL
+  Run ErrorHandler
+End Event
+
+Startup
+  'Abort any motion currently in progress
+  ABORT:Wait = 10
+  
+  'Controller must be CanOpen master...
+  NODE = 1
+  
+  'User controlled seven segement LED...
+  LED = -2
+  
+  'Disable Serial Miscerrors
+  MISCERRORDISABLE = 011100000000001110000
+  
+  'Wait for drives to indicate healthy...
+  /*
+  If _bDevelop = _FALSE Then
+    LEDDISPLAY = _nChard
+    Repeat
+      opHOLD1 = ipDRV1OK
+      opHOLD2 = ipDRV2OK
+      opHOLD3 = ipDRV3OK  
+    Until (ipDRV1OK And ipDRV2OK And ipDRV3OK)
+    OUT.0 = 0
+  End If
+  */
+  LEDDISPLAY = 8
+  
+  'Initialise CanOpen network
+  Repeat
+    ?"Initialising CanOpen"
+    bCanSetup = doInitCan()
+  Until bCanSetup
+  
+  'Blank message on HMI
+  cmMESSAGE = 0
+  
+  'Clear todays high scores...
+  For i = 260 To 264
+    COMMS(_nHMI,i) = 0
+  Next i
+  
+  'Digital input configuration
+  Bank = 0
+  INPUTMODE        = 0_0000_0000_0000_0001_1111
+  INPUTACTIVELEVEL = 0_1111_1111_1111_1111_1111
+  INPUTPOSTRIGGER  = 0_0000_0000_0000_0001_1111
+  INPUTNEGTRIGGER  = 0_0000_0000_0000_0000_0000
+  
+  'Digital output configuration
+  GLOBALERROROUTPUT = -1
+  Bank = 0
+  OUTPUTACTIVELEVEL = 0_111_1111_1111
+
+  'Define config modes for all axes
+  CONFIG[axALL] = _cfOFF;
+  If _bDevelop = _FALSE Then
+    CONFIG[axALL] = _cfSERVO,_cfSERVO,_cfSERVO,_cfOFF;
+  Else
+    CONFIG[axALL] = _cfVIRTUAL;
+  End If
+  
+  'Initialize the axis
+  CANCELALL
+  DRIVEENABLE[axSERVOS] = 0;
+
+  'Axis scaling
+  SCALEFACTOR[axSERVOS] = 1;
+  
+  'Axis Error parameters
+  ERRORINPUTMODE[axSERVOS] = _emCALL_HANDLER;
+  ABORTMODE[axSERVOS]      = _emCRASH_STOP_DISABLE;
+  LIMITMODE[axSERVOS]      = _emIGNORE;
+  STOPINPUTMODE[axSERVOS]  = _siSTOP;
+  SOFTLIMITMODE[axSERVOS]  = _emIGNORE;
+  FOLERRORMODE[axSERVOS]   = _emCRASH_STOP_DISABLE;
+   
+  SOFTLIMITFORWARD[axSERVOS] = 10;
+  SOFTLIMITREVERSE[axSERVOS] = -10;
+  FOLERRORFATAL[axSERVOS]    = 2048;
+  ERRORDECEL[axSERVOS]       = 300000;
+  
+  'Axis Digital input events
+  ERRORINPUT[axSERVOS] = -1;
+  HOMEINPUT[axSERVOS]  = -1;
+  STOPINPUT[axSERVOS]  = -1;
+  LIMITFORWARDINPUT[axSERVOS] = -1;
+  LIMITREVERSEINPUT[axSERVOS] = -1;
+  
+  'Axis Drive Output Enables
+  DRIVEENABLEOUTPUT[axSERVOS] = _RELAY0;
+    
+  'Axis Tuning Parameters
+  KDERIV[axSERVOS]    = 0,0,0
+  KINT[axSERVOS]      = 0,0,0
+  KINTLIMIT[axSERVOS] = 0,0,0
+  KINTMODE[axSERVOS]  = 0,0,0
+  KPROP[axSERVOS]     = 0.5;
+  KVEL[axSERVOS]      = 0;
+  KVELFF[axSERVOS]    = 5.12;
+  KACCEL[axSERVOS]    = 0,0,0
+  
+  
+  'Axis Parameters
+  ACCEL[axSERVOS]          = 20000;
+  DECEL[axSERVOS]          = 20000;
+  HOMEBACKOFF[axSERVOS]    = 10;
+  HOMESPEED[axSERVOS]      = 4096;
+  MOVEBUFFERSIZE[axSERVOS] = 2;
+  SPEED[axSERVOS]          = 40960;
+  IDLEPOS[axSERVOS]        = 10;
+  IDLEVEL[axSERVOS]        = 5000;
+  
+  'Encoder configuration
+  ENCODERSCALE.0 = 1
+  ENCODERWRAP.0  = _nMotorPPR
+  ENCODERMODE.0  = 0
+
+  ENCODERSCALE.1 = 1
+  ENCODERWRAP.1  = _nMotorPPR
+  ENCODERMODE.1  = 0
+  
+  
+  ENCODERSCALE.2 = 1
+  ENCODERWRAP.2  = _nMotorPPR
+  ENCODERMODE.2  = 0
+  
+
+  nGameStatus = _nNoCredit
+  
+  CANCELALL
+
+End Startup
+  

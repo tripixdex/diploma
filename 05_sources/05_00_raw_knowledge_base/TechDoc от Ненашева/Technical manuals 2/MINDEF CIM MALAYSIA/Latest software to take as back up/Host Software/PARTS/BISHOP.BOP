@@ -1,0 +1,51 @@
+BISHOP
+1099586232 C:\CIM\PARTS\BISHOP.PP
+1096555586 C:\CIM\LAYOUTS\MALAYSIA.CEL
+14
+1 20 2 14 1 2 0 0 1000000 20 1000000 1 PICK BISHOP PLACE CONVEYOR PICK CONVEYOR
+Load Station 1 from ASRS
+
+0 10 0 0 0 20 1000000 30 1000000 3 BISHOP 1 2 #PART#
+Moving part #PART# from Station 1 to Station 2
+
+3 15 1 13 0 0 30 1000000 45 1000000 3 0 BISHOP
+CodeTag Inspection
+
+2 110 3 2 12 8 0 0 45 1000000 155 1000000 BISHOP_L.SEQ
+Load/Process/Unload Sequence for Lathe
+
+0 10 0 4 2 155 1000000 165 1000000 3 BISHOP 2 4 #PART#
+Moving part #PART# from Station 2 to Station 4
+
+5 10 1 10 0 0 165 1000000 175 1000000 1
+VisionSystem Inspection
+
+0 10 0 5 4 175 1000000 185 1000000 3 BISHOP 4 5 #PART#
+Moving part #PART# from Station 4 to Station 5
+
+1 10 7 1 14 16 15 17 18 19 0 0 185 1000000 195 1000000 1 PLACE Conveyor
+Move into Conveyor
+
+0 10 2 5 1 1 5 195 1000000 205 1000000 3 BISHOP 5 1 #PART#
+Moving part #PART# from Station 5 to Station 1
+
+1 20 3 1 14 16 16 1 205 1000000 225 1000000 1 PICK Conveyor PLACE AGV
+Moving ASRS from Station 1 to Station 6
+
+7 10 3 15 16 17 17 16 225 1000000 235 1000000 1 7
+AGV moving part #PART# to Station 7
+
+8 15 3 17 18 19 0 0 235 1000000 250 1000000 B.SEQ
+Load/Process/Unload Sequence for CMM
+
+7 10 3 15 17 16 16 17 250 1000000 260 1000000 1 6
+AGV moving part #PART# to Station 6
+
+1 20 2 16 14 0 16 260 1000000 280 1000000 1 PICK AGV PLACE BISHOP
+Loading ASRS from Station 6
+
+Comments: File description
+name
+number of processes
+Cell, Duration, number of resources, Resources[...], Load Station, Unload Station, Start [a, b], End [a, b], Sequence name
+Description

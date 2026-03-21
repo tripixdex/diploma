@@ -1,0 +1,277 @@
+PON  : REM Turn prompt on
+
+CON  : REM Change to configuration
+NEW  : REM Clear out previous conf
+RELEASE : REM Clear all user variables
+
+LOAD 2
+AUTO : REM AutoRun the program
+|    : REM Send a CTRL-Z blank line (to quit edit mode)
+
+PROG : REM Change to program
+NEW  : REM Clear out previous prog
+RELEASE : REM Clear all user variables
+REM : EDIT : REM Enter edit mode
+
+REM ~~~~~~~~ Main Program Body Starts Here ~~~~~~~~~~
+
+LOAD 1
+COMMSON : REM (MicroMill) Initiate the comms array
+MINT328 = 1 : REM Initiate MINT/3.28
+comms(1) = 0 : REM Use as Command register
+comms(3) = 100 : REM Default Feedrate
+comms(4) = 500 : REM default spindle speed
+comms(5) = 100 : REM Default % feed override
+comms(6) = 100 : REM default % Spindle overide
+comms(14) = 1500 : REM default max feed
+comms(15) = 2500 : REM default max speed
+comms(31)= 214 : REM Mint file Major Version (2.14)
+comms(32)= 4 : REM Mint file Machine ID
+comms(33) = 0 : REM Machine problems ?
+
+OldA1 = -1
+OldA2 = -1
+feedOverride = 100
+speedOverride = 100
+OldSpeed = 100
+FeedLast = 0
+SpeedLast = 0
+FOverLast = 0
+SOverLast = 0
+JustPoweredOn = 1
+
+Paused = 0
+POKE 3, 50
+POKE 3, 116
+POKE 3, 176
+POKE 0, 0
+POKE 0, 32
+POKE 1, 0
+POKE 1, 255
+POKE 0, 1
+POKE 0, 0
+
+SafetyFeed = 150 * 312 / 60 : REM convert 150mm/min into steps/second
+
+CONFIG = 2, 2, 2
+DISLIMIT
+SCALE = 1, 1, 1
+RAMP = 1, 1, 1
+ACCEL = 10000, 10000, 10000
+
+EV=1 : REM Enable Events
+
+COMMS(19) = 0 : REM safety bit
+
+PRINT "Micromill 2000 Mint (c) Denford Ltd" 
+LOOP
+   if comms(3) <> FeedLast THEN GOSUB NewFeed 
+   if comms(4) <> SpeedLast THEN GOSUB NewSpindle 
+   if comms(5) <> FOverLast THEN GOSUB NewFeedOverride
+   if comms(6) <> SOverLast THEN GOSUB NewSpinOverride
+ command = comms(1)
+   IF command = 7  THEN GOSUB toolChange
+ command = comms(1)
+   IF command = 17 THEN GOSUB Poker
+ command = comms(1)
+   IF command = 18 THEN GOSUB mcode
+ command = comms(1)
+   IF Command = 20 THEN GOSUB NewBufferSize
+   GOSUB SafetyCheck
+   GOSUB CheckPot
+ENDL
+
+REM This SubRoutine is defined but never called !
+#Non_Volatile
+    Pocket = 1
+RETURN
+
+#STOP : REM Interupt Routine called by the STOP input activating
+  REM : GOSUB SpindleStop
+RETURN
+
+#NewFeed
+  IF comms(3) * feedOverride / 100 < comms(14) DO
+    SPEED = comms(3) * feedOverride / 100;
+  ELSE
+    SPEED = comms(14);
+  ENDIF
+  FeedLast = comms(3)
+RETURN
+
+#NewSpindle
+  IF comms(4) * speedOverride / 100 < comms(15) DO
+    spindle = comms(4) * speedOverride / 100
+  ELSE
+    spindle = comms(15)
+  ENDIF
+  spinValue = 250 * (spindle / comms(15))
+  POKE 0,1
+  POKE 0, int (spinValue)
+  SpeedLast = comms(4)
+RETURN
+
+#NewFeedOverride
+  IF comms(8) = 0 THEN feedOverride = comms(5)
+  IF !Paused THEN SPEED = comms(3) * feedOverride / 100;
+  IF comms(5) <> feedOverride DO
+    comms(5) = feedOverride
+    comms(99) = 5
+  ENDIF
+  FOverLast = comms(5)
+RETURN
+
+#NewSpinOverride
+  IF comms(9) = 0 THEN speedOverride = comms(6)
+  GOSUB NewSpindle
+  IF comms (6) <> speedOverride DO
+    comms(6) = speedOverride
+    comms(99) = 6
+  ENDIF
+  SoverLast = comms(6)
+RETURN
+
+#toolChange
+  GOSUB SpindleStop
+  WAIT = 250
+  comms(1) = 0
+  Pocket = Comms(7)  : REM Store last tool selected in non volotile
+RETURN
+
+#Poker
+  POKE comms(17), comms(16)
+  comms(1) = 0
+RETURN
+
+#mcode
+  if comms(18)=3 then GOSUB SpindleStart
+  if comms(18)=13 then GOSUB SpindleStart
+  if comms(18)=5 then GOSUB SpindleStop
+  if comms(18)=30 then GOSUB SpindleStop
+  if comms(18)=0 then GOSUB SpindleStop
+  if comms(18)=62 then GOSUB Mcode62   :REM outputs off
+  if comms(18)=64 then GOSUB Mcode64
+  if comms(18)=63 then GOSUB Mcode63
+  if comms(18)=65 then GOSUB Mcode65
+  WAIT = 250
+  if comms(18)=66 then GOSUB Mcode66   :REM wait inputs
+  if comms(18)=76 then GOSUB Mcode76
+  if comms(18)=67 then GOSUB Mcode67
+  if comms(18)=77 then GOSUB Mcode77
+  comms(1) = 0
+RETURN
+
+#SafetyCheck
+  IF JustPoweredOn DO
+     JustPoweredOn = 0
+     comms(7) = Pocket : REM read comms 7 1st to remember last tool on machine
+  ENDIF
+  IF STOPSW THEN GOSUB SpindleStop : REM Stop the Spindle
+  IF IN6 DO : REM If the door is open...
+    IF (OUT & 1 = 1) THEN GOSUB SpindleStop : REM Stop the Spindle
+    IF (comms(2) = 2) AND !IDLE DO : REM If in Auto mode...
+      REM : STOP[0,1,2] : REM stop the Axes
+      Paused = 1
+      OldSpeed = SPEED : REM rememeber the original feedrate
+      SPEED = 0; : REM Set the Feedrate to 0
+    ENDIF
+    IF (comms(2) < 2) AND (SPEED > SafetyFeed) DO : REM If not in Auto then
+      comms(3) = SafetyFeed : REM limit the feed to a safe feedrate
+      GOSUB NewFeed
+      REM SPEED = SafetyFeed; **** Removed to stop juddery jogging *******
+    ENDIF
+  ENDIF
+  IF !IN6 and Paused DO
+    SPEED = OldSpeed;
+    Paused = 0
+  ENDIF
+  IF comms(19) <> (IN6 = 0) DO
+     comms(99) = 19 : REM Tell host the door has just moved
+     STOP[0,1,2]
+  ENDIF
+  Comms(19) = (IN6 = 0)	: REM Set the Safety flag
+RETURN
+
+#SpindleStart
+  GOSUB SafetyCheck
+  IF Comms(19) THEN OUT0 = 1 : REM Only if safe
+RETURN
+
+#SpindleStop
+  OUT0 = 0
+RETURN
+
+#CheckPot
+  newA2 = int (((A2 / 1024) * 155) / 5) * 5
+  IF newA2 > 150 DO
+	newA2 = 150
+  ENDIF
+  IF newA2 <>  OldA2 DO
+    feedOverride = newA2
+    GOSUB NewFeedOverride
+  ENDIF
+  newA1 = int (((A1 / 1024) * 75) / 5) * 5 + 50 : REM gives 50% to 120%
+  IF newA1 > 120 DO
+	newA1 = 120
+  ENDIF
+  IF newA1 <>  OldA1 DO
+    speedOverride = newA1
+    GOSUB NewSpinOverride
+  ENDIF
+RETURN
+
+#NewBufferSize
+  MBFULL = comms(20)
+  MBHALF = int (comms(20) / 2 + 0.5)
+  comms(1) = 0
+RETURN
+
+#Mcode62
+REM: Turn auxiliary output 12 on
+   X4.0=1
+RETURN
+
+#Mcode64
+REM: Turn auxiliary output 12 off
+   X4.0=0
+RETURN
+
+#Mcode63
+REM: Turn auxiliary output 13 on
+   X5.0=1
+RETURN
+
+#Mcode65
+REM: Turn auxiliary output 13 on
+   X5.0=0
+RETURN
+
+#Mcode66
+REM: Wait for input 10
+  REPEAT
+    GOSUB SafetyCheck
+  UNTIL X2.0 OR STOPSW
+RETURN
+
+#Mcode76
+REM: Wait for NOT input 10
+  REPEAT
+   GOSUB SafetyCheck
+  UNTIL !X2.0 OR STOPSW
+RETURN
+
+#Mcode67
+REM: Wait for input 11
+  REPEAT
+   GOSUB SafetyCheck
+  UNTIL X3.0 OR STOPSW
+RETURN
+
+#Mcode77
+REM: Wait for NOT input 11
+  REPEAT
+   GOSUB SafetyCheck
+  UNTIL !X3.0 OR STOPSW
+RETURN
+
+|    : REM Send a CTRL-Z blank line (to quit edit mode)

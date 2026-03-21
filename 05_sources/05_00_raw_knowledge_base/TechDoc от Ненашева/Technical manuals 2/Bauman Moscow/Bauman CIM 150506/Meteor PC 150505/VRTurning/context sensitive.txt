@@ -1,0 +1,60 @@
+VR CNC Mlling context sensitive help numbers:
+
+
+Menubars
+--------
+The File Menu: 1010
+The Editor Menu: 1020
+The Edit Menu: 1030
+The Search Menu: 1040
+The Modify Menu: 1050
+The Preferences Menu: 1060
+The Setup Menu: 1070
+The Windows Menu: 1080
+The Tools Menu: 1090
+The Help Menu: 1100
+The Machine Tooling Menu: 1110
+The Tooling Library Menu: 1120
+The 2D Simulation Menu: 1130
+The 3D Viewer Menu: 1140
+
+Specific Menubar options
+------------------------
+Editor|hi-light: 2010
+Search|find: 2020
+Search|goto line number: 2030
+Search|check syntax: 2040
+Modify|alter feed rates: 2050
+Modify|alter speeds: 2060
+Modify|alter x values: 2070
+Modify|alter y values: 2080
+Modify|alter z values: 2090
+Modify|change to uppercase: 2100
+Modify|change to lowercase: 2110
+Modify|add padding token: 2120
+Modify|remove padding token: 2130
+Modify|append line end token: 2140
+Modify|remove line end token: 2150
+Modify|line numbering: 2160
+Preferences|background colour: 2170
+Preferences|display options: 2180
+Preferences|colour format text: 2190
+Preferences|font: 2200
+Preferences|format using: 2210
+Preferences|save format: 2220
+Setup|cycle expansion: 2230
+Setup|default billet size: 2240
+Windows|Cascade: 2250
+Windows|Tile: 2260
+Tools|configure tools: 2270
+
+Windows
+-------
+Editor: 3010
+2D Simulation: 3020
+3D Simulation: 3030
+Tooling Library: 3040
+Machine Tooling: 3050
+Denford Virtual Reality: 3060
+Machine Mode: 3070
+Work Piece Offsets: 3080

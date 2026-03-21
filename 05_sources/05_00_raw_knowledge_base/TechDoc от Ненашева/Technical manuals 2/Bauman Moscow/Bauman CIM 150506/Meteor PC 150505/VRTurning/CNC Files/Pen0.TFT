@@ -1,0 +1,52 @@
+[Tool1]
+Tool Name=Finishing Tool
+
+[Global]
+Current Tool=1
+
+[1]
+X=-20
+Z=0.800000000000003
+Radius=0
+
+[2]
+X=-49.3
+Z=16.9
+Radius=0
+
+[3]
+X=0
+Z=0
+Radius=0
+
+[4]
+X=0
+Z=0
+Radius=0
+
+[5]
+X=0
+Z=0
+Radius=0
+
+[6]
+X=-47.1
+Z=14.6
+Radius=0
+
+[7]
+X=-45.2
+Z=51.9
+Radius=0
+
+[8]
+X=0
+Z=0
+Radius=0
+
+[Tool2]
+Tool Name=Center Drill
+
+[Tool7]
+Tool Name=Drill
+

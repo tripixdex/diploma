@@ -1,0 +1,53 @@
+[Global]
+Current Tool=3
+
+[1]
+X=0
+Z=0
+Radius=0
+
+[2]
+X=0
+Z=0
+Radius=0
+
+[3]
+X=3.2
+Z=-0.16
+Radius=0
+
+[4]
+X=0
+Z=0
+Radius=0
+
+[5]
+X=5.45
+Z=-4.02
+Radius=0
+
+[6]
+X=-9.26
+Z=25.59
+Radius=0
+
+[7]
+X=0
+Z=0
+Radius=0
+
+[8]
+X=0
+Z=0
+Radius=0
+
+[Tool1]
+Tool Name=Roughing Tool
+
+
+[Tool3]
+Tool Name=Finishing Tool
+[Tool5]
+Tool Name=Grooving Tool
+[Tool6]
+Tool Name=Pusher

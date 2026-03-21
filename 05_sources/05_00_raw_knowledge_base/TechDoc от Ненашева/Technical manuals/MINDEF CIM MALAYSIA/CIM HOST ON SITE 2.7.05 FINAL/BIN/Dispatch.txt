@@ -1,0 +1,93 @@
+/********************************************************
+
+Conditional Defines...
+
+_RTLDLL;_BIDSDLL;_OWLDLL;_OWLALLPCH;_OWLALLPCH;_RTLDLL;_BIDSDLL;_OWLDLL;_OWLPCH;STRICT; NOSITE
+
+/********************************************************
+
+Changes made to the dispatcher...
+
+06/03/98 - JHB - Directories now read from CIM.INI
+
+11/03/98 - JHB - Added options in the View menu to show/hide the
+                 Journal and Key windows.
+
+12/03/98 - JHB - Add option in the View menu to select 'Auto Scroll'
+					  This tracks the current time to ensure it is always visible
+
+16/03/98 - JHB - Reste now automatically does a 'Disconnect All' before
+					  resetting the schedule.
+
+16/03/98 - JHB - Product Version changed to 1.1 in Resource Editor
+					  Copyright Date change to 1998
+					  Name changed from 'My Application' to 'CIM Host Control S/ware'
+
+17/03/98 - JHB - Changes to the Help system...
+					  The help menu now only has two entries. 'Contents' and 'About'.
+					  'Contents' shows the help file whose name is specified by an
+					  entry in DISPATCH.INI. The directory is read from
+					  CIM.INI -> cim_HTML=
+					  These files can have any extension, and will use the windows
+					  file assosiations to launch the appropriate viewer. This way
+					  we can use either .HLP or .HTML documents.
+					  ('About' is the normal about box)
+DISPATCH.INI
+		[Help]
+		main=host1.hlp
+
+18/03/98 - JHB - Fixed auto-scroll problem when using a scale other than 1
+
+12/06/98 - JHB - Fixed AutoScroll menu option being the wrong way round
+					  (ticked was off and unticked was on)
+
+12/06/98 - JHB - Fixed problem with CheckTime=0 still checking the files
+					  time stamps.
+
+12/06/98 - JHB - The DDE Connection dialog now shows the Computer Names
+					  if not local.
+
+24/06/98 - JHB - The Journal has been modified.
+					  The file is TAB seperated (it can be read into MS Access)
+					  A unique log file is now generated for each schedule...
+							SCHEDULE_NAME.LOG
+					  The direction and source of a message is now logged.
+
+01/07/98 - JHB - Changes to the Reset, CanClose and Distructor of TDispatcher.
+					  Code was duplicated in these functions.
+					  DDE is now disconnected when closing.
+
+28/04/99 - JHB - Entry added to DISPATCH.INI
+
+[Local Connections Only]
+Devices=
+					  A list of devices can be added which are always LOCAL
+					  regardless of the "Local=0" entry
+					  These should be comma seperated, and ARE case sensitive	
+
+
+24/05/99 - JHB - Now check for another instance of itself running & only
+						allows the one instance.
+
+25/05/99 - JHB - Created version 1.2
+
+28/05/99 - JHB - Changes to SOFTLOK routines to make NT Compatible.
+					  NOTE: MNxx.386 (win 95) or SOFTLOK.SYS (NT) is required.
+					  Requires NOSITE compiler directive.
+
+--/07/99 - AG  - Made flashable.
+					  Made NT compatable.
+
+09/09/99 - AG  - Prevented "You are not connected to all the Cells do you wish to continue"
+						message appearing when DELAY is the only cell not connected.
+
+15/06/00 - JHB - The loaded SHD file is now displayed in the Caption.
+
+15/06/00 - JHB - Parameter Info is displayed for each Gannt Bar
+                 (along with Cell Name, Time etc.)
+
+25/09/00 - JHB - No Longer checks to see if a station buffer is full if we are
+                 Unloading and Loading the same station
+                 (fixes problem rotating a part in the lathe for a 2nd op)
+
+*******************************************************/

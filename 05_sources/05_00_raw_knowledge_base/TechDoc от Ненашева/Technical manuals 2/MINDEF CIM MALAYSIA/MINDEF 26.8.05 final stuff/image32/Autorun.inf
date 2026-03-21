@@ -1,0 +1,7 @@
+[autorun] 
+open=Setup.exe 
+icon=Image32.exe,1 
+label=C-Vision Image32
+
+[DeviceInstall]
+DriverPath=Drivers

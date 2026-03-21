@@ -1,7 +1,0 @@
-MO 100,C
-GO
-TI 5
-MO 11, C
-WH
-ID
-DR

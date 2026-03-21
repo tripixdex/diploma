@@ -1,0 +1,9 @@
+6
+7
+-	-	-	-	-	-
+Name	=	Cell1	-	-	-
+HistoryFile	=	cell1.log	-	-	-
+Number of Machines	=	3	-	-	-
+1	=	Miller	3	28	29
+2	=	Lathe	2	130	58
+3	=	Robot1	14	40	70

@@ -1,0 +1,17 @@
+16
+5
+Handle	Name		Owner	Holder	Type
+1	Lathe Access	1	0	1
+2	Chuck Access	1	0	1
+3	Lathe Control	1	0	3
+4	Miller Access	3	0	1
+5	Vice Access	3	0	1
+6	Miller Control	3	0	3
+7	Gripper1 Access	2	0	0
+8	Robot1 Control	2	0	0
+9	Camera Access	6	0	1
+10	Gripper2 Access	7	0	0
+11	Robot2 Control	7	0	0
+12	Gripper3 Access	8	0	0
+13	Robot3 Control	8	0	0
+14	CMM Access	4	0	1

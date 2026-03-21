@@ -1,5 +1,0 @@
-Native	Native	0		0		0	2	0	1252			
-English	English	9		2		0	0	0	1252	en		US
-English (United States)	English (United States)	9	1	1		0	0	0	1252	en		US
-French	français	12		1		0	0	0	1252	fr		FR
-Portuguese	Português	22		1		0	0	0	1252	pt		BR

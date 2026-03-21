@@ -1,0 +1,487 @@
+'HELLERMAN INSULOIDS TEST PROGRAM FOR RV-M2
+'File name :- TYTON1.ROB
+'Date :- 1.9.98
+'Lines added to program so that 1 to 72 bags
+'can be packed
+'Went to Hellermans, Derek W Brook from PCA ltd changed
+'the PLC program to the recommendations from Japan. I down
+'loaded the program TYTONNC.ROB which had lines 
+'513 ID
+'514 TB -2, 685
+
+'577 ID
+'578 TB -2, 685
+
+'these two sections before pallet 5 and 6 i.e. the last
+'RC 24 cycle (49 to 72 bags packed)
+'and it woked OK with the PLC mods
+
+'John Pilkington got me to add similar lines before pallets
+'1, 2, 3 & 4 which will allow 1 to 72 bags to be packed and
+'also help in problem solving
+
+'The following lines were added to TYTONNC.ROB to create
+'TYTONNC1.ROB THE PROGRAM FINALLY USED IN THE ROBOT CONTROLLER
+'(Note NC = No Comments,TYTON1.ROB contains the program with 
+'comments)
+
+'191 ID
+'192 TB -2, 685
+
+'266 ID
+'267 TB -2, 685
+
+'356 ID
+'357 TB -2, 685
+
+'421 ID
+'422 TB -2, 685
+
+'Date :- 26.8.98 :- visit Tuesday 1.9.98 to down load program
+'after PLC program as been modified to Tytons fax dated 4th June 1998
+'This program will allow the packing of 49 to 72 bags 
+'(3 x 24 RC's)
+'Note 1 pallet will stack 4 high
+'See TYTONNC1.ROB for program without comments
+'Written by :- G Bradley
+'Date :- 15.5.98
+'Lines 592 & 593 added 14.5.95 after consultation with TYTON of Japan to pack 60 and 70 bags
+'(i.e. pallet 6)
+'eg
+'1. If you intend to pack 72 bags into a carton box, program you sent is perfect
+'2. If you pack 70 bags, you had better change the program as follows in order to
+'   execute ending process of (1) sequence
+' (1)
+'	575 MO 18
+'	580 IC 61
+'	585 CP 61
+' 	590 EQ 4,600
+'	592 ID         -----ADD
+'	593 TB +5,685  -----ADD
+'	595 NX
+' (2)
+'    It is also required to set the counter to 70 in advance	
+'3. Lines 527 & 528 added 15.5.95 to pack 50 bags (i.e. pallet 5) (test by GB 15.5.98)
+'4. 4.6.98
+	'Lines Deleted to pack 49 to 72 bags and mods to PLC program 
+	'527 ID
+	'528 +5 685
+	'592 ID
+	'593 +5 685
+	'Lines Inserted to pack 49 to 72 bags and mods to PLC program 
+	'512 ID
+	'513 -2 685
+	'577 ID
+	'578 -2 685	
+'eg
+'POSITION DETAILS :- In sequence sections
+
+'	WEIGHT CHECK SECTION
+' POSITION 15 :- Waiting position over weight check conveyor
+' POSITION 14 :- Vacuum check position over weight check conveyor
+' POSITION 16 :- Sucking position over weight check conveyor
+
+'	VACUUM CHECK SECTION
+' POSITION 47 :- Vacuum check position over air check cylinder
+' POSITION 46 :- Air check position over air check cylinder
+
+'	SEAL CHECK SECTION
+' POSITION 47 :- Vacuum check position over air check cylinder
+' POSITION 25 :- Seal check position (RHS) next to seal check sensor
+' POSITION 26 :- Seal check position (LHS) next to seal check sensor
+' POSITION 45 :- Above Seal check position (RHS) next to seal check sensor
+
+'	DUMP CHUTE SECTION
+' POSITION 24 :- Weight OK, Air No good & Seal No good (Over dump chute)
+' POSITION 34 :- Weight OK, Air No good & Seal No good (OInto dump chute)
+
+'	BOX SET SECTION
+' POSITION 17 :- Box set position (over box)
+' POSITION 27 :- Box set position (move to left above box)
+' POSITION 28 :- Box set position (move vertically down into the box)
+' POSITION 35 :- Box set position (move to right in box)
+' POSITION 29 :- Box set position (move further to right in box up to stop)
+
+'	LOAD BOX SECTION
+' POSITION 48 :- Vacuum check position
+' POSITION 17 :- Box load position No 1 (over box)
+' POSITION 37 :- Box load position No 1 (in box)
+' POSITION 18 :- Box load position No 2 (over box)
+' POSITION 38 :- Box load position No 2 (in box)
+
+
+'*************************
+'*   Robot I/O details   *
+'*************************
+
+'ROBOT OUTPUTS
+
+'CR1 - X17	ROBOT OUTPUT ER SIGNAL	:- ERROR
+'CR2 - X20	ROBOT OUTPUT 0 SIGNAL	:- VACUUM
+'CR3 - X21	ROBOT OUTPUT 1 SIGNAL	:- COUNTER CLOCK
+'CR4 - X22	ROBOT OUTPUT 2 SIGNAL	:- BOX PUSH OUT
+'CR5 - X23	ROBOT OUTPUT 3 SIGNAL	:- BOX SET
+'CR6 - X24	ROBOT OUTPUT 4 SIGNAL	:- AIR CHECK
+'CR7 - X25	ROBOT OUTPUT 5 SIGNAL	:- 
+'CR8 - X26	ROBOT OUTPUT 6 SIGNAL	:- 
+
+'ROBOT INPUTS
+
+'Y00 - DRIVE UNIT	ROBOT INPUT SIGNAL	:- START
+'Y01 - DRIVE UNIT	ROBOT INPUT SIGNAL	:- STOP
+'Y02 - DRIVE UNIT	ROBOT INPUT 0 SIGNAL	:- WEIGHT OK
+'Y03 - DRIVE UNIT	ROBOT INPUT 1 SIGNAL	:- WEIGHT NG (NO GOOD)
+'Y04 - DRIVE UNIT	ROBOT INPUT 2 SIGNAL	:- BOX SET OK
+'Y05 - DRIVE UNIT	ROBOT INPUT 3 SIGNAL	:- AIR CHECK OK
+'Y06 - DRIVE UNIT	ROBOT INPUT 4 SIGNAL	:- SEAL CHECK OK
+'YO7 - DRIVE UNIT	ROBOT INPUT 5 SIGNAL	:- BOX SET
+'Y10 - DRIVE UNIT	ROBOT INPUT 6 SIGNAL	:- AIR CHECK NG (NO GOOD)
+'Y11 - DRIVE UNIT	ROBOT INPUT 7 SIGNAL	:- VACUUM CHECK
+'Y12 - DRIVE UNIT	ROBOT INPUT 8 SIGNAL	:- 
+
+
+'*********************
+'*   PROGRAM START   *
+'*********************
+
+DL 1,3584
+
+NT
+'                 	Pallet 1, 3 Columns, 1 Row
+10   PA 1, 3, 1
+'			Pallet 2, 3 Columns, 1 Row
+15   PA 2, 3, 1
+'			Pallet 3, 3 Columns, 1 Row
+20   PA 3, 3, 1
+'			Pallet 4, 3 Columns, 1 Row
+25   PA 4, 3, 1
+'			Pallet 5, 3 Columns, 1 Row
+30   PA 5, 3, 1
+'			Pallet 6, 3 Columns, 1 Row
+35   PA 6, 3, 1
+
+45   SC 11, 1
+50   SC 12, 1
+'Counter 13 is used to select positions 17 & 18 over the box
+55  SC 13, 1
+60  SC 21, 1
+65  SC 22, 1
+70  SC 31, 1
+75  SC 32, 1
+80  SC 41, 1
+85  SC 42, 1
+90  SC 51, 1
+95  SC 52, 1
+100 SC 61, 1
+105 SC 62, 1
+
+120 OD
+125 SP 15, H
+130 RC 24
+135 GS 1000
+'Below are the palletising routines
+'----------------------------------
+140 IC 13
+145 CP 13
+150 LG 4, 225
+' Move 37 load position 1 in box
+155 MS 37
+160 PT 1
+165 MO 1
+170 TI 5
+175 OB -0
+180 TI 5
+' Move 37 load position 1 in box
+185 MO 37
+' Move 17 load position 1 over box
+190 MO 17
+'lines added 191,192 to pack 1 to 72 bags (1.9.98)
+191 ID
+192 TB -2, 685
+195 IC 11
+200 CP 11
+205 EQ 4, 215
+210 NX
+215 SC 11,1
+220 NX
+' Move 18 load position 2 over box
+225 MO 18
+' Move 38 load position 2 in box
+230 MS 38
+235 PT 2
+240 MO 2
+245 TI 5
+250 OB -0
+255 TI 5
+' Move 38 load position 2 in box
+260 MO 38
+' Move 18 load position 2 over box
+265 MO 18
+'lines added 266,267 to pack 1 to 72 bags (1.9.98)
+266 ID
+267 TB -2, 685
+270 IC 21
+275 CP 21
+280 EQ 4, 290
+285 NX
+290 SC 21, 1
+295 SC 13, 1
+300 NX
+305 RC 24
+310 GS 1000
+315 IC 13
+320 CP 13
+325 LG 4, 390
+330 PT 3
+335 MO 3
+340 TI 5
+345 OB -0
+350 TI 5
+' Move 17 load position 1 over box
+355 MO 17
+'lines added 356,357 to pack 1 to 72 bags (1.9.98)
+356 ID
+357 TB -2, 685
+360 IC 31
+365 CP 31
+370 EQ 4, 380
+375 NX
+380 SC 31, 1
+385 NX
+' Move 18 load position 2 over box
+390 MO 18
+395 PT 4
+400 MO 4
+405 TI 5
+410 OB -0
+415 TI 5
+' Move 18 load position 2 over box
+420 MO 18
+'lines added 421,422 to pack 1 to 72 bags (1.9.98)
+421 ID
+422 TB -2, 685
+425 IC 41
+430 CP 41
+435 EQ 4, 445
+440 NX
+445 SC 41, 1
+450 SC 13, 1
+455 NX
+460 RC 24
+465 GS 1000
+470 IC 13
+475 CP 13
+480 LG 4, 545
+485 PT 5
+490 MO 5
+495 TI 5
+500 OB -0
+505 TI 5
+' Move 17 load position 1 over box
+510 MO 17
+'LINES ADDED AFTER TALKS WITH TYTON OF JAPAN (512 & 513).
+'THIS SHOULD ALLOW THE PROGRAM TO pack 49 to 72 bags
+'LINES ADDED 512 & 513 (4.6.98) Mods to PLC Program required
+512 ID
+513 TB -2,685
+515 IC 51 
+520 CP 51
+525 EQ 4, 535
+530 NX
+535 SC 51, 1
+540 NX
+' Move 18 load position 2 over box
+545 MO 18
+550 PT 6
+555 MO 6
+560 TI 5
+565 OB -0
+570 TI 5
+571 TI 1
+572 TI 1
+573 TI 1
+574 TI 1
+' Move 18 load position 2 over box
+575 MO 18
+'LINES ADDED AFTER TALKS WITH TYTON OF JAPAN (577 & 578).
+'THIS SHOULD ALLOW THE PROGRAM to pack between 49 and 72 bags
+'LINES ADDED 577 & 578 (4.6.98) Mods to PLC Program required
+577 ID
+578 TB -2,685
+580 IC 61
+585 CP 61
+590 EQ 4, 600
+595 NX
+600 SC 61, 1
+605 SC 13, 1
+610 NX
+' Move 17 load position 1 over box
+685 MO 17
+' OB +2 :- Box push out signal
+690 OB +2
+695 ID
+' TB +5 :- Box set signal 
+700 TB +5, 710
+705 GT 695
+'Box setting Robot moves
+710 MO 27
+715 MO 28
+720 MS 35
+725 SP 12
+730 MS 29
+735 TI 10
+' OB +3 :- Box set signal (on)
+740 OB +3
+745 TI 5
+' OB -3 :- Box set signal (off)
+750 OB -3
+' OB -2 :- Box push out signal (off)
+755 OB -2
+760 SP 15, H
+' Move 17 load position 1 over box
+765 MO 17
+770 GT 45
+' Move 15 over conveyor
+1000 MO 15
+1005 ID
+'Input +5 checks to see if the BOX IS SET in position
+1010 TB +5, 685
+'Input +0 checks to see if the Tie Wrap bag weight is OK 
+1015 TB +0, 1030
+'Input +1 checks to see if the Tie Wrap bag weight is WRONG 
+1020 TB +1, 1280
+1025 GT 1000
+1030 SP 15, H
+' Move 14 over conveyor, vacuum check position
+1035 MO 14
+1040 SP 12
+' Move 16 over conveyor, sucking position
+1045 MS 16
+'Output bit 0 (+) to turn ON vacuum that holds the Tie Wrap bag
+1050 OB +0
+1055 TI 10
+' Move 14 over conveyor, vacuum check position
+1060 MS 14
+1065 ID
+'Input +7 checks to see if the vacuum is still holding the bag
+'i.e. is the bad missing
+1070 TB +7, 1105
+' Move 16 over conveyor, sucking position
+1075 MS 16
+1080 TI 10
+' Move 14 over conveyor, vacuum check position
+1085 MS 14
+1090 ID
+'Input +7 checks to see if the vacuum is still holding the bag
+'i.e. is the bad missing
+1095 TB +7, 1105
+' Move 15 over conveyor
+1098 MO 15
+1100 GT 1385
+1105 SP 15, H
+' Move 15 over conveyor
+1110 MO 15
+1115 ID
+'Input +2 is that the box is in the correct position (This must be a sensor)
+1120 TB +2, 1130
+1125 GT 1385
+' Move 47 Vacuum check position
+1130 MO 47
+' Move 46 Air check position
+1133 MO 46
+1135 TI 3
+'Output bit 4(+) I think advances the piston that sucks onto the Tie Wrap
+'bag and checks to see if the bag is air tight  
+1140 OB +4
+1145 TI 5
+1150 OB -4
+1155 ID
+' Input +3 Air check Ok signal
+1160 TB +3,1175
+' Input +6 Air check No good signal
+1165 TB +6,1385
+1170 GT 1155
+1175 SP 15,H
+' Move 47 Vacuum check position
+1180 MO 47
+1185 ID
+' Input +7 checks to see if the vacuum is still holding the bag
+' i.e. is the bad missing
+1190 TB +7, 1200
+1195 GT 1385
+' Move 25 seal check position (RHS)
+1200 MO 25
+1205 SP 12
+' Move 26 seal check position (LHS)
+1210 MS 26
+' Move 45 Vacuum check position (above move 26)
+1215 MO 45
+1218 SP 15, H
+1220 ID
+' Input -4 checks to see if there are any Tie Wraps protruding from the
+' sealed end
+1225 TB -4, 1235
+1230 GT 1385
+' Move 28 Vacuum check position (LHS on position 17)
+1235 MO 48
+1240 ID
+' Input +7 checks to see if the vacuum is still holding the bag
+' i.e. is the bad missing
+1245 TB +7, 1255
+1250 GT 1385
+' Move 17 load position 1 over box
+1255 MO 17
+' Output(Pulse) bit 1 to Counter
+1260 OB +1
+1265 TI 5
+' Turn off bit 1 to counter
+1270 OB -1
+1275 RT
+1280 SP 15, H
+' Move 14 Vacuum check position over conveyor
+1285 MO 14
+1290 SP 12
+' Move 16 Sucking position over conveyor
+1295 MS 16
+' Output bit 0 (+) to turn ON vacuum that holds the Tie Wrap bag
+1300 OB +0
+1305 TI 10
+' Move 14 Vacuum check position over conveyor
+1310 MS 14
+1315 ID
+' Input +7 checks to see if the vacuum is still holding the bag
+' i.e. is the bad missing
+1320 TB +7, 1340
+' Move 16 Sucking position over conveyor
+1325 MS 16
+1330 TI 10
+' Move 14 Vacuum check position over conveyor
+1335 MS 14
+1340 SP 15, H
+' Move 15 over conveyor
+1345 MO 15
+' Move 44  is not listed in the literature
+1350 MO 44
+' Move 54  is not listed in the literature
+1355 MO 54
+1360 TI 3
+' Output bit 0 (-) to turn OFF vacuum that holds the Tie Wrap bag
+1365 OB -0
+1370 TI 3
+' Move 44 is not listed in the literature
+1375 MO 44
+1380 GT 1000
+' Move 24 above dump bin
+1385 MO 24
+1388 TI 1
+' Move 34 just above dump bin
+1390 MO 34
+1395 TI 3
+'Output bit 0 (-) to turn OFF vacuum that holds the Tie Wrap bag
+1400 OB -0
+1405 TI 3
+' Move 24 above dump bin
+1410 MO 24
+1415 GT 1000
+
+

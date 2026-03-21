@@ -1,0 +1,15 @@
+ASRS Maintenance
+
+
+1. After any use ensure the AGV is "On Charge"
+
+2. Ensure the tape track is kept as clean as possible all the time. Dirt and worn / torn black and white tape will cause running problems. (Patching with black and white tape is allowed
+
+3. Ensure that Sensors on both the AGV abd the 2 docking stations are kept clean
+
+
+
+
+
+
+

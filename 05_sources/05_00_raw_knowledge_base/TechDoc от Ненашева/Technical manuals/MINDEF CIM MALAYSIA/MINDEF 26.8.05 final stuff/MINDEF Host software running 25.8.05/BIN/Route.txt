@@ -1,0 +1,221 @@
+/***************************************************
+
+Compiler Directives...
+
+_RTLDLL;_BIDSDLL;_OWLDLL;_OWLALLPCH;STRICT; NOSITE
+
+/***************************************************
+Changes to the Route Planner...
+
+24/02/98 - JHB - Directories for parts etc. are read from CIM.INI
+					  (CIM.INI is pointed to by an entry in win.ini)
+WIN.INI
+		[CIM]
+		cimini=c:\cim\cim.ini
+
+CIM.INI
+		[directory]
+		cim_bin=d:\cim\bin\
+		cim_parts=d:\cim\parts\
+		cim_layouts=d:\cim\layouts\
+		cim_graphics=d:\cim\bin\
+		cim_HTML=d:\cim\destiny\
+
+03/03/98 - JHB - Added SaveAs option to the File menu
+
+03/03/98 - JHB - The machine times are now transfered from the PP to the BOP
+					  (the setup time and cycle time are added together to make
+					  a process time)
+
+03/03/98 - JHB - The cnc file name in the PP is used for the .SEQ file name
+					  in the BOP
+
+03/03/98 - JHB - The 'from' and 'to' entries in a BOP when a robot and two
+					  machines are used is made up of the first letters of each item
+					  eg. Hopper to Robot to Lathe = HRL.SEQ
+							Lathe to Robot to Miller = LRM.SEQ
+
+05/03/98 - JHB - After adding the Save AS option, File Save was making the
+					  route planner blow up. This has now been fixed.
+
+05/03/98 - JHB - CreateComponent was not appending the last character onto
+					  a robots sequence name (SRL.SEQ was coming out as SR.SEQ)
+					  this has now been fixed.
+
+05/03/98 - JHB - If a store is placed on the conveyor, read the inventory
+					  station from CIM.INI (its a string !). If no entry is found
+					  the stores name is used.
+CIM.INI
+		[main]
+		InventoryStation = 4
+
+05/03/98 - JHB - CheckTime added to CIM.INI to stop the route planner throwing
+					  an error if file times/dates have changed.
+CIM.INI
+		[main]
+		CheckTime = 0		;suspress time checking
+		CheckTime = 1		;enable time checking
+
+10/03/98 - JHB - The current working directory is now remembered when a user
+					  changes directory. This means that when a user opens a route
+					  in a directory other than the one specified in CIM.INI, the BOP
+					  and everything else is also found.
+					  (CIM.INI is only read once on create, into an instance of
+					  TDirInfo. This tracks any selection changes the user makes in
+					  file open dialogs etc.)
+
+10/03/98 - JHB - SaveFileAs option now uses the Process Plan name as the default
+					  route file name.
+
+10/03/98 - JHB - Remove Resource now works in the process Properties Dialog Box.
+					  (this has been changed from a multi-selection to a single
+					  selction TEdit)
+
+12/03/98 - JHB - Following on from the earlier mod. relating to placing a store
+					  on the conveyor, now also reads the inventory station name from
+					  CIM.INI when placing the pallet back into the storage Q.
+
+16/03/98 - JHB - If a PP or RUT file is specified on the command line, the
+					  directory used is taken from CIM.INI (was hard code
+					  as C:\CIM\PARTS\).
+
+16/03/98 - JHB - Version number changed to 1.1 in the Resource Editor
+					  Copyright date changed to 1998.
+
+17/03/98 - JHB - Added scroll bars to the shop floor window.
+
+17/03/98 - JHB - Loading a shop floor, or route, causes the display to scroll
+					  to a position where the top left most object is in the
+					  top left hand corner of the display.
+
+17/03/98 - JHB - Prompts added to all ToolBar Buttons.
+
+17/03/98 - JHB - Changes to the Help system...
+					  The help menu now only has two entries. 'Contents' and 'About'.
+					  'Contents' shows the help file whose name is specified by an
+					  entry in ROUTE.INI. The directory is read from
+					  CIM.INI -> cim_HTML=
+					  These files can have any extension, and will use the windows
+					  file assosiations to launch the appropriate viewer. This way
+					  we can use either .HLP or .HTML documents.
+					  ('About' is the normal about box)
+ROUTE.INI
+		[Help]
+		main=host1.hlp
+		BOP=about.html				//by pressing the help button when viewing a BOP
+
+17/03/98 - JHB - Changed the 'Add Resource' Dialog box from a TEdit to a
+					  TComboBox to stop the route planner blowing up when the TEdit
+					  scroll bars are moved.
+					  (Don't know why this fixes it but it does !)
+
+18/03/98 - JHB - Changed the way resources are allocated when items are placed
+					  to the left of the ASRS.
+					  If there is only a cell, allocate 1 resource before the ASRS,
+					  the ASRS, and 3 resources after the ASRS.
+					  If there is an AGV, allocate 1 resource before the ASRS,
+					  the ASRS, and 5 resources after the ASRS.
+					  (this fix assumes that any cell to the right of the ASRS,
+					  either with or without an AGV, only contains one machine)
+
+20/03/98 - JHB - Once a shop floor has been loaded, the 'Load Shop Floor'
+					  menu item and SpeedButton are disabled. The 'Information'
+					  SpeedButton is not enabled until a SFL or PP have been loaded.
+					  The 'Load Process Plan' button is not enabled until a shop
+					  floor has been loaded.
+					  These changes made to make the software more intuitive to use.
+
+16/06/98 - JHB - Changed the resource list for a store on a conveyor releasing
+					  a pallet. Was the first station after the store, is now
+					  the store.
+
+16/06/98 - JHB - Changes to the way directories are remembered. Only the one
+					  instance of dirInfo is used (in routeapp.cpp). this should
+					  fix the problem associated when opening a PP or SLF and
+					  the default directory wasn't the correct one.
+
+18/06/98 - JHB - When loading a SFL from a directory other than that specified
+					  in CIM.INI layouts directory caused the conveyor and / or
+					  AGV files to be 'not found'. This is now fixed.
+
+01/07/98 - JHB - When a store is part of the conveyor, the station capacity of
+					  the station before the store is now decremented when a
+					  pallet arrives back into the store. This fixes a bug relating
+					  to a 'Capacity Overlow a station 3' generated by the dispatcher
+
+13/05/99 - JHB - New ASRS command format implemented, selectable via ROUTE.INI
+					  The new format uses the words PICK and PLACE to move
+					  items arround an ASRS.
+ROUTE.INI
+	[MAIN]
+	newASRSCommands = 1
+
+25/05/99 - JHB - Now checks and only allows one instance of itself to run.
+
+25/05/99 - JHB - Created version 1.2
+
+25/05/99 - JHB - Chnges to the BOP generation.
+						The conveyor now always takes the resources of the
+						stations it is moving FROM and TO when the ASRS is
+                  picking from the conveyor
+
+28/05/99 - JHB - Changes to SOFTLOK routines to make NT Compatible.
+					  NOTE: MNxx.386 (win 95) or SOFTLOK.SYS (NT) is required.
+					  Requires NOSITE compiler directive.
+
+--/07/99 - AG  - Made Flashable.
+
+07/09/99 - AG  - Changes to the BOP generation.
+						If a Conveyor and Robot/Linear Slide are in the same system
+						a conveyor command is added after the robot moves from Lathe
+						to Miller. This is so when unloading the miller the robot can
+						unload to the conveyor station opposite the miller and not
+						the lathe.
+
+09/09/99 - AG  - Changes to the BOP generation.
+						The ASRS now takes into account the capacity of the first physical
+						conveyor station when loading the conveyor instead of the loading
+						station which is always empty.
+
+20/09/99 - AG  - Changes to the BOP generation.
+						If the delay is missing in an ASRS, Conveyor layout, you are now
+						asked if you wish it to be included.
+
+20/09/99 - AG  - Created version 1.3
+
+05/11/99 - AG  - Fixed BOP generation.
+						If a Conveyor and Robot/Linaer Slide but no ASRS are in the same
+						system the conveyor command was not added after the robot moves
+						from Lathe to Miller. Now works for both circular and non-circular
+						conveyors.
+
+17/11/99 - JHB - Problems with the previous BOP generation fix dated 07/09/99.
+						We didn't take into account the possibility of a code tag on
+						the same conveyor station as the robot. This has now been fixed.
+
+17/11/99 - JHB - Created version 1.4a (for Andy Gaze in Malaysia)
+
+12/06/00 - JHB - Modifications to allow PICK and PLACE routines to be used with
+                 a single sided ASRS. This has been done by assigning the
+                 name of the 'Conveyor' used by the ASRS when taking a pallet
+                 off the conveyor to be specified in ROUTE.INI
+ROUTE.INI
+[MAIN]
+UnloadConveyorName = Conveyor2
+
+                 Will send PLACE CONVEYOR2 when sending the arm into the
+					  Conveyor to offload a finished part
+
+12/06/00 - JHB - Created version 1.4b (for testing at Mackworth)
+
+15/06/00 - JHB - Modification to the material Names.
+                 You can now have the Material name that is sent to the ASRS and
+                 the CodeTag read from the MATERIAL section of the Process Plan
+                 instead of the part name
+ROUTE.INI
+[MAIN]
+UseMaterialName = 1
+
+15/06/00 - JHB - Created version 1.4
+
+***************************************************/

@@ -1,0 +1,324 @@
+[Roughing Tool]
+Type=0
+Class=0
+Tool Orientation=8
+Tip Orientation=3
+Colour=255
+Nose Radius=0.5
+Maximum Tool Life=50
+Current Tool Life=0
+Tip Angle=60
+Tip Clearance=-25
+Tip Size=13
+Length=80
+Width Diameter=20
+
+[Grooving Tool]
+Type=2
+Class=0
+Tool Orientation=8
+Tip Orientation=3
+Colour=16711808
+Nose Radius=45
+Maximum Tool Life=50
+Current Tool Life=0
+Tip Angle=6
+Tip Clearance=-45
+Tip Size=6
+Length=100
+Width Diameter=15
+
+[Internal Tread]
+Type=1
+Class=1
+Tool Orientation=7
+Tip Orientation=6
+Colour=16384
+Nose Radius=0
+Maximum Tool Life=0
+Current Tool Life=0
+Tip Angle=60
+Tip Clearance=0
+Tip Size=8
+Length=100
+Width Diameter=10
+
+[Finish Boring Bar]
+Type=0
+Class=1
+Tool Orientation=7
+Tip Orientation=2
+Colour=8388863
+Nose Radius=6.88
+Maximum Tool Life=0
+Current Tool Life=0
+Tip Angle=60
+Tip Clearance=0
+Tip Size=8
+Length=100
+Width Diameter=10
+
+[Internal Finishing Tool]
+Type=0
+Class=1
+Tool Orientation=7
+Tip Orientation=2
+Colour=32896
+Nose Radius=0
+Maximum Tool Life=0
+Current Tool Life=0
+Tip Angle=55
+Tip Clearance=0
+Tip Size=10
+Length=100
+Width Diameter=10
+
+[Drill]
+Type=3
+Class=1
+Tool Orientation=7
+Tip Orientation=7
+Colour=8421504
+Nose Radius=0
+Maximum Tool Life=0
+Current Tool Life=0
+Tip Angle=90
+Tip Clearance=-45
+Tip Size=15
+Length=50
+Width Diameter=6
+
+[Center Drill]
+Type=4
+Class=1
+Tool Orientation=7
+Tip Orientation=7
+Colour=65535
+Nose Radius=0
+Maximum Tool Life=0
+Current Tool Life=0
+Tip Angle=52
+Tip Clearance=-45
+Tip Size=3
+Length=40
+Width Diameter=6
+
+[External Thread]
+Type=1
+Class=0
+Tool Orientation=8
+Tip Orientation=3
+Colour=16711680
+Nose Radius=0
+Maximum Tool Life=50
+Current Tool Life=0
+Tip Angle=60
+Tip Clearance=-45
+Tip Size=12
+Length=80
+Width Diameter=20
+
+[Finishing Tool]
+Type=0
+Class=0
+Tool Orientation=8
+Tip Orientation=3
+Colour=4227327
+Nose Radius=0
+Maximum Tool Life=50
+Current Tool Life=0
+Tip Angle=45
+Tip Clearance=-26
+Tip Size=15
+Length=80
+Width Diameter=20
+
+[Pusher]
+Type=5
+Class=0
+Tool Orientation=7
+Tip Orientation=7
+Colour=4259584
+Nose Radius=0
+Maximum Tool Life=50
+Current Tool Life=0
+Tip Angle=60
+Tip Clearance=0
+Tip Size=15
+Length=100
+Width Diameter=20
+0_X=24
+0_Y=22
+1_X=43
+1_Y=22
+2_X=43
+2_Y=26
+3_X=36
+3_Y=26
+4_X=36
+4_Y=31
+5_X=43
+5_Y=31
+6_X=43
+6_Y=36
+7_X=34
+7_Y=36
+8_X=24
+8_Y=36
+9_X=24
+9_Y=31
+10_X=31
+10_Y=31
+11_X=31
+11_Y=26
+12_X=24
+12_Y=26
+TipIndex=6
+Attach_X=34
+Attach_Y=22
+
+[Custom]
+Type=5
+Class=0
+Tool Orientation=8
+Tip Orientation=8
+Colour=16776960
+Nose Radius=0
+Maximum Tool Life=50
+Current Tool Life=0
+Tip Angle=60
+Tip Clearance=0
+Tip Size=15
+Length=100
+Width Diameter=15
+0_X=30
+0_Y=17
+1_X=39
+1_Y=17
+2_X=39
+2_Y=26
+3_X=27
+3_Y=33
+4_X=30
+4_Y=26
+TipIndex=3
+Attach_X=34
+Attach_Y=22
+
+[Tap]
+Type=5
+Class=1
+Tool Orientation=7
+Tip Orientation=7
+Colour=32768
+Nose Radius=0
+Maximum Tool Life=50
+Current Tool Life=0
+Tip Angle=60
+Tip Clearance=0
+Tip Size=15
+Length=100
+Width Diameter=10
+0_X=31
+0_Y=50
+1_X=28
+1_Y=47
+2_X=31
+2_Y=44
+3_X=28
+3_Y=41
+4_X=31
+4_Y=38
+5_X=28
+5_Y=34
+6_X=31
+6_Y=31
+7_X=28
+7_Y=28
+8_X=31
+8_Y=25
+9_X=31
+9_Y=22
+10_X=38
+10_Y=22
+11_X=38
+11_Y=25
+12_X=41
+12_Y=28
+13_X=38
+13_Y=31
+14_X=41
+14_Y=34
+15_X=38
+15_Y=38
+16_X=41
+16_Y=41
+17_X=38
+17_Y=44
+18_X=41
+18_Y=47
+19_X=38
+19_Y=50
+TipIndex=1
+Attach_X=34
+Attach_Y=22
+
+[Back Cut]
+Type=0
+Class=0
+Tool Orientation=8
+Tip Orientation=8
+Colour=16744703
+Nose Radius=0
+Maximum Tool Life=50
+Current Tool Life=0
+Tip Angle=30
+Tip Clearance=-15
+Tip Size=15
+Length=100
+Width Diameter=20
+
+[Parting Off Tool]
+Type=2
+Class=0
+Tool Orientation=8
+Tip Orientation=3
+Colour=8421376
+Nose Radius=0
+Maximum Tool Life=50
+Current Tool Life=0
+Tip Angle=60
+Tip Clearance=-45
+Tip Size=3
+Length=100
+Width Diameter=20
+
+[Internal THread]
+Type=1
+Class=1
+Tool Orientation=7
+Tip Orientation=6
+Colour=16384
+Nose Radius=0
+Maximum Tool Life=0
+Current Tool Life=0
+Tip Angle=60
+Tip Clearance=0
+Tip Size=8
+Length=100
+Width Diameter=10
+
+[Boring Bar]
+Type=0
+Class=1
+Tool Orientation=7
+Tip Orientation=2
+Colour=16744576
+Nose Radius=6.88
+Maximum Tool Life=0
+Current Tool Life=0
+Tip Angle=60
+Tip Clearance=0
+Tip Size=8
+Length=100
+Width Diameter=10

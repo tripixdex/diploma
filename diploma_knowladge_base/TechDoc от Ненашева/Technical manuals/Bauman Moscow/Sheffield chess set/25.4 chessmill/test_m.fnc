@@ -1,9 +1,0 @@
-M76
-M62
-M39
-(test_m.fnc)
-G91 G21 G28 X0 Y0 Z0
-G04 X5
-M38
-M64
-M30

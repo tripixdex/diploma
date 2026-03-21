@@ -1,0 +1,27 @@
+TESTK
+1118247002 C:\CIM\PARTS\SPPTD\TESTK.PP
+1118246892 C:\CIM\LAYOUTS\TESTING.CEL
+6
+1 10 1 12 0 0 0 1000000 10 1000000 3 TESTK 4 1 #PART#
+Release TESTK pallet from queue
+
+0 110 3 6 3 2 0 0 10 1000000 120 1000000 KING_L.SEQ
+Load/Process/Unload Sequence for Lathe
+
+1 10 0 7 6 120 1000000 130 1000000 3 TESTK 1 2 #PART#
+Moving part #PART# from Station 1 to Station 2
+
+2 110 3 7 4 1 0 0 130 1000000 240 1000000 KING_M.SEQ
+Load/Process/Unload Sequence for Miller
+
+1 10 0 9 7 240 1000000 250 1000000 3 TESTK 2 5 #PART#
+Moving part #PART# from Station 2 to Station 5
+
+0 10 0 0 0 250 1000000 260 1000000 DELAY
+DELAY
+
+Comments: File description
+name
+number of processes
+Cell, Duration, number of resources, Resources[...], Load Station, Unload Station, Start [a, b], End [a, b], Sequence name
+Description

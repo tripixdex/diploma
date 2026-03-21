@@ -1,0 +1,83 @@
+                           ROBOT GRIPPER OPTIONS.
+                             (DATE :- 11.2.94)
+                           (FILE NAME :- GRIPPER)
+
+
+
+     TWO OPTIONS
+
+
+     1. ONE ROBOT ON A LINEAR SLIDE,SERVING BOTH THE LATHE AND THE
+        MILLING MACHINE.
+
+               1 OFF :- SK 1203 C (RH)
+               1 OFF :- SK 1203 D (LH)
+               1 OFF :- SK 1205 A (RH)
+               1 OFF :- SK 1205 B (LH)
+               2 OFF :- SK 1251   (PIVOTS)
+
+
+     2. ONE ROBOT SERVING THE LATHE AND ONE ROBOT SERVING THE
+        MILLING MACHINE.
+
+               LATHE
+
+               1 SET :- SK 1204
+               
+               MILLING MACHINE
+
+               1 OFF :- SK 1203 C (RH)
+               1 OFF :- SK 1203 D (LH)
+               1 OFF :- SK 1205 A (RH)   OMIT 1mm U/C IN CENTRE
+               1 OFF :- SK 1205 B (LH)   OMIT 1mm U/C IN CENTRE
+               2 OFF :- SK 1251   (PIVOTS)
+
+
+             BLACK NYLON CHESS PALLETS.
+
+                                            HALF         FULL
+                                            CHESS        CHESS
+                                            SET          SET
+
+
+     DRG No SK 1173 (PALLET)                 8            16
+     DRG No SK 1174 (END PLATE)              8            16
+
+             CHESS PIECE CARRIER ASSEMBLIES
+
+     DRG No SK 1175A (PAWN CARRIER) OR       8            16
+     DRG No SK 1175  (PAWN CARRIER)          8            16
+     DRG No SK 1177  (PAWN RELEASE STUD)     8            16
+     DRG No SK 1176  (RANK CARRIER)          8            16
+     DRG No SK 1178  (RANK RELEASE STUD)     8            16
+
+
+     -------------------------------------------------------------
+
+     PAGE 2
+
+           GRIPPER REQUIREMENTS FOR THE NEW DENFORD FMS.
+                (LINK AUTOMATION CONVEYOR)
+                    (MITUTOYO CMM)
+                (IMAGE INSPECTION CAMERA)
+                  (SPRING EJECT CHUCK)
+
+
+     1. LATHE ROBOT
+
+                   DRAWING NUMBER :- SK 1204
+
+
+     2. MILLER ROBOT
+
+                   DRAWING NUMBER :- SK 1203C   (RH)
+                   DRAWING NUMBER :- SK 1203D   (LH)
+                   DRAWING NUMBER :- SK 1205A   (RH)
+                   DRAWING NUMBER :- SK 1205B   (LH)
+                   DRAWING NUMBER :- SK 1251    (PIVOT)
+      
+
+     3. CMM ROBOT
+
+                   DRAWING NUMBER :- SK 1204
+

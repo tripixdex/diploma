@@ -1,0 +1,1 @@
+For CIM on Windows XP use the software in the Ntdriver directory

@@ -1,6 +1,0 @@
-semeci1.ttf 0
-arial.vcf
-*
-seiso.ttf 0
-arial.vcf
-*

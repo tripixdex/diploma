@@ -1,0 +1,8 @@
+5
+6
+-	-	-	-	-	-
+Name	=	Cell3	-	-	-
+HistoryFile	=	Cell3.log	-	-	-
+Number of Machines	=	2	-	-	-
+1	=	CMM	15	73	32
+2	=	Robot3	1	65	70

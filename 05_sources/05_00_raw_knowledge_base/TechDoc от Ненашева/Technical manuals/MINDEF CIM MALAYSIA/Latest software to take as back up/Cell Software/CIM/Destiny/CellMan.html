@@ -1,0 +1,177 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Cell Manager Controls</TITLE>
+</HEAD>
+<BODY>
+
+<B><U><FONT SIZE=4><P>Cell Manager Controls</P>
+</B></U><P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">The cell manager controls are split into several areas as shown in Figure 2.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P><IMG SRC="CellMn1E.gif" WIDTH=330 HEIGHT=317 ALIGN="LEFT" HSPACE=12>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">Title Bar</P>
+</B><P ALIGN="JUSTIFY">The name of the cell manager will always be displayed in the Title Bar. This is the name of the cell manager that is used as a reference to it by all the other programs and modules within the Denford CIM System.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">Menu Bar</P>
+<I><P ALIGN="JUSTIFY">File Menu</P></B></I></FONT>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=568>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Open</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">This will open a sequence file.</FONT></TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Close</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">This will close the sequence associated with the currently activate cell sequence window. This option is only enabled when the active window in the cell manager user interface is a cell sequence window.</FONT></TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Exit</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">This will make the cell manager terminate.</FONT></TD>
+</TR>
+</TABLE>
+
+<FONT SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+<B><I><P ALIGN="JUSTIFY">Service Menu</P></B></I></FONT>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=568>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Disconnect</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">This forces the cell manager to disconnect itself from any remote client program that previously made a DDEML link to it. This will stop the cell manager from receiving any commands from a remote source. The driver will only be controllable manually.</FONT></TD>
+</TR>
+</TABLE>
+
+<B><I><FONT SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">Run Menu</P>
+</B></I><P ALIGN="JUSTIFY">This menu is associated with cell sequences and is greyed out when the a non-cell sequence window is active.These menu options act upon the currently selected (hi-lighted) sequence.</P></FONT>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=568>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Start</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">Once loaded a sequence can be started using this menu option.</FONT></TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Stop</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">Once the sequence is running it can subsequently be stopped using this menu option.</FONT></TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Reset</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">This will force the sequence to return to its initial state. When the sequence is subsequently restarted it will start from the beginning of its sequential list of machine</P>
+<P ALIGN="JUSTIFY">commands.</FONT></TD>
+</TR>
+</TABLE>
+
+<FONT SIZE=4><P ALIGN="JUSTIFY">WARNING: Currently there is a problem that causes the cell manager to skip the sending of several machine commands, this occurs when a sequence is stopped using the 'Stop' menu item and then restarted using the 'Start' item.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><I><P ALIGN="JUSTIFY">Service Menu</P></B></I></FONT>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=568>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Disconnect</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">Disconnects the cell manager from its parent, the Host, thus preventing the Host from sending it command requests. At this point the cell manager can only be controlled manually.</FONT></TD>
+</TR>
+</TABLE>
+
+<FONT SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+<B><I><P ALIGN="JUSTIFY">Disconnect Menu</P></B></I></FONT>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=568>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">All</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">This will disconnect the cell controller from all the machines. Doing this will stop the cell controller from receiving status information from the device drivers or sending commands to them.</FONT></TD>
+</TR>
+</TABLE>
+
+<FONT SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+<B><I><P ALIGN="JUSTIFY">Window Menu</P></B></I></FONT>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=568>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Arrange Icons</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">This option will tidy up iconised windows.</FONT></TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Close All</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">This will close all the open sequences.</FONT></TD>
+</TR>
+<TR><TD WIDTH="18%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">1,2,3,...</I></FONT></TD>
+<TD WIDTH="82%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">This will activate the window whose title is listed next to the number.</FONT></TD>
+</TR>
+</TABLE>
+
+<FONT SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">Sequence Status Window</P>
+<P ALIGN="CENTER"><IMG SRC="CellMn2E.gif" WIDTH=295 HEIGHT=51></P>
+</B><P ALIGN="JUSTIFY">This window textually shows the status of a sequence. There is one window per sequence. The window will disappear when the sequence is terminated.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">Cell Machines Status Window</P>
+</B><P ALIGN="JUSTIFY">This window shows the status of all the machines controlled by the cell manager. A graphical picture of the cell is displayed.</P>
+<I><P ALIGN="JUSTIFY">Machine Status Window</I> - For each machine in the cell a small status window is displayed. Each status window has a small caption bar with which it can be positioned in the same way that any ordinary window can. The status window displays the machine name in the left hand side of the window. On the right hand side, a colour coded description of the machine's status is displayed. The colour coding is as follows:</P></FONT>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=564>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY"><IMG SRC="CellMn3E.gif" WIDTH=15 HEIGHT=15></I></FONT></TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">RED with an Asterisk</I></FONT></TD>
+<TD WIDTH="67%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">Indicates that it is ‘Busy’</FONT></TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY"><IMG SRC="CellMn4E.gif" WIDTH=15 HEIGHT=14></I></FONT></TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">GREEN</I></FONT></TD>
+<TD WIDTH="67%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">Indicates that it is IDLE. Note that there is no charater associated with the idle state.</FONT></TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<I><FONT SIZE=4><P><IMG SRC="CellMn5E.gif" WIDTH=16 HEIGHT=15></I></FONT></TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<I><FONT SIZE=4><P>YELLOW with a question mark</I></FONT></TD>
+<TD WIDTH="67%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">Indicates that the machine's status is not known by the cell manager because it is not connected to it (via a device driver).</FONT></TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<I><FONT SIZE=4><P><IMG SRC="CellMn6E.gif" WIDTH=15 HEIGHT=14></I></FONT></TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<I><FONT SIZE=4><P>YELLOW with an exclamation mark</I></FONT></TD>
+<TD WIDTH="67%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">Indicates that an error has occurred in the associated machine's device driver.</FONT></TD>
+</TR>
+</TABLE>
+
+<FONT SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">Machine Status Dialog</B> - Double click the left mouse button on a machine status window and a dialog box with a more detailed description of the machine's status will appear. This dialog box is shown in Figure 3. The title bar of the dialog box is labeled with the name of the machine.</P>
+<P ALIGN="JUSTIFY">&nbsp;</P><IMG SRC="CellMn7E.gif" WIDTH=347 HEIGHT=157 ALIGN="LEFT" HSPACE=12>
+<P ALIGN="JUSTIFY">&nbsp;</P></FONT>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=568>
+<TR><TD WIDTH="30%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Status Field</I></FONT></TD>
+<TD WIDTH="70%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">At the top of the dialog box is a text box with a more detailed description of the status of the machine.</FONT></TD>
+</TR>
+<TR><TD WIDTH="30%" VALIGN="TOP">
+<I><FONT SIZE=4><P ALIGN="JUSTIFY">Connect/Disconnect Button</I></FONT></TD>
+<TD WIDTH="70%" VALIGN="TOP">
+<FONT SIZE=4><P ALIGN="JUSTIFY">Next to the status field is a button. Depressing this button toggles the link between the cell controller and the device driver. If the cell controller has a network link (DDEML) to the device driver the button will be labelled '<I>Disconnect</I>', depressing it will force the cell controller to break the communication link. When the device driver is disconnected the status field will display 'NOT CONNECTED' and the button will be labelled '<I>Connect</I>'. If the cell controller is not connected to the device driver it can not send commands or receive status information.</FONT></TD>
+</TR>
+</TABLE>
+
+<FONT SIZE=4><P ALIGN="JUSTIFY">&nbsp;</P>
+<B><P ALIGN="JUSTIFY">Hints</P>
+</B><P ALIGN="JUSTIFY">The cell controller will attempt to connect to all the device drivers on start up, so it is best to start after them. When an error occurs an error message will be displayed in the sequence status area. </P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+<P ALIGN="JUSTIFY">&nbsp;</P>
+</FONT><FONT SIZE=2><P>&nbsp;</P></FONT></BODY>
+</HTML>

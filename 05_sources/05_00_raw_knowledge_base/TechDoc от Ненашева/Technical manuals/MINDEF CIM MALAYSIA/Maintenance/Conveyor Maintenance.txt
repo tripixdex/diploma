@@ -1,0 +1,15 @@
+Conveyor Maintenance
+
+
+1. Belt tensions should be checked for undue slackness and adjusted with the 2 x M6 nuts on the RHS of each of the 6 motor housings
+
+2. The air supply drain should be emptied periodically
+
+3. Conveyor corner "Ball Transfer Units" may need adjusting if pallets keep getting stuck at the conveyor corners
+
+4. Pallet station sensors may need adjusting if pallets are not detected (See Interface Module LEDs)
+
+
+
+
+

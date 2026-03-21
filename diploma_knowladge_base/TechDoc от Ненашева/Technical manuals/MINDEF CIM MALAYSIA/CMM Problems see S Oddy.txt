@@ -1,7 +1,0 @@
-Steve,
-
-               While running the CMM software we get an "Run time Error 91" object vatiable  or with block variable not set. OKing this allows the software to run, but it causes concern to the Trainees when they see it (Can you check with Hexagon. Saturday ran the system and out of the 8 parts one of them on  the CMM threw up the usual error. This can be got round by restting the CMM DD and then disconnecting the Cell manager and then reconnecting puts it back in order but itv does not look good.
-
-           The compressor is not suppressed and is connected to the same supply as the CMM and powers up at irregular times when the pressure, this could put electrical spikes on the CMM RS232 lines. I suggested they move the comprsessor which they will do by putting it outside.
-
-Graham

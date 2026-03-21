@@ -1,7 +1,0 @@
-helpitem 1 'Captures a single image'
-helpitem 2 'Displays a live image'
-helpitem 3 'Plots a graph of average image intensity'
-helpitem 4 'Opens an exisiting class'
-helpitem 5 'Identifies an object'
-helpitem 6 'Automatically identifies objects'
-

@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>The Dispatcher</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT FACE="Arial" SIZE=4><P ALIGN="JUSTIFY">The Dispatcher</P><IMG SRC="Distch1E.gif" WIDTH=32 HEIGHT=32 ALIGN="LEFT" HSPACE=12>
+</B></FONT><FONT SIZE=2><P>The function of the dispatcher is to control the set of cells during production. It <I>executes</I> the schedule by dispatching work-orders and constantly monitoring the cells for BUSY and IDLE messages. The schedule is updated as events, such as processes starting and finishing, occur on the shop floor. The main screen shows the Gantt chart of processes scheduled in time  produced from the scheduling module. A line representing the current time moves across the screen and the schedule is recalculated every second. If a process runs late or finishes early, the other processes in the schedule are altered accordingly. A detailed journal of events is recorded for analysis later. The dispatcher also maintains a journal of status information and sends machine information to the <B>Simulator</B>.</P>
+</FONT><B><FONT SIZE=4><P ALIGN="JUSTIFY">Usage</P>
+</B></FONT><FONT SIZE=2><P>The dispatcher uses a pre-compiled schedule, loaded from the database using the standard file selection dialogue accessible from the </FONT><B><FONT FACE="Arial" SIZE=4>Open</B></FONT><FONT SIZE=2> item</FONT><B><FONT FACE="Arial" SIZE=4> </B></FONT><FONT SIZE=2>in the</FONT><B><FONT FACE="Arial" SIZE=4> File</B></FONT><FONT SIZE=2> menu. The schedule is displayed in a similar way to the Schedule view of the Scheduler. The components are listed down the vertical axis; their processes are shown as a Gantt Chart with time on the horizontal axis. The processes are all initially white, being coloured to indicate their state once the schedule has started.</P>
+<P>The main screen shows a Journal window with the schedule. This window may be moved around the screen and re-sized. During execution of a schedule, the Journal window provides a description of all events occurring in the Dispatcher, including commands being issued and status information being received.</P>
+<P>When a schedule is loaded from the database, the Dispatcher immediately attempts to make connections to the cells in the Cell List of the shop floor used to prepare the schedule. Microsoft Windows for Workgroups locates the specified cell computer and replies that it has made a connection to that computer. This connection must be verified by Windows which takes a couple of seconds. If the connection to the Cell Manager has not been made correctly then a Disconnect message is sent and the Dispatcher will be disconnected from the cell. The effect of this procedure is that the Dispatcher first reports that it has made a connection to a cell computer, the connection is then verified and the Dispatcher may be Disconnected if the cell manager cannot be located. Any Disconnection messages are shown in the Journal window.</P>
+<P>A schedule is executed by pressing the </FONT><B><FONT FACE="Arial" SIZE=4>Start</B></FONT><FONT SIZE=2> menu item in the </FONT><B><FONT FACE="Arial" SIZE=4>Execute</B></FONT><FONT SIZE=2> menu. If some cells are not connected, a message box asks if execution should continue. If the user chooses to run the schedule, or if all cells are properly connected, the schedule will be executed.</P>
+<P>During execution of a schedule, a vertical bar representing the current time moves from the left edge of the schedule to the right. When this bar reaches the beginning of a process, the process is validated and executed if appropriate. The process will turn green to show that it has started, and the command associated with that process will be dispatched to the appropriate cell controller. If a process is not permitted to start at the current time because of a potential capacity overflow or the late-running of another process, the schedule will be recalculated allowing for this event, with the late running process being given more time or the process causing a capacity overflow being postponed.</P>
+<P>When an IDLE message is received from a previously started process, the process has finished and the schedule is recalculated to take this into account.</P>
+<P>The execution continues until all components have been completed or until the user presses the </FONT><B><FONT FACE="Arial" SIZE=4>Stop</B></FONT><FONT SIZE=2> item in the </FONT><B><FONT FACE="Arial" SIZE=4>Execute</B></FONT><FONT SIZE=2> menu. The execution of the schedule is also stopped if an error occurs in a cell, or if a communications breakdown occurs. The error is displayed to the user in the Journal window.</P><IMG SRC="Distch2E.gif" WIDTH=271 HEIGHT=209 ALIGN="LEFT" HSPACE=7>
+<P>At any time the user can see which cells are connected to the dispatcher with the </FONT><B><FONT FACE="Arial" SIZE=4>Connections</B></FONT><FONT SIZE=2> item in the </FONT><B><FONT FACE="Arial" SIZE=4>Service</B></FONT><FONT SIZE=2> menu which displays a list of all cells. A tick against the cell name indicates that the Dispatcher is connected; a disconnected cell will be shown with a cross. In this example all the cells are properly connected. A user may select a cell by clicking over it with the left mouse button and forcing a connection or disconnection by pressing the appropriate button.</P>
+<P>Other items in the Service menu are </FONT><B><FONT FACE="Arial" SIZE=4>DisconnectAll</B></FONT><FONT SIZE=2> and </FONT><B><FONT FACE="Arial" SIZE=4>Reset</B></FONT><FONT SIZE=2>. DisconnectAll forces each cell to disconnect communications links with the Dispatcher. This must be carried out before shutting down the dispatcher, otherwise the communication links will be left connected to the Host computer. Any further attempts to connect to the same cell will fail because there is already a broken connection to it. It must be noted that it takes a few seconds to disconnect from all the cells, so the Dispatcher must not shut down until it receives the Disconnection message from each of the Cells.</P>
+<P>The </FONT><B><FONT FACE="Arial" SIZE=4>Reset</B></FONT><FONT SIZE=2> item closes any previously loaded schedule and resets the time to zero. It returns the Dispatcher to its initial state, ready for a new schedule to be loaded and executed. This action can only be performed when there are no communications links active.</P>
+</FONT><B><FONT SIZE=4><P ALIGN="JUSTIFY">Dispatcher Controls</P>
+</FONT><FONT SIZE=2><P>The File Menu</P>
+</FONT><FONT FACE="Arial" SIZE=4><P>Open</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Loads a schedule from the database and attempts to make connections to the necessary cells.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Print Preview</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Shows a preview of the print output.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Print</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Sends the current state of the schedule to a printer.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Print Setup</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Configures the printer.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Exit</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Quits the Dispatcher having confirmed that there are no connections to any cells.</P>
+<B><P>&nbsp;</P>
+<P>The Edit Menu</P>
+</FONT><FONT FACE="Arial" SIZE=4><P>Copy</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Copies the current schedule, including the state of all processes and the current time, to the clipboard. The schedule can then be pasted into the Scheduler for modification.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Paste</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Resets the Dispatcher and loads a new schedule from the clipboard.</P>
+<B><P>The View Menu</P>
+</FONT><FONT FACE="Arial" SIZE=4><P>Scale</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Allows the user to alter the appearance of the schedule by entering horizontal and vertical scaling factors.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Chart</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Displays the schedule as a Gantt chart of processes, arranged in component groups.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Cell</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Shows the schedule as a Gantt chart of processes for each cell.</P>
+<B><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>The Service Menu</P>
+</FONT><FONT FACE="Arial" SIZE=4><P>Reset</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Resets the Dispatcher to its initial state. The schedule is closed, the timer is returned to zero and all connections are broken.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>DisconnectAll</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Sends the disconnect message to all cells.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Connections</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Shows the list of connections to the user. A cell can be selected and its connection state altered by pressing the </FONT><B><FONT FACE="Arial" SIZE=4>Connect</B></FONT><FONT SIZE=2> and </FONT><B><FONT FACE="Arial" SIZE=4>Disconnect</B></FONT><FONT SIZE=2> buttons.</P>
+<B><P>The Execute Menu</P>
+</FONT><FONT FACE="Arial" SIZE=4><P>Start</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Executes the schedule from the current time.</P>
+</FONT><B><FONT FACE="Arial" SIZE=4><P>Stop</B></FONT><FONT SIZE=2>&nbsp;–&nbsp;Aborts execution of the schedule.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></FONT></BODY>
+</HTML>

@@ -1,0 +1,45 @@
+Simon,
+
+  My 3 days out here were for recommissiong the CIM System (See Linda Tans e mail to Nicola) and i have talked to the trainees and have seen what they can do on the CIM software i.e. create new shop floors, process plans , route plan and schedules plus they know their way around the Equipment as well, they say no extra training is required they are quite happy. i.e. 
+
+for recommissiong
+
+1.	Fitting the ASRS drive card
+2.      Installing the Vision system and training
+3.      Installing and running the CMM device driver from a Gaze
+4.      Integrate and get the full CIM operational
+
+
+
+	The two  machine tools had their parameter and keep relay altered by Tony Gill so that the machines would run in "Stand alone mode" for Fanuc training. Unfortunately these were not reset and i had to seek info from Dave Harrison on the setting plus fitting the ASRS drive card which had problems as well. Dave is only contactable from here after 3-30pm , and the above this took till 7-15pm on Tuesday to get working.
+
+         Contacted A Gaze because the CMM Device Driver did not work, yet again, and i had not received any new driver Wed morning (apparently he sent it to the wrong e mail address), so i lost another good day until 4-30 pm until i could ring him and get the device Driver sent to me. Unfortunately this Device Driver did not work as did all the subsequent ones up to today.
+
+        The CIM has run 80% this morning 6 out of the 8 parts we manufactuered went round the system though the AGV is not 100%. The CMM failed on the 7 part. I rang James as i have done most of this week mainly for his knowledge but also because he is 2 hours in front of us, he has been very helpful, as it stands now he has e mailed his thoughts to A Gaze for him to possibly modified the CMM Device Driver yet again and cc them to you for info / chase up. But time is short since a full CIM run through is over an hour in duration and if there is a failure we have to start all over again.
+
+
+
+
+Apparently Techsoft 2D training was given by Jonathan North (seen installed some PC's), we have been told just to put desk top tutor on 10 PC by Captain Sukyme and also have heard that someone (dont know who) is going to make sure all the software is on one PC and then take an image on it and put a copy on all other PC's.
+
+Poly lab was missing
+
+Gloves
+pouring vessel
+spatula
+Foot pump etc
+
+ These items were pointed out to M Bishop by Martin for Bishop to get replacements, obviously this never happened so we got them locally. Also there is a perspex guard missing and one of the guards does not fit/ line up with all the securing holes.
+
+   No training was given by Jonathan on either of the Graptec machines he just fitted the ink bottles and the cutters.Also i can not see any material consumeables i.e. paper rolls or vinyl etc for the Graphtecs.
+
+  We have managed to get 10 Desktop tutors fitted and working though Martin has said that theres not all that much training you can do on them when they are offline and not connected to a Machine. Martin will do this with them on Sat.
+
+  Martin could still have a problem with the Polylab. Its an on machine 1996 model and does not seem to be 100% happy working on a XP PC, we have tried a Win 98 Pc and there are still some issues, we have talked to James on this matter as well but at least it is running in a fashion and producing plastic products.
+
+  If todays version of the CMM device driver works i can leave as scheduled tommorrow, if not i can hopefully get another verion on Sat morning and try again, if this one fails it will be 3-30pm (UK) on Monday 4th July when i can relay the problems to Gazey. Giving me a couple of hours to test before leaving with Martin on Tuesday.
+
+Julie, If i have to extend my stay can you sort the Taxi, accomodation and flight transfer??????
+
+Graham / Martin 1.7.05
+

@@ -1,0 +1,125 @@
+/*******************************************
+
+Uses these compiler definitions...
+
+  _OWLALLPCH; _RTLDLL; _BIDSDLL; _OWLDLL; _OWLPCH; STRICT; NOSITE
+
+/*******************************************
+
+Changes made to the shop floor designer
+
+24/02/98 - JHB - Directories for parts etc. are read from CIM.INI
+					  (CIM.INI is pointed to by an entry in win.ini)
+WIN.INI
+		[CIM]
+		cimini=c:\cim\cim.ini
+
+CIM.INI
+		[directory]
+		cim_bin=d:\cim\bin\
+		cim_parts=d:\cim\parts\
+		cim_layouts=d:\cim\layouts\
+		cim_graphics=d:\cim\bin\
+		cim_HTML=d:\cim\destiny\
+
+24/02/98 - JHB - The 'Supervising Computer' edit box in the cell configuration
+					  list has been changed to a combo box, with the available computer
+					  names read from CIM.INI
+CIM.INI
+		[Network]
+		Local=0
+		Controller 1=1
+		Controller 2=2
+
+03/03/98 - JHB - The 'macihne name' edit box when placing a machine on the
+					  shop floor has been changed to a combo box, with the available
+					  machine names being read from CIM.INI
+CIM.INI
+		[Used]
+		Lathe=1
+		Robot1=2
+		Miller=3
+		CMM=4
+		AGV=5
+		VisionSystem=6
+		Robot2=7
+		Robot3=8
+		ASRS=9
+		Conveyor=10
+
+04/03/98 - JHB - Changed the conveyor and AGV file naming conventions.
+					  Files were saved as the conveyor name with an extension of .DEV
+					  Now the conveyor is saved as the shop floor name with an
+					  extension of .CNV, and the AGV as the shop floor name
+					  with an extension of .AGV.
+					  Either of the two formats can be selected...
+CIM.INI
+		[main]
+		DeviceFileFormat = 0			;old file format used
+		DeviceFileFormat = 1			;new file format used
+
+04/03/98 - JHB - The conveyor design dialog box defaults to a name of "CONVEYOR"
+
+04/03/98 - JHB - The AGV design dialog box defaults to a name of "AGV"
+
+04/03/98 - JHB - The cursor defaults back to a pointer once a machine has
+					  been dropped on the shop floor.
+
+05/03/98 - JHB - The 'Open Conveyor' dialog box default file extension is now
+					  dependant on the 'DeviceFileFormat' entry in CIM.INI
+					  (either .DEV or .CNV)
+
+05/03/98 - JHB - New AGV file format was saving as .CNV, fixed to save as .AGV
+
+16/03/98 - JHB - About dialog no longer says 'My Application'
+
+16/03/98 - JHB - Product Version changed to 2.1 in Resource Editor
+
+17/03/98 - JHB - Changes to the Help system...
+					  The help menu now only has two entries. 'Contents' and 'About'.
+					  'Contents' shows the help file whose name is specified by an
+					  entry in CONFIG.INI. The directory is read from
+					  CIM.INI -> cim_HTML=
+					  These files can have any extension, and will use the windows
+					  file assosiations to launch the appropriate viewer. This way
+					  we can use either .HLP or .HTML documents.
+					  ('About' is the normal about box)
+CONFIG.INI
+		[Help]
+		main=about.html
+
+18/03/98 - JHB - The 'Add Resource' dialog now uses a TComboBox instead of a
+					  TEdit.
+
+19/06/98 - JHB - Changes when reading in the Conveyor and AGV files. Now loads
+					  the .cnv and .agv files from the same directory as the .sfl
+					  (it was always looking in cim.ini for the directory)
+
+19/06/98 - JHB - Reading in config.ini machine names wasn't allocating memory
+					  properly, causing a GPF when the app was closed down. Now Fixed
+
+19/06/98 - JHB - The Open File dialog now keeps track of the last directory used
+
+19/06/98 - JHB - Selecting a station on the shop floor takes priority over
+					  other items (makes it easier to change the buffer size of
+					  stations). You can also now edit stations with a right click !
+
+29/07/98 - AG  - Changes when saving the Conveyor and AGV files. Now saves the
+					  .cnv and .agv files to the same directory as the .sfl
+
+29/07/98 - AG -  Changed Conveyor and AGV Dialogue, Name, Edit box char width
+					  from 9 to 20 to allow for French device names.
+
+24/05/99 - JHB - Now check for another instance of itself running and reports
+						an error if this is the case.
+
+25/05/99 - JHB - Version 2.2 created
+
+28/05/99 - JHB - Changes to SOFTLOK routines to make NT Compatible.
+					  NOTE: MNxx.386 (win 95) or SOFTLOK.SYS (NT) is required.
+					  Requires NOSITE compiler directive.
+
+--/07/99 - AG  - Made Falshable.
+
+*******************************************/
+
