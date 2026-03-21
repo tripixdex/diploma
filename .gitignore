@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+.venv/
+venv/
+env/
+
+# Editors
+.idea/
+.vscode/
+*.swp
