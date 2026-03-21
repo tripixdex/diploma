@@ -39,7 +39,8 @@
 - Created and switched to branch `stage-00-freeze-scope`.
 - Created commit `2f586fb` with message `stage0: freeze scope and execution scaffold`.
 - Created commit `522475b` with message `stage0: close scope freeze report`.
-- Final HEAD for Stage 0 closeout must be resolved with `git rev-parse --short HEAD` at review time.
+- Created commit `d76ea6b` with message `stage0: stabilize closeout metadata`.
+- Final closeout baseline HEAD recorded in this report: `78ed8e2` (`upgrade`).
 
 ## Validation Performed
 - Verified required Stage 0 scaffold directories were absent or incomplete before creation.
@@ -49,6 +50,8 @@
 - Verified no edge/backend/ui/mqtt/twin implementation files were added in Stage 0 scaffold.
 - Verified working branch is `stage-00-freeze-scope`.
 - Verified Stage 0 scaffold commit exists.
+- Verified corrective closeout changes are limited to report metadata consistency.
+- Verified no new Stage 1 files were created.
 
 ## Gate Checklist
 - [x] Working branch is `stage-00-freeze-scope`.

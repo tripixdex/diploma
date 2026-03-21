@@ -22,7 +22,7 @@
 | Stage | Status | Gate State | Notes |
 | --- | --- | --- | --- |
 | Stage 0 | Completed | Closed | Scope, assumptions, repo policy, gate criteria, and reporting scaffold are fixed at Stage 0 level. |
-| Stage 1 | Not started | Blocked by Stage 0 | Must not start before Stage 0 closure. |
+| Stage 1 | Not started | Blocked until explicitly opened | Stage 0 is already closed; Stage 1 has not been opened yet. |
 | Stage 2 | Not started | Blocked by Stage 1 | Must remain empty except placeholder scaffold. |
 | Stage 3 | Not started | Blocked by Stage 2 | No edge implementation allowed yet. |
 | Stage 4 | Not started | Blocked by Stage 3 | No MQTT implementation allowed yet. |
@@ -32,8 +32,10 @@
 | Stage 8 | Not started | Blocked by Stage 7 | No final demonstration claims yet. |
 
 ## Current Active Stage
-- Stage ID: Stage 0
-- Stage name: Freeze Scope + Assumptions + Execution Discipline
+- Stage ID: Stage 1
+- Stage name: Pending explicit open
+- Status: Not started
+- Note: Stage 0 is closed; Stage 1 has not been opened yet.
 
 ## Known Blockers
 - Exact final Raspberry Pi model is NOT CONFIRMED.
@@ -47,12 +49,14 @@
 
 ## Latest Commit / Latest Branch
 - Latest branch: `stage-00-freeze-scope`
-- Latest commit at review time: resolve with `git rev-parse --short HEAD`
+- Latest commit: `78ed8e2`
 - Stage 0 commits:
   - `2f586fb` (`stage0: freeze scope and execution scaffold`)
   - `522475b` (`stage0: close scope freeze report`)
+  - `d76ea6b` (`stage0: stabilize closeout metadata`)
+  - `78ed8e2` (`upgrade`)
 
 ## History of Completed Stage Reports
 | Stage | Report Path | Status | Branch | Commit |
 | --- | --- | --- | --- | --- |
-| Stage 0 | `99_reports/execution/STAGE_00_REPORT.md` | Completed | `stage-00-freeze-scope` | `2f586fb`, `522475b` |
+| Stage 0 | `99_reports/execution/STAGE_00_REPORT.md` | Completed | `stage-00-freeze-scope` | `2f586fb`, `522475b`, `d76ea6b`, `78ed8e2` |
