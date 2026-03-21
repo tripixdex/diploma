@@ -21,7 +21,7 @@
 ## Stage Status Table
 | Stage | Status | Gate State | Notes |
 | --- | --- | --- | --- |
-| Stage 0 | In progress | Open | Execution scaffold is being created. |
+| Stage 0 | Completed | Closed | Scope, assumptions, repo policy, gate criteria, and reporting scaffold are fixed at Stage 0 level. |
 | Stage 1 | Not started | Blocked by Stage 0 | Must not start before Stage 0 closure. |
 | Stage 2 | Not started | Blocked by Stage 1 | Must remain empty except placeholder scaffold. |
 | Stage 3 | Not started | Blocked by Stage 2 | No edge implementation allowed yet. |
@@ -47,9 +47,9 @@
 
 ## Latest Commit / Latest Branch
 - Latest branch: `stage-00-freeze-scope`
-- Latest commit: NOT COMMITTED YET
+- Latest commit: `2f586fb` (`stage0: freeze scope and execution scaffold`)
 
 ## History of Completed Stage Reports
 | Stage | Report Path | Status | Branch | Commit |
 | --- | --- | --- | --- | --- |
-| Stage 0 | `99_reports/execution/STAGE_00_REPORT.md` | In progress | `stage-00-freeze-scope` | NOT COMMITTED YET |
+| Stage 0 | `99_reports/execution/STAGE_00_REPORT.md` | Completed | `stage-00-freeze-scope` | `2f586fb` |
