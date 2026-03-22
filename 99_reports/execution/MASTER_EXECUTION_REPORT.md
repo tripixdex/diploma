@@ -2,14 +2,15 @@
 
 ## Project Status Summary
 - Project topic: digital modernization of AGV Denford using edge + cloud architecture.
-- Honest current status: implementation evidence now exists at Stage 2 as a functional twin, at Stage 3 as a local edge MVP contour, and at Stage 4 as a real local MQTT transport layer, but not yet as backend/hardware integration on target architecture.
+- Honest current status: implementation evidence now exists at Stage 2 as a functional twin, at Stage 3 as a local edge MVP contour, at Stage 4 as a real local MQTT transport layer, and at Stage 5 as a backend MVP contour with MQTT ingest, dev/demo storage, REST API, and WebSocket live stream. Stage 5 remains the current active stage until explicit closeout.
 - Stage 0 closed the execution discipline baseline.
 - Stage 1 closed the V1 system contract baseline.
 - Stage 2 closed with a functional digital twin that executes the contract locally without real transport or hardware.
 - Stage 3A closed the repo hygiene and audit preparation before implementation.
 - Stage 3B closed the pre-implementation corrective refactor for hardcode/modularity blockers.
 - Stage 3 closed with a local hardware-agnostic edge runtime MVP.
-- Stage 4 is now open with a real local MQTT transport contour.
+- Stage 4 closed with a real local MQTT transport contour.
+- Stage 5 is now open with a minimal backend MVP contour.
 
 ## Approved Global Roadmap
 | Stage | Name | Planned Outcome |
@@ -35,17 +36,17 @@
 | Stage 3A | Completed | Closed | Repo hygiene, file placement, naming cleanup, and audit manifests were prepared before Stage 3 implementation. |
 | Stage 3B | Completed | Closed | Pre-Stage-3 hardcode and modularity blockers were corrected without introducing real transport or hardware features. |
 | Stage 3 | Completed | Closed | Local edge MVP contour exists with command intake, heartbeat supervision, degraded behavior, and adapter boundary, still without real hardware. |
-| Stage 4 | In Progress | Open | Real local MQTT transport exists with Paho clients, local broker-backed exchange, retained status, and command/status/event flow. |
-| Stage 5 | Not started | Blocked by Stage 4 | No backend implementation allowed yet. |
+| Stage 4 | Completed | Closed | Real local MQTT transport exists with Paho clients, local broker-backed exchange, retained status, and command/status/event flow. |
+| Stage 5 | In Progress | Open | Backend MVP evidence exists for MQTT ingest, dev/demo storage, minimal REST API, and minimal WebSocket live stream. |
 | Stage 6 | Not started | Blocked by Stage 5 | No operator UI implementation allowed yet. |
 | Stage 7 | Not started | Blocked by Stage 6 | No integration testing artifacts yet beyond Stage 0 validation. |
 | Stage 8 | Not started | Blocked by Stage 7 | No final demonstration claims yet. |
 
 ## Current Active Stage
-- Stage ID: Stage 4
-- Stage name: MQTT Transport
+- Stage ID: Stage 5
+- Stage name: Backend MVP
 - Status: In Progress
-- Note: Stage 4 is limited to real local transport work only; Stage 5 remains blocked.
+- Note: Stage 5 is limited to backend ingest, storage, REST, and WebSocket work only; Stage 6 remains blocked.
 
 ## Known Blockers
 - Exact final Raspberry Pi model is NOT CONFIRMED.
@@ -71,7 +72,7 @@
 ## Active Stage Reports
 | Stage | Report Path | Status | Notes |
 | --- | --- | --- | --- |
-| Stage 4 | `99_reports/execution/STAGE_04_REPORT.md` | In Progress | Real MQTT transport is open without crossing into Stage 5 backend work. |
+| Stage 5 | `99_reports/execution/STAGE_05_REPORT.md` | In Progress | Backend MVP is ready for closeout review without crossing into Stage 6 UI work. |
 
 ## History of Completed Stage Reports
 | Stage | Report Path | Status | Branch | Commit |
@@ -82,3 +83,4 @@
 | Stage 3A | `99_reports/execution/STAGE_03A_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Stage 3B | `99_reports/execution/STAGE_03B_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Stage 3 | `99_reports/execution/STAGE_03_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
+| Stage 4 | `99_reports/execution/STAGE_04_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
