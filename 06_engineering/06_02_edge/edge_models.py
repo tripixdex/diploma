@@ -43,3 +43,5 @@ class EdgeRecord:
     accepted: bool | None
     summary: str
     payload: dict[str, Any] = field(default_factory=dict)
+    source: str = "edge"
+    corr_id: str | None = None

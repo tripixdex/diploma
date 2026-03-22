@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import importlib.util
 import sys
-from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
@@ -63,6 +62,8 @@ class _EdgePublisherBridge:
             accepted=payload.get("result") == "accepted" if "result" in payload else None,
             summary=event.event_type.value,
             payload=payload,
+            source="edge",
+            corr_id=event.corr_id,
         )
         self.messages.append({"kind": kind, "state": context.state.value, "payload": payload})
         self.adapter.publish(record)
@@ -161,6 +162,8 @@ class EdgeRuntime:
                 "current_state": current_state,
                 "corr_id": command.corr_id,
             },
+            source="edge",
+            corr_id=command.corr_id,
         )
         self.command_log.append(record)
         self.adapter.publish(record)
@@ -178,6 +181,7 @@ class EdgeRuntime:
                 accepted=None,
                 summary="heartbeat_ok",
                 payload={"timeout_ticks": self.config.heartbeat_timeout_ticks},
+                source="edge",
             )
             self.adapter.publish(record)
             return False
@@ -195,6 +199,7 @@ class EdgeRuntime:
             accepted=accepted,
             summary="heartbeat_lost",
             payload={"previous_state": previous_state, "current_state": current_state},
+            source="edge",
         )
         self.command_log.append(record)
         self.adapter.publish(record)
@@ -229,6 +234,8 @@ class EdgeRuntime:
             accepted=False,
             summary=command.command_type.value,
             payload={"reason": reason, "command": command.command_type.value},
+            source="edge",
+            corr_id=command.corr_id,
         )
         self.command_log.append(record)
         self.adapter.publish(record)
