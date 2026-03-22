@@ -2,8 +2,10 @@
 
 ## Project Status Summary
 - Project topic: digital modernization of AGV Denford using edge + cloud architecture.
-- Honest current status: own implementation is absent or not yet evidenced in the repository.
-- Stage 0 focus: freeze scope, assumptions, execution policy, and reporting discipline without starting implementation.
+- Honest current status: implementation evidence now exists at Stage 2 only as a local functional twin scaffold, not as edge/backend/MQTT runtime on target architecture.
+- Stage 0 closed the execution discipline baseline.
+- Stage 1 closed the V1 system contract baseline.
+- Stage 2 closed with a functional digital twin that executes the contract locally without real transport or hardware.
 
 ## Approved Global Roadmap
 | Stage | Name | Planned Outcome |
@@ -22,8 +24,8 @@
 | Stage | Status | Gate State | Notes |
 | --- | --- | --- | --- |
 | Stage 0 | Completed | Closed | Scope, assumptions, repo policy, gate criteria, and reporting scaffold are fixed at Stage 0 level. |
-| Stage 1 | Not started | Blocked until explicitly opened | Stage 0 is already closed; Stage 1 has not been opened yet. |
-| Stage 2 | Not started | Blocked by Stage 1 | Must remain empty except placeholder scaffold. |
+| Stage 1 | Completed | Closed | System contract is frozen and ready to drive Stage 2 simulation-first work. |
+| Stage 2 | Completed | Closed | Functional twin scaffold exists, mandatory scenario set passed, and evidence is recorded without real MQTT, hardware, backend, or Webots scene. |
 | Stage 3 | Not started | Blocked by Stage 2 | No edge implementation allowed yet. |
 | Stage 4 | Not started | Blocked by Stage 3 | No MQTT implementation allowed yet. |
 | Stage 5 | Not started | Blocked by Stage 4 | No backend implementation allowed yet. |
@@ -32,15 +34,15 @@
 | Stage 8 | Not started | Blocked by Stage 7 | No final demonstration claims yet. |
 
 ## Current Active Stage
-- Stage ID: Stage 1
+- Stage ID: Stage 3
 - Stage name: Pending explicit open
 - Status: Not started
-- Note: Stage 0 is closed; Stage 1 has not been opened yet.
+- Note: Stage 2 is closed; Stage 3 has not been opened in this repository state.
 
 ## Known Blockers
 - Exact final Raspberry Pi model is NOT CONFIRMED.
-- Own AGV modernization implementation artifacts are not yet evidenced in the repository.
-- Historical repository state contains large unrelated changes outside Stage 0 scope.
+- Own AGV modernization implementation artifacts are not yet evidenced beyond the local Stage 2 functional twin.
+- Real AGV motor/sensor signal mapping is not yet surveyed.
 
 ## Open Questions
 - Which exact Raspberry Pi model will be available for final validation?
@@ -49,15 +51,23 @@
 
 ## Latest Commit / Latest Branch
 - Latest branch: `stage-00-freeze-scope`
-- Latest commit: `d6ccfdc`
+- Latest commit: `9f24aae`
 - Stage 0 commits:
   - `2f586fb` (`stage0: freeze scope and execution scaffold`)
   - `522475b` (`stage0: close scope freeze report`)
   - `d76ea6b` (`stage0: stabilize closeout metadata`)
   - `78ed8e2` (`upgrade`)
   - `d6ccfdc` (`stage0: finalize closeout reports`)
+  - `9f24aae` (`stage0: final cleanup and closeout consistency`)
+
+## Active Stage Reports
+| Stage | Report Path | Status | Notes |
+| --- | --- | --- | --- |
+| Stage 3 | `NOT CREATED` | Not started | Stage 3 remains blocked until explicitly opened. |
 
 ## History of Completed Stage Reports
 | Stage | Report Path | Status | Branch | Commit |
 | --- | --- | --- | --- | --- |
-| Stage 0 | `99_reports/execution/STAGE_00_REPORT.md` | Completed | `stage-00-freeze-scope` | `2f586fb`, `522475b`, `d76ea6b`, `78ed8e2`, `d6ccfdc` |
+| Stage 0 | `99_reports/execution/STAGE_00_REPORT.md` | Completed | `stage-00-freeze-scope` | `2f586fb`, `522475b`, `d76ea6b`, `78ed8e2`, `d6ccfdc`, `9f24aae` |
+| Stage 1 | `99_reports/execution/STAGE_01_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
+| Stage 2 | `99_reports/execution/STAGE_02_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
