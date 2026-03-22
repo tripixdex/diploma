@@ -40,7 +40,9 @@
 - Created commit `2f586fb` with message `stage0: freeze scope and execution scaffold`.
 - Created commit `522475b` with message `stage0: close scope freeze report`.
 - Created commit `d76ea6b` with message `stage0: stabilize closeout metadata`.
-- Final closeout baseline HEAD recorded in this report: `78ed8e2` (`upgrade`).
+- Created commit `d6ccfdc` with message `stage0: finalize closeout reports`.
+- Removed `.DS_Store` from git tracking and deleted the working-tree file during final cleanup.
+- Final closeout baseline HEAD recorded in this report: `d6ccfdc` (`stage0: finalize closeout reports`).
 
 ## Validation Performed
 - Verified required Stage 0 scaffold directories were absent or incomplete before creation.
@@ -52,6 +54,10 @@
 - Verified Stage 0 scaffold commit exists.
 - Verified corrective closeout changes are limited to report metadata consistency.
 - Verified no new Stage 1 files were created.
+- Verified `.DS_Store` is not tracked anymore after final cleanup.
+- Verified `.gitignore` covers `.DS_Store`.
+- Verified no implementation artifacts were added.
+- Verified both reports reference the same final closeout baseline HEAD.
 
 ## Gate Checklist
 - [x] Working branch is `stage-00-freeze-scope`.
