@@ -1,0 +1,19 @@
+from __future__ import annotations
+
+from typing import Protocol
+
+from twin_models import TwinContext, TwinEvent
+
+
+class PublisherProtocol(Protocol):
+    def publish_status(self, context: TwinContext, event: TwinEvent) -> None: ...
+
+    def publish_audit(self, context: TwinContext, event: TwinEvent, result: str, reason: str) -> None: ...
+
+    def publish_alarm(self, context: TwinContext, event: TwinEvent, reason: str) -> None: ...
+
+    def publish_fault(self, context: TwinContext, event: TwinEvent, reason: str) -> None: ...
+
+    def publish_heartbeat(self, context: TwinContext, event: TwinEvent, link_ok: bool) -> None: ...
+
+    def publish_telemetry(self, context: TwinContext, event: TwinEvent, **telemetry: object) -> None: ...
