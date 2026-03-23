@@ -4,6 +4,8 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from typing import Any
 
+from pydantic import BaseModel, Field
+
 
 def utc_now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
@@ -34,6 +36,25 @@ class BackendHealth:
     status: str
     storage_mode: str
     mqtt_bridge_connected: bool
+    command_bridge_connected: bool
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+
+class ModeCommandRequest(BaseModel):
+    requested_mode: str = Field(min_length=1)
+    corr_id: str | None = None
+
+
+class ManualCommandRequest(BaseModel):
+    linear: float
+    angular: float
+    duration_ms: int = Field(default=500, ge=100, le=5000)
+    corr_id: str | None = None
+
+
+class ResetCommandRequest(BaseModel):
+    reset_action: str = Field(min_length=1)
+    state: str = Field(min_length=1)
+    corr_id: str | None = None

@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 44 33% 97%;
+    --foreground: 212 36% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 212 36% 14%;
+    --primary: 204 78% 36%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 207 36% 94%;
+    --secondary-foreground: 212 36% 16%;
+    --muted: 34 28% 92%;
+    --muted-foreground: 214 16% 36%;
+    --accent: 28 71% 61%;
+    --accent-foreground: 210 40% 98%;
+    --border: 220 24% 88%;
+    --input: 220 24% 88%;
+    --ring: 204 78% 36%;
+    --success: 154 48% 35%;
+    --warning: 34 84% 46%;
+    --critical: 357 72% 48%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(160, 196, 255, 0.24), transparent 35%),
+      radial-gradient(circle at bottom right, rgba(255, 195, 113, 0.16), transparent 28%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(245, 242, 236, 0.92));
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}
+
+@layer components {
+  .panel-glow {
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 246, 241, 0.92));
+    backdrop-filter: blur(14px);
+  }
+}

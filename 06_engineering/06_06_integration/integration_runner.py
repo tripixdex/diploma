@@ -32,6 +32,7 @@ def _load_backend_bundle() -> dict[str, Any]:
         "backend_config",
         "backend_storage",
         "backend_ws",
+        "backend_command_bridge",
         "backend_mqtt_bridge",
         "backend_api",
     ]:

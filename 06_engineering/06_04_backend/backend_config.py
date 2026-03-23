@@ -52,10 +52,21 @@ class BackendWsConfig:
 
 
 @dataclass(frozen=True, slots=True)
+class BackendCorsConfig:
+    allow_origins: tuple[str, ...] = (
+        "http://127.0.0.1:5173",
+        "http://localhost:5173",
+        "http://127.0.0.1:4173",
+        "http://localhost:4173",
+    )
+
+
+@dataclass(frozen=True, slots=True)
 class BackendRuntimeConfig:
     storage: BackendStorageConfig = BackendStorageConfig()
     api: BackendApiConfig = BackendApiConfig()
     ws: BackendWsConfig = BackendWsConfig()
+    cors: BackendCorsConfig = BackendCorsConfig()
 
 
 DEFAULT_BACKEND_RUNTIME_CONFIG = BackendRuntimeConfig()

@@ -17,3 +17,8 @@ env/
 .idea/
 .vscode/
 *.swp
+
+# Node / UI
+node_modules/
+dist/
+.vite/

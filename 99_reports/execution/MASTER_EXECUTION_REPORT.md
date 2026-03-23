@@ -2,7 +2,7 @@
 
 ## Project Status Summary
 - Project topic: digital modernization of AGV Denford using edge + cloud architecture.
-- Honest current status: implementation evidence now exists at Stage 2 as a functional twin, at Stage 3 as a local edge MVP contour, at Stage 4 as a real local MQTT transport layer, at Stage 5 as a backend MVP contour with MQTT ingest, dev/demo storage, REST API, and WebSocket live stream, at Stage 6 as a minimal operator-facing path, at Stage 7 as a repeatable software-only integration contour with MVP freeze documentation, and at Stage 7B as a polished demo-ready pre-hardware package with a unified software-only demo runner. Stage 7B is the current active stage until explicit closeout.
+- Honest current status: implementation evidence now exists at Stage 2 as a functional twin, at Stage 3 as a local edge MVP contour, at Stage 4 as a real local MQTT transport layer, at Stage 5 as a backend MVP contour with MQTT ingest, dev/demo storage, REST API, and WebSocket live stream, at Stage 6 as a minimal operator-facing path, at Stage 7 as a repeatable software-only integration contour with MVP freeze documentation, at Stage 7B as a polished demo-ready pre-hardware package with a unified software-only demo runner, and Stage 7D is now open with a demo-grade human UI over the frozen software-only MVP without entering hardware phase.
 - Stage 0 closed the execution discipline baseline.
 - Stage 1 closed the V1 system contract baseline.
 - Stage 2 closed with a functional digital twin that executes the contract locally without real transport or hardware.
@@ -13,7 +13,8 @@
 - Stage 5 closed with a minimal backend MVP contour.
 - Stage 6 closed with a minimal operator-facing contour.
 - Stage 7 closed with repeatable integration evidence and MVP freeze artifacts.
-- Stage 7B is now open with polish, demo freeze, and pre-hardware readiness artifacts.
+- Stage 7B closed with polish, demo freeze, and pre-hardware readiness artifacts.
+- Stage 7D is now open with a human UI effort over the frozen software-only MVP.
 
 ## Approved Global Roadmap
 | Stage | Name | Planned Outcome |
@@ -29,6 +30,7 @@
 | Stage 6 | Operator Path | Minimal operator-facing control/visibility path is evidenced. |
 | Stage 7 | Integration Testing | Repeatable end-to-end validation evidence is collected. |
 | Stage 7B | Demo Freeze Polish | Software-only MVP is packaged for a repeatable honest demonstration before hardware work. |
+| Stage 7D | Human UI | Minimal human-facing demo UI is added on top of the frozen software-only MVP. |
 | Stage 8 | Final Demonstration | Hardware-aligned or final demonstrable contour is consolidated for VKR. |
 
 ## Stage Status Table
@@ -44,19 +46,20 @@
 | Stage 5 | Completed | Closed | Backend MVP evidence exists for MQTT ingest, dev/demo storage, minimal REST API, and minimal WebSocket live stream. |
 | Stage 6 | Completed | Closed | Minimal operator-facing client path exists for backend observation and MQTT-backed command dispatch without a heavy UI stack. |
 | Stage 7 | Completed | Closed | Repeatable software-only integration evidence and MVP freeze artifacts exist without hardware-specific claims. |
-| Stage 7B | In Progress | Open | Polished demo package and pre-hardware readiness artifacts exist without introducing board-specific code. |
-| Stage 8 | Not started | Blocked by Stage 7B | No hardware-phase or final demonstration claims yet. |
+| Stage 7B | Completed | Closed | Polished demo package and pre-hardware readiness artifacts exist without introducing board-specific code. |
+| Stage 7D | In Progress | Open | Demo-grade browser UI now exists over the existing backend REST and WebSocket path and is ready for closeout. |
+| Stage 8 | Not started | Blocked by Stage 7D | No hardware-phase or final demonstration claims yet. |
 
 ## Current Active Stage
-- Stage ID: Stage 7B
-- Stage name: Polish + Demo Freeze + Pre-Hardware Readiness
+- Stage ID: Stage 7D
+- Stage name: Human UI
 - Status: In Progress
-- Note: Stage 7B is limited to polishing, honest demo packaging, and pre-hardware readiness documentation only; Stage 8 remains blocked.
+- Note: Stage 7D is limited to a demo-grade human UI over the existing software-only MVP and is awaiting explicit closeout only; Stage 8 remains blocked.
 
 ## Known Blockers
 - Exact final Raspberry Pi model is NOT CONFIRMED.
-- Own AGV modernization implementation artifacts are still not evidenced with backend path or real hardware adapter.
 - Real AGV motor/sensor signal mapping is not yet surveyed.
+- Hardware-specific validation and real board binding remain completely unstarted.
 
 ## Open Questions
 - Which exact Raspberry Pi model will be available for final validation?
@@ -77,7 +80,7 @@
 ## Active Stage Reports
 | Stage | Report Path | Status | Notes |
 | --- | --- | --- | --- |
-| Stage 7B | `99_reports/execution/STAGE_07B_REPORT.md` | In Progress | Polished software-only demo package and pre-hardware readiness artifacts exist without crossing into hardware-specific work. |
+| Stage 7D | `99_reports/execution/STAGE_07D_REPORT.md` | In Progress | Human UI exists, validations passed, and the stage is ready for explicit closeout. |
 
 ## History of Completed Stage Reports
 | Stage | Report Path | Status | Branch | Commit |
@@ -92,3 +95,4 @@
 | Stage 5 | `99_reports/execution/STAGE_05_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Stage 6 | `99_reports/execution/STAGE_06_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Stage 7 | `99_reports/execution/STAGE_07_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
+| Stage 7B | `99_reports/execution/STAGE_07B_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
