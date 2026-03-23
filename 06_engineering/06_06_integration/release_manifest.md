@@ -5,7 +5,7 @@
 - `06_engineering/06_01_sim_twin/`: functional twin and contract-level scenario evidence.
 - `06_engineering/06_02_edge/`: local edge MVP.
 - `06_engineering/06_03_transport/`: real local MQTT transport.
-- `06_engineering/06_04_backend/`: backend MVP.
+- `06_engineering/06_04_backend/`: backend MVP with dev/demo storage path and API surface.
 - `06_engineering/06_05_operator/`: operator-facing console path.
 - `06_engineering/06_06_integration/`: repeatable integration evidence and MVP freeze.
 
@@ -21,9 +21,16 @@
 ## What is demonstrated in software-only phase
 - End-to-end command/status/event/telemetry flow.
 - Local degraded behavior on heartbeat loss.
-- Backend persistence and serving path.
+- Backend persistence and serving path in the current dev/demo contour.
 - Operator observation and command dispatch path.
 - Repeatable evidence without hardware-specific claims.
+
+## What is not evidenced here
+- No Webots integration.
+- No PostgreSQL runtime evidence.
+- No Docker Compose deployment evidence.
+- No deployment-grade Mosquitto validation.
+- No hardware readiness or board binding.
 
 ## What to show supervisor / pre-defense
 - Stage 1 contract documents.

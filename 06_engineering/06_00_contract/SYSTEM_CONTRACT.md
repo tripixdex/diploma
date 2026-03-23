@@ -3,6 +3,13 @@
 ## V1 Purpose
 V1 is a simulation-first system contract for digital modernization of AGV Denford with an edge + cloud architecture. Its purpose is to define the minimum bounded behavior required for supervised command execution, state control, telemetry delivery, operator visibility, and evidence collection without claiming hardware behavior that is not yet verified.
 
+## Current Software-Only MVP Scope
+At the current pre-hardware stage, the implemented and evidenced MVP subset is narrower than the long-term contract ambition:
+- Implemented and evidenced now: `INIT`, `IDLE`, `MANUAL`, `AUTO_LINE`, `SAFE_STOP`, `ESTOP_LATCHED`, `FAULT`, `DISCONNECTED_DEGRADED`.
+- Implemented operator commands now: `cmd/mode` for `MANUAL` and `AUTO_LINE`, bounded `cmd/manual`, and reset requests that are validated against current state rules.
+- Implemented degraded behavior now: `heartbeat_lost -> DISCONNECTED_DEGRADED`, followed by `prolonged_disconnect -> SAFE_STOP` if link loss persists.
+- Explicitly deferred from the current MVP: `MAINTENANCE` state and its transitions, board-specific safety wiring, GPIO binding, and any hardware-validated recovery semantics.
+
 ## System Boundary
 The V1 system boundary includes:
 - the onboard control application running on Raspberry Pi class hardware;
@@ -41,7 +48,9 @@ The V1 system boundary excludes:
 - `ESTOP_LATCHED`: emergency stop latched until local reset conditions are satisfied.
 - `FAULT`: internal software or hardware-related fault state requiring explicit operator or maintenance action.
 - `DISCONNECTED_DEGRADED`: broker/server link degraded while local safe behavior is preserved.
-- `MAINTENANCE`: diagnostics/configuration mode with motion path restricted.
+
+Deferred beyond the current software-only MVP:
+- `MAINTENANCE`: diagnostics/configuration mode with motion path restricted. This state is kept only as a deferred design direction and is not implemented or evidenced yet.
 
 ## State Model Overview
 V1 uses a single authoritative edge-side state machine. Commands are advisory inputs, not direct actuator authority. Motion-capable states are only `MANUAL` and `AUTO_LINE`. Any uncertainty in safety-critical preconditions must collapse to `SAFE_STOP`, `ESTOP_LATCHED`, or `FAULT` depending on trigger severity. Cloud/server state visibility is informative and must not be treated as the source of truth for safe stop behavior.
@@ -49,6 +58,7 @@ V1 uses a single authoritative edge-side state machine. Commands are advisory in
 ## Safety Principles
 - Local safe stop behavior must not depend on cloud availability.
 - Loss of broker/backend/operator connectivity must not leave traction enabled indefinitely.
+- If connectivity loss persists after the initial degraded transition, the current MVP must escalate from `DISCONNECTED_DEGRADED` to `SAFE_STOP`.
 - Emergency stop has higher priority than any mode or motion command.
 - Illegal state transition requests are rejected and must generate audit/fault evidence.
 - V1 must preserve the legacy local safety contour and must not bypass it in software.

@@ -32,6 +32,7 @@ class TwinStateMachine:
             (TwinState.SAFE_STOP, TwinEventType.FAULT_DETECTED): TwinState.FAULT,
             (TwinState.ESTOP_LATCHED, TwinEventType.ESTOP_RESET_ACCEPTED): TwinState.IDLE,
             (TwinState.DISCONNECTED_DEGRADED, TwinEventType.LINK_RESTORED_AND_SAFE): TwinState.IDLE,
+            (TwinState.DISCONNECTED_DEGRADED, TwinEventType.PROLONGED_DISCONNECT): TwinState.SAFE_STOP,
             (TwinState.DISCONNECTED_DEGRADED, TwinEventType.SAFE_STOP_REQUESTED): TwinState.SAFE_STOP,
             (TwinState.DISCONNECTED_DEGRADED, TwinEventType.ESTOP_TRIGGERED): TwinState.ESTOP_LATCHED,
             (TwinState.DISCONNECTED_DEGRADED, TwinEventType.FAULT_DETECTED): TwinState.FAULT,

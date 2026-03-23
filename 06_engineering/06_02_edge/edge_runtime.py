@@ -115,7 +115,10 @@ class EdgeRuntime:
         self.context = bundle["TwinContext"]()
         self.publisher = _EdgePublisherBridge(self.adapter)
         self.state_machine = bundle["TwinStateMachine"](self.publisher)
-        self.heartbeat = LinkSupervisor(self.config.heartbeat_timeout_ticks)
+        self.heartbeat = LinkSupervisor(
+            self.config.heartbeat_timeout_ticks,
+            self.config.prolonged_disconnect_ticks,
+        )
         self.command_log: list[EdgeRecord] = []
 
     @property
@@ -174,7 +177,8 @@ class EdgeRuntime:
         return accepted
 
     def heartbeat_tick(self) -> bool:
-        if not self.heartbeat.advance():
+        heartbeat_state = self.heartbeat.advance()
+        if heartbeat_state == "ok":
             record = EdgeRecord(
                 kind="heartbeat_tick",
                 state=self.context.state.value,
@@ -185,19 +189,38 @@ class EdgeRuntime:
             )
             self.adapter.publish(record)
             return False
+        if heartbeat_state == "degraded_wait":
+            record = EdgeRecord(
+                kind="heartbeat",
+                state=self.context.state.value,
+                accepted=None,
+                summary="link_still_down",
+                payload={"link_ok": False, "reason": "waiting_link_restore"},
+                source="edge",
+            )
+            self.adapter.publish(record)
+            return False
 
-        twin_event = self._TwinEvent(
-            self._TwinEventType.HEARTBEAT_LOST,
-            source="edge_system",
-        )
+        if heartbeat_state == "heartbeat_lost":
+            twin_event = self._TwinEvent(
+                self._TwinEventType.HEARTBEAT_LOST,
+                source="edge_system",
+            )
+            summary = "heartbeat_lost"
+        else:
+            twin_event = self._TwinEvent(
+                self._TwinEventType.PROLONGED_DISCONNECT,
+                source="edge_system",
+            )
+            summary = "prolonged_disconnect"
         previous_state = self.context.state.value
         accepted = self.state_machine.apply(self.context, twin_event)
         current_state = self.context.state.value
         record = EdgeRecord(
-            kind="heartbeat_timeout",
+            kind="heartbeat_timeout" if heartbeat_state == "heartbeat_lost" else "disconnect_escalation",
             state=current_state,
             accepted=accepted,
-            summary="heartbeat_lost",
+            summary=summary,
             payload={"previous_state": previous_state, "current_state": current_state},
             source="edge",
         )

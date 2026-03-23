@@ -1,34 +1,42 @@
 # Diploma Workspace
 
-Этот репозиторий приведен к рабочей структуре для доведения проекта по `AGV Denford` от НИРС до ВКР.
+Этот репозиторий содержит архивную дипломную историю и активный инженерный контур проекта `AGV Denford`.
+
+Главное честное состояние на сейчас: здесь доказан `software-only MVP`, а не hardware-ready контур.
 
 ## Куда смотреть в первую очередь
 
-- [03_nirs/README.md](/Users/vladgurov/Desktop/study/7sem/diploma/03_nirs/README.md)
-- [04_vkr/README.md](/Users/vladgurov/Desktop/study/7sem/diploma/04_vkr/README.md)
-- [05_sources/README.md](/Users/vladgurov/Desktop/study/7sem/diploma/05_sources/README.md)
-- [08_obsidian_vault/00_Dashboard.md](/Users/vladgurov/Desktop/study/7sem/diploma/08_obsidian_vault/00_Dashboard.md)
-- [report.md](/Users/vladgurov/Desktop/study/7sem/diploma/report.md)
-- [reorg_and_vkr_plan.md](/Users/vladgurov/Desktop/study/7sem/diploma/reorg_and_vkr_plan.md)
+- [TOP_LEVEL_TRUTH_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/TOP_LEVEL_TRUTH_BASELINE.md)
+- [MASTER_EXECUTION_REPORT.md](/Users/vladgurov/Desktop/study/7sem/diploma/99_reports/execution/MASTER_EXECUTION_REPORT.md)
+- [SYSTEM_SCOPE.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_00_contract/SYSTEM_SCOPE.md)
+- [RELEASE_MANIFEST.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_06_integration/release_manifest.md)
+- [MVP_FREEZE_MANIFEST.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_07_polish/mvp_freeze_manifest.md)
+- [REPO_STRUCTURE_MANIFEST.md](/Users/vladgurov/Desktop/study/7sem/diploma/REPO_STRUCTURE_MANIFEST.md)
+
+## Что реально есть
+
+- Контракт системы в `06_engineering/06_00_contract/`.
+- Functional twin в `06_engineering/06_01_sim_twin/`.
+- Hardware-agnostic edge MVP в `06_engineering/06_02_edge/`.
+- Реальный локальный MQTT transport в `06_engineering/06_03_transport/`.
+- Backend MVP с `FastAPI`, MQTT ingest, dev/demo storage, REST и WebSocket в `06_engineering/06_04_backend/`.
+- Operator path и human UI для software-only demo в `06_engineering/06_05_operator/` и `06_engineering/06_08_ui/`.
+- Repeatable integration evidence и polished demo package в `06_engineering/06_06_integration/` и `06_engineering/06_07_polish/`.
+
+## Что нельзя заявлять
+
+- Что Webots уже реализован и доказан.
+- Что PostgreSQL уже внедрён и проверен как текущий runtime storage path.
+- Что Docker Compose deployment уже существует и валидирован.
+- Что Mosquitto deployment уже доказан как deployment baseline.
+- Что есть hardware readiness, Raspberry Pi binding или доказанная безопасность на реальном AGV.
 
 ## Верхнеуровневая структура
 
-- `01_admin` — бланки, чеклисты, административные материалы.
-- `02_methodology` — методичка и нормы оформления.
-- `03_nirs` — финальный НИРС, исходники и промежуточные версии.
-- `04_vkr` — основной рабочий контур будущей ВКР.
-- `05_sources` — база источников и сырой архив материалов дипломника.
-- `06_engineering` — практическая инженерная часть: железо, софт, протоколы, испытания.
-- `07_media` — схемы, изображения, презентации.
-- `08_obsidian_vault` — база знаний для Obsidian.
+- `03_nirs` — завершённый НИРС и его история.
+- `04_vkr` — история и текущие черновики ВКР-текста.
+- `05_sources` — база источников и технических референсов.
+- `06_engineering` — активная инженерная зона software-only MVP.
+- `07_media` — схемы, изображения и презентационные материалы.
 - `09_archive` — старые, сырые и второстепенные материалы.
-- `10_tools` — служебные скрипты.
-
-## Принцип работы
-
-1. Новые файлы сначала класть в `00_inbox`.
-2. После разбора переносить их в целевой раздел.
-3. Все текущее написание ВКР вести через `04_vkr`.
-4. Все быстрые выводы, связи и TODO фиксировать в `08_obsidian_vault`.
-5. Ничего сомнительного не удалять, а уводить в `09_archive`.
-
+- `99_reports` — execution reports, audits и planning artifacts.

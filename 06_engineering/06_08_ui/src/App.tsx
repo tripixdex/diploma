@@ -30,15 +30,15 @@ export default function App() {
     <main className="mx-auto max-w-7xl overflow-x-clip px-6 py-8">
       <div className="mb-8 flex items-center justify-between gap-4">
         <div className="min-w-0">
-          <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Stage 7D.1</p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight">Human UI for AGV Denford MVP</h1>
+          <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Stage 7F</p>
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight">Операторский экран AGV Denford MVP</h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">
-            One calm screen for the whole software-only chain: choose a mode, send a motion command, and immediately see whether the system accepted or rejected it.
+            Один экран для всего software-only контура: выберите режим, отправьте команду движения и сразу увидьте, была ли она только опубликована, принята или отклонена.
           </p>
         </div>
         <Button variant="outline" onClick={() => void refresh()}>
           <RefreshCcw className="mr-2 h-4 w-4" />
-          Refresh snapshot
+          Обновить снимок
         </Button>
       </div>
 
@@ -68,8 +68,8 @@ export default function App() {
       </div>
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[1fr,1fr,1fr]">
-        <RecordList title="Recent events" description="Audit, alarms, and degraded evidence" records={recentEvents} />
-        <RecordList title="Recent commands" description="Commands observed by backend ingest" records={recentCommands} />
+        <RecordList title="Последние события" description="Audit, alarm и признаки деградации" records={recentEvents} />
+        <RecordList title="Последние команды" description="Команды, которые backend увидел на входе" records={recentCommands} />
         <LiveUpdatesPanel frames={liveFrames} wsState={wsState} />
       </div>
     </main>

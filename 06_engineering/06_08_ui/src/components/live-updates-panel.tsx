@@ -15,17 +15,19 @@ export function LiveUpdatesPanel({
   return (
     <Card className="h-full min-w-0 overflow-hidden">
       <CardHeader>
-        <CardDescription>Compact live updates with optional raw details</CardDescription>
+        <CardDescription>Короткие live-обновления с необязательными сырыми деталями</CardDescription>
         <CardTitle className="flex items-center gap-2">
           <ActivitySquare className="h-5 w-5 text-primary" />
-          Live activity
+          Живая активность
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-3 min-w-0">
-        <Badge variant={wsState === "live" ? "success" : wsState === "connecting" ? "info" : "warning"}>{wsState}</Badge>
+        <Badge variant={wsState === "live" ? "success" : wsState === "connecting" ? "info" : "warning"}>
+          {wsState === "live" ? "live" : wsState === "connecting" ? "подключение" : "idle"}
+        </Badge>
         <div className="max-h-[32rem] space-y-3 overflow-y-auto pr-1">
           {frames.length === 0 ? (
-            <div className="rounded-2xl bg-secondary/50 p-4 text-sm text-muted-foreground">No live frames received yet.</div>
+            <div className="rounded-2xl bg-secondary/50 p-4 text-sm text-muted-foreground">Live-кадры ещё не получены.</div>
           ) : (
             frames.map((frame, index) => {
               const summary = summarizeLiveFrame(frame);
@@ -55,7 +57,7 @@ export function LiveUpdatesPanel({
                   <div className="mt-2 text-sm text-foreground">{summary.summary}</div>
                   <div className="mt-1 text-sm text-muted-foreground">{summary.detail}</div>
                   <details className="mt-3">
-                    <summary className="cursor-pointer text-xs font-semibold text-primary">Show raw frame</summary>
+                    <summary className="cursor-pointer text-xs font-semibold text-primary">Показать сырой кадр</summary>
                     <pre className="mt-2 overflow-x-auto whitespace-pre-wrap break-words rounded-xl bg-slate-950 p-3 font-mono text-xs text-slate-100">
                       {JSON.stringify(frame, null, 2)}
                     </pre>

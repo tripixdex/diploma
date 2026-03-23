@@ -7,6 +7,12 @@ All V1 topics use the namespace:
 
 This namespace is contract-level and is independent from broker host, deployment topology, or containerization details.
 
+## Current MVP Honesty Note
+The current software-only MVP does not implement `MAINTENANCE`. For this stage, the authoritative runtime and evidence subset is:
+- states: `INIT`, `IDLE`, `MANUAL`, `AUTO_LINE`, `SAFE_STOP`, `ESTOP_LATCHED`, `FAULT`, `DISCONNECTED_DEGRADED`;
+- mode commands: `MANUAL`, `AUTO_LINE`;
+- reset actions: `clear_safe_stop` from `SAFE_STOP`, `estop_reset` from `ESTOP_LATCHED`.
+
 ## Topic List
 | Topic | Direction | Publisher | Subscriber | Purpose |
 | --- | --- | --- | --- | --- |
@@ -60,8 +66,8 @@ All V1 MQTT payloads are JSON objects with the following contract fields:
   "ts": "2026-03-22T12:00:00Z",
   "source": "edge|backend|operator",
   "type": "command|status|telemetry|alarm|fault|audit|heartbeat",
-  "mode": "INIT|IDLE|MANUAL|AUTO_LINE|SAFE_STOP|ESTOP_LATCHED|FAULT|DISCONNECTED_DEGRADED|MAINTENANCE",
-  "state": "INIT|IDLE|MANUAL|AUTO_LINE|SAFE_STOP|ESTOP_LATCHED|FAULT|DISCONNECTED_DEGRADED|MAINTENANCE",
+  "mode": "INIT|IDLE|MANUAL|AUTO_LINE|SAFE_STOP|ESTOP_LATCHED|FAULT|DISCONNECTED_DEGRADED",
+  "state": "INIT|IDLE|MANUAL|AUTO_LINE|SAFE_STOP|ESTOP_LATCHED|FAULT|DISCONNECTED_DEGRADED",
   "severity": "info|warning|critical",
   "payload": {},
   "corr_id": "optional-correlation-id",
@@ -185,4 +191,5 @@ All V1 MQTT payloads are JSON objects with the following contract fields:
 - Edge publishes `agv/denford/v1/health/heartbeat` at a nominal 1 Hz cadence.
 - Each heartbeat includes controller state, current mode, and link health summary in `payload`.
 - If heartbeat age exceeds 3 seconds on the consumer side, communications must be treated as degraded.
-- If heartbeat loss affects motion-capable states, the controller must transition to `DISCONNECTED_DEGRADED` and then to `SAFE_STOP` if uncertainty persists.
+- If heartbeat loss affects motion-capable states, the controller must transition to `DISCONNECTED_DEGRADED`.
+- If degraded heartbeat loss persists beyond the grace window, the current MVP must escalate to `SAFE_STOP` and publish `reason=prolonged_disconnect`.

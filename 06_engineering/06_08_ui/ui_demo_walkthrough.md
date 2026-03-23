@@ -1,34 +1,29 @@
 # UI Demo Walkthrough
 
-## Main Screen In Plain Language
-- The top card answers: what state is the system in, is the link alive, and what should the operator do next.
-- The control card answers: what button to press first, what values to enter, and how to tell whether the command was only sent or truly accepted.
-- The lower cards answer: what just happened, what commands were seen, what motion evidence exists, and what live updates are coming now.
+## Что видно на главном экране
+- Верхняя карточка отвечает на три вопроса: в каком состоянии система, жива ли связь, что оператору делать дальше.
+- Карточка управления отвечает на три вопроса: какую кнопку нажать первой, какие значения вводить, была ли команда только опубликована или реально принята.
+- Нижние карточки показывают: какие события пришли, какие команды backend увидел на входе, есть ли телеметрия, и что идёт по live-каналу прямо сейчас.
 
-## Recommended Manual Demo Order
-1. Open the UI and point at the main state card.
-2. Read the short explanation aloud: the screen should tell a non-developer what is happening now.
-3. Show the operator flow card on the right: first choose mode, then send movement, then observe result.
-4. Send `MANUAL` mode.
-5. Show that the command first appears as dispatched, then later as accepted or rejected based on event evidence.
-6. Send a small manual command such as `0.15 m/s` and `0.00 rad/s`.
-7. Point at telemetry snapshot and live activity to show that the backend and MQTT path reacted.
-8. Try the reset action and show the honest rejection if the contract blocks it.
-9. Let heartbeat loss push the system into degraded mode and show that the top card explains the situation in plain language.
+## Рекомендуемый порядок показа
+1. Откройте UI и укажите на верхнюю карточку состояния.
+2. Вслух прочитайте краткое объяснение: экран должен быть понятен не только разработчику.
+3. Покажите карточку порядка работы справа: сначала режим, потом движение, потом проверка результата.
+4. Отправьте `MANUAL`.
+5. Покажите, что команда сначала становится `отправлено`, а затем только по audit-событию переходит в `принято` или `отклонено`.
+6. Отправьте небольшую manual-команду, например `0.15 м/с` и `0.00 рад/с`.
+7. Укажите на телеметрию и live-активность, чтобы показать реакцию backend и MQTT-контура.
+8. Нажмите reset-кнопку вне `SAFE_STOP` и покажите честный отказ backend до публикации, если состояние не подходит.
+9. Дайте heartbeat-loss дойти до деградации, а затем до `SAFE_STOP`, чтобы экран показал не только начальную деградацию, но и эскалацию при затяжной потере связи.
 
-## What The Supervisor Sees
-- one calm screen instead of raw console logs;
-- obvious current state and next step;
-- compact human-readable events with optional raw debug details;
-- honest visibility of accepted, rejected, and degraded outcomes.
+## Что это доказывает
+- backend REST и WebSocket пригодны для human-facing контура;
+- операторская команда не считается принятой только потому, что она была отправлена;
+- основной экран последовательно русскоязычный и не заставляет человека читать сырые логи;
+- затяжная потеря связи теперь имеет видимое поведение, а не только текстовое обещание.
 
-## What This Proves
-- backend REST + WebSocket are usable by a human-facing client;
-- operator commands still go through the frozen MVP chain;
-- the UI no longer hides cause and effect behind developer language.
-
-## What This Does Not Prove
-- real Raspberry Pi binding;
-- real AGV wiring;
-- GPIO access;
-- hardware-phase performance.
+## Что это не доказывает
+- реальный Raspberry Pi binding;
+- реальную проводку AGV;
+- GPIO и физические interlock-цепи;
+- hardware-phase timing и real-world reliability.

@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 
 def utc_now_iso() -> str:
@@ -46,15 +46,52 @@ class ModeCommandRequest(BaseModel):
     requested_mode: str = Field(min_length=1)
     corr_id: str | None = None
 
+    @field_validator("requested_mode")
+    @classmethod
+    def validate_requested_mode(cls, value: str) -> str:
+        if value not in {"MANUAL", "AUTO_LINE"}:
+            raise ValueError("Разрешены только mode-команды MANUAL и AUTO_LINE.")
+        return value
+
 
 class ManualCommandRequest(BaseModel):
-    linear: float
-    angular: float
+    linear: float = Field(ge=-0.3, le=0.3)
+    angular: float = Field(ge=-1.0, le=1.0)
     duration_ms: int = Field(default=500, ge=100, le=5000)
     corr_id: str | None = None
+
+    @field_validator("linear", "angular")
+    @classmethod
+    def reject_nan(cls, value: float) -> float:
+        if value != value:
+            raise ValueError("Числовые поля manual-команды не могут быть NaN.")
+        return value
 
 
 class ResetCommandRequest(BaseModel):
     reset_action: str = Field(min_length=1)
     state: str = Field(min_length=1)
     corr_id: str | None = None
+
+    @field_validator("reset_action")
+    @classmethod
+    def validate_reset_action(cls, value: str) -> str:
+        if value not in {"clear_safe_stop", "estop_reset"}:
+            raise ValueError("Разрешены только reset-действия clear_safe_stop и estop_reset.")
+        return value
+
+    @field_validator("state")
+    @classmethod
+    def validate_state(cls, value: str) -> str:
+        if value not in {"SAFE_STOP", "ESTOP_LATCHED"}:
+            raise ValueError("Reset допустим только для состояний SAFE_STOP и ESTOP_LATCHED.")
+        return value
+
+    @model_validator(mode="after")
+    def validate_reset_pair(self) -> "ResetCommandRequest":
+        expected_state = "SAFE_STOP" if self.reset_action == "clear_safe_stop" else "ESTOP_LATCHED"
+        if self.state != expected_state:
+            raise ValueError(
+                f"Действие {self.reset_action} разрешено только из состояния {expected_state}."
+            )
+        return self

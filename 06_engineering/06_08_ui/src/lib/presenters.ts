@@ -19,15 +19,20 @@ export type StateStory = {
 const REASON_LABELS: Record<string, string> = {
   heartbeat_lost: "Связь с контуром управления потеряна.",
   link_degraded: "Связь прервалась, поэтому система ушла в безопасный деградированный режим.",
+  prolonged_disconnect: "Потеря связи затянулась, поэтому система дополнительно перешла в SAFE_STOP.",
+  waiting_link_restore: "Связь всё ещё не восстановлена, система ждёт восстановления канала.",
   invalid_command: "Команда не соответствует текущему контракту.",
   illegal_transition: "Такой переход между состояниями сейчас запрещён.",
   manual_command_accepted: "Ручная команда принята и обработана.",
   manual_command_outside_manual_mode: "Ручное движение разрешено только в режиме MANUAL.",
   manual_command_blocked_by_safety: "Ручное движение заблокировано логикой безопасности.",
+  manual_drive_outside_manual_mode: "Локальная проверка отвергла ручное движение вне режима MANUAL.",
+  manual_drive_blocked_by_local_safety: "Локальная проверка безопасности заблокировала ручное движение.",
   unsupported_mode_request: "Запрошенный режим не поддерживается в этом MVP.",
   unsupported_operator_request: "Команда не поддерживается операторским контуром.",
   unsupported_reset_action: "Такой тип сброса не поддерживается текущим контрактом.",
   mode_request_not_allowed_in_current_state: "Режим нельзя менять из текущего состояния.",
+  auto_line_request_blocked_by_link_state: "AUTO_LINE запрещён, пока связь уже находится в деградации.",
   clear_safe_stop: "Запрошена попытка снять safe stop.",
 };
 
@@ -42,12 +47,16 @@ function startCaseToken(value: string): string {
 
 export function humanizeEnum(value: string | null | undefined): string {
   if (!value) {
-    return "Unknown";
+    return "Неизвестно";
   }
-  if (value === "AUTO_LINE") return "Auto line";
-  if (value === "SAFE_STOP") return "Safe stop";
-  if (value === "ESTOP_LATCHED") return "Emergency stop latched";
-  if (value === "DISCONNECTED_DEGRADED") return "Disconnected / degraded";
+  if (value === "INIT") return "Инициализация";
+  if (value === "IDLE") return "Ожидание";
+  if (value === "MANUAL") return "Ручной";
+  if (value === "AUTO_LINE") return "Автолиния";
+  if (value === "SAFE_STOP") return "Безопасная остановка";
+  if (value === "ESTOP_LATCHED") return "Аварийный стоп";
+  if (value === "FAULT") return "Ошибка";
+  if (value === "DISCONNECTED_DEGRADED") return "Потеря связи / деградация";
   return startCaseToken(value);
 }
 
@@ -73,14 +82,14 @@ export function describeState(state: string | null | undefined, mode: string | n
     case "MANUAL":
       return {
         stateLabel: "Ручное управление активно",
-        modeLabel: "Manual",
+        modeLabel: "Ручной",
         explanation: "Оператор может отправлять небольшие ручные команды движения и сразу наблюдать результат.",
-        nextStep: "Отправьте короткую manual-команду и смотрите события, телеметрию и live updates.",
+        nextStep: "Отправьте короткую команду ручного движения и смотрите события, телеметрию и live-обновления.",
       };
     case "AUTO_LINE":
       return {
         stateLabel: "Автоматический режим активен",
-        modeLabel: "Auto line",
+        modeLabel: "Автолиния",
         explanation: "Система находится в автоматическом режиме движения по линии внутри software-only MVP.",
         nextStep: "Наблюдайте статус и события; ручная команда здесь не является основной.",
       };
@@ -103,7 +112,7 @@ export function describeState(state: string | null | undefined, mode: string | n
         stateLabel: "Связь потеряна, режим деградации",
         modeLabel: humanizeEnum(normalizedMode),
         explanation: "Heartbeat или link supervision перестали подтверждаться, поэтому система ограничила поведение.",
-        nextStep: "Наблюдайте alert и ждите восстановления связи; не ожидайте нормального движения до восстановления контура.",
+        nextStep: "Наблюдайте предупреждения и ждите восстановления связи; если потеря затянется, контур уйдёт в SAFE_STOP.",
       };
     case "FAULT":
       return {
@@ -117,7 +126,7 @@ export function describeState(state: string | null | undefined, mode: string | n
         stateLabel: humanizeEnum(normalizedState),
         modeLabel: humanizeEnum(normalizedMode),
         explanation: "Статус получен, но для этого состояния ещё нет отдельного человеко-понятного сценария.",
-        nextStep: "Проверьте события и live updates, чтобы понять последнее действие системы.",
+        nextStep: "Проверьте события и live-обновления, чтобы понять последнее действие системы.",
       };
   }
 }
@@ -189,15 +198,15 @@ export function summarizeLiveFrame(frame: LiveFrame): HumanSummary {
   const type = String(frame.type ?? "");
   if (type === "ws_status") {
     return {
-      title: "Live stream подключён",
+      title: "Live-поток подключён",
       summary: "Backend WebSocket активен и передаёт свежие обновления.",
-      detail: "Теперь новые события и статусы должны появляться без ручного refresh.",
+      detail: "Теперь новые события и статусы должны появляться без ручного обновления.",
       tone: "success",
     };
   }
   if (type === "ws_keepalive") {
     return {
-      title: "Keepalive",
+      title: "Служебный keepalive",
       summary: "Соединение живо, новых доменных событий в этом кадре нет.",
       detail: "Это служебный heartbeat кадр WebSocket.",
       tone: "info",

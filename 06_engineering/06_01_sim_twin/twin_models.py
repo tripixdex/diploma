@@ -32,6 +32,7 @@ class TwinEventType(str, Enum):
     FAULT_DETECTED = "fault_detected"
     FAULT_RESET_ACCEPTED = "fault_reset_accepted"
     HEARTBEAT_LOST = "heartbeat_lost"
+    PROLONGED_DISCONNECT = "prolonged_disconnect"
     LINK_RESTORED_AND_SAFE = "link_restored_and_safe"
     AUTO_LINE_COMPLETE = "auto_line_complete"
     MANUAL_COMMAND = "manual_command"
@@ -61,4 +62,3 @@ class TwinContext:
     link_ok: bool = True
     traction_enabled: bool = False
     last_reason: str | None = None
-

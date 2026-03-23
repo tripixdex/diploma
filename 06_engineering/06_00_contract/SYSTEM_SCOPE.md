@@ -1,7 +1,7 @@
 # System Scope
 
 ## V1 Working Result
-V1 of the AGV Denford modernization project is a simulation-first edge + cloud prototype for supervised motion command exchange, telemetry delivery, operator visibility, and evidence-oriented validation using Python, MQTT, FastAPI, PostgreSQL, Docker Compose, and Webots.
+V1 of the AGV Denford modernization project is a simulation-first, software-only edge + cloud MVP for supervised command exchange, telemetry delivery, operator visibility, and evidence-oriented validation.
 
 ## In Scope
 - Simulation-first architecture for AGV Denford modernization.
@@ -11,6 +11,7 @@ V1 of the AGV Denford modernization project is a simulation-first edge + cloud p
 - Operator-facing monitoring and control boundary definition.
 - Stage-based engineering execution with explicit evidence collection.
 - Validation artifacts required to prove implementation incrementally.
+- Honest separation between software-only evidence and deferred hardware claims.
 
 ## Out of Scope
 - ROS 2 in MVP.
@@ -19,11 +20,13 @@ V1 of the AGV Denford modernization project is a simulation-first edge + cloud p
 - Full digital twin overengineering beyond simulation needed for MVP validation.
 - Hardware-specific optimization for a single confirmed Raspberry Pi revision at this stage.
 - Claims of real hardware functionality before evidence exists.
+- Claiming Webots, PostgreSQL, Docker Compose, or production deployment as implemented truth unless separately evidenced.
 
 ## Fixed Architectural Principles
 - Architecture is edge + cloud.
 - Transport baseline is MQTT.
-- Core implementation stack for V1 is Python, Eclipse Paho MQTT, Eclipse Mosquitto, FastAPI, PostgreSQL, Docker Compose, and Webots.
+- Current evidenced implementation baseline is Python, local MQTT-backed transport, FastAPI backend, dev/demo storage, and software-only operator/UI paths.
+- Approved but not yet evidenced as current implemented truth: PostgreSQL runtime storage, Docker Compose deployment, Mosquitto deployment baseline, Webots integration.
 - Architecture must remain portable across Raspberry Pi 4 and fallback Raspberry Pi Model B+ / 3B+ assumptions until exact hardware is confirmed.
 - Interfaces must be defined before implementation claims are made.
 - Legacy materials remain reference inputs, not implementation evidence.
@@ -37,7 +40,8 @@ V1 of the AGV Denford modernization project is a simulation-first edge + cloud p
 
 ## Fixed Simulation-First Principle
 - Simulation is the first execution target.
-- Webots is the approved MVP simulation environment.
+- Functional software-only simulation is evidenced now.
+- Webots remains an approved direction, but is NOT evidenced as current implemented scope in this repository baseline.
 - No hardware-dependent implementation may block progress on architecture, interfaces, or backend/server preparation.
 - Simulation evidence is valid only for simulation claims, not for physical AGV claims.
 
@@ -52,7 +56,7 @@ V1 of the AGV Denford modernization project is a simulation-first edge + cloud p
 - Edge layer receives command through MQTT and prepares bounded actuation decision path.
 - Edge layer publishes status and telemetry to server side.
 - Server persists telemetry and exposes operator-visible system state.
-- Simulation run produces evidence artifacts for repeatable validation.
+- Software-only run produces evidence artifacts for repeatable validation.
 
 ## Stage Progression Rule
 No next stage may begin as an implementation stage until the current stage gate is explicitly closed in the relevant stage report.

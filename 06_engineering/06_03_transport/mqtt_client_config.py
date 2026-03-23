@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import os
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -23,6 +24,16 @@ def _load_shared_constants_module():
 SIM_CONSTANTS = _load_shared_constants_module()
 
 
+def _env_int(name: str, default: int) -> int:
+    raw_value = os.getenv(name)
+    if raw_value is None:
+        return default
+    try:
+        return int(raw_value)
+    except ValueError as exc:
+        raise RuntimeError(f"Environment variable {name} must be an integer, got {raw_value!r}") from exc
+
+
 @dataclass(frozen=True, slots=True)
 class TopicPolicy:
     topic: str
@@ -32,9 +43,9 @@ class TopicPolicy:
 
 @dataclass(frozen=True, slots=True)
 class BrokerConfig:
-    host: str = "127.0.0.1"
-    port: int = 18884
-    keepalive: int = 30
+    host: str = os.getenv("AGV_MQTT_HOST", "127.0.0.1")
+    port: int = _env_int("AGV_MQTT_PORT", 18884)
+    keepalive: int = _env_int("AGV_MQTT_KEEPALIVE", 30)
 
 
 @dataclass(frozen=True, slots=True)

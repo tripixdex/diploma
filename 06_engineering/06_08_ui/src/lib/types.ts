@@ -25,6 +25,9 @@ export type CommandReceipt = {
   published: boolean;
   topic: string;
   payload: string;
+  msg_id?: string | null;
+  corr_id?: string | null;
+  ack_required?: boolean;
   qos: number;
   retain: boolean;
 };

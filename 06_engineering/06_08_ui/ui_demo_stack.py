@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import asyncio
 import importlib.util
+import os
+import socket
 import signal
 import sys
 import threading
@@ -103,7 +105,29 @@ class UvicornThread:
             self._thread.join(timeout=5)
 
 
+def _can_bind(host: str, port: int) -> bool:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        try:
+            sock.bind((host, port))
+        except OSError:
+            return False
+    return True
+
+
+def _select_broker_port(default_port: int) -> tuple[int, str]:
+    host = "127.0.0.1"
+    if _can_bind(host, default_port):
+        return default_port, "default"
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.bind((host, 0))
+        selected_port = sock.getsockname()[1]
+    return selected_port, f"fallback_from_{default_port}"
+
+
 def main() -> None:
+    selected_port, selection_mode = _select_broker_port(18884)
+    os.environ["AGV_MQTT_PORT"] = str(selected_port)
     transport_dir = Path(__file__).resolve().parents[1] / "06_03_transport"
     backend_dir = Path(__file__).resolve().parents[1] / "06_04_backend"
 
@@ -159,6 +183,7 @@ def main() -> None:
 
     print("ui_demo_stack_started")
     print(f"broker={broker_config.host}:{broker_config.port}")
+    print(f"broker_port_selection={selection_mode}")
     print("backend=http://127.0.0.1:8011")
     print("ws=ws://127.0.0.1:8011/ws/live")
     print("heartbeat_scheduler=enabled")

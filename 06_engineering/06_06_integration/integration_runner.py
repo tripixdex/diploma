@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import asyncio
 import importlib.util
+import os
+import socket
 import sys
 import threading
 import time
@@ -150,7 +152,29 @@ def _find_record(records: list[dict[str, Any]], *, category: str | None = None, 
     return None
 
 
+def _can_bind(host: str, port: int) -> bool:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        try:
+            sock.bind((host, port))
+        except OSError:
+            return False
+    return True
+
+
+def _select_broker_port(default_port: int) -> tuple[int, str]:
+    host = "127.0.0.1"
+    if _can_bind(host, default_port):
+        return default_port, "default"
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.bind((host, 0))
+        selected_port = sock.getsockname()[1]
+    return selected_port, f"fallback_from_{default_port}"
+
+
 def main() -> None:
+    selected_port, selection_mode = _select_broker_port(18884)
+    os.environ["AGV_MQTT_PORT"] = str(selected_port)
     transport = _load_transport_bundle()
     backend = _load_backend_bundle()
     operator = _load_operator_bundle()
@@ -161,6 +185,7 @@ def main() -> None:
     broker = EmbeddedBroker(broker_config.host, broker_config.port)
     broker.start()
     print(f"[integration] broker_started host={broker_config.host} port={broker_config.port}")
+    print(f"[integration] broker_port_selection={selection_mode}")
 
     backend_context = backend["build_backend_context"]()
     app = backend["create_backend_app"](backend_context)
@@ -202,7 +227,7 @@ def main() -> None:
             command_publisher.send_manual_command(0.15, 0.0, corr_id="integration-manual-001")
             command_publisher.send_mode_command("UNSUPPORTED_MODE", corr_id="integration-mode-002")
             command_publisher.send_reset_command("clear_safe_stop", state="MANUAL", corr_id="integration-reset-001")
-            for _ in range(3):
+            for _ in range(5):
                 edge_gateway.heartbeat_tick()
                 time.sleep(0.5)
 
@@ -223,6 +248,7 @@ def main() -> None:
         reset_behavior_audit = None
         degraded_alarm = None
         degraded_heartbeat = None
+        safe_stop_alarm = None
         for record in reversed(recent_events):
             payload = record.get("payload", {})
             if record.get("topic") == sim_constants.TOPIC_EVENT_AUDIT and payload.get("result") == "rejected":
@@ -232,6 +258,8 @@ def main() -> None:
                     reset_behavior_audit = record
             if record.get("topic") == sim_constants.TOPIC_EVENT_ALARM and payload.get("reason") == "link_degraded":
                 degraded_alarm = record
+            if record.get("topic") == sim_constants.TOPIC_EVENT_ALARM and payload.get("reason") == "prolonged_disconnect":
+                safe_stop_alarm = record
             if record.get("topic") == sim_constants.TOPIC_HEALTH_HEARTBEAT and payload.get("link_ok") is False:
                 degraded_heartbeat = record
 
@@ -249,8 +277,8 @@ def main() -> None:
                 ),
                 ScenarioResult(
                     "edge emits status/telemetry/event",
-                    accepted_mode_audit is not None and manual_telemetry is not None and degraded_alarm is not None,
-                    f"audit={accepted_mode_audit is not None} telemetry={manual_telemetry is not None} degraded_alarm={degraded_alarm is not None}",
+                    accepted_mode_audit is not None and manual_telemetry is not None and degraded_alarm is not None and safe_stop_alarm is not None,
+                    f"audit={accepted_mode_audit is not None} telemetry={manual_telemetry is not None} degraded_alarm={degraded_alarm is not None} safe_stop_alarm={safe_stop_alarm is not None}",
                 ),
                 ScenarioResult(
                     "backend stores and serves data",
@@ -263,9 +291,9 @@ def main() -> None:
                     f"live_frames={len(live_frames)}",
                 ),
                 ScenarioResult(
-                    "heartbeat timeout -> degraded path",
-                    final_status is not None and final_status.get("state") == "DISCONNECTED_DEGRADED" and degraded_alarm is not None and degraded_heartbeat is not None,
-                    f"final_state={None if final_status is None else final_status.get('state')} degraded_alarm={degraded_alarm is not None} degraded_heartbeat={degraded_heartbeat is not None}",
+                    "heartbeat timeout -> degraded -> safe stop",
+                    final_status is not None and final_status.get("state") == "SAFE_STOP" and degraded_alarm is not None and degraded_heartbeat is not None and safe_stop_alarm is not None,
+                    f"final_state={None if final_status is None else final_status.get('state')} degraded_alarm={degraded_alarm is not None} degraded_heartbeat={degraded_heartbeat is not None} safe_stop_alarm={safe_stop_alarm is not None}",
                 ),
                 ScenarioResult(
                     "invalid command rejection",

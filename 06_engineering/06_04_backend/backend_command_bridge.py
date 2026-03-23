@@ -81,11 +81,15 @@ class BackendCommandBridge:
         if not self._started:
             self.start()
         result = self.client.publish(topic, payload, qos=qos, retain=retain)
+        decoded_payload = self.codec.decode_payload(payload.encode("utf-8"))
         print(f"[backend-command-publish] topic={topic} qos={qos} retain={retain} rc={result.rc}")
         return {
             "published": result.rc == mqtt.MQTT_ERR_SUCCESS,
             "topic": topic,
             "payload": payload,
+            "msg_id": decoded_payload.get("msg_id"),
+            "corr_id": decoded_payload.get("corr_id"),
+            "ack_required": decoded_payload.get("ack_required"),
             "qos": qos,
             "retain": retain,
         }

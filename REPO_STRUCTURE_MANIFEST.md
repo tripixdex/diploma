@@ -5,10 +5,15 @@
 ### Active engineering zone
 - `06_engineering/06_00_contract/` — действующий системный контракт V1.
 - `06_engineering/06_01_sim_twin/` — действующий functional twin и Stage 2 evidence.
-- `06_engineering/06_02_edge/` — placeholder для будущего Stage 3, реализации пока нет.
-- `06_engineering/06_03_server/` — placeholder для будущего server stage, реализации пока нет.
-- `06_engineering/06_04_testing/` — placeholder для будущих testing artifacts, кроме contract/sim evidence.
-- `06_engineering/06_05_deployment/` — placeholder для будущего deployment contour, реализации пока нет.
+- `06_engineering/06_02_edge/` — hardware-agnostic edge MVP.
+- `06_engineering/06_03_transport/` — локальный MQTT transport contour.
+- `06_engineering/06_04_backend/` — backend MVP с MQTT ingest, REST и WebSocket.
+- `06_engineering/06_05_operator/` — минимальный operator-facing contour.
+- `06_engineering/06_06_integration/` — repeatable software-only integration evidence и freeze artifacts.
+- `06_engineering/06_07_polish/` — polished demo package и pre-hardware preparation docs.
+- `06_engineering/06_08_ui/` — human UI для software-only MVP.
+- `06_engineering/06_01_hardware/` — hardware survey zone; hardware-specific runtime пока не является источником реализованной логики.
+- `06_engineering/06_02_software/`, `06_engineering/06_03_server/`, `06_engineering/06_04_testing/`, `06_engineering/06_05_deployment/` — legacy placeholder zones; не считать их текущим source of truth без отдельных evidenced artifacts.
 
 ### Reports
 - `99_reports/execution/` — stage-by-stage execution reports.

@@ -37,10 +37,10 @@
 - Trigger: mode/manual/degraded flow occurs.
 - Expected result: operator receives live frames including handshake plus contract-shaped updates.
 
-### 8. Heartbeat timeout -> degraded path
+### 8. Heartbeat timeout -> degraded -> safe stop path
 - Preconditions: current state `MANUAL`.
 - Trigger: integration runner advances heartbeat ticks until timeout.
-- Expected result: edge transitions to `DISCONNECTED_DEGRADED`, publishes audit + status + alarm + heartbeat, backend stores them, operator sees degraded evidence.
+- Expected result: edge first transitions to `DISCONNECTED_DEGRADED`, then escalates to `SAFE_STOP` if disconnect persists, publishes audit + status + alarm + heartbeat, backend stores them, operator sees both degraded and escalation evidence.
 
 ### 9. Invalid command rejection
 - Preconditions: operator command path active.

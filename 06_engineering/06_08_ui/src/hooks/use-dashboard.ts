@@ -6,7 +6,10 @@ import { humanizeEnum, humanizeReason } from "@/lib/presenters";
 
 type CommandIntent = {
   corrId: string;
+  commandMsgId: string | null;
   label: string;
+  timeoutMs: number;
+  sentAtMs: number;
 };
 
 type CommandOutcome = {
@@ -36,6 +39,33 @@ function buildCorrId(prefix: string) {
   return `${prefix}-${Date.now()}`;
 }
 
+function timeoutForCommand(kind: "mode" | "manual" | "reset") {
+  if (kind === "manual") return 1000;
+  if (kind === "reset") return 3000;
+  return 2000;
+}
+
+function buildRejectedOutcome(label: string, detail: string): CommandOutcome {
+  return {
+    status: "rejected",
+    title: `${label}: отклонено`,
+    detail,
+  };
+}
+
+function describeDispatchError(err: unknown): string {
+  if (!(err instanceof Error)) {
+    return "Команда отклонена до публикации. Детали ошибки недоступны.";
+  }
+  const normalized = err.message.replace(/^POST failed:\s*/i, "");
+  if (normalized.includes("Разрешены только mode-команды")) return "Backend отверг mode-команду: разрешены только MANUAL и AUTO_LINE.";
+  if (normalized.includes("Разрешены только reset-действия")) return "Backend отверг reset-запрос: действие не входит в allowlist.";
+  if (normalized.includes("Reset допустим только")) return normalized.split("] ").pop() ?? normalized;
+  if (normalized.includes("Числовые поля manual-команды")) return normalized.split("] ").pop() ?? normalized;
+  if (normalized.includes("Input should be")) return "Backend отверг команду из-за неверного типа или формата поля.";
+  return `Команда отклонена до публикации: ${normalized}`;
+}
+
 export function useDashboard(): DashboardState {
   const [health, setHealth] = useState<BackendHealth | null>(null);
   const [currentStatus, setCurrentStatus] = useState<BackendRecord | null>(null);
@@ -46,6 +76,7 @@ export function useDashboard(): DashboardState {
   const [wsState, setWsState] = useState<"connecting" | "live" | "idle">("connecting");
   const [lastDispatch, setLastDispatch] = useState<CommandReceipt | { published: false; topic: string; payload: string; qos: number; retain: false } | null>(null);
   const [lastIntent, setLastIntent] = useState<CommandIntent | null>(null);
+  const [lastImmediateOutcome, setLastImmediateOutcome] = useState<CommandOutcome | null>(null);
   const [error, setError] = useState<string | null>(null);
   const wsRef = useRef<WebSocket | null>(null);
 
@@ -65,43 +96,56 @@ export function useDashboard(): DashboardState {
       setRecentTelemetry(nextTelemetry);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "unknown_refresh_error");
+      setError(err instanceof Error ? `Не удалось обновить данные: ${err.message}` : "Не удалось обновить данные с backend.");
     }
   }, []);
 
-  const lastOutcome = useMemo<CommandOutcome | null>(() => {
+  const derivedOutcome = useMemo<CommandOutcome | null>(() => {
     if (!lastIntent) {
       return null;
     }
-    const matchingEvent = recentEvents.find((record) => record.corr_id === lastIntent.corrId) ?? null;
+    const linkedCommand =
+      recentCommands.find(
+        (record) =>
+          (lastIntent.commandMsgId !== null && record.msg_id === lastIntent.commandMsgId) || record.corr_id === lastIntent.corrId,
+      ) ?? null;
+    const auditCorrId = lastIntent.commandMsgId ?? linkedCommand?.msg_id ?? null;
+    const matchingEvent =
+      recentEvents.find((record) => record.type === "audit" && auditCorrId !== null && record.corr_id === auditCorrId) ?? null;
     if (!matchingEvent) {
+      const elapsedMs = Date.now() - lastIntent.sentAtMs;
+      const timedOut = elapsedMs > lastIntent.timeoutMs;
       return {
         status: "dispatched",
-        title: `${lastIntent.label} sent`,
-        detail: "The backend published the command. Now wait for an audit/event result from the edge runtime.",
+        title: timedOut ? `${lastIntent.label}: нет подтверждения` : `${lastIntent.label}: отправлено`,
+        detail: timedOut
+          ? `Команда опубликована, но за ${lastIntent.timeoutMs} мс не пришёл audit-результат от edge. Считать её неподтверждённой, пока не появится accepted/rejected evidence.`
+          : "Backend опубликовал команду. Теперь ждите audit-результат от edge, который подтвердит accepted или rejected.",
       };
     }
     const result = String(matchingEvent.payload?.result ?? "");
     if (result === "accepted") {
       return {
         status: "accepted",
-        title: `${lastIntent.label} accepted`,
+        title: `${lastIntent.label}: принято`,
         detail: humanizeReason(matchingEvent.payload?.reason ?? "manual_command_accepted"),
       };
     }
     if (result === "rejected") {
       return {
         status: "rejected",
-        title: `${lastIntent.label} rejected`,
+        title: `${lastIntent.label}: отклонено`,
         detail: humanizeReason(matchingEvent.payload?.reason),
       };
     }
     return {
       status: "dispatched",
-      title: `${lastIntent.label} sent`,
-      detail: `Latest linked event: ${humanizeEnum(matchingEvent.type)}.`,
+      title: `${lastIntent.label}: отправлено`,
+      detail: `Последнее связанное событие: ${humanizeEnum(matchingEvent.type)}.`,
     };
-  }, [lastIntent, recentEvents]);
+  }, [lastIntent, recentCommands, recentEvents]);
+
+  const lastOutcome = lastImmediateOutcome ?? derivedOutcome;
 
   useEffect(() => {
     void refresh();
@@ -158,10 +202,21 @@ export function useDashboard(): DashboardState {
     try {
       const receipt = await backendApi.sendMode(mode, corrId);
       setLastDispatch(receipt);
-      setLastIntent({ corrId, label: `Mode ${humanizeEnum(mode)}` });
+      setLastIntent({
+        corrId,
+        commandMsgId: receipt.msg_id ?? null,
+        label: `Команда режима ${humanizeEnum(mode)}`,
+        timeoutMs: timeoutForCommand("mode"),
+        sentAtMs: Date.now(),
+      });
+      setLastImmediateOutcome(null);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "mode_dispatch_error");
+      setLastDispatch(null);
+      setLastIntent(null);
+      const detail = describeDispatchError(err);
+      setLastImmediateOutcome(buildRejectedOutcome(`Команда режима ${humanizeEnum(mode)}`, detail));
+      setError(detail);
     }
   }, []);
 
@@ -170,10 +225,21 @@ export function useDashboard(): DashboardState {
     try {
       const receipt = await backendApi.sendManual(linear, angular, 500, corrId);
       setLastDispatch(receipt);
-      setLastIntent({ corrId, label: "Manual motion" });
+      setLastIntent({
+        corrId,
+        commandMsgId: receipt.msg_id ?? null,
+        label: "Ручное движение",
+        timeoutMs: timeoutForCommand("manual"),
+        sentAtMs: Date.now(),
+      });
+      setLastImmediateOutcome(null);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "manual_dispatch_error");
+      setLastDispatch(null);
+      setLastIntent(null);
+      const detail = describeDispatchError(err);
+      setLastImmediateOutcome(buildRejectedOutcome("Ручное движение", detail));
+      setError(detail);
     }
   }, []);
 
@@ -182,10 +248,21 @@ export function useDashboard(): DashboardState {
     try {
       const receipt = await backendApi.sendReset(action, state, corrId);
       setLastDispatch(receipt);
-      setLastIntent({ corrId, label: "Reset request" });
+      setLastIntent({
+        corrId,
+        commandMsgId: receipt.msg_id ?? null,
+        label: "Команда сброса",
+        timeoutMs: timeoutForCommand("reset"),
+        sentAtMs: Date.now(),
+      });
+      setLastImmediateOutcome(null);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "reset_dispatch_error");
+      setLastDispatch(null);
+      setLastIntent(null);
+      const detail = describeDispatchError(err);
+      setLastImmediateOutcome(buildRejectedOutcome("Команда сброса", detail));
+      setError(detail);
     }
   }, []);
 

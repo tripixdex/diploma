@@ -59,7 +59,9 @@
 - Trigger: heartbeat timeout exceeds contract threshold.
 - Expected state transition: `MANUAL -> DISCONNECTED_DEGRADED` or `AUTO_LINE -> DISCONNECTED_DEGRADED`.
 - Expected MQTT evidence: last successful heartbeat, local audit/alarm buffering or later publication when link returns, `state/status` update if transport is still partially available.
-- Expected safety behavior: controller degrades to non-authoritative communications mode and removes or restricts motion authority; if uncertainty persists, `SAFE_STOP` follows.
+- Expected safety behavior: controller degrades to non-authoritative communications mode and removes or restricts motion authority.
+- If uncertainty persists beyond the degraded grace window, expected additional transition: `DISCONNECTED_DEGRADED -> SAFE_STOP`.
+- Expected prolonged-loss evidence: `event/alarm` with `reason=prolonged_disconnect`, `state/status` for `SAFE_STOP`, and continued `health/heartbeat` with `link_ok=false`.
 
 ### Docking
 - Preconditions: current state `AUTO_LINE` or docking-capable bounded flow, docking sensors available logically.
@@ -74,6 +76,7 @@
 - Expected state transition: no state change.
 - Expected MQTT evidence: `event/audit` with `result=rejected`, rejection reason, original `corr_id`; `event/fault` only if unsafe inconsistency is detected.
 - Expected safety behavior: controller remains in current safe state and never enables motion from a rejected command.
+- Backend/API requirement for the current MVP: unsupported mode values, out-of-range manual values, and reset requests that do not match the requested state must be rejected cleanly before publish rather than relying on frontend-only checks.
 
 ## Stage 1 Closeout Test
 Stage 1 is acceptable for closeout if every scenario above has an unambiguous expected transition, MQTT evidence path, and safety behavior, even though runtime validation itself belongs to later stages.

@@ -27,7 +27,7 @@ export function RecordList({
       </CardHeader>
       <CardContent className="space-y-3">
         {records.length === 0 ? (
-          <div className="rounded-2xl bg-secondary/50 p-4 text-sm text-muted-foreground">No records yet.</div>
+          <div className="rounded-2xl bg-secondary/50 p-4 text-sm text-muted-foreground">Записей пока нет.</div>
         ) : (
           records.map((record) => (
             <div key={record.msg_id} className="min-w-0 rounded-2xl border border-white/70 bg-white/70 p-4">
@@ -42,10 +42,10 @@ export function RecordList({
               <div className="mt-2 text-sm text-foreground">{summary.summary}</div>
               <div className="mt-1 text-sm text-muted-foreground">{summary.detail}</div>
               <div className="mt-2 text-xs text-muted-foreground">
-                State: {humanizeEnum(record.state)}. Mode: {humanizeEnum(record.mode)}.
+                Состояние: {humanizeEnum(record.state)}. Режим: {humanizeEnum(record.mode)}.
               </div>
               <details className="mt-3">
-                <summary className="cursor-pointer text-xs font-semibold text-primary">Show raw details</summary>
+                <summary className="cursor-pointer text-xs font-semibold text-primary">Показать сырые детали</summary>
                 <pre className="mt-2 overflow-x-auto whitespace-pre-wrap break-words rounded-xl bg-secondary/55 p-3 font-mono text-xs text-muted-foreground">
                   {JSON.stringify(record.payload, null, 2)}
                 </pre>
