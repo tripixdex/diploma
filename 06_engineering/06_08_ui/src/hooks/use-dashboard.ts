@@ -2,6 +2,18 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { backendApi } from "@/lib/api";
 import type { BackendHealth, BackendRecord, CommandReceipt, LiveFrame } from "@/lib/types";
+import { humanizeEnum, humanizeReason } from "@/lib/presenters";
+
+type CommandIntent = {
+  corrId: string;
+  label: string;
+};
+
+type CommandOutcome = {
+  status: "idle" | "dispatched" | "accepted" | "rejected";
+  title: string;
+  detail: string;
+};
 
 type DashboardState = {
   health: BackendHealth | null;
@@ -12,6 +24,7 @@ type DashboardState = {
   liveFrames: LiveFrame[];
   wsState: "connecting" | "live" | "idle";
   lastDispatch: CommandReceipt | { published: false; topic: string; payload: string; qos: number; retain: false } | null;
+  lastOutcome: CommandOutcome | null;
   error: string | null;
   refresh: () => Promise<void>;
   sendMode: (mode: string) => Promise<void>;
@@ -32,6 +45,7 @@ export function useDashboard(): DashboardState {
   const [liveFrames, setLiveFrames] = useState<LiveFrame[]>([]);
   const [wsState, setWsState] = useState<"connecting" | "live" | "idle">("connecting");
   const [lastDispatch, setLastDispatch] = useState<CommandReceipt | { published: false; topic: string; payload: string; qos: number; retain: false } | null>(null);
+  const [lastIntent, setLastIntent] = useState<CommandIntent | null>(null);
   const [error, setError] = useState<string | null>(null);
   const wsRef = useRef<WebSocket | null>(null);
 
@@ -54,6 +68,40 @@ export function useDashboard(): DashboardState {
       setError(err instanceof Error ? err.message : "unknown_refresh_error");
     }
   }, []);
+
+  const lastOutcome = useMemo<CommandOutcome | null>(() => {
+    if (!lastIntent) {
+      return null;
+    }
+    const matchingEvent = recentEvents.find((record) => record.corr_id === lastIntent.corrId) ?? null;
+    if (!matchingEvent) {
+      return {
+        status: "dispatched",
+        title: `${lastIntent.label} sent`,
+        detail: "The backend published the command. Now wait for an audit/event result from the edge runtime.",
+      };
+    }
+    const result = String(matchingEvent.payload?.result ?? "");
+    if (result === "accepted") {
+      return {
+        status: "accepted",
+        title: `${lastIntent.label} accepted`,
+        detail: humanizeReason(matchingEvent.payload?.reason ?? "manual_command_accepted"),
+      };
+    }
+    if (result === "rejected") {
+      return {
+        status: "rejected",
+        title: `${lastIntent.label} rejected`,
+        detail: humanizeReason(matchingEvent.payload?.reason),
+      };
+    }
+    return {
+      status: "dispatched",
+      title: `${lastIntent.label} sent`,
+      detail: `Latest linked event: ${humanizeEnum(matchingEvent.type)}.`,
+    };
+  }, [lastIntent, recentEvents]);
 
   useEffect(() => {
     void refresh();
@@ -106,9 +154,11 @@ export function useDashboard(): DashboardState {
   }, []);
 
   const sendMode = useCallback(async (mode: string) => {
+    const corrId = buildCorrId("ui-mode");
     try {
-      const receipt = await backendApi.sendMode(mode, buildCorrId("ui-mode"));
+      const receipt = await backendApi.sendMode(mode, corrId);
       setLastDispatch(receipt);
+      setLastIntent({ corrId, label: `Mode ${humanizeEnum(mode)}` });
       setError(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "mode_dispatch_error");
@@ -116,9 +166,11 @@ export function useDashboard(): DashboardState {
   }, []);
 
   const sendManual = useCallback(async (linear: number, angular: number) => {
+    const corrId = buildCorrId("ui-manual");
     try {
-      const receipt = await backendApi.sendManual(linear, angular, 500, buildCorrId("ui-manual"));
+      const receipt = await backendApi.sendManual(linear, angular, 500, corrId);
       setLastDispatch(receipt);
+      setLastIntent({ corrId, label: "Manual motion" });
       setError(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "manual_dispatch_error");
@@ -126,9 +178,11 @@ export function useDashboard(): DashboardState {
   }, []);
 
   const sendReset = useCallback(async (action: string, state: string) => {
+    const corrId = buildCorrId("ui-reset");
     try {
-      const receipt = await backendApi.sendReset(action, state, buildCorrId("ui-reset"));
+      const receipt = await backendApi.sendReset(action, state, corrId);
       setLastDispatch(receipt);
+      setLastIntent({ corrId, label: "Reset request" });
       setError(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "reset_dispatch_error");
@@ -145,6 +199,7 @@ export function useDashboard(): DashboardState {
       liveFrames,
       wsState,
       lastDispatch,
+      lastOutcome,
       error,
       refresh,
       sendMode,
@@ -156,6 +211,7 @@ export function useDashboard(): DashboardState {
       error,
       health,
       lastDispatch,
+      lastOutcome,
       liveFrames,
       recentCommands,
       recentEvents,

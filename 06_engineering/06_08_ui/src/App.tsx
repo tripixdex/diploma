@@ -23,14 +23,18 @@ export default function App() {
     sendMode,
     sendManual,
     sendReset,
+    lastOutcome,
   } = useDashboard();
 
   return (
-    <main className="mx-auto max-w-7xl px-6 py-8">
+    <main className="mx-auto max-w-7xl overflow-x-clip px-6 py-8">
       <div className="mb-8 flex items-center justify-between gap-4">
-        <div>
-          <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Stage 7D</p>
+        <div className="min-w-0">
+          <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Stage 7D.1</p>
           <h1 className="mt-2 text-4xl font-extrabold tracking-tight">Human UI for AGV Denford MVP</h1>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">
+            One calm screen for the whole software-only chain: choose a mode, send a motion command, and immediately see whether the system accepted or rejected it.
+          </p>
         </div>
         <Button variant="outline" onClick={() => void refresh()}>
           <RefreshCcw className="mr-2 h-4 w-4" />
@@ -55,6 +59,7 @@ export default function App() {
         <ControlPanel
           currentStatus={currentStatus}
           lastDispatch={lastDispatch}
+          lastOutcome={lastOutcome}
           onMode={sendMode}
           onManual={sendManual}
           onReset={sendReset}
