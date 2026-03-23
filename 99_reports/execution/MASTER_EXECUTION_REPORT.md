@@ -2,7 +2,7 @@
 
 ## Project Status Summary
 - Project topic: digital modernization of AGV Denford using edge + cloud architecture.
-- Honest current status: implementation evidence now exists at Stage 2 as a functional twin, at Stage 3 as a local edge MVP contour, at Stage 4 as a real local MQTT transport layer, at Stage 5 as a backend MVP contour with MQTT ingest, dev/demo storage, REST API, and WebSocket live stream, and at Stage 6 as a minimal operator-facing path. Stage 6 is the current active stage until explicit closeout.
+- Honest current status: implementation evidence now exists at Stage 2 as a functional twin, at Stage 3 as a local edge MVP contour, at Stage 4 as a real local MQTT transport layer, at Stage 5 as a backend MVP contour with MQTT ingest, dev/demo storage, REST API, and WebSocket live stream, at Stage 6 as a minimal operator-facing path, at Stage 7 as a repeatable software-only integration contour with MVP freeze documentation, and at Stage 7B as a polished demo-ready pre-hardware package with a unified software-only demo runner. Stage 7B is the current active stage until explicit closeout.
 - Stage 0 closed the execution discipline baseline.
 - Stage 1 closed the V1 system contract baseline.
 - Stage 2 closed with a functional digital twin that executes the contract locally without real transport or hardware.
@@ -11,7 +11,9 @@
 - Stage 3 closed with a local hardware-agnostic edge runtime MVP.
 - Stage 4 closed with a real local MQTT transport contour.
 - Stage 5 closed with a minimal backend MVP contour.
-- Stage 6 is now open with a minimal operator-facing contour.
+- Stage 6 closed with a minimal operator-facing contour.
+- Stage 7 closed with repeatable integration evidence and MVP freeze artifacts.
+- Stage 7B is now open with polish, demo freeze, and pre-hardware readiness artifacts.
 
 ## Approved Global Roadmap
 | Stage | Name | Planned Outcome |
@@ -26,6 +28,7 @@
 | Stage 5 | Backend MVP | FastAPI + PostgreSQL telemetry/backend path is evidenced. |
 | Stage 6 | Operator Path | Minimal operator-facing control/visibility path is evidenced. |
 | Stage 7 | Integration Testing | Repeatable end-to-end validation evidence is collected. |
+| Stage 7B | Demo Freeze Polish | Software-only MVP is packaged for a repeatable honest demonstration before hardware work. |
 | Stage 8 | Final Demonstration | Hardware-aligned or final demonstrable contour is consolidated for VKR. |
 
 ## Stage Status Table
@@ -39,15 +42,16 @@
 | Stage 3 | Completed | Closed | Local edge MVP contour exists with command intake, heartbeat supervision, degraded behavior, and adapter boundary, still without real hardware. |
 | Stage 4 | Completed | Closed | Real local MQTT transport exists with Paho clients, local broker-backed exchange, retained status, and command/status/event flow. |
 | Stage 5 | Completed | Closed | Backend MVP evidence exists for MQTT ingest, dev/demo storage, minimal REST API, and minimal WebSocket live stream. |
-| Stage 6 | In Progress | Open | Minimal operator-facing client path exists for backend observation and MQTT-backed command dispatch without a heavy UI stack. |
-| Stage 7 | Not started | Blocked by Stage 6 | No integration testing artifacts yet beyond Stage 0 validation. |
-| Stage 8 | Not started | Blocked by Stage 7 | No final demonstration claims yet. |
+| Stage 6 | Completed | Closed | Minimal operator-facing client path exists for backend observation and MQTT-backed command dispatch without a heavy UI stack. |
+| Stage 7 | Completed | Closed | Repeatable software-only integration evidence and MVP freeze artifacts exist without hardware-specific claims. |
+| Stage 7B | In Progress | Open | Polished demo package and pre-hardware readiness artifacts exist without introducing board-specific code. |
+| Stage 8 | Not started | Blocked by Stage 7B | No hardware-phase or final demonstration claims yet. |
 
 ## Current Active Stage
-- Stage ID: Stage 6
-- Stage name: Operator Path
+- Stage ID: Stage 7B
+- Stage name: Polish + Demo Freeze + Pre-Hardware Readiness
 - Status: In Progress
-- Note: Stage 6 is limited to operator-facing observation and command dispatch only; Stage 7 remains blocked.
+- Note: Stage 7B is limited to polishing, honest demo packaging, and pre-hardware readiness documentation only; Stage 8 remains blocked.
 
 ## Known Blockers
 - Exact final Raspberry Pi model is NOT CONFIRMED.
@@ -73,7 +77,7 @@
 ## Active Stage Reports
 | Stage | Report Path | Status | Notes |
 | --- | --- | --- | --- |
-| Stage 6 | `99_reports/execution/STAGE_06_REPORT.md` | In Progress | Operator path exists as a lightweight console/client contour without crossing into Stage 7 integration testing. |
+| Stage 7B | `99_reports/execution/STAGE_07B_REPORT.md` | In Progress | Polished software-only demo package and pre-hardware readiness artifacts exist without crossing into hardware-specific work. |
 
 ## History of Completed Stage Reports
 | Stage | Report Path | Status | Branch | Commit |
@@ -86,3 +90,5 @@
 | Stage 3 | `99_reports/execution/STAGE_03_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Stage 4 | `99_reports/execution/STAGE_04_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Stage 5 | `99_reports/execution/STAGE_05_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
+| Stage 6 | `99_reports/execution/STAGE_06_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
+| Stage 7 | `99_reports/execution/STAGE_07_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
