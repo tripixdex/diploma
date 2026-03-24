@@ -1,0 +1,6 @@
+{
+  "status": "ok",
+  "storage_mode": "dev-memory",
+  "mqtt_bridge_connected": true,
+  "command_bridge_connected": true
+}

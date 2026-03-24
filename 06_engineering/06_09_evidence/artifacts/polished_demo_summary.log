@@ -1,0 +1,9 @@
+AGV Denford Stage 7B Demo
+software_only=true
+hardware_binding=false
+primary_target=Raspberry Pi 4
+secondary_portability_target=Orange Pi
+demo_final_summary
+software_mvp_frozen=true
+hardware_specific_code_introduced=false
+claims_limited_to=software_only_contour

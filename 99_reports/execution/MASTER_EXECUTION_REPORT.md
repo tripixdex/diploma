@@ -20,7 +20,8 @@
 - Stage 7F closed the first corrective blocker set before any honest hardware-phase start.
 - Sprint 7F.1 closed the documentation-honesty cleanup sprint.
 - Sprint 7F.2 closed the packaging/reproducibility cleanup sprint.
-- Sprint 7F.3 is the active runtime/bootstrap cleanup sprint.
+- Sprint 7F.3 closed the runtime/bootstrap cleanup sprint.
+- Sprint 7F.4 is the active evidence-pack hardening sprint.
 
 ## Approved Global Roadmap
 | Stage | Name | Planned Outcome |
@@ -43,7 +44,8 @@
 | Sprint 7F.1 | Source-of-Truth Cleanup | Top-level documentation and gate wording are aligned to the actually evidenced software-only MVP. |
 | Sprint 7F.2 | Packaging / Reproducibility Cleanup | Packaging/setup truth is narrowed to one honest reproducibility baseline for the software-only MVP. |
 | Sprint 7F.3 | Runtime / Bootstrap Cleanup | Shared bootstrap/assembly logic is tightened so canonical software-only entrypoints depend less on duplicated script glue. |
-| Sprint 7F.4 | Evidence Pack Cleanup | Reviewer-facing evidence/run artifacts are cleaned only after runtime/bootstrap coherence is corrected. |
+| Sprint 7F.4 | Evidence Pack Cleanup | Reviewer-facing software-only evidence is collected as a structured artifact pack rather than only narrative markdown. |
+| Sprint 7F.5 | Pre-Hardware Policy Cleanup | Hardware-entry policy and non-claim rules may be tightened only after the evidence pack is reviewer-usable. |
 | Stage 7G | Hardware Gate Re-Run | Expert rerun may happen only after corrective sprints close honestly. |
 | Stage 8 | Final Demonstration | Hardware-aligned or final demonstrable contour is consolidated for VKR. |
 
@@ -67,16 +69,17 @@
 | Stage 7F | Completed | Closed | First corrective blocker set from the expert audit was closed, but top-level truth inflation still required a follow-up cleanup sprint. |
 | Sprint 7F.1 | Completed | Closed | Top-level source-of-truth documents were narrowed to the actually evidenced software-only MVP. |
 | Sprint 7F.2 | Completed | Closed | Python packaging truth and canonical software-only setup/run baseline are explicitly documented without new deployment claims. |
-| Sprint 7F.3 | In Progress | Open | Shared runtime/bootstrap utility is consolidating duplicated assembly logic in canonical software-only entrypoints. |
-| Sprint 7F.4 | Not started | Blocked by Sprint 7F.3 | Evidence-pack cleanup must wait until runtime/bootstrap cleanup is closed. |
-| Stage 7G | Not started | Blocked by Sprint 7F.4 | Hardware readiness rerun must wait until corrective sprints close honestly. |
+| Sprint 7F.3 | Completed | Closed | Shared runtime/bootstrap utility reduced duplicated assembly logic in canonical software-only entrypoints. |
+| Sprint 7F.4 | In Progress | Open | Reviewer-facing software-only evidence pack is being hardened around compact real artifacts and structured scenario mapping. |
+| Sprint 7F.5 | Not started | Blocked by Sprint 7F.4 | Pre-hardware policy cleanup must wait until the evidence pack is reviewer-usable. |
+| Stage 7G | Not started | Blocked by Sprint 7F.5 | Hardware readiness rerun must wait until corrective sprints close honestly. |
 | Stage 8 | Not started | Blocked by Stage 7G | No hardware-phase or final demonstration claims yet. |
 
 ## Current Active Stage
-- Stage ID: Sprint 7F.3
-- Stage name: Runtime / Bootstrap Cleanup
+- Stage ID: Sprint 7F.4
+- Stage name: Evidence Pack Hardening
 - Status: In Progress
-- Note: Sprint 7F.3 is limited to shared bootstrap/runtime cleanup for the existing software-only contour. It does not add product features, hardware code, or new deployment claims. Sprint 7F.4, Stage 7G, and Stage 8 remain blocked.
+- Note: Sprint 7F.4 is limited to reviewer-facing software-only evidence structuring and artifact hardening. It does not add product features, hardware code, or new deployment claims. Sprint 7F.5, Stage 7G, and Stage 8 remain blocked.
 
 ## Known Blockers
 - Exact final Raspberry Pi model is NOT CONFIRMED.
@@ -103,7 +106,7 @@
 ## Active Stage Reports
 | Stage | Report Path | Status | Notes |
 | --- | --- | --- | --- |
-| Sprint 7F.3 | `99_reports/execution/STAGE_07F3_REPORT.md` | In Progress | Runtime/bootstrap cleanup is centralizing duplicated assembly logic for canonical software-only entrypoints without expanding scope. |
+| Sprint 7F.4 | `99_reports/execution/STAGE_07F4_REPORT.md` | In Progress | Evidence-pack cleanup is turning the proven software-only MVP into a compact reviewer-facing artifact set without expanding scope. |
 
 ## History of Completed Stage Reports
 | Stage | Report Path | Status | Branch | Commit |
@@ -125,3 +128,4 @@
 | Stage 7F | `99_reports/execution/STAGE_07F_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Sprint 7F.1 | `99_reports/execution/STAGE_07F1_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Sprint 7F.2 | `99_reports/execution/STAGE_07F2_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
+| Sprint 7F.3 | `99_reports/execution/STAGE_07F3_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |

@@ -1,0 +1,24 @@
+[integration] broker_started host=127.0.0.1 port=18884
+[integration] broker_port_selection=default
+integration_summary
+[PASS] startup full chain
+  details: initial_state=IDLE
+[PASS] operator gets initial status
+  details: status.state=IDLE
+[PASS] operator sends mode command
+  details: mode_cmd_found=True accepted_audit_found=True
+[PASS] operator sends manual command
+  details: manual_cmd_found=True telemetry_found=True
+[PASS] edge emits status/telemetry/event
+  details: audit=True telemetry=True degraded_alarm=True safe_stop_alarm=True
+[PASS] backend stores and serves data
+  details: final_status=SAFE_STOP commands=4 events=13 telemetry=1
+[PASS] operator receives live update
+  details: live_frames=19
+[PASS] heartbeat timeout -> degraded -> safe stop
+  details: final_state=SAFE_STOP degraded_alarm=True degraded_heartbeat=True safe_stop_alarm=True
+[PASS] invalid command rejection
+  details: invalid_cmd_found=True invalid_audit_found=True
+[PASS] reset/clear path behavior according to current contract
+  details: reset_cmd_found=True reset_rejection_found=True
+summary: passed=10 total=10

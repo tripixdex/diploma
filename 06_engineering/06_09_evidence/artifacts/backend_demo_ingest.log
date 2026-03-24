@@ -1,0 +1,14 @@
+[backend-demo] broker_started host=127.0.0.1 port=18884
+[backend-demo] websocket_handshake={'type': 'ws_status', 'status': 'connected'}
+[backend-demo-publish] topic=agv/denford/v1/cmd/mode retain=False
+[backend-demo-publish] topic=agv/denford/v1/event/audit retain=False
+[backend-demo-publish] topic=agv/denford/v1/state/status retain=True
+[backend-demo-publish] topic=agv/denford/v1/state/telemetry retain=False
+[backend-demo] websocket_frame.category=command
+[backend-demo] health.status=ok
+[backend-demo] health.storage_mode=dev-memory
+[backend-demo] health.mqtt_bridge_connected=True
+[backend-demo] current_status.state=MANUAL
+[backend-demo] recent_events_count=1
+[backend-demo] recent_commands_count=1
+[backend-demo] recent_telemetry_count=1
