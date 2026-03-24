@@ -7,18 +7,27 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
-def _load_shared_constants_module():
-    module_name = "sim_twin_constants_for_transport"
+def _load_runtime_bootstrap():
+    module_name = "agv_runtime_bootstrap"
+    module_path = Path(__file__).resolve().parents[1] / "runtime_bootstrap.py"
     if module_name in sys.modules:
         return sys.modules[module_name]
-    constants_path = Path(__file__).resolve().parents[1] / "06_01_sim_twin" / "constants.py"
-    spec = importlib.util.spec_from_file_location(module_name, constants_path)
+    spec = importlib.util.spec_from_file_location(module_name, module_path)
     if spec is None or spec.loader is None:
-        raise RuntimeError(f"Failed to load shared constants from {constants_path}")
+        raise RuntimeError(f"Failed to load runtime bootstrap from {module_path}")
     module = importlib.util.module_from_spec(spec)
     sys.modules[module_name] = module
     spec.loader.exec_module(module)
     return module
+
+
+load_module = _load_runtime_bootstrap().load_module
+
+
+def _load_shared_constants_module():
+    module_name = "sim_twin_constants_for_transport"
+    constants_path = Path(__file__).resolve().parents[1] / "06_01_sim_twin" / "constants.py"
+    return load_module(module_name, constants_path)
 
 
 SIM_CONSTANTS = _load_shared_constants_module()

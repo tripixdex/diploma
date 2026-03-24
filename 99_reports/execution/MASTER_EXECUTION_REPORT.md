@@ -19,7 +19,8 @@
 - Stage 7E expert audit is closed and produced a `Hardware Readiness Gate = NO`.
 - Stage 7F closed the first corrective blocker set before any honest hardware-phase start.
 - Sprint 7F.1 closed the documentation-honesty cleanup sprint.
-- Sprint 7F.2 is the active packaging/reproducibility cleanup sprint.
+- Sprint 7F.2 closed the packaging/reproducibility cleanup sprint.
+- Sprint 7F.3 is the active runtime/bootstrap cleanup sprint.
 
 ## Approved Global Roadmap
 | Stage | Name | Planned Outcome |
@@ -41,7 +42,8 @@
 | Stage 7F | Corrective Sprint A | Mandatory audit blockers are closed without expanding scope or starting hardware work. |
 | Sprint 7F.1 | Source-of-Truth Cleanup | Top-level documentation and gate wording are aligned to the actually evidenced software-only MVP. |
 | Sprint 7F.2 | Packaging / Reproducibility Cleanup | Packaging/setup truth is narrowed to one honest reproducibility baseline for the software-only MVP. |
-| Sprint 7F.3 | Runtime / Bootstrap Cleanup | Follow-up sprint for runtime/bootstrap cleanup after packaging truth is corrected. |
+| Sprint 7F.3 | Runtime / Bootstrap Cleanup | Shared bootstrap/assembly logic is tightened so canonical software-only entrypoints depend less on duplicated script glue. |
+| Sprint 7F.4 | Evidence Pack Cleanup | Reviewer-facing evidence/run artifacts are cleaned only after runtime/bootstrap coherence is corrected. |
 | Stage 7G | Hardware Gate Re-Run | Expert rerun may happen only after corrective sprints close honestly. |
 | Stage 8 | Final Demonstration | Hardware-aligned or final demonstrable contour is consolidated for VKR. |
 
@@ -64,16 +66,17 @@
 | Stage 7E | Completed | Closed | Independent expert audit completed; hardware gate remained closed and blocker set was frozen. |
 | Stage 7F | Completed | Closed | First corrective blocker set from the expert audit was closed, but top-level truth inflation still required a follow-up cleanup sprint. |
 | Sprint 7F.1 | Completed | Closed | Top-level source-of-truth documents were narrowed to the actually evidenced software-only MVP. |
-| Sprint 7F.2 | In Progress | Open | Packaging truth and setup/run reproducibility are being aligned to one honest software-only baseline. |
-| Sprint 7F.3 | Not started | Blocked by Sprint 7F.2 | Runtime/bootstrap cleanup must wait until packaging truth is corrected. |
-| Stage 7G | Not started | Blocked by Sprint 7F.3 | Hardware readiness rerun must wait until corrective sprints close honestly. |
+| Sprint 7F.2 | Completed | Closed | Python packaging truth and canonical software-only setup/run baseline are explicitly documented without new deployment claims. |
+| Sprint 7F.3 | In Progress | Open | Shared runtime/bootstrap utility is consolidating duplicated assembly logic in canonical software-only entrypoints. |
+| Sprint 7F.4 | Not started | Blocked by Sprint 7F.3 | Evidence-pack cleanup must wait until runtime/bootstrap cleanup is closed. |
+| Stage 7G | Not started | Blocked by Sprint 7F.4 | Hardware readiness rerun must wait until corrective sprints close honestly. |
 | Stage 8 | Not started | Blocked by Stage 7G | No hardware-phase or final demonstration claims yet. |
 
 ## Current Active Stage
-- Stage ID: Sprint 7F.2
-- Stage name: Packaging / Reproducibility Cleanup
+- Stage ID: Sprint 7F.3
+- Stage name: Runtime / Bootstrap Cleanup
 - Status: In Progress
-- Note: Sprint 7F.2 is limited to one honest Python packaging baseline, one canonical software-only setup/run baseline, and clear UI install/run instructions. Sprint 7F.3, Stage 7G, and Stage 8 remain blocked.
+- Note: Sprint 7F.3 is limited to shared bootstrap/runtime cleanup for the existing software-only contour. It does not add product features, hardware code, or new deployment claims. Sprint 7F.4, Stage 7G, and Stage 8 remain blocked.
 
 ## Known Blockers
 - Exact final Raspberry Pi model is NOT CONFIRMED.
@@ -100,7 +103,7 @@
 ## Active Stage Reports
 | Stage | Report Path | Status | Notes |
 | --- | --- | --- | --- |
-| Sprint 7F.2 | `99_reports/execution/STAGE_07F2_REPORT.md` | In Progress | Packaging/reproducibility cleanup is creating one honest setup and dependency baseline before runtime/bootstrap cleanup. |
+| Sprint 7F.3 | `99_reports/execution/STAGE_07F3_REPORT.md` | In Progress | Runtime/bootstrap cleanup is centralizing duplicated assembly logic for canonical software-only entrypoints without expanding scope. |
 
 ## History of Completed Stage Reports
 | Stage | Report Path | Status | Branch | Commit |
@@ -121,3 +124,4 @@
 | Stage 7E | `99_reports/execution/STAGE_07E_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Stage 7F | `99_reports/execution/STAGE_07F_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Sprint 7F.1 | `99_reports/execution/STAGE_07F1_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
+| Sprint 7F.2 | `99_reports/execution/STAGE_07F2_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |

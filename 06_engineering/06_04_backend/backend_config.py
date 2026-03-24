@@ -4,19 +4,24 @@ import importlib.util
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
 
 
-def _load_module(module_name: str, module_path: Path) -> Any:
+def _load_runtime_bootstrap():
+    module_name = "agv_runtime_bootstrap"
+    module_path = Path(__file__).resolve().parents[1] / "runtime_bootstrap.py"
     if module_name in sys.modules:
         return sys.modules[module_name]
     spec = importlib.util.spec_from_file_location(module_name, module_path)
     if spec is None or spec.loader is None:
-        raise RuntimeError(f"Failed to load module {module_name} from {module_path}")
+        raise RuntimeError(f"Failed to load runtime bootstrap from {module_path}")
     module = importlib.util.module_from_spec(spec)
     sys.modules[module_name] = module
     spec.loader.exec_module(module)
     return module
+
+
+load_module = _load_runtime_bootstrap().load_module
+_load_module = load_module
 
 
 _TRANSPORT_DIR = Path(__file__).resolve().parents[1] / "06_03_transport"

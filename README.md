@@ -18,6 +18,7 @@
 
 - Единый Python packaging/dependency baseline в [pyproject.toml](/Users/vladgurov/Desktop/study/7sem/diploma/pyproject.toml).
 - Единый software-only setup/run baseline в [SOFTWARE_RUNTIME_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_RUNTIME_BASELINE.md).
+- Единый shared runtime/bootstrap utility для canonical software-only entrypoints в `06_engineering/runtime_bootstrap.py`.
 - Контракт системы в `06_engineering/06_00_contract/`.
 - Functional twin в `06_engineering/06_01_sim_twin/`.
 - Hardware-agnostic edge MVP в `06_engineering/06_02_edge/`.

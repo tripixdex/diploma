@@ -45,6 +45,15 @@ This is the canonical reviewer-facing software-only run path:
 - For repeatable software-only evidence without the browser UI:
   - `python3 06_engineering/06_06_integration/integration_runner.py`
 
+## Runtime Assembly Baseline
+- Canonical software-only entrypoints now share a small bootstrap utility in `06_engineering/runtime_bootstrap.py`.
+- This utility centralizes:
+  - dynamic module loading that is still needed because active stage directories are not normal Python packages,
+  - embedded local broker startup/shutdown,
+  - local Uvicorn thread startup/shutdown,
+  - broker port fallback selection for the canonical integration and UI demo paths.
+- This is a coherence cleanup only. It does not add new business capabilities or deployment claims.
+
 ## Demo / Dev Only
 - `ui_demo_stack.py` is a local software-only demo stack, not a deployment baseline.
 - Embedded/local broker usage is demo/dev infrastructure, not proof of deployment-grade broker packaging.
@@ -63,4 +72,3 @@ This is the canonical reviewer-facing software-only run path:
 - Board-specific service setup.
 - Production process supervision.
 - Production-ready environment management.
-
