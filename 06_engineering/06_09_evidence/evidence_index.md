@@ -45,6 +45,7 @@ This pack shows what the current software-only MVP actually proves, where the pr
 - No Docker deployment evidence.
 - No deployment-grade Mosquitto evidence.
 - No real AGV safety proof.
+- Current operating limits are fixed separately in `../06_10_policy/pre_hardware_operating_policy.md`.
 
 ## Reviewer Shortcut
 If you only read three files:

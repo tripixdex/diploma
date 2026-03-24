@@ -16,6 +16,7 @@
 - Backend observation, storage path, REST, and WebSocket behavior are evidenced in dev/demo mode.
 - Human UI is evidenced as a software-only operator/demo surface over the existing backend path.
 - A canonical software-only setup/run baseline now exists in [SOFTWARE_RUNTIME_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_RUNTIME_BASELINE.md).
+- A pre-hardware operating policy now exists in [pre_hardware_operating_policy.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_10_policy/pre_hardware_operating_policy.md).
 
 ## What Is Explicitly Deferred
 - Webots scene/model integration.
@@ -35,5 +36,6 @@
 
 ## Current Honest Entry Point To Hardware Readiness
 - Hardware readiness is still blocked.
+- Hardware operation policy is now explicit in [hardware_entry_gate.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_10_policy/hardware_entry_gate.md) and [forbidden_claims_policy.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_10_policy/forbidden_claims_policy.md).
 - The current honest entry point is a future hardware phase that starts only after board facts, wiring, safety contour, power, and I/O interfaces are physically surveyed and documented.
 - The current repo proves a software-only MVP contour and pre-hardware preparation, not a deployed AGV modernization on real hardware.

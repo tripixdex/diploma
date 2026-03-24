@@ -5,6 +5,7 @@
 - Supported host OS is any developer machine that can run Python and Node locally.
 - No hardware-specific code, GPIO, Raspberry Pi binding, or Webots setup is part of this baseline.
 - No deployment-grade packaging is claimed here.
+- Operating policy boundaries are fixed separately in [pre_hardware_operating_policy.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_10_policy/pre_hardware_operating_policy.md).
 
 ## Python Version Expectation
 - Canonical Python range: `>=3.11,<3.13`
