@@ -16,6 +16,8 @@
 - Backend observation, storage path, REST, and WebSocket behavior are evidenced in dev/demo mode.
 - Human UI is evidenced as a software-only operator/demo surface over the existing backend path.
 - A canonical software-only setup/run baseline now exists in [SOFTWARE_RUNTIME_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_RUNTIME_BASELINE.md).
+- The single reviewer-safe baseline entrypoint is fixed in [SOFTWARE_BASELINE_RUNBOOK.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_BASELINE_RUNBOOK.md).
+- A minimal automated regression baseline now exists in [MINIMAL_REGRESSION_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/MINIMAL_REGRESSION_BASELINE.md).
 - A pre-hardware operating policy now exists in [pre_hardware_operating_policy.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_10_policy/pre_hardware_operating_policy.md).
 
 ## What Is Explicitly Deferred

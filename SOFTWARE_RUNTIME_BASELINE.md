@@ -31,7 +31,7 @@
 - UI dependency truth stays in `06_engineering/06_08_ui/package.json` and `package-lock.json`.
 
 ## Canonical Full-Chain Run Path
-This is the canonical reviewer-facing software-only run path:
+This is the single canonical reviewer-facing software-only baseline:
 
 1. Prepare Python environment from the repo root using `pyproject.toml`.
 2. Prepare UI dependencies in `06_engineering/06_08_ui/` with `npm install`.
@@ -42,9 +42,21 @@ This is the canonical reviewer-facing software-only run path:
 5. Open:
    - `http://127.0.0.1:5173`
 
+- The canonical baseline is fixed in:
+  - [SOFTWARE_BASELINE_RUNBOOK.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_BASELINE_RUNBOOK.md)
+  - [SOFTWARE_BASELINE_MANIFEST.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_BASELINE_MANIFEST.md)
+
 ## Canonical Non-UI Evidence Path
 - For repeatable software-only evidence without the browser UI:
   - `python3 06_engineering/06_06_integration/integration_runner.py`
+- This is the canonical verification path, not a second canonical baseline.
+
+## Minimal Automated Regression Path
+- Minimal critical-behavior regression is documented in:
+  - [MINIMAL_REGRESSION_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/MINIMAL_REGRESSION_BASELINE.md)
+- Canonical regression command:
+  - `python3 -m unittest discover -s tests -p 'test_*.py' -v`
+- This is a narrow critical-behavior suite only, not a claim of broad automated coverage.
 
 ## Runtime Assembly Baseline
 - Canonical software-only entrypoints now share a small bootstrap utility in `06_engineering/runtime_bootstrap.py`.
@@ -55,8 +67,10 @@ This is the canonical reviewer-facing software-only run path:
   - broker port fallback selection for the canonical integration and UI demo paths.
 - This is a coherence cleanup only. It does not add new business capabilities or deployment claims.
 
-## Demo / Dev Only
-- `ui_demo_stack.py` is a local software-only demo stack, not a deployment baseline.
+## Supporting / Demo Only
+- `ui_demo_stack.py` is the canonical software-only baseline runner, but still not a deployment baseline.
+- `integration_runner.py` is the canonical verification runner, but not the main human-facing baseline.
+- `demo_runner.py` is a presentation wrapper over the integration path, not the canonical baseline.
 - Embedded/local broker usage is demo/dev infrastructure, not proof of deployment-grade broker packaging.
 - Backend storage evidence is still a dev/demo path, not PostgreSQL runtime proof.
 

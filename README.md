@@ -8,6 +8,9 @@
 
 - [TOP_LEVEL_TRUTH_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/TOP_LEVEL_TRUTH_BASELINE.md)
 - [SOFTWARE_RUNTIME_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_RUNTIME_BASELINE.md)
+- [SOFTWARE_BASELINE_RUNBOOK.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_BASELINE_RUNBOOK.md)
+- [SOFTWARE_BASELINE_MANIFEST.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_BASELINE_MANIFEST.md)
+- [MINIMAL_REGRESSION_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/MINIMAL_REGRESSION_BASELINE.md)
 - [MASTER_EXECUTION_REPORT.md](/Users/vladgurov/Desktop/study/7sem/diploma/99_reports/execution/MASTER_EXECUTION_REPORT.md)
 - [SYSTEM_SCOPE.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_00_contract/SYSTEM_SCOPE.md)
 - [RELEASE_MANIFEST.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_06_integration/release_manifest.md)
@@ -18,6 +21,9 @@
 
 - Единый Python packaging/dependency baseline в [pyproject.toml](/Users/vladgurov/Desktop/study/7sem/diploma/pyproject.toml).
 - Единый software-only setup/run baseline в [SOFTWARE_RUNTIME_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_RUNTIME_BASELINE.md).
+- Один reviewer-safe canonical baseline runner в [SOFTWARE_BASELINE_RUNBOOK.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_BASELINE_RUNBOOK.md).
+- Один canonical baseline manifest в [SOFTWARE_BASELINE_MANIFEST.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_BASELINE_MANIFEST.md).
+- Минимальный automated regression baseline в [MINIMAL_REGRESSION_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/MINIMAL_REGRESSION_BASELINE.md).
 - Единый shared runtime/bootstrap utility для canonical software-only entrypoints в `06_engineering/runtime_bootstrap.py`.
 - Контракт системы в `06_engineering/06_00_contract/`.
 - Functional twin в `06_engineering/06_01_sim_twin/`.
