@@ -7,6 +7,7 @@
 ## Куда смотреть в первую очередь
 
 - [TOP_LEVEL_TRUTH_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/TOP_LEVEL_TRUTH_BASELINE.md)
+- [SOFTWARE_RUNTIME_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_RUNTIME_BASELINE.md)
 - [MASTER_EXECUTION_REPORT.md](/Users/vladgurov/Desktop/study/7sem/diploma/99_reports/execution/MASTER_EXECUTION_REPORT.md)
 - [SYSTEM_SCOPE.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_00_contract/SYSTEM_SCOPE.md)
 - [RELEASE_MANIFEST.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_06_integration/release_manifest.md)
@@ -15,6 +16,8 @@
 
 ## Что реально есть
 
+- Единый Python packaging/dependency baseline в [pyproject.toml](/Users/vladgurov/Desktop/study/7sem/diploma/pyproject.toml).
+- Единый software-only setup/run baseline в [SOFTWARE_RUNTIME_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_RUNTIME_BASELINE.md).
 - Контракт системы в `06_engineering/06_00_contract/`.
 - Functional twin в `06_engineering/06_01_sim_twin/`.
 - Hardware-agnostic edge MVP в `06_engineering/06_02_edge/`.

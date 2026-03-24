@@ -15,15 +15,21 @@ It does not provide:
 - a heavy enterprise frontend stack.
 
 ## Manual Run
+Python setup is defined at repo top level in:
+- `/Users/vladgurov/Desktop/study/7sem/diploma/pyproject.toml`
+- `/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_RUNTIME_BASELINE.md`
+
 1. Start the software-only demo stack:
    - `python3 06_engineering/06_08_ui/ui_demo_stack.py`
 2. In a second terminal install UI dependencies:
    - `cd 06_engineering/06_08_ui && npm install`
 3. Start the Vite UI:
    - `npm run dev -- --host 127.0.0.1 --port 5173`
-4. Open:
+4. Optional production-like static build check:
+   - `npm run build`
+5. Open:
    - `http://127.0.0.1:5173`
-5. Optional smoke validation:
+6. Optional smoke validation:
    - `node ui_smoke.mjs`
 
 ## Demo Path

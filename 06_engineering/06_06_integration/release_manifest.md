@@ -38,3 +38,4 @@
 - Stage 7 integration runner output.
 - Stage 5 backend path and Stage 6 operator path logs.
 - Stage 7 MVP freeze checklist and board target strategy.
+- Software setup/run baseline in `/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_RUNTIME_BASELINE.md`.

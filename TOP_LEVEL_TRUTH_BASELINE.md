@@ -15,6 +15,7 @@
 - MQTT message exchange is evidenced in a local demo contour.
 - Backend observation, storage path, REST, and WebSocket behavior are evidenced in dev/demo mode.
 - Human UI is evidenced as a software-only operator/demo surface over the existing backend path.
+- A canonical software-only setup/run baseline now exists in [SOFTWARE_RUNTIME_BASELINE.md](/Users/vladgurov/Desktop/study/7sem/diploma/SOFTWARE_RUNTIME_BASELINE.md).
 
 ## What Is Explicitly Deferred
 - Webots scene/model integration.
