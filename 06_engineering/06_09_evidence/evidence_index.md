@@ -1,41 +1,60 @@
 # Evidence Index
 
 ## Purpose
-This pack shows what the current software-only MVP actually proves, where the proof lives, and where the proof is still limited.
+This pack shows what the current software-only MVP actually proves, where the proof lives, and how to verify that a saved artifact is good enough for reviewer use.
 
-## Strongest Evidence
-- Full-chain local integration loop:
-  `operator -> backend -> MQTT -> edge -> MQTT -> backend -> operator`
-- Invalid command rejection with explicit audit evidence.
-- Heartbeat timeout escalation into degraded and then safe-stop behavior.
-- Human UI path over the existing backend REST and WebSocket contour.
-- Frozen MVP boundary wording that limits claims to software-only proof.
+## Reviewer 5-Minute Path
+1. Read `scenario_to_artifact_matrix.md`.
+2. Open `artifacts/logs/20260326T001703+0300__integration_full_chain.log`.
+3. Open `artifacts/ui/20260326T001703+0300__ui_proof_summary.md`.
+4. Open `artifacts/summaries/20260326T001703+0300__polished_demo_summary.log`.
 
-## What Was Tested
-- Contract-aligned command truth-loop.
-- Invalid input rejection.
-- Degraded to safe-stop behavior on lost heartbeat.
-- Full-chain integration path.
-- UI operator/manual-QA path.
-- Frozen software-only MVP boundary.
+## Mandatory Scenario Set
+| Scenario ID | Scenario | Why It Matters | Primary Proof Artifact | Status |
+| --- | --- | --- | --- | --- |
+| EVI-001 | Command truth-loop | Shows that a valid operator command really traverses the full software chain. | `artifacts/logs/20260326T001703+0300__integration_full_chain.log` | PASS |
+| EVI-002 | Invalid input rejection | Shows that unsupported input is rejected, not silently accepted. | `artifacts/logs/20260326T001703+0300__integration_full_chain.log` | PASS |
+| EVI-003 | Degraded -> safe-stop behavior | Shows heartbeat loss causes degraded handling and then safe-stop escalation in software. | `artifacts/logs/20260326T001703+0300__integration_full_chain.log` | PASS |
+| EVI-004 | Full-chain integration path | Shows the canonical software-only contour works end to end. | `artifacts/logs/20260326T001703+0300__integration_full_chain.log` | PASS |
+| EVI-005 | UI operator/manual-QA path | Shows the browser-facing path is alive, readable, and command-capable over REST + WebSocket. | `artifacts/ui/20260326T001703+0300__ui_proof_summary.md` | PASS |
+| EVI-006 | Frozen software-only MVP boundary | Shows the demo package still limits claims to software-only MVP. | `artifacts/summaries/20260326T001703+0300__polished_demo_summary.log` | PASS |
 
-## Where To Look
-- Scenario matrix:
-  `scenario_to_artifact_matrix.md`
-- Claims-to-evidence mapping:
-  `software_only_claims_evidence_map.md`
-- Evidence collection rules:
-  `evidence_collection_policy.md`
-- Compact saved artifacts:
-  `artifacts/`
+## Artifact Layout
+- `artifacts/logs/`
+  - compact runner logs with direct success/failure-bearing lines
+- `artifacts/http_ws/`
+  - compact HTTP availability and backend health responses
+- `artifacts/summaries/`
+  - short run summaries and boundary/freeze outputs
+- `artifacts/ui/`
+  - UI-specific proof artifacts and operator-facing smoke summaries
+- `artifacts/legacy_pre_7F63/`
+  - older unstructured artifacts kept only for traceability, not as the preferred provenance baseline
+
+## What Good Proof Looks Like
+- `integration_full_chain.log` ends with `summary: passed=10 total=10`.
+- The same log includes explicit rejection evidence for invalid input.
+- The same log includes `final_state=SAFE_STOP` and degraded/safe-stop alarm details.
+- `ui_http_head.txt` starts with `HTTP/1.1 200 OK`.
+- `backend_health.json` includes `"status":"ok"`.
+- `ui_smoke_output.txt` shows `mode_published: true`, `manual_published: true`, `telemetry_seen >= 1`, and `live_frames >= 3`.
+- `polished_demo_summary.log` ends with `software_mvp_frozen=true` and `claims_limited_to=software_only_contour`.
+
+## What Failure Looks Like
+- No `summary: passed=10 total=10` in the integration artifact.
+- UI HTTP artifact is not `200 OK`.
+- Backend health does not report `status=ok`.
+- UI smoke summary shows `mode_published=false`, `manual_published=false`, `telemetry_seen=0`, or `live_frames < 3`.
+- Boundary artifact implies hardware or deployment proof rather than software-only limitation.
 
 ## Most Useful Artifacts
-- `artifacts/integration_full_chain.log`
-- `artifacts/backend_demo_ingest.log`
-- `artifacts/ui_smoke_summary.json`
-- `artifacts/ui_http_head.txt`
-- `artifacts/backend_health.json`
-- `artifacts/polished_demo_summary.log`
+- `artifacts/logs/20260326T001703+0300__integration_full_chain.log`
+- `artifacts/logs/20260326T001703+0300__backend_demo_ingest.log`
+- `artifacts/ui/20260326T001703+0300__ui_proof_summary.md`
+- `artifacts/ui/20260326T001703+0300__ui_smoke_output.txt`
+- `artifacts/http_ws/20260326T001703+0300__backend_health.json`
+- `artifacts/http_ws/20260326T001703+0300__ui_http_head.txt`
+- `artifacts/summaries/20260326T001703+0300__polished_demo_summary.log`
 
 ## Honest Limits
 - No hardware evidence.
@@ -50,5 +69,5 @@ This pack shows what the current software-only MVP actually proves, where the pr
 ## Reviewer Shortcut
 If you only read three files:
 1. `scenario_to_artifact_matrix.md`
-2. `software_only_claims_evidence_map.md`
-3. `artifacts/integration_full_chain.log`
+2. `artifacts/logs/20260326T001703+0300__integration_full_chain.log`
+3. `artifacts/ui/20260326T001703+0300__ui_proof_summary.md`

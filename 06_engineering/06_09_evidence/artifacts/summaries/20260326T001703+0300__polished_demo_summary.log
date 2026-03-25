@@ -1,0 +1,119 @@
+AGV Denford Stage 7B Demo
+software_only=true
+hardware_binding=false
+primary_target=Raspberry Pi 4
+secondary_portability_target=Orange Pi
+demo_outline
+1. startup
+2. operator visibility
+3. operator command
+4. edge reaction
+5. MQTT transfer
+6. backend persistence
+7. live update
+8. degraded behavior
+9. invalid command rejection
+10. final summary
+demo_execution_begin
+[integration] broker_started host=127.0.0.1 port=18884
+[integration] broker_port_selection=default
+[edge-connect-call] rc=0
+[edge-connect] reason=Success
+[edge-subscribe] reason_codes=[ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1')]
+[edge-mqtt-publish] topic=agv/denford/v1/event/audit qos=1 retain=False
+[edge-mqtt-publish] topic=agv/denford/v1/state/status qos=1 retain=True
+[edge-mqtt-publish] topic=agv/denford/v1/health/heartbeat qos=0 retain=False
+[edge-transport-internal] kind=command_result state=IDLE accepted=True payload={'previous_state': 'INIT', 'current_state': 'IDLE', 'corr_id': None}
+[edge-transition] command=startup_ok previous=INIT current=IDLE accepted=True
+[backend-connect-call] rc=0
+[backend-connect] reason=Success
+[backend-subscribe] reason_codes=[ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 0'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 0')]
+[backend-ingest] topic=agv/denford/v1/state/status category=status msg_id=status-d159f94a96
+[operator-connect-call] rc=0
+[operator-connect] reason=Success
+[operator-publish] topic=agv/denford/v1/cmd/mode qos=1 retain=False payload={"msg_id": "cmd-mode-afa07e1f3f", "ts": "2026-03-25T21:18:44.849040+00:00", "source": "operator", "type": "command", "mode": "MANUAL", "state": "IDLE", "severity": "info", "payload": {"requested_mode": "MANUAL", "reason": "operator_request"}, "corr_id": "integration-mode-001", "ack_required": true}
+[backend-ingest] topic=agv/denford/v1/cmd/mode category=command msg_id=cmd-mode-afa07e1f3f
+[edge-mqtt-publish] topic=agv/denford/v1/event/audit qos=1 retain=False
+[edge-mqtt-publish] topic=agv/denford/v1/state/status qos=1 retain=True
+[edge-mqtt-publish] topic=agv/denford/v1/health/heartbeat qos=0 retain=False
+[edge-transport-internal] kind=command_result state=MANUAL accepted=True payload={'previous_state': 'IDLE', 'current_state': 'MANUAL', 'corr_id': 'cmd-mode-afa07e1f3f'}
+[edge-transition] command=request_mode_manual previous=IDLE current=MANUAL accepted=True
+[backend-ingest] topic=agv/denford/v1/event/audit category=event msg_id=audit-14cb3b2670
+[backend-ingest] topic=agv/denford/v1/state/status category=status msg_id=status-89ee127a6d
+[backend-ingest] topic=agv/denford/v1/health/heartbeat category=event msg_id=heartbeat-6ff2ca4dd8
+[operator-publish] topic=agv/denford/v1/cmd/manual qos=1 retain=False payload={"msg_id": "cmd-manual-5896ee4ba8", "ts": "2026-03-25T21:18:45.650051+00:00", "source": "operator", "type": "command", "mode": "MANUAL", "state": "MANUAL", "severity": "info", "payload": {"linear": 0.15, "angular": 0.0, "duration_ms": 500}, "corr_id": "integration-manual-001", "ack_required": true}
+[edge-mqtt-publish] topic=agv/denford/v1/event/audit qos=1 retain=False
+[edge-mqtt-publish] topic=agv/denford/v1/state/telemetry qos=0 retain=False
+[backend-ingest] topic=agv/denford/v1/cmd/manual category=command msg_id=cmd-manual-5896ee4ba8
+[edge-mqtt-publish] topic=agv/denford/v1/health/heartbeat qos=0 retain=False
+[edge-transport-internal] kind=command_result state=MANUAL accepted=True payload={'previous_state': 'MANUAL', 'current_state': 'MANUAL', 'corr_id': 'cmd-manual-5896ee4ba8'}
+[edge-transition] command=manual_drive previous=MANUAL current=MANUAL accepted=True
+[backend-ingest] topic=agv/denford/v1/event/audit category=event msg_id=audit-9917c9107a
+[backend-ingest] topic=agv/denford/v1/state/telemetry category=telemetry msg_id=telemetry-583a661b81
+[backend-ingest] topic=agv/denford/v1/health/heartbeat category=event msg_id=heartbeat-e2095117ad
+[operator-publish] topic=agv/denford/v1/cmd/mode qos=1 retain=False payload={"msg_id": "cmd-mode-47828ac52c", "ts": "2026-03-25T21:18:46.455724+00:00", "source": "operator", "type": "command", "mode": "UNSUPPORTED_MODE", "state": "IDLE", "severity": "info", "payload": {"requested_mode": "UNSUPPORTED_MODE", "reason": "operator_request"}, "corr_id": "integration-mode-002", "ack_required": true}
+[edge-mqtt-publish] topic=agv/denford/v1/event/audit qos=1 retain=False
+[edge-transport-internal] kind=command_result state=MANUAL accepted=False payload={'previous_state': 'MANUAL', 'current_state': 'MANUAL', 'corr_id': 'cmd-mode-47828ac52c'}
+[edge-transition] command=invalid previous=MANUAL current=MANUAL accepted=False
+[backend-ingest] topic=agv/denford/v1/cmd/mode category=command msg_id=cmd-mode-47828ac52c
+[backend-ingest] topic=agv/denford/v1/event/audit category=event msg_id=audit-6606a550ed
+[operator-publish] topic=agv/denford/v1/cmd/reset qos=1 retain=False payload={"msg_id": "cmd-reset-bde4d8b74f", "ts": "2026-03-25T21:18:47.261172+00:00", "source": "operator", "type": "command", "mode": "MANUAL", "state": "MANUAL", "severity": "info", "payload": {"reset_action": "clear_safe_stop"}, "corr_id": "integration-reset-001", "ack_required": true}
+[edge-mqtt-publish] topic=agv/denford/v1/event/audit qos=1 retain=False
+[edge-transport-internal] kind=command_result state=MANUAL accepted=False payload={'previous_state': 'MANUAL', 'current_state': 'MANUAL', 'corr_id': 'cmd-reset-bde4d8b74f'}
+[edge-transition] command=clear_safe_stop previous=MANUAL current=MANUAL accepted=False
+[backend-ingest] topic=agv/denford/v1/cmd/reset category=command msg_id=cmd-reset-bde4d8b74f
+[backend-ingest] topic=agv/denford/v1/event/audit category=event msg_id=audit-5438e4c32b
+[edge-transport-internal] kind=heartbeat_tick state=MANUAL accepted=None payload={'timeout_ticks': 3}
+[edge-transport-internal] kind=heartbeat_tick state=MANUAL accepted=None payload={'timeout_ticks': 3}
+[edge-mqtt-publish] topic=agv/denford/v1/event/audit qos=1 retain=False
+[edge-mqtt-publish] topic=agv/denford/v1/state/status qos=1 retain=True
+[edge-mqtt-publish] topic=agv/denford/v1/event/alarm qos=1 retain=False
+[edge-mqtt-publish] topic=agv/denford/v1/health/heartbeat qos=0 retain=False
+[edge-transport-internal] kind=heartbeat_timeout state=DISCONNECTED_DEGRADED accepted=True payload={'previous_state': 'MANUAL', 'current_state': 'DISCONNECTED_DEGRADED'}
+[edge-heartbeat] timeout previous=MANUAL current=DISCONNECTED_DEGRADED accepted=True
+[backend-ingest] topic=agv/denford/v1/event/audit category=event msg_id=audit-cba01c082b
+[backend-ingest] topic=agv/denford/v1/state/status category=status msg_id=status-78c40b623f
+[backend-ingest] topic=agv/denford/v1/event/alarm category=event msg_id=alarm-7ad87afa6c
+[backend-ingest] topic=agv/denford/v1/health/heartbeat category=event msg_id=heartbeat-3ce20b97dc
+[edge-mqtt-publish] topic=agv/denford/v1/health/heartbeat qos=0 retain=False
+[backend-ingest] topic=agv/denford/v1/health/heartbeat category=event msg_id=heartbeat-e6da19f292
+[edge-mqtt-publish] topic=agv/denford/v1/event/audit qos=1 retain=False
+[edge-mqtt-publish] topic=agv/denford/v1/state/status qos=1 retain=True
+[edge-mqtt-publish] topic=agv/denford/v1/event/alarm qos=1 retain=False
+[edge-mqtt-publish] topic=agv/denford/v1/health/heartbeat qos=0 retain=False
+[edge-transport-internal] kind=disconnect_escalation state=SAFE_STOP accepted=True payload={'previous_state': 'DISCONNECTED_DEGRADED', 'current_state': 'SAFE_STOP'}
+[edge-heartbeat] timeout previous=DISCONNECTED_DEGRADED current=SAFE_STOP accepted=True
+[backend-ingest] topic=agv/denford/v1/event/audit category=event msg_id=audit-ff5a6e7070
+[backend-ingest] topic=agv/denford/v1/state/status category=status msg_id=status-02f2939ae8
+[backend-ingest] topic=agv/denford/v1/event/alarm category=event msg_id=alarm-d4c403e391
+[backend-ingest] topic=agv/denford/v1/health/heartbeat category=event msg_id=heartbeat-6389918498
+integration_summary
+[PASS] startup full chain
+  details: initial_state=IDLE
+[PASS] operator gets initial status
+  details: status={'topic': 'agv/denford/v1/state/status', 'msg_id': 'status-d159f94a96', 'ts': '2026-03-25T21:18:43.307965+00:00', 'source': 'edge', 'type': 'status', 'mode': 'IDLE', 'state': 'IDLE', 'severity': 'info', 'payload': {'prev_state': 'INIT', 'transition_reason': 'startup_ok', 'traction_enabled': False}, 'corr_id': None, 'ack_required': False, 'received_at': '2026-03-25T21:18:43.309862+00:00', 'category': 'status'}
+[PASS] operator sends mode command
+  details: mode_cmd_found=True accepted_audit_found=True
+[PASS] operator sends manual command
+  details: manual_cmd_found=True telemetry_found=True
+[PASS] edge emits status/telemetry/event
+  details: audit=True telemetry=True degraded_alarm=True safe_stop_alarm=True
+[PASS] backend stores and serves data
+  details: final_status=SAFE_STOP commands=4 events=13 telemetry=1
+[PASS] operator receives live update
+  details: live_frames=19
+[PASS] heartbeat timeout -> degraded -> safe stop
+  details: final_state=SAFE_STOP degraded_alarm=True degraded_heartbeat=True safe_stop_alarm=True
+[PASS] invalid command rejection
+  details: invalid_cmd_found=True invalid_audit_found=True
+[PASS] reset/clear path behavior according to current contract
+  details: reset_cmd_found=True reset_rejection_found=True
+summary: passed=10 total=10
+[operator-disconnect] reason=Normal disconnection
+[backend-disconnect] reason=Normal disconnection
+[edge-disconnect] reason=Normal disconnection
+demo_final_summary
+software_mvp_frozen=true
+hardware_specific_code_introduced=false
+claims_limited_to=software_only_contour
+elapsed_seconds=18.99

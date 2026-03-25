@@ -1,0 +1,13 @@
+ui_smoke_summary
+{
+  "initial_state": "IDLE",
+  "initial_events": 8,
+  "initial_telemetry": 0,
+  "mode_published": true,
+  "manual_published": true,
+  "commands_seen": 2,
+  "events_seen": 12,
+  "telemetry_seen": 1,
+  "live_frames": 9,
+  "final_state": "MANUAL"
+}

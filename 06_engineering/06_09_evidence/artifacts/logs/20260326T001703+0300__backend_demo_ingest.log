@@ -1,0 +1,20 @@
+[backend-demo] broker_started host=127.0.0.1 port=18884
+[backend-connect-call] rc=0
+[backend-connect] reason=Success
+[backend-subscribe] reason_codes=[ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 0'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 1'), ReasonCode(Suback, 'Granted QoS 0')]
+[backend-demo] websocket_handshake={'type': 'ws_status', 'status': 'connected'}
+[backend-demo-publish] topic=agv/denford/v1/cmd/mode retain=False
+[backend-ingest] topic=agv/denford/v1/cmd/mode category=command msg_id=cmd-mode-f7da5fb422
+[backend-demo-publish] topic=agv/denford/v1/event/audit retain=False
+[backend-ingest] topic=agv/denford/v1/event/audit category=event msg_id=audit-eb91e4f479
+[backend-demo-publish] topic=agv/denford/v1/state/status retain=True
+[backend-ingest] topic=agv/denford/v1/state/status category=status msg_id=status-e1d4375620
+[backend-demo-publish] topic=agv/denford/v1/state/telemetry retain=False
+[backend-ingest] topic=agv/denford/v1/state/telemetry category=telemetry msg_id=telemetry-18189a199d
+[backend-demo] websocket_frame={'topic': 'agv/denford/v1/cmd/mode', 'msg_id': 'cmd-mode-f7da5fb422', 'ts': '2026-03-25T21:17:56.606403+00:00', 'source': 'operator', 'type': 'command', 'mode': 'MANUAL', 'state': 'IDLE', 'severity': 'info', 'payload': {'requested_mode': 'MANUAL', 'reason': 'operator_request'}, 'corr_id': None, 'ack_required': True, 'received_at': '2026-03-25T21:17:56.606923+00:00', 'category': 'command'}
+[backend-demo] health={'status': 'ok', 'storage_mode': 'dev-memory', 'mqtt_bridge_connected': True, 'command_bridge_connected': False}
+[backend-demo] current_status={'status': {'topic': 'agv/denford/v1/state/status', 'msg_id': 'status-e1d4375620', 'ts': '2026-03-25T21:17:57.615258+00:00', 'source': 'edge', 'type': 'status', 'mode': 'MANUAL', 'state': 'MANUAL', 'severity': 'info', 'payload': {'traction_enabled': True, 'transition_reason': 'backend_demo_status'}, 'corr_id': None, 'ack_required': False, 'received_at': '2026-03-25T21:17:57.619123+00:00', 'category': 'status'}}
+[backend-demo] recent_events_count=1
+[backend-demo] recent_commands_count=1
+[backend-demo] recent_telemetry_count=1
+[backend-disconnect] reason=Normal disconnection

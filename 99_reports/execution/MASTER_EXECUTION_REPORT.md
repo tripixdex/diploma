@@ -24,7 +24,8 @@
 - Sprint 7F.4 closed the evidence-pack hardening sprint.
 - Sprint 7F.5 closed the pre-hardware operating policy sprint.
 - Sprint 7F.6.1 closed the canonical software baseline hardening sprint.
-- Sprint 7F.6.2 is the active minimal automated regression sprint.
+- Sprint 7F.6.2 closed the minimal automated regression sprint.
+- Sprint 7F.6.3 is the active evidence provenance tightening sprint.
 
 ## Approved Global Roadmap
 | Stage | Name | Planned Outcome |
@@ -51,7 +52,8 @@
 | Sprint 7F.5 | Pre-Hardware Policy Cleanup | Reviewer-facing pre-hardware operating policy and forbidden-claim rules are fixed for the software-only MVP. |
 | Sprint 7F.6.1 | Canonical Software Baseline Hardening | One boring, reviewer-safe canonical software-only baseline and one canonical verification path are fixed without expanding scope. |
 | Sprint 7F.6.2 | Minimal Automated Regression Suite | A small automated regression floor is fixed around critical software-only behavior without claiming broad coverage. |
-| Sprint 7F.6.3 | Evidence Provenance Tightening | Evidence provenance tightening may be considered only after the minimal regression baseline is frozen. |
+| Sprint 7F.6.3 | Evidence Provenance Tightening | Mandatory reviewer-facing software-only evidence is tightened with stricter provenance, cleaner artifact structure, and explicit failure signatures. |
+| Sprint 7F.6.4 | Hardware Survey Packet Hardening | Hardware-survey packet hardening may be considered only after software-only evidence provenance is tightened. |
 | Stage 7G | Hardware Gate Re-Run | Expert rerun may happen only after corrective sprints close honestly. |
 | Stage 8 | Final Demonstration | Hardware-aligned or final demonstrable contour is consolidated for VKR. |
 
@@ -79,16 +81,17 @@
 | Sprint 7F.4 | Completed | Closed | Reviewer-facing software-only evidence pack now exists as a structured artifact layer. |
 | Sprint 7F.5 | Completed | Closed | Pre-hardware operating policy now fixes current allowed claims, forbidden claims, and hardware-entry prerequisites. |
 | Sprint 7F.6.1 | Completed | Closed | One authoritative software-only baseline and one authoritative verification path now remove reviewer confusion between runtime entrypoints. |
-| Sprint 7F.6.2 | In Progress | Open | A small deterministic regression suite is being fixed around critical software-only behavior only. |
-| Sprint 7F.6.3 | Not started | Blocked by Sprint 7F.6.2 | No evidence provenance tightening before the minimal regression baseline is frozen. |
-| Stage 7G | Not started | Blocked by Sprint 7F.6.2 | Hardware readiness rerun must wait until corrective sprints close honestly. |
+| Sprint 7F.6.2 | Completed | Closed | A small deterministic regression suite now exists around critical software-only behavior only; it does not claim broad coverage. |
+| Sprint 7F.6.3 | In Progress | Open | Evidence provenance is being tightened around the existing software-only evidence pack without adding new features or hardware claims. |
+| Sprint 7F.6.4 | Not started | Blocked by Sprint 7F.6.3 | No hardware-survey packet hardening before evidence provenance is tightened and reviewer-safe. |
+| Stage 7G | Not started | Blocked by Sprint 7F.6.3 | Hardware readiness rerun must wait until corrective sprints close honestly. |
 | Stage 8 | Not started | Blocked by Stage 7G | No hardware-phase or final demonstration claims yet. |
 
 ## Current Active Stage
-- Stage ID: Sprint 7F.6.2
-- Stage name: Minimal Automated Regression Suite
+- Stage ID: Sprint 7F.6.3
+- Stage name: Evidence Provenance Tightening
 - Status: In Progress
-- Note: Sprint 7F.6.2 is limited to a narrow automated regression floor for critical software-only behavior. It does not add product features, hardware code, deployment claims, or broad test coverage. Sprint 7F.6.3, Stage 7G, and Stage 8 remain blocked.
+- Note: Sprint 7F.6.3 is limited to stricter reviewer-facing provenance for the existing software-only evidence pack. It does not add product features, hardware code, deployment claims, or scope expansion. Sprint 7F.6.4, Stage 7G, and Stage 8 remain blocked.
 
 ## Known Blockers
 - Exact final Raspberry Pi model is NOT CONFIRMED.
@@ -115,7 +118,7 @@
 ## Active Stage Reports
 | Stage | Report Path | Status | Notes |
 | --- | --- | --- | --- |
-| Sprint 7F.6.2 | `99_reports/execution/STAGE_07F62_REPORT.md` | In Progress | Minimal automated regression is being added around critical edge/domain and backend validation behavior without broad coverage claims. |
+| Sprint 7F.6.3 | `99_reports/execution/STAGE_07F63_REPORT.md` | In Progress | Evidence provenance is being tightened for the structured software-only evidence pack with stricter scenario fields, cleaner artifact layout, and explicit failure signatures. |
 
 ## History of Completed Stage Reports
 | Stage | Report Path | Status | Branch | Commit |
@@ -141,3 +144,4 @@
 | Sprint 7F.4 | `99_reports/execution/STAGE_07F4_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Sprint 7F.5 | `99_reports/execution/STAGE_07F5_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
 | Sprint 7F.6.1 | `99_reports/execution/STAGE_07F61_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
+| Sprint 7F.6.2 | `99_reports/execution/STAGE_07F62_REPORT.md` | Completed | `stage-00-freeze-scope` | `NOT UPDATED IN FILE-ONLY MODE` |
