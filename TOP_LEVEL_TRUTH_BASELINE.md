@@ -39,5 +39,6 @@
 ## Current Honest Entry Point To Hardware Readiness
 - Hardware readiness is still blocked.
 - Hardware operation policy is now explicit in [hardware_entry_gate.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_10_policy/hardware_entry_gate.md) and [forbidden_claims_policy.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_10_policy/forbidden_claims_policy.md).
+- The current honest pre-entry step is the survey-only packet in [hardware_survey_packet.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_10_policy/hardware_survey_packet.md), with explicit no-go boundaries in [lab_no_go_actions.md](/Users/vladgurov/Desktop/study/7sem/diploma/06_engineering/06_10_policy/lab_no_go_actions.md).
 - The current honest entry point is a future hardware phase that starts only after board facts, wiring, safety contour, power, and I/O interfaces are physically surveyed and documented.
 - The current repo proves a software-only MVP contour and pre-hardware preparation, not a deployed AGV modernization on real hardware.

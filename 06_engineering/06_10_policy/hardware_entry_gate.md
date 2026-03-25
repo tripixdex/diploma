@@ -5,6 +5,11 @@
 - Reason: the project is still only evidenced as a software-only MVP.
 
 ## Minimum Prerequisites Before First Honest Hardware Phase
+- Confirmed survey-packet readiness:
+  - first-lab survey packet prepared,
+  - no-go actions accepted,
+  - data capture sheet prepared,
+  - expected artifact set understood.
 - Confirmed board facts:
   - exact available board model,
   - storage medium facts,
@@ -47,4 +52,5 @@
 - It does not mean hardware control is immediately authorized.
 - It does not mean motion tests are immediately authorized.
 - It does not mean safety is proven.
+- It does not mean the first lab visit may turn into ad-hoc integration.
 - It only means the project may begin an honest hardware survey phase.

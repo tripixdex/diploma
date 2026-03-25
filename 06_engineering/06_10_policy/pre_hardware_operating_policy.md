@@ -29,6 +29,8 @@
 ## Hardware Policy Boundary
 - No honest hardware phase begins until the hardware entry gate is explicitly satisfied.
 - The future hardware phase must start with factual survey and evidence capture, not with immediate control experiments.
+- The first lab visit must follow the hardware survey packet and remains survey-only.
+- Survey activity does not authorize GPIO, motion, or board-binding experimentation.
 
 ## Reviewer Note
 - This policy is intended to make bluffing impossible at the repo level.
